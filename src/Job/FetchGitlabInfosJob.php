@@ -2,10 +2,13 @@
 
 namespace srag\Plugins\SrGitlabHelper\Job;
 
+use Gitlab\Client;
 use ilCronJob;
 use ilCronJobResult;
 use ilSrGitlabHelperPlugin;
+use srag\ActiveRecordConfig\SrGitlabHelper\Exception\ActiveRecordConfigException;
 use srag\DIC\SrGitlabHelper\DICTrait;
+use srag\Plugins\SrGitlabHelper\Config\Config;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
 /**
@@ -22,6 +25,8 @@ class FetchGitlabInfosJob extends ilCronJob {
 	const CRON_JOB_ID = ilSrGitlabHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
 	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
 	const LANG_MODULE_CRON = "cron";
+	const GITLAB_MAX_PER_PAGE = 100;
+	const GITLAB_PAGES = 10;
 
 
 	/**
@@ -102,11 +107,64 @@ class FetchGitlabInfosJob extends ilCronJob {
 	 * Run job
 	 *
 	 * @return ilCronJobResult
+	 *
+	 * @throws ActiveRecordConfigException
 	 */
 	public function run(): ilCronJobResult {
 		$result = new ilCronJobResult();
 
+		$client = Client::create(Config::getField(Config::KEY_GITLAB_URL))
+			->authenticate(Config::getField(Config::KEY_GITLAB_ACCESS_TOKEN), Client::AUTH_URL_TOKEN);
+
+		$ilias_versions = array_reduce(array_filter($this->pageHelper($client, function (Client $client, array $options): array {
+			return $client->repositories()->branches(Config::getField(Config::KEY_GITLAB_ILIAS_REPO_ID), $options
+				+ [//"search" => "release_" // TODO: Bug, works (https://docs.gitlab.com/ee/api/branches.html), but denied by the library
+				]);
+		}), function (array $ilias_version): bool {
+			return (strpos($ilias_version["name"], "release_") === 0 || $ilias_version["name"] === "trunk");
+		}), function (array $ilias_versions, array $ilias_version): array {
+			$ilias_versions[] = $ilias_version["name"];
+
+			return $ilias_versions;
+		}, []);
+		rsort($ilias_versions);
+		Config::setField(Config::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
+
+		$plugins = array_reduce($this->pageHelper($client, function (Client $client, array $options): array {
+			return $client->groups()->projects(Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID), $options + [
+					"simple" => true
+				]);
+		}), function (array $plugins, array $plugin): array {
+			$plugins[$plugin["name"]] = $plugin["ssh_url_to_repo"];
+
+			return $plugins;
+		}, []);
+		ksort($plugins);
+		Config::setField(Config::KEY_GITLAB_PLUGINS, $plugins);
+
 		$result->setStatus(ilCronJobResult::STATUS_OK);
+
+		return $result;
+	}
+
+
+	/**
+	 * @param Client   $client
+	 * @param callable $funcion
+	 * @param int      $per_page
+	 * @param int      $pages
+	 *
+	 * @return array
+	 */
+	protected function pageHelper(Client $client, callable $funcion, int $per_page = self::GITLAB_MAX_PER_PAGE, int $pages = self::GITLAB_PAGES): array {
+		$result = [];
+
+		for ($page = 1; $page <= $pages; $page ++) {
+			$result = array_merge($result, $funcion($client, [
+				"page" => $page,
+				"per_page" => $per_page
+			]));
+		}
 
 		return $result;
 	}

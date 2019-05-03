@@ -4,6 +4,7 @@ namespace srag\Plugins\SrGitlabHelper\Config;
 
 use ilNumberInputGUI;
 use ilSrGitlabHelperPlugin;
+use ilTextInputGUI;
 use srag\ActiveRecordConfig\SrGitlabHelper\ActiveRecordConfigFormGUI;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
@@ -25,6 +26,23 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 	 * @inheritdoc
 	 */
 	protected function initFields()/*: void*/ {
-		$this->fields = [];
+		$this->fields = [
+			Config::KEY_GITLAB_URL => [
+				self::PROPERTY_CLASS => ilTextInputGUI::class,
+				self::PROPERTY_REQUIRED => true
+			],
+			Config::KEY_GITLAB_ACCESS_TOKEN => [
+				self::PROPERTY_CLASS => ilTextInputGUI::class,
+				self::PROPERTY_REQUIRED => true
+			],
+			Config::KEY_GITLAB_PLUGINS_GROUP_ID => [
+				self::PROPERTY_CLASS => ilNumberInputGUI::class,
+				self::PROPERTY_REQUIRED => true
+			],
+			Config::KEY_GITLAB_ILIAS_REPO_ID => [
+				self::PROPERTY_CLASS => ilNumberInputGUI::class,
+				self::PROPERTY_REQUIRED => true
+			]
+		];
 	}
 }

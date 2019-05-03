@@ -1,5 +1,9 @@
 config_configuration#:#Konfiguration
 config_configuration_saved#:#Konfiguration gespeichert
+config_gitlab_access_token#:#Gitlab-Access-Token
+config_gitlab_ilias_repo_id#:#Gitlab-ILIAS-Repo-ID
+config_gitlab_plugins_group_id#:#Gitlab-Plugins-Gruppen-ID
+config_gitlab_url#:#Gitlab-URL
 config_save#:#Speichern
 cron_srgitlabhelper_fetch_gitlab_infos#:#Gitlab-Infos holen
 cron_srgitlabhelper_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste)

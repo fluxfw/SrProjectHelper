@@ -21,6 +21,8 @@
   },
   "require": {
     "php": ">=7.0",
+    "m4tthumphrey/php-gitlab-api": "^9.13",
+    "php-http/guzzle6-adapter": "^1.0",
     "srag/activerecordconfig": ">=0.1.0",
     "srag/custominputguis": ">=0.1.0",
     "srag/dic": ">=0.1.0",

@@ -16,6 +16,7 @@ TODO
 * ILIAS 5.4
 * PHP >=7.0
 * [composer](https://getcomposer.org)
+* [m4tthumphrey/php-gitlab-api](https://packagist.org/packages/m4tthumphrey/php-gitlab-api)
 * [srag/activerecordconfig](https://packagist.org/packages/srag/activerecordconfig)
 * [srag/custominputguis](https://packagist.org/packages/srag/custominputguis)
 * [srag/dic](https://packagist.org/packages/srag/dic)
