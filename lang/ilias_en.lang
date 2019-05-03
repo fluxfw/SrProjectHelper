@@ -1,3 +1,6 @@
 config_configuration#:#Configuration
 config_configuration_saved#:#Configuration saved
 config_save#:#Save
+cron_srgitlabhelper_fetch_gitlab_infos#:#Fetch Gitlab infos
+cron_srgitlabhelper_fetch_gitlab_infos_description#:#Keep gitlab infos up to date (ILIAS versions, plugins list)
+gitlab_client_project#:#Create client gitlab project

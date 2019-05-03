@@ -2,9 +2,11 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
 use srag\DIC\SrGitlabHelper\Util\LibraryLanguageInstaller;
 use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Job\Job;
+use srag\Plugins\SrGitlabHelper\Job\FetchGitlabInfosJob;
+use srag\Plugins\SrGitlabHelper\Menu\Menu;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 use srag\RemovePluginDataConfirm\SrGitlabHelper\PluginUninstallTrait;
 
@@ -21,6 +23,7 @@ class ilSrGitlabHelperPlugin extends ilCronHookPlugin {
 	const PLUGIN_NAME = "SrGitlabHelper";
 	const PLUGIN_CLASS_NAME = self::class;
 	const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrGitlabHelperRemoveDataConfirm::class;
+	const ADMIN_ROLE_ID = 2;
 	/**
 	 * @var self|null
 	 */
@@ -59,7 +62,7 @@ class ilSrGitlabHelperPlugin extends ilCronHookPlugin {
 	 * @return ilCronJob[]
 	 */
 	public function getCronJobInstances(): array {
-		return [ new Job() ];
+		return [ new FetchGitlabInfosJob() ];
 	}
 
 
@@ -71,12 +74,20 @@ class ilSrGitlabHelperPlugin extends ilCronHookPlugin {
 	public function getCronJobInstance(/*string*/
 		$a_job_id)/*: ?ilCronJob*/ {
 		switch ($a_job_id) {
-			case Job::CRON_JOB_ID:
-				return new Job();
+			case FetchGitlabInfosJob::CRON_JOB_ID:
+				return new FetchGitlabInfosJob();
 
 			default:
 				return null;
 		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function promoteGlobalScreenProvider(): AbstractStaticPluginMainMenuProvider {
+		return new Menu(self::dic()->dic(), $this);
 	}
 
 

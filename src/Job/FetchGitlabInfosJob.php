@@ -9,23 +9,23 @@ use srag\DIC\SrGitlabHelper\DICTrait;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
 /**
- * Class Job
+ * Class FetchGitlabInfosJob
  *
- * @package rag\Plugins\SrGitlabHelper\Job
+ * @package srag\Plugins\SrGitlabHelper\Job
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class Job extends ilCronJob {
+class FetchGitlabInfosJob extends ilCronJob {
 
 	use DICTrait;
 	use SrGitlabHelperTrait;
-	const CRON_JOB_ID = ilSrGitlabHelperPlugin::PLUGIN_ID;
+	const CRON_JOB_ID = ilSrGitlabHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
 	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
 	const LANG_MODULE_CRON = "cron";
 
 
 	/**
-	 * Job constructor
+	 * FetchGitlabInfosJob constructor
 	 */
 	public function __construct() {
 
@@ -46,7 +46,7 @@ class Job extends ilCronJob {
 	 * @return string
 	 */
 	public function getTitle(): string {
-		return ilSrGitlabHelperPlugin::PLUGIN_NAME;
+		return ilSrGitlabHelperPlugin::PLUGIN_NAME . ": " . self::plugin()->translate(self::CRON_JOB_ID, self::LANG_MODULE_CRON);
 	}
 
 
@@ -54,7 +54,7 @@ class Job extends ilCronJob {
 	 * @return string
 	 */
 	public function getDescription(): string {
-		return "";
+		return self::plugin()->translate(self::CRON_JOB_ID . "_description", self::LANG_MODULE_CRON);
 	}
 
 
@@ -93,7 +93,7 @@ class Job extends ilCronJob {
 	 *
 	 * @return int|array
 	 */
-	public function getDefaultScheduleValue(): int {
+	public function getDefaultScheduleValue() {
 		return 1;
 	}
 

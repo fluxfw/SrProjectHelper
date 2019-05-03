@@ -9,17 +9,17 @@ class ComposerStaticInit5dae8bae0e4be9cf639bd4330a091017
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
+            'srag\\RemovePluginDataConfirm\\SrGitlabHelper\\' => 44,
             'srag\\Plugins\\SrGitlabHelper\\' => 28,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\DIC\\SrGitlabHelper\\' => 24,
+            'srag\\CustomInputGUIs\\SrGitlabHelper\\' => 36,
+            'srag\\ActiveRecordConfig\\SrGitlabHelper\\' => 39,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrGitlabHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -31,15 +31,15 @@ class ComposerStaticInit5dae8bae0e4be9cf639bd4330a091017
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrGitlabHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrGitlabHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrGitlabHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -119,7 +119,10 @@ class ComposerStaticInit5dae8bae0e4be9cf639bd4330a091017
         'srag\\Plugins\\SrGitlabHelper\\Access\\Ilias' => __DIR__ . '/../..' . '/src/Access/Ilias.php',
         'srag\\Plugins\\SrGitlabHelper\\Config\\Config' => __DIR__ . '/../..' . '/src/Config/Config.php',
         'srag\\Plugins\\SrGitlabHelper\\Config\\ConfigFormGUI' => __DIR__ . '/../..' . '/src/Config/ConfigFormGUI.php',
-        'srag\\Plugins\\SrGitlabHelper\\Job\\Job' => __DIR__ . '/../..' . '/src/Job/Job.php',
+        'srag\\Plugins\\SrGitlabHelper\\Creator\\AbstractCreatorGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorGUI.php',
+        'srag\\Plugins\\SrGitlabHelper\\Creator\\GitlabClientProject\\CreatorGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabClientProject/class.CreatorGUI.php',
+        'srag\\Plugins\\SrGitlabHelper\\Job\\FetchGitlabInfosJob' => __DIR__ . '/../..' . '/src/Job/FetchGitlabInfosJob.php',
+        'srag\\Plugins\\SrGitlabHelper\\Menu\\Menu' => __DIR__ . '/../..' . '/src/Menu/Menu.php',
         'srag\\Plugins\\SrGitlabHelper\\Utils\\SrGitlabHelperTrait' => __DIR__ . '/../..' . '/src/Utils/SrGitlabHelperTrait.php',
         'srag\\RemovePluginDataConfirm\\SrGitlabHelper\\AbstractPluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/AbstractPluginUninstallTrait.php',
         'srag\\RemovePluginDataConfirm\\SrGitlabHelper\\AbstractRemovePluginDataConfirm' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/AbstractRemovePluginDataConfirm.php',
