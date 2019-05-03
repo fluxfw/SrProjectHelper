@@ -30,8 +30,8 @@ class Config extends ActiveRecordConfig {
 	protected static $fields = [
 		self::KEY_GITLAB_ACCESS_TOKEN => self::TYPE_STRING,
 		self::KEY_GITLAB_ILIAS_REPO_ID => self::TYPE_INTEGER,
-		self::KEY_GITLAB_ILIAS_VERSIONS => [ self::TYPE_JSON, [] ],
-		self::KEY_GITLAB_PLUGINS => [ self::TYPE_JSON, [] ],
+		self::KEY_GITLAB_ILIAS_VERSIONS => [ self::TYPE_JSON, [], true ],
+		self::KEY_GITLAB_PLUGINS => [ self::TYPE_JSON, [], true ],
 		self::KEY_GITLAB_PLUGINS_GROUP_ID => self::TYPE_INTEGER,
 		self::KEY_GITLAB_URL => self::TYPE_STRING
 	];

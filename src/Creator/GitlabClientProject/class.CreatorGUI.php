@@ -5,6 +5,7 @@ namespace srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject;
 // ilCtrlMainMenu Bug
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
+use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorFormGUI;
 use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorGUI;
 
 /**
@@ -18,21 +19,23 @@ use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorGUI;
  */
 class CreatorGUI extends AbstractCreatorGUI {
 
-	const LANG_MODULE_CLIENT_PROJECT = "gitlab_client_project";
+	const LANG_MODULE = "gitlab_client_project";
 
 
 	/**
 	 * @inheritdoc
 	 */
-	protected function form()/*: void*/ {
+	protected function getCreatorForm(): AbstractCreatorFormGUI {
+		$form = new CreatorFormGUI($this);
 
+		return $form;
 	}
 
 
 	/**
 	 * @inheritdoc
 	 */
-	protected function create()/*: void*/ {
+	protected function handleData(array $data)/*: void*/ {
 
 	}
 }

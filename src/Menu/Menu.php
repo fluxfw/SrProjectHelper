@@ -50,11 +50,11 @@ class Menu extends AbstractStaticPluginMainMenuProvider {
 		return [
 			self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
 				->getPluginObject(), $this)->identifier(ilSrGitlabHelperPlugin::PLUGIN_ID . "_create_gitlab_client_project"))
-				->withParent($parent->getProviderIdentification())->withTitle(self::plugin()->translate(CreatorGUI::LANG_MODULE_CLIENT_PROJECT))->withAction(self::dic()->ctrl()
-					->getLinkTargetByClass([
-						ilUIPluginRouterGUI::class,
-						CreatorGUI::class
-					], CreatorGUI::CMD_FORM))
+				->withParent($parent->getProviderIdentification())->withTitle(self::plugin()->translate("title", CreatorGUI::LANG_MODULE))
+				->withAction(self::dic()->ctrl()->getLinkTargetByClass([
+					ilUIPluginRouterGUI::class,
+					CreatorGUI::class
+				], CreatorGUI::CMD_FORM))
 		];
 	}
 }
