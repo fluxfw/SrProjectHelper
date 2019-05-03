@@ -10,5 +10,6 @@ cron_srgitlabhelper_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten
 gitlab_client_project_create#:#Erstellen
 gitlab_client_project_created#:#Erstellt
 gitlab_client_project_ilias_version#:#ILIAS-Version
+gitlab_client_project_name#:#Name
 gitlab_client_project_plugins#:#Plugins
 gitlab_client_project_title#:#Kunden-Gitlab-Projekt erstellen

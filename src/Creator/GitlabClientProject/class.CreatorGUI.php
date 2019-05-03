@@ -35,7 +35,7 @@ class CreatorGUI extends AbstractCreatorGUI {
 	/**
 	 * @inheritdoc
 	 */
-	protected function handleData(array $data)/*: void*/ {
-
+	protected function getTaskClass(): string {
+		return CreatorTask::class;
 	}
 }

@@ -2,6 +2,7 @@
 
 namespace srag\Plugins\SrGitlabHelper\Creator;
 
+use ILIAS\BackgroundTasks\Implementation\Bucket\BasicBucket;
 use ilSrGitlabHelperPlugin;
 use ilUtil;
 use srag\DIC\SrGitlabHelper\DICTrait;
@@ -89,11 +90,28 @@ abstract class AbstractCreatorGUI {
 
 		$data = $form->getData();
 
-		$this->handleData($data);
+		$this->buildAndRunTask($data);
 
-		ilUtil::sendSuccess(self::plugin()->translate("created", static::LANG_MODULE),true);
+		ilUtil::sendSuccess(self::plugin()->translate("created", static::LANG_MODULE), true);
 
 		self::dic()->ctrl()->redirect($this, self::CMD_FORM);
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	protected function buildAndRunTask(array $data)/*: void*/ {
+		$bucket = new BasicBucket();
+
+		$bucket->setUserId(self::dic()->user()->getId());
+
+		$task = self::dic()->backgroundTasks()->taskFactory()->createTask($this->getTaskClass(), [ json_encode($data) ]);
+
+		$bucket->setTask($task);
+		$bucket->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
+
+		self::dic()->backgroundTasks()->taskManager()->run($bucket);
 	}
 
 
@@ -104,8 +122,7 @@ abstract class AbstractCreatorGUI {
 
 
 	/**
-	 * @param array $data
+	 * @return string
 	 */
-	protected abstract function handleData(array $data)/*: void*/
-	;
+	protected abstract function getTaskClass(): string;
 }

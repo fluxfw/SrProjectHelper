@@ -123,11 +123,11 @@ class FetchGitlabInfosJob extends ilCronJob {
 		}), function (array $ilias_version): bool {
 			return (strpos($ilias_version["name"], "release_") === 0 || $ilias_version["name"] === "trunk");
 		}), function (array $ilias_versions, array $ilias_version): array {
-			$ilias_versions[] = $ilias_version["name"];
+			$ilias_versions[$ilias_version["name"]] = $ilias_version["name"];
 
 			return $ilias_versions;
 		}, []);
-		rsort($ilias_versions);
+		krsort($ilias_versions);
 		Config::setField(Config::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
 
 		$plugins = array_reduce($this->pageHelper($client, function (Client $client, array $options): array {
@@ -135,7 +135,10 @@ class FetchGitlabInfosJob extends ilCronJob {
 					"simple" => true
 				]);
 		}), function (array $plugins, array $plugin): array {
-			$plugins[$plugin["name"]] = $plugin["ssh_url_to_repo"];
+			$plugins[$plugin["name"]] = [
+				"name" => $plugin["name"],
+				"repo" => $plugin["ssh_url_to_repo"]
+			];
 
 			return $plugins;
 		}, []);
