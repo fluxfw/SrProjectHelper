@@ -9,8 +9,8 @@ config_gitlab_url#:#Gitlab-URL
 config_roles#:#Rollen
 config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
 config_save#:#Speichern
-cron_srgitlabhelper_fetch_gitlab_infos#:#Gitlab-Infos holen
-cron_srgitlabhelper_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste)
+cron_srprojecthelper_fetch_gitlab_infos#:#Gitlab-Infos holen
+cron_srprojecthelper_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste)
 gitlab_client_project_create#:#Erstellen
 gitlab_client_project_created#:#"%s" erstellt
 gitlab_client_project_ilias_version#:#ILIAS-Version

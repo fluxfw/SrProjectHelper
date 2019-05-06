@@ -1,12 +1,12 @@
 {
-  "name": "srag/plugins/srgitlabhelper",
+  "name": "srag/plugins/srprojecthelper",
   "description": "",
   "type": "project",
   "keywords": [
     "ILIAS",
     "Plugin"
   ],
-  "homepage": "https://github.com/studer-raimann/SrGitlabHelper",
+  "homepage": "https://github.com/studer-raimann/SrProjectHelper",
   "license": "GPL-3.0-only",
   "authors": [
     {
@@ -31,7 +31,7 @@
   },
   "autoload": {
     "psr-4": {
-      "srag\\Plugins\\SrGitlabHelper\\": "src/"
+      "srag\\Plugins\\SrProjectHelper\\": "src/"
     },
     "classmap": [
       "classes/"

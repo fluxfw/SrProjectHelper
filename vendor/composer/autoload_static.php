@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitad245dba0e3e6d54bec991077b96952c
+class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
@@ -18,12 +18,12 @@ class ComposerStaticInitad245dba0e3e6d54bec991077b96952c
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
-            'srag\\Plugins\\SrGitlabHelper\\' => 28,
+            'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
+            'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\DIC\\SrProjectHelper\\' => 25,
+            'srag\\CustomInputGUIs\\SrProjectHelper\\' => 37,
+            'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 40,
         ),
         'S' => 
         array (
@@ -57,11 +57,11 @@ class ComposerStaticInitad245dba0e3e6d54bec991077b96952c
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
-        'srag\\Plugins\\SrGitlabHelper\\' => 
+        'srag\\Plugins\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -69,15 +69,15 @@ class ComposerStaticInitad245dba0e3e6d54bec991077b96952c
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -513,6 +513,30 @@ class ComposerStaticInitad245dba0e3e6d54bec991077b96952c
         'srag\\LibrariesNamespaceChanger\\Libraries' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/Libraries.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
+        'srag\\Plugins\\SrProjectHelper\\Access\\Access' => __DIR__ . '/../..' . '/src/Access/Access.php',
+        'srag\\Plugins\\SrProjectHelper\\Access\\Ilias' => __DIR__ . '/../..' . '/src/Access/Ilias.php',
+        'srag\\Plugins\\SrProjectHelper\\Access\\Roles' => __DIR__ . '/../..' . '/src/Access/Roles.php',
+        'srag\\Plugins\\SrProjectHelper\\Access\\Users' => __DIR__ . '/../..' . '/src/Access/Users.php',
+        'srag\\Plugins\\SrProjectHelper\\Config\\Config' => __DIR__ . '/../..' . '/src/Config/Config.php',
+        'srag\\Plugins\\SrProjectHelper\\Config\\ConfigFormGUI' => __DIR__ . '/../..' . '/src/Config/ConfigFormGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorFormGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorTask' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorTask.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabClientProject\\CreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabClientProject/CreatorFormGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabClientProject\\CreatorGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabClientProject/class.CreatorGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabClientProject\\CreatorTask' => __DIR__ . '/../..' . '/src/Creator/GitlabClientProject/CreatorTask.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabPluginProject\\CreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabPluginProject/CreatorFormGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabPluginProject\\CreatorGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabPluginProject/class.CreatorGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabPluginProject\\CreatorTask' => __DIR__ . '/../..' . '/src/Creator/GitlabPluginProject/CreatorTask.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorFormGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorTask' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorTask.php',
+        'srag\\Plugins\\SrProjectHelper\\Exception\\SrProjectHelperException' => __DIR__ . '/../..' . '/src/Exception/SrProjectHelperException.php',
+        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Api' => __DIR__ . '/../..' . '/src/Gitlab/Api.php',
+        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Client' => __DIR__ . '/../..' . '/src/Gitlab/Client.php',
+        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Repositories' => __DIR__ . '/../..' . '/src/Gitlab/Repositories.php',
+        'srag\\Plugins\\SrProjectHelper\\Job\\FetchGitlabInfosJob' => __DIR__ . '/../..' . '/src/Job/FetchGitlabInfosJob.php',
+        'srag\\Plugins\\SrProjectHelper\\Menu\\Menu' => __DIR__ . '/../..' . '/src/Menu/Menu.php',
+        'srag\\Plugins\\SrProjectHelper\\Utils\\SrProjectHelperTrait' => __DIR__ . '/../..' . '/src/Utils/SrProjectHelperTrait.php',
         'srag\\RemovePluginDataConfirm\\SrProjectHelper\\AbstractPluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/AbstractPluginUninstallTrait.php',
         'srag\\RemovePluginDataConfirm\\SrProjectHelper\\AbstractRemovePluginDataConfirm' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/AbstractRemovePluginDataConfirm.php',
         'srag\\RemovePluginDataConfirm\\SrProjectHelper\\Exception\\RemovePluginDataConfirmException' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/Exception/RemovePluginDataConfirmException.php',
@@ -523,9 +547,9 @@ class ComposerStaticInitad245dba0e3e6d54bec991077b96952c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitad245dba0e3e6d54bec991077b96952c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitad245dba0e3e6d54bec991077b96952c::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitad245dba0e3e6d54bec991077b96952c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6::$classMap;
 
         }, null, ClassLoader::class);
     }

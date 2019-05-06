@@ -1,11 +1,11 @@
 ## Installation
 
-### Install SrGitlabHelper-Plugin
+### Install SrProjectHelper-Plugin
 Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/Services/Cron/CronHook
 cd Customizing/global/plugins/Services/Cron/CronHook
-git clone https://github.com/studer-raimann/SrGitlabHelper.git SrGitlabHelper
+git clone https://github.com/studer-raimann/SrProjectHelper.git SrProjectHelper
 ```
 Update and activate the plugin in the ILIAS Plugin Administration
 
