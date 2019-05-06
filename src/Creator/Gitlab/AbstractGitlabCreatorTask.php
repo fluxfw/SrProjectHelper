@@ -33,18 +33,24 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 	 * @var Project|null
 	 */
 	protected $project = null;
+	/**
+	 * @var int
+	 */
+	protected $current_step_index = 0;
 
 
 	/**
 	 * @inheritdoc
 	 */
 	public function run(array $input, Observer $observer): Value {
-		$this->setData($input);
+		$this->setData($input, $observer);
 
 		foreach (static::STEPS as $i => $step) {
+			$this->current_step_index = $i;
+
 			$this->{$step}();
 
-			$observer->notifyPercentage($this, intval(($i + 1) / count(static::STEPS) * 100));
+			$this->observer->notifyPercentage($this, intval(($this->current_step_index + 1) / count(static::STEPS) * 100));
 		}
 
 		$output = new StringValue();

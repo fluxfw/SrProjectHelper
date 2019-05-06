@@ -4,6 +4,7 @@ namespace srag\Plugins\SrProjectHelper\Creator;
 
 use ILIAS\BackgroundTasks\Implementation\Tasks\AbstractJob;
 use ILIAS\BackgroundTasks\Implementation\Values\ScalarValues\StringValue;
+use ILIAS\BackgroundTasks\Observer;
 use ILIAS\BackgroundTasks\Types\SingleType;
 use ILIAS\BackgroundTasks\Types\Type;
 use ilSrProjectHelperPlugin;
@@ -26,6 +27,10 @@ abstract class AbstractCreatorTask extends AbstractJob {
 	 * @var array
 	 */
 	protected $data = [];
+	/**
+	 * @var Observer|null
+	 */
+	protected $observer = null;
 
 
 	/**
@@ -40,7 +45,7 @@ abstract class AbstractCreatorTask extends AbstractJob {
 	 * @inheritdoc
 	 */
 	public function getExpectedTimeOfTaskInSeconds(): int {
-		return 60;
+		return 300;
 	}
 
 
@@ -63,9 +68,12 @@ abstract class AbstractCreatorTask extends AbstractJob {
 
 
 	/**
-	 * @param array $input
+	 * @param array    $input
+	 * @param Observer $observer
 	 */
-	protected function setData(array $input)/*: void*/ {
+	protected function setData(array $input, Observer $observer)/*: void*/ {
 		$this->data = json_decode($input[0]->getValue(), true);
+
+		$this->observer = $observer;
 	}
 }

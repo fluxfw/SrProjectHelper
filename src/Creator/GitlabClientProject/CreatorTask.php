@@ -163,7 +163,7 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 	 *
 	 */
 	protected function addPluginsAsSubmodules()/*: void*/ {
-		foreach ($this->data["plugins"] as $plugin) {
+		foreach ($this->data["plugins"] as $i => $plugin) {
 			$plugin = Config::getField(Config::KEY_GITLAB_PLUGINS)[$plugin];
 
 			if ($plugin) {
@@ -189,6 +189,9 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 				exec("git -C " . escapeshellarg($this->temp_folder) . " commit --amend -m " . escapeshellarg($plugin["name"] . " plugin submodule")
 					. " 2>&1", $result);
 			}
+
+			$this->observer->notifyPercentage($this, intval(($this->current_step_index + (($i + 1) / count($this->data["plugins"])))
+				/ count(static::STEPS) * 100));
 		}
 	}
 
