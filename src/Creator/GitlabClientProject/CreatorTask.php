@@ -141,6 +141,8 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 
 		$result = [];
 		exec("git -C " . escapeshellarg($this->temp_folder) . " remote remove temp 2>&1", $result);
+
+		$this->push();
 	}
 
 
