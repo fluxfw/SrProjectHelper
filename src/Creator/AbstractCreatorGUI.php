@@ -1,25 +1,25 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator;
+namespace srag\Plugins\SrProjectHelper\Creator;
 
 use ILIAS\BackgroundTasks\Implementation\Bucket\BasicBucket;
-use ilSrGitlabHelperPlugin;
+use ilSrProjectHelperPlugin;
 use ilUtil;
-use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
  * Class AbstractCreatorGUI
  *
- * @package srag\Plugins\SrGitlabHelper\Creator
+ * @package srag\Plugins\SrProjectHelper\Creator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractCreatorGUI {
 
 	use DICTrait;
-	use SrGitlabHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 	const CMD_CREATE = "create";
 	const CMD_FORM = "form";
 	/**

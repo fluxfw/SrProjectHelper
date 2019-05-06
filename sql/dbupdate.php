@@ -1,4 +1,4 @@
 <#1>
 <?php
-\srag\Plugins\SrGitlabHelper\Config\Config::updateDB();
+\srag\Plugins\SrProjectHelper\Config\Config::updateDB();
 ?>

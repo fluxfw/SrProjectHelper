@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator\GitlabPluginProject;
+namespace srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject;
 
-use srag\Plugins\SrGitlabHelper\Creator\Gitlab\AbstractGitlabCreatorFormGUI;
+use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorFormGUI;
 
 /**
  * Class CreatorFormGUI
  *
- * @package srag\Plugins\SrGitlabHelper\Creator\GitlabPluginProject
+ * @package srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

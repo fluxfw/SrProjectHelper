@@ -1,24 +1,24 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Gitlab;
+namespace srag\Plugins\SrProjectHelper\Gitlab;
 
-use ilSrGitlabHelperPlugin;
-use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use ilSrProjectHelperPlugin;
+use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
  * Class Api
  *
- * @package srag\Plugins\SrGitlabHelper\Gitlab
+ * @package srag\Plugins\SrProjectHelper\Gitlab
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Api {
 
 	use DICTrait;
-	use SrGitlabHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 	const GITLAB_MAX_PER_PAGE = 100;
 	const GITLAB_PAGES = 10;
 	/**

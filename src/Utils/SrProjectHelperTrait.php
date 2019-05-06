@@ -1,20 +1,20 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Utils;
+namespace srag\Plugins\SrProjectHelper\Utils;
 
-use srag\Plugins\SrGitlabHelper\Access\Access;
-use srag\Plugins\SrGitlabHelper\Access\Ilias;
-use srag\Plugins\SrGitlabHelper\Gitlab\Api;
-use srag\Plugins\SrGitlabHelper\Gitlab\Client;
+use srag\Plugins\SrProjectHelper\Access\Access;
+use srag\Plugins\SrProjectHelper\Access\Ilias;
+use srag\Plugins\SrProjectHelper\Gitlab\Api;
+use srag\Plugins\SrProjectHelper\Gitlab\Client;
 
 /**
- * Trait SrGitlabHelperTrait
+ * Trait SrProjectHelperTrait
  *
- * @package srag\Plugins\SrGitlabHelper\Utils
+ * @package srag\Plugins\SrProjectHelper\Utils
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-trait SrGitlabHelperTrait {
+trait SrProjectHelperTrait {
 
 	/**
 	 * @return Access

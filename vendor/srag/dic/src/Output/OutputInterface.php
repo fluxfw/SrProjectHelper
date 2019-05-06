@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\Output;
+namespace srag\DIC\SrGitlabHelper\SrProjectHelper\Output;
 
 use ilTemplateException;
 use JsonSerializable;
-use srag\DIC\SrGitlabHelper\Exception\DICException;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\Exception\DICException;
 use stdClass;
 
 /**
  * Interface OutputInterface
  *
- * @package srag\DIC\SrGitlabHelper\Output
+ * @package srag\DIC\SrGitlabHelper\SrProjectHelper\Output
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

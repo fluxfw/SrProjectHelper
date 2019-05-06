@@ -1,23 +1,23 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator;
+namespace srag\Plugins\SrProjectHelper\Creator;
 
-use ilSrGitlabHelperPlugin;
+use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
-use srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI\PropertyFormGUI;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\PropertyFormGUI;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
  * Class AbstractCreatorFormGUI
  *
- * @package srag\Plugins\SrGitlabHelper\Creator
+ * @package srag\Plugins\SrProjectHelper\Creator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractCreatorFormGUI extends PropertyFormGUI {
 
-	use SrGitlabHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 	/**
 	 * @var array
 	 */
@@ -66,7 +66,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI {
 	 * @inheritdoc
 	 */
 	protected function initId()/*: void*/ {
-		$this->setId("srgitlabhelper_form");
+		$this->setId("srprojecthelper_form");
 	}
 
 

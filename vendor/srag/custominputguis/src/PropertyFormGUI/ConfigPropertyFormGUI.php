@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI;
 
-use srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI\Exception\PropertyFormGUIException;
+use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Exception\PropertyFormGUIException;
 
 /**
  * Class ConfigPropertyFormGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

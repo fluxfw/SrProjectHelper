@@ -1,20 +1,20 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Exception;
+namespace srag\Plugins\SrProjectHelper\Exception;
 
 use ilException;
 
 /**
- * Class SrGitlabHelperException
+ * Class SrProjectHelperException
  *
- * @package srag\Plugins\SrGitlabHelper\Exception
+ * @package srag\Plugins\SrProjectHelper\Exception
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class SrGitlabHelperException extends ilException {
+class SrProjectHelperException extends ilException {
 
 	/**
-	 * SrGitlabHelperException constructor
+	 * SrProjectHelperException constructor
 	 *
 	 * @param string $message
 	 * @param int    $code

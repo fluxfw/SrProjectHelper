@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI\Exception;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Exception;
 
 use ilFormException;
 
 /**
  * Class PropertyFormGUIException
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI\Exception
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Exception
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

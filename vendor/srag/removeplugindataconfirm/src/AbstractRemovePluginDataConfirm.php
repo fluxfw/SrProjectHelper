@@ -1,18 +1,18 @@
 <?php
 
-namespace srag\RemovePluginDataConfirm\SrGitlabHelper;
+namespace srag\RemovePluginDataConfirm\SrGitlabHelper\SrProjectHelper;
 
 use ilAdministrationGUI;
 use ilConfirmationGUI;
 use ilObjComponentSettingsGUI;
 use ilSession;
 use ilUtil;
-use srag\DIC\SrGitlabHelper\DICTrait;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class AbstractRemovePluginDataConfirm
  *
- * @package srag\RemovePluginDataConfirm\SrGitlabHelper
+ * @package srag\RemovePluginDataConfirm\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

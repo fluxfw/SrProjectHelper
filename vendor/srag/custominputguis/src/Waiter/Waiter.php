@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\Waiter;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\Waiter;
 
-use srag\DIC\SrGitlabHelper\DICTrait;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class Waiter
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\Waiter
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\Waiter
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

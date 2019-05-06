@@ -1,23 +1,23 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Access;
+namespace srag\Plugins\SrProjectHelper\Access;
 
-use ilSrGitlabHelperPlugin;
-use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use ilSrProjectHelperPlugin;
+use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
  * Class Roles
  *
- * @package srag\Plugins\SrGitlabHelper\Access
+ * @package srag\Plugins\SrProjectHelper\Access
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Roles {
 
 	use DICTrait;
-	use SrGitlabHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 	/**
 	 * @var self
 	 */

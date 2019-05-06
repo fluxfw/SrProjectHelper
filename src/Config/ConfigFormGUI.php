@@ -1,25 +1,25 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Config;
+namespace srag\Plugins\SrProjectHelper\Config;
 
 use ilMultiSelectInputGUI;
 use ilNumberInputGUI;
-use ilSrGitlabHelperPlugin;
+use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
-use srag\ActiveRecordConfig\SrGitlabHelper\ActiveRecordConfigFormGUI;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use srag\ActiveRecordConfig\SrProjectHelper\ActiveRecordConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
  * Class ConfigFormGUI
  *
- * @package srag\Plugins\SrGitlabHelper\Config
+ * @package srag\Plugins\SrProjectHelper\Config
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 
-	use SrGitlabHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 	const CONFIG_CLASS_NAME = Config::class;
 
 

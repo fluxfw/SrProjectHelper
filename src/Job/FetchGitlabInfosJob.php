@@ -1,31 +1,31 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Job;
+namespace srag\Plugins\SrProjectHelper\Job;
 
 use ilCachedComponentData;
 use ilCronJob;
 use ilCronJobResult;
-use ilSrGitlabHelperPlugin;
-use srag\ActiveRecordConfig\SrGitlabHelper\Exception\ActiveRecordConfigException;
-use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Gitlab\Api;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use ilSrProjectHelperPlugin;
+use srag\ActiveRecordConfig\SrProjectHelper\Exception\ActiveRecordConfigException;
+use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Gitlab\Api;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 use Throwable;
 
 /**
  * Class FetchGitlabInfosJob
  *
- * @package srag\Plugins\SrGitlabHelper\Job
+ * @package srag\Plugins\SrProjectHelper\Job
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class FetchGitlabInfosJob extends ilCronJob {
 
 	use DICTrait;
-	use SrGitlabHelperTrait;
-	const CRON_JOB_ID = ilSrGitlabHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const CRON_JOB_ID = ilSrProjectHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 	const LANG_MODULE_CRON = "cron";
 
 
@@ -51,7 +51,7 @@ class FetchGitlabInfosJob extends ilCronJob {
 	 * @return string
 	 */
 	public function getTitle(): string {
-		return ilSrGitlabHelperPlugin::PLUGIN_NAME . ": " . self::plugin()->translate(self::CRON_JOB_ID, self::LANG_MODULE_CRON);
+		return ilSrProjectHelperPlugin::PLUGIN_NAME . ": " . self::plugin()->translate(self::CRON_JOB_ID, self::LANG_MODULE_CRON);
 	}
 
 

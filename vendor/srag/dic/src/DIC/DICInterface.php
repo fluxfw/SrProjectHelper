@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\DIC;
+namespace srag\DIC\SrGitlabHelper\SrProjectHelper\DIC;
 
 use Collator;
 use ilAccess;
@@ -49,12 +49,12 @@ use ilTemplate;
 use ilToolbarGUI;
 use ilTree;
 use Session;
-use srag\DIC\SrGitlabHelper\Exception\DICException;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\Exception\DICException;
 
 /**
  * Interface DICInterface
  *
- * @package srag\DIC\SrGitlabHelper\DIC
+ * @package srag\DIC\SrGitlabHelper\SrProjectHelper\DIC
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

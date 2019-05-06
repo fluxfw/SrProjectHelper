@@ -1,19 +1,19 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Menu;
+namespace srag\Plugins\SrProjectHelper\Menu;
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
-use ilSrGitlabHelperPlugin;
+use ilSrProjectHelperPlugin;
 use ilUIPluginRouterGUI;
-use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
-use srag\Plugins\SrGitlabHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
+use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
  * Class Menu
  *
- * @package srag\Plugins\SrGitlabHelper\Menu
+ * @package srag\Plugins\SrProjectHelper\Menu
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
@@ -22,8 +22,8 @@ use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 class Menu extends AbstractStaticPluginMainMenuProvider {
 
 	use DICTrait;
-	use SrGitlabHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 
 
 	/**
@@ -32,7 +32,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider {
 	public function getStaticTopItems(): array {
 		return [
 			self::dic()->globalScreen()->mainmenu()->topParentItem(self::dic()->globalScreen()->identification()->plugin(self::plugin()
-				->getPluginObject(), $this)->identifier(ilSrGitlabHelperPlugin::PLUGIN_ID))->withTitle(ilSrGitlabHelperPlugin::PLUGIN_NAME)
+				->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID))->withTitle(ilSrProjectHelperPlugin::PLUGIN_NAME)
 				->withAvailableCallable(function (): bool {
 					return self::plugin()->getPluginObject()->isActive();
 				})->withVisibilityCallable(function (): bool {
@@ -50,14 +50,14 @@ class Menu extends AbstractStaticPluginMainMenuProvider {
 
 		return [
 			self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
-				->getPluginObject(), $this)->identifier(ilSrGitlabHelperPlugin::PLUGIN_ID . "_create_gitlab_client_project"))
+				->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_client_project"))
 				->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
 					->translate("title", GitlabClientProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
 					ilUIPluginRouterGUI::class,
 					GitlabClientProjectCreatorGUI::class
 				], GitlabClientProjectCreatorGUI::CMD_FORM)),
 			self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
-				->getPluginObject(), $this)->identifier(ilSrGitlabHelperPlugin::PLUGIN_ID . "_create_gitlab_plugin_project"))
+				->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_plugin_project"))
 				->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
 					->translate("title", GitlabPluginProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
 					ilUIPluginRouterGUI::class,

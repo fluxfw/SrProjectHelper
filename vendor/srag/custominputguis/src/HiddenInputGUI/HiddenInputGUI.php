@@ -1,14 +1,14 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\HiddenInputGUI;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\HiddenInputGUI;
 
 use ilHiddenInputGUI;
-use srag\DIC\SrGitlabHelper\DICTrait;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class HiddenInputGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\HiddenInputGUI
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\HiddenInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

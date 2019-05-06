@@ -1,14 +1,14 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\TextInputGUI;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\TextInputGUI;
 
 use ilTextInputGUI;
-use srag\DIC\SrGitlabHelper\DICTrait;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class TextInputGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\TextInputGUI
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\TextInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

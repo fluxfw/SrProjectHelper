@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\RemovePluginDataConfirm\SrGitlabHelper\Exception;
+namespace srag\RemovePluginDataConfirm\SrGitlabHelper\SrProjectHelper\Exception;
 
 use ilException;
 
 /**
  * Class RemovePluginDataConfirmException
  *
- * @package srag\RemovePluginDataConfirm\SrGitlabHelper\Exception
+ * @package srag\RemovePluginDataConfirm\SrGitlabHelper\SrProjectHelper\Exception
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

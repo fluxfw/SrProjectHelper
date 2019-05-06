@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\ActiveRecordConfig\SrGitlabHelper\Exception;
+namespace srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper\Exception;
 
 use ilException;
 
 /**
  * Class ActiveRecordConfigException
  *
- * @package srag\ActiveRecordConfig\SrGitlabHelper\Exception
+ * @package srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper\Exception
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

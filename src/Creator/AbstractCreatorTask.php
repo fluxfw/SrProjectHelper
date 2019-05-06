@@ -1,27 +1,27 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator;
+namespace srag\Plugins\SrProjectHelper\Creator;
 
 use ILIAS\BackgroundTasks\Implementation\Tasks\AbstractJob;
 use ILIAS\BackgroundTasks\Implementation\Values\ScalarValues\StringValue;
 use ILIAS\BackgroundTasks\Types\SingleType;
 use ILIAS\BackgroundTasks\Types\Type;
-use ilSrGitlabHelperPlugin;
-use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use ilSrProjectHelperPlugin;
+use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
  * Class AbstractCreatorTask
  *
- * @package srag\Plugins\SrGitlabHelper\Creator
+ * @package srag\Plugins\SrProjectHelper\Creator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractCreatorTask extends AbstractJob {
 
 	use DICTrait;
-	use SrGitlabHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	use SrProjectHelperTrait;
+	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 	/**
 	 * @var array
 	 */

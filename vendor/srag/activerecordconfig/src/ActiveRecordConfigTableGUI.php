@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\ActiveRecordConfig\SrGitlabHelper;
+namespace srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper;
 
-use srag\CustomInputGUIs\SrGitlabHelper\TableGUI\TableGUI;
+use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\TableGUI\TableGUI;
 
 /**
  * Class ActiveRecordConfigTableGUI
  *
- * @package srag\ActiveRecordConfig\SrGitlabHelper
+ * @package srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

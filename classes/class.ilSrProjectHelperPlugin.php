@@ -3,26 +3,26 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
-use srag\DIC\SrGitlabHelper\Util\LibraryLanguageInstaller;
-use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Job\FetchGitlabInfosJob;
-use srag\Plugins\SrGitlabHelper\Menu\Menu;
-use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
-use srag\RemovePluginDataConfirm\SrGitlabHelper\PluginUninstallTrait;
+use srag\DIC\SrProjectHelper\Util\LibraryLanguageInstaller;
+use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Job\FetchGitlabInfosJob;
+use srag\Plugins\SrProjectHelper\Menu\Menu;
+use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
+use srag\RemovePluginDataConfirm\SrProjectHelper\PluginUninstallTrait;
 
 /**
- * Class ilSrGitlabHelperPlugin
+ * Class ilSrProjectHelperPlugin
  *
  * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ilSrGitlabHelperPlugin extends ilCronHookPlugin {
+class ilSrProjectHelperPlugin extends ilCronHookPlugin {
 
 	use PluginUninstallTrait;
-	use SrGitlabHelperTrait;
-	const PLUGIN_ID = "srgitlabhelper";
-	const PLUGIN_NAME = "SrGitlabHelper";
+	use SrProjectHelperTrait;
+	const PLUGIN_ID = "srprojecthelper";
+	const PLUGIN_NAME = "SrProjectHelper";
 	const PLUGIN_CLASS_NAME = self::class;
-	const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrGitlabHelperRemoveDataConfirm::class;
+	const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrProjectHelperRemoveDataConfirm::class;
 	const ADMIN_ROLE_ID = 2;
 	/**
 	 * @var self|null
@@ -43,7 +43,7 @@ class ilSrGitlabHelperPlugin extends ilCronHookPlugin {
 
 
 	/**
-	 * ilSrGitlabHelperPlugin constructor
+	 * ilSrProjectHelperPlugin constructor
 	 */
 	public function __construct() {
 		parent::__construct();

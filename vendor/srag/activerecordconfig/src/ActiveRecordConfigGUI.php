@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\ActiveRecordConfig\SrGitlabHelper;
+namespace srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper;
 
 use ilPluginConfigGUI;
 use ilUtil;
-use srag\ActiveRecordConfig\SrGitlabHelper\Exception\ActiveRecordConfigException;
-use srag\DIC\SrGitlabHelper\DICTrait;
+use srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper\Exception\ActiveRecordConfigException;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class ActiveRecordConfigGUI
  *
- * @package srag\ActiveRecordConfig\SrGitlabHelper
+ * @package srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

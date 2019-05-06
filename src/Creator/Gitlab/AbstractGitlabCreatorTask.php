@@ -1,19 +1,19 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator\Gitlab;
+namespace srag\Plugins\SrProjectHelper\Creator\Gitlab;
 
 use Gitlab\Model\Group;
 use Gitlab\Model\Project;
 use ILIAS\BackgroundTasks\Implementation\Values\ScalarValues\StringValue;
 use ILIAS\BackgroundTasks\Observer;
 use ILIAS\BackgroundTasks\Value;
-use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorTask;
+use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorTask;
 
 /**
  * Class AbstractGitlabCreatorTaskAbstractGitlabCreatorTask
  *
- * @package srag\Plugins\SrGitlabHelper\Creator\Gitlab
+ * @package srag\Plugins\SrProjectHelper\Creator\Gitlab
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

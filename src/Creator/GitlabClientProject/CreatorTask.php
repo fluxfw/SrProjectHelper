@@ -1,20 +1,20 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject;
+namespace srag\Plugins\SrProjectHelper\Creator\GitlabClientProject;
 
 // BackgroundTasks Bug
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
 use Gitlab\Model\Group;
 use Gitlab\Model\Project;
-use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Creator\Gitlab\AbstractGitlabCreatorTask;
-use srag\Plugins\SrGitlabHelper\Gitlab\Api;
+use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorTask;
+use srag\Plugins\SrProjectHelper\Gitlab\Api;
 
 /**
  * Class CreatorTask
  *
- * @package srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject
+ * @package srag\Plugins\SrProjectHelper\Creator\GitlabClientProject
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

@@ -1,14 +1,14 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator\Gitlab;
+namespace srag\Plugins\SrProjectHelper\Creator\Gitlab;
 
 use ilNumberInputGUI;
-use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorFormGUI;
+use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorFormGUI;
 
 /**
  * Class AbstractGitlabCreatorFormGUI
  *
- * @package srag\Plugins\SrGitlabHelper\Creator\Gitlab
+ * @package srag\Plugins\SrProjectHelper\Creator\Gitlab
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

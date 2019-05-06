@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Gitlab;
+namespace srag\Plugins\SrProjectHelper\Gitlab;
 
 use Gitlab\Client as GitlabClient;
 
 /**
  * Class Client
  *
- * @package srag\Plugins\SrGitlabHelper\Gitlab
+ * @package srag\Plugins\SrProjectHelper\Gitlab
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

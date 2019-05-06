@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\StaticHTMLPresentationInputGUI;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\StaticHTMLPresentationInputGUI;
 
 use ilFormException;
 use ilFormPropertyGUI;
 use ilTemplate;
-use srag\DIC\SrGitlabHelper\DICTrait;
+use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class StaticHTMLPresentationInputGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\StaticHTMLPresentationInputGUI
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\StaticHTMLPresentationInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/vendor/srag/dic/src/PHPVersionChecker.php";
 
-$id = "srgitlabhelper";
+$id = "srprojecthelper";
 $version = "0.0.1";
 $ilias_min_version = "5.4.0";
 $ilias_max_version = "5.4.999";

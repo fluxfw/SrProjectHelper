@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject;
+namespace srag\Plugins\SrProjectHelper\Creator\GitlabClientProject;
 
 use ilSelectInputGUI;
-use srag\CustomInputGUIs\SrGitlabHelper\MultiSelectSearchInputGUI\MultiSelectSearchInputGUI;
-use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Creator\Gitlab\AbstractGitlabCreatorFormGUI;
+use srag\CustomInputGUIs\SrProjectHelper\MultiSelectSearchInputGUI\MultiSelectSearchInputGUI;
+use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorFormGUI;
 
 /**
  * Class CreatorFormGUI
  *
- * @package srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject
+ * @package srag\Plugins\SrProjectHelper\Creator\GitlabClientProject
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

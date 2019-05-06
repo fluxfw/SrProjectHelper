@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI;
 
 use ActiveRecord;
 use ilObject;
@@ -9,7 +9,7 @@ use TypeError;
 /**
  * Class ObjectPropertyFormGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

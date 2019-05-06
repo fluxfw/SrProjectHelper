@@ -1,11 +1,11 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\LearningProgressPieUI;
+namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI;
 
 /**
  * Class CountLearningProgressPieUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\LearningProgressPieUI
+ * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
