@@ -2,13 +2,16 @@
 
 namespace srag\Plugins\SrGitlabHelper\Job;
 
+use ilCachedComponentData;
 use ilCronJob;
 use ilCronJobResult;
 use ilSrGitlabHelperPlugin;
 use srag\ActiveRecordConfig\SrGitlabHelper\Exception\ActiveRecordConfigException;
 use srag\DIC\SrGitlabHelper\DICTrait;
 use srag\Plugins\SrGitlabHelper\Config\Config;
+use srag\Plugins\SrGitlabHelper\Gitlab\Api;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
+use Throwable;
 
 /**
  * Class FetchGitlabInfosJob
@@ -24,8 +27,6 @@ class FetchGitlabInfosJob extends ilCronJob {
 	const CRON_JOB_ID = ilSrGitlabHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
 	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
 	const LANG_MODULE_CRON = "cron";
-	const GITLAB_MAX_PER_PAGE = 100;
-	const GITLAB_PAGES = 10;
 
 
 	/**
@@ -112,29 +113,56 @@ class FetchGitlabInfosJob extends ilCronJob {
 	public function run(): ilCronJobResult {
 		$result = new ilCronJobResult();
 
-		$ilias_versions = array_reduce(array_filter($this->pageHelper(function (array $options): array {
+		$ilias_versions = array_reduce(array_filter(Api::pageHelper(function (array $options): array {
 			return self::gitlab()->repositories()->branches(Config::getField(Config::KEY_GITLAB_ILIAS_PROJECT_ID), $options
 				+ [//"search" => "release_" // TODO: Bug, works (https://docs.gitlab.com/ee/api/branches.html), but denied by the library
 				]);
 		}), function (array $ilias_version): bool {
 			return (strpos($ilias_version["name"], "release_") === 0 || $ilias_version["name"] === "trunk");
 		}), function (array $ilias_versions, array $ilias_version): array {
-			$ilias_versions[$ilias_version["name"]] = $ilias_version["name"];
+			$ilias_versions[$ilias_version["name"]] = [
+				"custom_name" => $ilias_version["name"] . "_custom",
+				"develop_name" => $ilias_version["name"] . "_develop",
+				"name" => $ilias_version["name"],
+				"staging_name" => $ilias_version["name"] . "_staging"
+			];
 
 			return $ilias_versions;
 		}, []);
 		krsort($ilias_versions);
 		Config::setField(Config::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
 
-		$plugins = array_reduce($this->pageHelper(function (array $options): array {
+		$plugins = array_reduce(Api::pageHelper(function (array $options): array {
 			return self::gitlab()->groups()->projects(Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID), $options + [
 					"simple" => true
 				]);
 		}), function (array $plugins, array $plugin): array {
-			$plugins[$plugin["name"]] = [
-				"name" => $plugin["name"],
-				"repo" => $plugin["ssh_url_to_repo"]
-			];
+			try {
+				try {
+					$plugin_class = self::gitlab()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
+						. "Plugin.php", "master");
+				} catch (Throwable $ex) {
+					$plugin_class = self::gitlab()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
+						. "Plugin.php", "develop");
+				}
+
+				$matches = [];
+				preg_match("/Plugin\s+extends\s+il([A-Za-z]+)Plugin/", $plugin_class, $matches);
+
+				$hook = $matches[1];
+
+				$slot = ilCachedComponentData::getInstance()->lookupPluginSlotByName($hook);
+
+				$install_path = "Customizing/global/plugins/" . $slot["component"] . "/" . $slot["name"] . "/" . $plugin["name"];
+
+				$plugins[$plugin["name"]] = [
+					"install_path" => $install_path,
+					"name" => $plugin["name"],
+					"repo_http" => $plugin["http_url_to_repo"],
+					"repo_ssh" => $plugin["ssh_url_to_repo"]
+				];
+			} catch (Throwable $ex) {
+			}
 
 			return $plugins;
 		}, []);
@@ -142,27 +170,6 @@ class FetchGitlabInfosJob extends ilCronJob {
 		Config::setField(Config::KEY_GITLAB_PLUGINS, $plugins);
 
 		$result->setStatus(ilCronJobResult::STATUS_OK);
-
-		return $result;
-	}
-
-
-	/**
-	 * @param callable $funcion
-	 * @param int      $per_page
-	 * @param int      $pages
-	 *
-	 * @return array
-	 */
-	protected function pageHelper(callable $funcion, int $per_page = self::GITLAB_MAX_PER_PAGE, int $pages = self::GITLAB_PAGES): array {
-		$result = [];
-
-		for ($page = 1; $page <= $pages; $page ++) {
-			$result = array_merge($result, $funcion([
-				"page" => $page,
-				"per_page" => $per_page
-			]));
-		}
 
 		return $result;
 	}

@@ -92,7 +92,7 @@ abstract class AbstractCreatorGUI {
 
 		$this->buildAndRunTask($data);
 
-		ilUtil::sendSuccess(self::plugin()->translate("created", static::LANG_MODULE), true);
+		ilUtil::sendSuccess(self::plugin()->translate("created", static::LANG_MODULE, [ $data["name"] ]), true);
 
 		self::dic()->ctrl()->redirect($this, self::CMD_FORM);
 	}

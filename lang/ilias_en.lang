@@ -9,18 +9,19 @@ config_gitlab_url#:#Gitlab url
 config_roles#:#Roles
 config_roles_info#:#Show for selected roles only
 config_save#:#Save
-cron_srgitlabhelper_fetch_gitlab_infos#:#Fetch Gitlab infos
+cron_srgitlabhelper_fetch_gitlab_infos#:#Fetch gitlab infos
 cron_srgitlabhelper_fetch_gitlab_infos_description#:#Keep gitlab infos up to date (ILIAS versions, plugins list)
 gitlab_client_project_create#:#Create
-gitlab_client_project_created#:#Created
+gitlab_client_project_created#:#"%s" created
 gitlab_client_project_ilias_version#:#ILIAS version
+gitlab_client_project_maintainer_user_id#:#Maintainer user id
 gitlab_client_project_name#:#Name
 gitlab_client_project_plugins#:#Plugins
-gitlab_client_project_task_title#:#Create client gitlab project "%s"
-gitlab_client_project_title#:#Create client gitlab project
+gitlab_client_project_task_title#:#Create gitlab client project "%s"
+gitlab_client_project_title#:#Create gitlab client project
 gitlab_plugin_project_create#:#Create
-gitlab_plugin_project_created#:#Created
+gitlab_plugin_project_created#:#"%s" created
 gitlab_plugin_project_maintainer_user_id#:#Maintainer user id
 gitlab_plugin_project_name#:#Name
-gitlab_plugin_project_task_title#:#Create plugin gitlab project "%s"
-gitlab_plugin_project_title#:#Create plugin gitlab project
+gitlab_plugin_project_task_title#:#Create gitlab plugin project "%s"
+gitlab_plugin_project_title#:#Create gitlab plugin project

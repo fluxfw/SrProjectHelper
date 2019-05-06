@@ -2,8 +2,7 @@
 
 namespace srag\Plugins\SrGitlabHelper\Creator\GitlabPluginProject;
 
-use ilNumberInputGUI;
-use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorFormGUI;
+use srag\Plugins\SrGitlabHelper\Creator\Gitlab\AbstractGitlabCreatorFormGUI;
 
 /**
  * Class CreatorFormGUI
@@ -12,7 +11,7 @@ use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorFormGUI;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class CreatorFormGUI extends AbstractCreatorFormGUI {
+class CreatorFormGUI extends AbstractGitlabCreatorFormGUI {
 
 	const LANG_MODULE = CreatorGUI::LANG_MODULE;
 
@@ -24,10 +23,7 @@ class CreatorFormGUI extends AbstractCreatorFormGUI {
 		parent::initFields();
 
 		$this->fields += [
-			"maintainer_user_id" => [
-				self::PROPERTY_CLASS => ilNumberInputGUI::class,
-				self::PROPERTY_REQUIRED => true
-			]
+
 		];
 	}
 }

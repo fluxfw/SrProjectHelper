@@ -5,7 +5,7 @@ namespace srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject;
 use ilSelectInputGUI;
 use srag\CustomInputGUIs\SrGitlabHelper\MultiSelectSearchInputGUI\MultiSelectSearchInputGUI;
 use srag\Plugins\SrGitlabHelper\Config\Config;
-use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorFormGUI;
+use srag\Plugins\SrGitlabHelper\Creator\Gitlab\AbstractGitlabCreatorFormGUI;
 
 /**
  * Class CreatorFormGUI
@@ -14,7 +14,7 @@ use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorFormGUI;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class CreatorFormGUI extends AbstractCreatorFormGUI {
+class CreatorFormGUI extends AbstractGitlabCreatorFormGUI {
 
 	const LANG_MODULE = CreatorGUI::LANG_MODULE;
 
@@ -28,7 +28,9 @@ class CreatorFormGUI extends AbstractCreatorFormGUI {
 		$this->fields += [
 			"ilias_version" => [
 				self::PROPERTY_CLASS => ilSelectInputGUI::class,
-				self::PROPERTY_OPTIONS => Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS),
+				self::PROPERTY_OPTIONS => array_map(function (array $ilias_version): string {
+					return $ilias_version["name"];
+				}, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)),
 				self::PROPERTY_REQUIRED => true
 			],
 			"plugins" => [
