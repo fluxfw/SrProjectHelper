@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrGitlabHelper\Job;
 
-use Gitlab\Client;
 use ilCronJob;
 use ilCronJobResult;
 use ilSrGitlabHelperPlugin;
@@ -113,11 +112,8 @@ class FetchGitlabInfosJob extends ilCronJob {
 	public function run(): ilCronJobResult {
 		$result = new ilCronJobResult();
 
-		$client = Client::create(Config::getField(Config::KEY_GITLAB_URL))
-			->authenticate(Config::getField(Config::KEY_GITLAB_ACCESS_TOKEN), Client::AUTH_URL_TOKEN);
-
-		$ilias_versions = array_reduce(array_filter($this->pageHelper($client, function (Client $client, array $options): array {
-			return $client->repositories()->branches(Config::getField(Config::KEY_GITLAB_ILIAS_REPO_ID), $options
+		$ilias_versions = array_reduce(array_filter($this->pageHelper(function (array $options): array {
+			return self::gitlab()->repositories()->branches(Config::getField(Config::KEY_GITLAB_ILIAS_REPO_ID), $options
 				+ [//"search" => "release_" // TODO: Bug, works (https://docs.gitlab.com/ee/api/branches.html), but denied by the library
 				]);
 		}), function (array $ilias_version): bool {
@@ -130,8 +126,8 @@ class FetchGitlabInfosJob extends ilCronJob {
 		krsort($ilias_versions);
 		Config::setField(Config::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
 
-		$plugins = array_reduce($this->pageHelper($client, function (Client $client, array $options): array {
-			return $client->groups()->projects(Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID), $options + [
+		$plugins = array_reduce($this->pageHelper(function (array $options): array {
+			return self::gitlab()->groups()->projects(Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID), $options + [
 					"simple" => true
 				]);
 		}), function (array $plugins, array $plugin): array {
@@ -152,18 +148,17 @@ class FetchGitlabInfosJob extends ilCronJob {
 
 
 	/**
-	 * @param Client   $client
 	 * @param callable $funcion
 	 * @param int      $per_page
 	 * @param int      $pages
 	 *
 	 * @return array
 	 */
-	protected function pageHelper(Client $client, callable $funcion, int $per_page = self::GITLAB_MAX_PER_PAGE, int $pages = self::GITLAB_PAGES): array {
+	protected function pageHelper(callable $funcion, int $per_page = self::GITLAB_MAX_PER_PAGE, int $pages = self::GITLAB_PAGES): array {
 		$result = [];
 
 		for ($page = 1; $page <= $pages; $page ++) {
-			$result = array_merge($result, $funcion($client, [
+			$result = array_merge($result, $funcion([
 				"page" => $page,
 				"per_page" => $per_page
 			]));

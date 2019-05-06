@@ -390,6 +390,7 @@ return array(
     'srag\\Plugins\\SrGitlabHelper\\Creator\\GitlabClientProject\\CreatorFormGUI' => $baseDir . '/src/Creator/GitlabClientProject/CreatorFormGUI.php',
     'srag\\Plugins\\SrGitlabHelper\\Creator\\GitlabClientProject\\CreatorGUI' => $baseDir . '/src/Creator/GitlabClientProject/class.CreatorGUI.php',
     'srag\\Plugins\\SrGitlabHelper\\Creator\\GitlabClientProject\\CreatorTask' => $baseDir . '/src/Creator/GitlabClientProject/CreatorTask.php',
+    'srag\\Plugins\\SrGitlabHelper\\Gitlab\\GitlabApi' => $baseDir . '/src/Gitlab/GitlabApi.php',
     'srag\\Plugins\\SrGitlabHelper\\Job\\FetchGitlabInfosJob' => $baseDir . '/src/Job/FetchGitlabInfosJob.php',
     'srag\\Plugins\\SrGitlabHelper\\Menu\\Menu' => $baseDir . '/src/Menu/Menu.php',
     'srag\\Plugins\\SrGitlabHelper\\Utils\\SrGitlabHelperTrait' => $baseDir . '/src/Utils/SrGitlabHelperTrait.php',

@@ -2,8 +2,10 @@
 
 namespace srag\Plugins\SrGitlabHelper\Utils;
 
+use Gitlab\Client;
 use srag\Plugins\SrGitlabHelper\Access\Access;
 use srag\Plugins\SrGitlabHelper\Access\Ilias;
+use srag\Plugins\SrGitlabHelper\Gitlab\GitlabApi;
 
 /**
  * Trait SrGitlabHelperTrait
@@ -19,6 +21,14 @@ trait SrGitlabHelperTrait {
 	 */
 	protected static function access(): Access {
 		return Access::getInstance();
+	}
+
+
+	/**
+	 * @return Client
+	 */
+	protected static function gitlab(): Client {
+		return GitlabApi::getClient();
 	}
 
 
