@@ -25,14 +25,16 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 		"createProject",
 		"createCustomBranch",
 		"setDefaultCustomBranch",
-		"setMaintainer",
 		"removeMasterBranch",
+		"setMaintainer",
+		"useDeployKey",
 		"cleanTempFolder",
 		"cloneILIAS",
 		"notIgnoreCustomizingFolder",
 		"addPluginsAsSubmodules",
 		"cleanTempFolder",
 		"createStagingBranch",
+		"protectStagingBranch",
 		"createDevelopBranch"
 	];
 	const ILIAS_PROJECT_NAME = "ILIAS";
@@ -75,6 +77,46 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 	/**
 	 *
 	 */
+	protected function setDefaultCustomBranch()/*: void*/ {
+		$this->project = $this->project->update([
+			"default_branch" => Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$this->data["ilias_version"]]["custom_name"]
+		]);
+	}
+
+
+	/**
+	 *
+	 */
+	protected function removeMasterBranch()/*: void*/ {
+		$this->project->branch("master")->delete();
+	}
+
+
+	/**
+	 *
+	 */
+	protected function protectCustomBranch()/*: void*/ {
+		self::gitlab()->repositories()
+			->protectBranch2($this->project->id, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$this->data["ilias_version"]]["custom_name"], [
+				"allowed_to_merge" => true,
+				"allowed_to_push" => false,
+				"merge_access_level" => 40,
+				"push_access_level" => 0
+			]);
+	}
+
+
+	/**
+	 *
+	 */
+	protected function setMaintainer()/*: void*/ {
+		$this->group->addMember($this->data["maintainer_user_id"], 40);
+	}
+
+
+	/**
+	 *
+	 */
 	protected function cloneILIAS()/*: void*/ {
 		$this->temp_folder = CLIENT_DATA_DIR . "/temp/" . uniqid($this->data["name"]);
 
@@ -82,7 +124,6 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 		exec("git clone -b " . escapeshellarg(Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$this->data["ilias_version"]]["custom_name"]) . " "
 			. escapeshellarg(Api::tokenRepoUrl($this->project->http_url_to_repo)) . " " . escapeshellarg($this->temp_folder) . " 2>&1", $result);
 
-		return;
 		$result = [];
 		exec("git -C " . escapeshellarg($this->temp_folder) . " remote add temp "
 			. escapeshellarg(Api::tokenRepoUrl((new Project(Config::getField(Config::KEY_GITLAB_ILIAS_PROJECT_ID), self::gitlab()))->show()->http_url_to_repo))
@@ -106,7 +147,6 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 	 *
 	 */
 	protected function notIgnoreCustomizingFolder()/*: void*/ {
-		return;
 		file_put_contents($this->temp_folder
 			. "/.gitignore", str_replace("\n/Customizing/global", "\n#/Customizing/global", file_get_contents($this->temp_folder . "/.gitignore")));
 
@@ -170,34 +210,22 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 	/**
 	 *
 	 */
-	protected function setDefaultCustomBranch()/*: void*/ {
-		$this->project = $this->project->update([
-			"default_branch" => Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$this->data["ilias_version"]]["custom_name"]
-		]);
-	}
-
-
-	/**
-	 *
-	 */
-	protected function setMaintainer()/*: void*/ {
-		$this->group->addMember($this->data["maintainer_user_id"], 40);
-	}
-
-
-	/**
-	 *
-	 */
-	protected function removeMasterBranch()/*: void*/ {
-		$this->project->branch("master")->delete();
-	}
-
-
-	/**
-	 *
-	 */
 	protected function createStagingBranch()/*: void*/ {
 		$this->project->createBranch(Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$this->data["ilias_version"]]["staging_name"], Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$this->data["ilias_version"]]["custom_name"]);
+	}
+
+
+	/**
+	 *
+	 */
+	protected function protectStagingBranch()/*: void*/ {
+		self::gitlab()->repositories()
+			->protectBranch2($this->project->id, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$this->data["ilias_version"]]["staging_name"], [
+				"allowed_to_merge" => true,
+				"allowed_to_push" => false,
+				"merge_access_level" => 40,
+				"push_access_level" => 0
+			]);
 	}
 
 
