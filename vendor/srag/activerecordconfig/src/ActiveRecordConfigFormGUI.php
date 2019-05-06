@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
+namespace srag\ActiveRecordConfig\SrProjectHelper;
 
-use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\ConfigPropertyFormGUI;
+use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\ConfigPropertyFormGUI;
 
 /**
  * Class ActiveRecordConfigFormGUI
  *
- * @package srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\SrProjectHelper
+ * @package srag\ActiveRecordConfig\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

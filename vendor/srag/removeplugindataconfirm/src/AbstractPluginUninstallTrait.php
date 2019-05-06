@@ -1,15 +1,15 @@
 <?php
 
-namespace srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
+namespace srag\RemovePluginDataConfirm\SrProjectHelper;
 
 use ilUIPluginRouterGUI;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
-use srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\RemovePluginDataConfirmException;
+use srag\DIC\SrProjectHelper\DICTrait;
+use srag\RemovePluginDataConfirm\SrProjectHelper\Exception\RemovePluginDataConfirmException;
 
 /**
  * Trait AbstractPluginUninstallTrait
  *
- * @package srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\SrProjectHelper
+ * @package srag\RemovePluginDataConfirm\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *

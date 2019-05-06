@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DateDurationInputGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\DateDurationInputGUI;
 
 use ilCalendarUtil;
 use ilDateDurationInputGUI;
 use ilDateTime;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\DICTrait;
 
 /**
  * Class DateDurationInputGUI
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DateDurationInputGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\DateDurationInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  * @author  Theodor Truffer <tt@studer-raimann.ch>

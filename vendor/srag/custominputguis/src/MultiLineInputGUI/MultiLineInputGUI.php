@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\MultiLineInputGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\MultiLineInputGUI;
 
 use ilCalendarUtil;
 use ilDate;
@@ -13,13 +13,13 @@ use ilTemplate;
 use ilTextAreaInputGUI;
 use ilToolbarItem;
 use ilUtil;
-use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\GlyphGUI\GlyphGUI;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\CustomInputGUIs\SrProjectHelper\GlyphGUI\GlyphGUI;
+use srag\DIC\SrProjectHelper\DICTrait;
 
 /**
  * Class MultiLineInputGUI
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\MultiLineInputGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\MultiLineInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  * @author  Michael Herren <mh@studer-raimann.ch>

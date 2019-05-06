@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Template;
+namespace srag\CustomInputGUIs\SrProjectHelper\Template;
 
 use ilTemplate;
 
 /**
  * Class Template
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Template
+ * @package srag\CustomInputGUIs\SrProjectHelper\Template
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
+namespace srag\DIC\SrProjectHelper;
 
 use Throwable;
 
 /**
  * Class PHPVersionChecker
  *
- * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper
+ * @package srag\DIC\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

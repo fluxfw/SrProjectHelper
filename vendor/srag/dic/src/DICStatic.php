@@ -1,26 +1,26 @@
 <?php
 
-namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
+namespace srag\DIC\SrProjectHelper;
 
 use ilLogLevel;
 use ilPlugin;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\DICInterface;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation\ILIAS52DIC;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation\ILIAS53DIC;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation\ILIAS54DIC;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation\LegacyDIC;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\DICException;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Output\Output;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Output\OutputInterface;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin\Plugin;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin\PluginInterface;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Version\Version;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Version\VersionInterface;
+use srag\DIC\SrProjectHelper\DIC\DICInterface;
+use srag\DIC\SrProjectHelper\DIC\Implementation\ILIAS52DIC;
+use srag\DIC\SrProjectHelper\DIC\Implementation\ILIAS53DIC;
+use srag\DIC\SrProjectHelper\DIC\Implementation\ILIAS54DIC;
+use srag\DIC\SrProjectHelper\DIC\Implementation\LegacyDIC;
+use srag\DIC\SrProjectHelper\Exception\DICException;
+use srag\DIC\SrProjectHelper\Output\Output;
+use srag\DIC\SrProjectHelper\Output\OutputInterface;
+use srag\DIC\SrProjectHelper\Plugin\Plugin;
+use srag\DIC\SrProjectHelper\Plugin\PluginInterface;
+use srag\DIC\SrProjectHelper\Version\Version;
+use srag\DIC\SrProjectHelper\Version\VersionInterface;
 
 /**
  * Class DICStatic
  *
- * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper
+ * @package srag\DIC\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

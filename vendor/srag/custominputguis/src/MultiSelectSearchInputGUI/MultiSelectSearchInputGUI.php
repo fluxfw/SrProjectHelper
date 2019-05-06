@@ -1,18 +1,18 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\MultiSelectSearchInputGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\MultiSelectSearchInputGUI;
 
 use ilMultiSelectInputGUI;
 use ilTableFilterItem;
 use ilTemplate;
 use ilToolbarItem;
 use ilUtil;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\DICTrait;
 
 /**
  * Class MultiSelectSearchInputGUI
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\MultiSelectSearchInputGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\MultiSelectSearchInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  * @author  Oskar Truffer <ot@studer-raimann.ch>

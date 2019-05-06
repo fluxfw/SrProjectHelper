@@ -1,19 +1,19 @@
 <?php
 
-namespace srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
+namespace srag\ActiveRecordConfig\SrProjectHelper;
 
 use ActiveRecord;
 use arConnector;
 use arException;
 use ilDateTime;
 use ilDateTimeException;
-use srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\ActiveRecordConfigException;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\ActiveRecordConfig\SrProjectHelper\Exception\ActiveRecordConfigException;
+use srag\DIC\SrProjectHelper\DICTrait;
 
 /**
  * Class ActiveRecordConfig
  *
- * @package srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\SrProjectHelper
+ * @package srag\ActiveRecordConfig\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

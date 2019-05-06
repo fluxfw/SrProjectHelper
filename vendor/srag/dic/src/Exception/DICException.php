@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception;
+namespace srag\DIC\SrProjectHelper\Exception;
 
 use ilException;
 
 /**
  * Class DICException
  *
- * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception
+ * @package srag\DIC\SrProjectHelper\Exception
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

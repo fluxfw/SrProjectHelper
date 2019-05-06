@@ -35,7 +35,7 @@ Declare your config class basically like follow:
 //...
 namespace srag\Plugins\X\Config
 //...
-use srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\ActiveRecordConfig;
+use srag\ActiveRecordConfig\SrProjectHelper\ActiveRecordConfig;
 //...
 class Config extends ActiveRecordConfig {
     //...
@@ -119,7 +119,7 @@ It only supports a config with `ActiveRecordConfigGUI`, `ActiveRecordObjectFormG
 Create a class `ilXConfigGUI`:
 ```php
 //...
-use srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\ActiveRecordConfigGUI;
+use srag\ActiveRecordConfig\SrProjectHelper\ActiveRecordConfigGUI;
 //...
 class ilXConfigGUI extends ActiveRecordConfigGUI {
     //...
@@ -138,7 +138,7 @@ A config tab class can be either `ilCtrl` flow class (`self::TAB_CONFIGURATION =
 //...
 namespace srag\Plugins\X\Config
 //...
-use srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\ActiveRecordConfigFormGUI;
+use srag\ActiveRecordConfig\SrProjectHelper\ActiveRecordConfigFormGUI;
 //...
 class ConfigFormGUI extends ActiveRecordConfigFormGUI {
     //...
@@ -160,7 +160,7 @@ Or it can be a table `ActiveRecordConfigTableGUI`:
 //...
 namespace srag\Plugins\X\Config
 //...
-use srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\ActiveRecordConfigTableGUI;
+use srag\ActiveRecordConfig\SrProjectHelper\ActiveRecordConfigTableGUI;
 //...
 class ConfigTableGUI extends ActiveRecordConfigTableGUI {
     //...
@@ -291,7 +291,7 @@ Column name based:
 <?php
 \srag\Plugins\X\Config\Config::updateDB();
 
-if (\srag\DIC\SrProjectHelper\SrGitlabHelper\DICStatic::dic()->database()->tableExists(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME)) {
+if (\srag\DIC\SrProjectHelper\DICStatic::dic()->database()->tableExists(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME)) {
     \srag\Plugins\X\Config\ConfigOld::updateDB();
 
     $config_old = \srag\Plugins\X\Config\ConfigOld::getConfig();
@@ -299,7 +299,7 @@ if (\srag\DIC\SrProjectHelper\SrGitlabHelper\DICStatic::dic()->database()->table
      \srag\Plugins\X\Config\Config::setField(Config::KEY_SOME, $config_old->getSome());
     //...
 
-    \srag\DIC\SrProjectHelper\SrGitlabHelper\DICStatic::dic()->database()->dropTable(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME);
+    \srag\DIC\SrProjectHelper\DICStatic::dic()->database()->dropTable(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME);
 }
 ?>
 ```
@@ -310,7 +310,7 @@ Key and value based (Similar to this library):
 <?php
 \srag\Plugins\X\Config\Config::updateDB();
 
-if (\srag\DIC\SrProjectHelper\SrGitlabHelper\DICStatic::dic()->database()->tableExists(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME)) {
+if (\srag\DIC\SrProjectHelper\DICStatic::dic()->database()->tableExists(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME)) {
     \srag\Plugins\X\Config\ConfigOld::updateDB();
 
     foreach (\srag\Plugins\X\Config\ConfigOld::get() as $config) {
@@ -320,7 +320,7 @@ if (\srag\DIC\SrProjectHelper\SrGitlabHelper\DICStatic::dic()->database()->table
         \srag\Plugins\X\Config\Config::setField($config->getName(), $config->getValue());
     }
 
-    \srag\DIC\SrProjectHelper\SrGitlabHelper\DICStatic::dic()->database()->dropTable(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME);
+    \srag\DIC\SrProjectHelper\DICStatic::dic()->database()->dropTable(\srag\Plugins\X\Config\ConfigOld::TABLE_NAME);
 }
 ?>
 ```

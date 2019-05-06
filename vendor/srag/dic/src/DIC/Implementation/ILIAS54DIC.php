@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation;
+namespace srag\DIC\SrProjectHelper\DIC\Implementation;
 
 use ILIAS\DI\Container;
 use ILIAS\Services\AssessmentQuestion\Factory\AsqFactory;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\AbstractDIC;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICStatic;
+use srag\DIC\SrProjectHelper\DIC\AbstractDIC;
+use srag\DIC\SrProjectHelper\DICStatic;
 
 /**
  * Class ILIAS54DIC
  *
- * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation
+ * @package srag\DIC\SrProjectHelper\DIC\Implementation
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

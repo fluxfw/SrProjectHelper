@@ -2,7 +2,7 @@
 
 /* Copyright (c) 2017 Ralph Dittrich <dittrich@qualitus.de> Extended GPL, see docs/LICENSE */
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation;
+namespace srag\CustomInputGUIs\SrProjectHelper\ProgressMeter\Implementation;
 
 use ILIAS\UI\Component;
 use ILIAS\UI\Implementation\Render\AbstractComponentRenderer;
@@ -10,14 +10,14 @@ use ILIAS\UI\Implementation\Render\ilTemplateWrapper;
 use ILIAS\UI\Implementation\Render\Template;
 use ILIAS\UI\Renderer as RendererInterface;
 use ilTemplate;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\DICTrait;
 
 /**
  * Class Renderer
  *
  * https://github.com/ILIAS-eLearning/ILIAS/tree/trunk/src/UI/Implementation/Component/Chart/ProgressMeter/Renderer.php
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation
+ * @package srag\CustomInputGUIs\SrProjectHelper\ProgressMeter\Implementation
  *
  * @author  Ralph Dittrich <dittrich@qualitus.de>
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>

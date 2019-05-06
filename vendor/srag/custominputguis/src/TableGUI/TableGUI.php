@@ -1,20 +1,20 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\TableGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\TableGUI;
 
 use ilCSVWriter;
 use ilExcel;
 use ilFormPropertyGUI;
 use ilTable2GUI;
-use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Items\Items;
-use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\PropertyFormGUI;
-use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\TableGUI\Exception\TableGUIException;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\Items\Items;
+use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\PropertyFormGUI;
+use srag\CustomInputGUIs\SrProjectHelper\TableGUI\Exception\TableGUIException;
+use srag\DIC\SrProjectHelper\DICTrait;
 
 /**
  * Class TableGUI
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\TableGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\TableGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

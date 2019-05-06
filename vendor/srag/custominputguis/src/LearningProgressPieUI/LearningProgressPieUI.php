@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\LearningProgressPieUI;
 
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\DICTrait;
 
 /**
  * Class LearningProgressPieUI
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\LearningProgressPieUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

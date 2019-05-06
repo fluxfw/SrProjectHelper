@@ -2,16 +2,16 @@
 
 /* Copyright (c) 2017 Ralph Dittrich <dittrich@qualitus.de> Extended GPL, see docs/LICENSE */
 
-namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation;
+namespace srag\CustomInputGUIs\SrProjectHelper\ProgressMeter\Implementation;
 
-use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Component\Factory as FactoryComponent;
+use srag\CustomInputGUIs\SrProjectHelper\ProgressMeter\Component\Factory as FactoryComponent;
 
 /**
  * Class Factory
  *
  * https://github.com/ILIAS-eLearning/ILIAS/tree/trunk/src/UI/Implementation/Component/Chart/ProgressMeter/Factory.php
  *
- * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation
+ * @package srag\CustomInputGUIs\SrProjectHelper\ProgressMeter\Implementation
  *
  * @author  Ralph Dittrich <dittrich@qualitus.de>
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>

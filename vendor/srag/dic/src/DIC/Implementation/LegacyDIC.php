@@ -1,15 +1,15 @@
 <?php
 
-namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation;
+namespace srag\DIC\SrProjectHelper\DIC\Implementation;
 
 use ilLoggerFactory;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\AbstractDIC;
-use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\DICException;
+use srag\DIC\SrProjectHelper\DIC\AbstractDIC;
+use srag\DIC\SrProjectHelper\Exception\DICException;
 
 /**
  * Class LegacyDIC
  *
- * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\Implementation
+ * @package srag\DIC\SrProjectHelper\DIC\Implementation
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

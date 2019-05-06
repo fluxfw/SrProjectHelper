@@ -26,7 +26,7 @@
   },
   "autoload": {
     "psr-4": {
-      "srag\\DIC\\SrProjectHelper\\SrGitlabHelper\\": "src/"
+      "srag\\DIC\\SrProjectHelper\\": "src/"
     }
   },
   "config": {
