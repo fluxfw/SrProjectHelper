@@ -109,7 +109,7 @@ abstract class AbstractCreatorGUI {
 		$task = self::dic()->backgroundTasks()->taskFactory()->createTask($this->getTaskClass(), [ json_encode($data) ]);
 
 		$bucket->setTask($task);
-		$bucket->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
+		$bucket->setTitle(self::plugin()->translate("task_title", static::LANG_MODULE, [ $data["name"] ]));
 
 		self::dic()->backgroundTasks()->taskManager()->run($bucket);
 	}

@@ -3,7 +3,6 @@
 namespace srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject;
 
 use ilSelectInputGUI;
-use ilTextInputGUI;
 use srag\CustomInputGUIs\SrGitlabHelper\MultiSelectSearchInputGUI\MultiSelectSearchInputGUI;
 use srag\Plugins\SrGitlabHelper\Config\Config;
 use srag\Plugins\SrGitlabHelper\Creator\AbstractCreatorFormGUI;
@@ -24,11 +23,9 @@ class CreatorFormGUI extends AbstractCreatorFormGUI {
 	 * @inheritdoc
 	 */
 	protected function initFields()/*: void*/ {
-		$this->fields = [
-			"name" => [
-				self::PROPERTY_CLASS => ilTextInputGUI::class,
-				self::PROPERTY_REQUIRED => true
-			],
+		parent::initFields();
+
+		$this->fields += [
 			"ilias_version" => [
 				self::PROPERTY_CLASS => ilSelectInputGUI::class,
 				self::PROPERTY_OPTIONS => Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS),

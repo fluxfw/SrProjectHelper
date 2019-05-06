@@ -14,4 +14,5 @@ gitlab_client_project_created#:#Erstellt
 gitlab_client_project_ilias_version#:#ILIAS-Version
 gitlab_client_project_name#:#Name
 gitlab_client_project_plugins#:#Plugins
+gitlab_client_project_task_title#:#Kunden-Gitlab-Projekt "%s" erstellen
 gitlab_client_project_title#:#Kunden-Gitlab-Projekt erstellen

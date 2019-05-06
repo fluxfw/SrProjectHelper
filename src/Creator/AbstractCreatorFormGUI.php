@@ -3,6 +3,7 @@
 namespace srag\Plugins\SrGitlabHelper\Creator;
 
 use ilSrGitlabHelperPlugin;
+use ilTextInputGUI;
 use srag\CustomInputGUIs\SrGitlabHelper\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
@@ -45,6 +46,19 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI {
 	 */
 	protected function initCommands()/*: void*/ {
 		$this->addCommandButton(AbstractCreatorGUI::CMD_CREATE, $this->txt("create"));
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	protected function initFields()/*: void*/ {
+		$this->fields = [
+			"name" => [
+				self::PROPERTY_CLASS => ilTextInputGUI::class,
+				self::PROPERTY_REQUIRED => true
+			]
+		];
 	}
 
 
