@@ -1,6 +1,7 @@
 config_configuration#:#Configuration
 config_configuration_saved#:#Configuration saved
 config_gitlab_access_token#:#Gitlab access token
+config_gitlab_clients_group_id#:#Gitlab clients group id
 config_gitlab_ilias_repo_id#:#Gitlab ILIAS repo id
 config_gitlab_plugins_group_id#:#Gitlab plugins group id
 config_gitlab_url#:#Gitlab url
