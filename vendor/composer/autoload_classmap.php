@@ -380,6 +380,8 @@ return array(
     'srag\\LibrariesNamespaceChanger\\PHP7Backport' => $vendorDir . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
     'srag\\Plugins\\SrGitlabHelper\\Access\\Access' => $baseDir . '/src/Access/Access.php',
     'srag\\Plugins\\SrGitlabHelper\\Access\\Ilias' => $baseDir . '/src/Access/Ilias.php',
+    'srag\\Plugins\\SrGitlabHelper\\Access\\Roles' => $baseDir . '/src/Access/Roles.php',
+    'srag\\Plugins\\SrGitlabHelper\\Access\\Users' => $baseDir . '/src/Access/Users.php',
     'srag\\Plugins\\SrGitlabHelper\\Config\\Config' => $baseDir . '/src/Config/Config.php',
     'srag\\Plugins\\SrGitlabHelper\\Config\\ConfigFormGUI' => $baseDir . '/src/Config/ConfigFormGUI.php',
     'srag\\Plugins\\SrGitlabHelper\\Creator\\AbstractCreatorFormGUI' => $baseDir . '/src/Creator/AbstractCreatorFormGUI.php',

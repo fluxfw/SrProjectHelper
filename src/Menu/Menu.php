@@ -35,7 +35,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider {
 				->withAvailableCallable(function (): bool {
 					return self::plugin()->getPluginObject()->isActive();
 				})->withVisibilityCallable(function (): bool {
-					return in_array(ilSrGitlabHelperPlugin::ADMIN_ROLE_ID, self::dic()->rbacreview()->assignedRoles(self::dic()->user()->getId()));
+					return self::access()->currentUserHasRole();
 				})
 		];
 	}

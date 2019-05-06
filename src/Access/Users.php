@@ -4,17 +4,16 @@ namespace srag\Plugins\SrGitlabHelper\Access;
 
 use ilSrGitlabHelperPlugin;
 use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Config\Config;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
 /**
- * Class Access
+ * Class Users
  *
  * @package srag\Plugins\SrGitlabHelper\Access
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-final class Access {
+final class Users {
 
 	use DICTrait;
 	use SrGitlabHelperTrait;
@@ -38,7 +37,7 @@ final class Access {
 
 
 	/**
-	 * Access constructor
+	 * Users constructor
 	 */
 	private function __construct() {
 
@@ -46,20 +45,16 @@ final class Access {
 
 
 	/**
-	 * @return bool
+	 * @return int
 	 */
-	public function currentUserHasRole(): bool {
-		$user_id = self::ilias()->users()->getUserId();
+	public function getUserId(): int {
+		$user_id = self::dic()->user()->getId();
 
-		$user_roles = self::dic()->rbacreview()->assignedGlobalRoles($user_id);
-		$config_roles = Config::getField(Config::KEY_ROLES);
-
-		foreach ($user_roles as $user_role) {
-			if (in_array($user_role, $config_roles)) {
-				return true;
-			}
+		// Fix login screen
+		if ($user_id === 0 && boolval(self::dic()->settings()->get("pub_section"))) {
+			$user_id = ANONYMOUS_USER_ID;
 		}
 
-		return false;
+		return intval($user_id);
 	}
 }

@@ -42,7 +42,7 @@ abstract class AbstractCreatorGUI {
 	 *
 	 */
 	public function executeCommand()/*: void*/ {
-		if (!in_array(ilSrGitlabHelperPlugin::ADMIN_ROLE_ID, self::dic()->rbacreview()->assignedRoles(self::dic()->user()->getId()))) {
+		if (!self::access()->currentUserHasRole()) {
 			die();
 		}
 

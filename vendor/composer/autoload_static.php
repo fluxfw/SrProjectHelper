@@ -515,6 +515,8 @@ class ComposerStaticInit5dae8bae0e4be9cf639bd4330a091017
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
         'srag\\Plugins\\SrGitlabHelper\\Access\\Access' => __DIR__ . '/../..' . '/src/Access/Access.php',
         'srag\\Plugins\\SrGitlabHelper\\Access\\Ilias' => __DIR__ . '/../..' . '/src/Access/Ilias.php',
+        'srag\\Plugins\\SrGitlabHelper\\Access\\Roles' => __DIR__ . '/../..' . '/src/Access/Roles.php',
+        'srag\\Plugins\\SrGitlabHelper\\Access\\Users' => __DIR__ . '/../..' . '/src/Access/Users.php',
         'srag\\Plugins\\SrGitlabHelper\\Config\\Config' => __DIR__ . '/../..' . '/src/Config/Config.php',
         'srag\\Plugins\\SrGitlabHelper\\Config\\ConfigFormGUI' => __DIR__ . '/../..' . '/src/Config/ConfigFormGUI.php',
         'srag\\Plugins\\SrGitlabHelper\\Creator\\AbstractCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorFormGUI.php',

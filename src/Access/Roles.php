@@ -4,17 +4,16 @@ namespace srag\Plugins\SrGitlabHelper\Access;
 
 use ilSrGitlabHelperPlugin;
 use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Config\Config;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
 /**
- * Class Access
+ * Class Roles
  *
  * @package srag\Plugins\SrGitlabHelper\Access
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-final class Access {
+final class Roles {
 
 	use DICTrait;
 	use SrGitlabHelperTrait;
@@ -38,7 +37,7 @@ final class Access {
 
 
 	/**
-	 * Access constructor
+	 * Roles constructor
 	 */
 	private function __construct() {
 
@@ -46,20 +45,21 @@ final class Access {
 
 
 	/**
-	 * @return bool
+	 * @return array
 	 */
-	public function currentUserHasRole(): bool {
-		$user_id = self::ilias()->users()->getUserId();
+	public function getAllRoles(): array {
+		/**
+		 * @var array $global_roles
+		 * @var array $roles
+		 */
 
-		$user_roles = self::dic()->rbacreview()->assignedGlobalRoles($user_id);
-		$config_roles = Config::getField(Config::KEY_ROLES);
+		$global_roles = self::dic()->rbacreview()->getRolesForIDs(self::dic()->rbacreview()->getGlobalRoles(), false);
 
-		foreach ($user_roles as $user_role) {
-			if (in_array($user_role, $config_roles)) {
-				return true;
-			}
+		$roles = [];
+		foreach ($global_roles as $global_role) {
+			$roles[$global_role["rol_id"]] = $global_role["title"];
 		}
 
-		return false;
+		return $roles;
 	}
 }

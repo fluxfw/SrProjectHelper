@@ -2,6 +2,7 @@
 
 namespace srag\Plugins\SrGitlabHelper\Config;
 
+use ilMultiSelectInputGUI;
 use ilNumberInputGUI;
 use ilSrGitlabHelperPlugin;
 use ilTextInputGUI;
@@ -25,6 +26,18 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 	/**
 	 * @inheritdoc
 	 */
+	protected function getValue(/*string*/
+		$key) {
+		switch ($key) {
+			default:
+				return parent::getValue($key);
+		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	protected function initFields()/*: void*/ {
 		$this->fields = [
 			Config::KEY_GITLAB_URL => [
@@ -42,7 +55,37 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 			Config::KEY_GITLAB_PLUGINS_GROUP_ID => [
 				self::PROPERTY_CLASS => ilNumberInputGUI::class,
 				self::PROPERTY_REQUIRED => true
+			],
+			Config::KEY_ROLES => [
+				self::PROPERTY_CLASS => ilMultiSelectInputGUI::class,
+				self::PROPERTY_REQUIRED => true,
+				self::PROPERTY_OPTIONS => self::ilias()->roles()->getAllRoles(),
+				"enableSelectAll" => true
 			]
 		];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	protected function storeValue(/*string*/
+		$key, $value)/*: void*/ {
+		switch ($key) {
+			case Config::KEY_ROLES:
+				if ($value[0] === "") {
+					array_shift($value);
+				}
+
+				$value = array_map(function (string $role_id): int {
+					return intval($role_id);
+				}, $value);
+				break;
+
+			default:
+				break;
+		}
+
+		parent::storeValue($key, $value);
 	}
 }

@@ -42,4 +42,20 @@ final class Ilias {
 	private function __construct() {
 
 	}
+
+
+	/**
+	 * @return Roles
+	 */
+	public function roles(): Roles {
+		return Roles::getInstance();
+	}
+
+
+	/**
+	 * @return Roles
+	 */
+	public function users(): Users {
+		return Users::getInstance();
+	}
 }
