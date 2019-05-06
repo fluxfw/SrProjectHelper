@@ -32,6 +32,7 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 		"cloneILIAS",
 		"notIgnoreCustomizingFolder",
 		"addPluginsAsSubmodules",
+		"push",
 		"cleanTempFolder",
 		"createStagingBranch",
 		"protectStagingBranch",
@@ -137,9 +138,6 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 
 		$result = [];
 		exec("git -C " . escapeshellarg($this->temp_folder) . " remote remove temp 2>&1", $result);
-
-		$result = [];
-		exec("git -C " . escapeshellarg($this->temp_folder) . " push 2>&1", $result);
 	}
 
 
@@ -155,9 +153,6 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 
 		$result = [];
 		exec("git -C " . escapeshellarg($this->temp_folder) . " commit -m " . escapeshellarg("Not ignore Customizing/global") . " 2>&1", $result);
-
-		$result = [];
-		exec("git -C " . escapeshellarg($this->temp_folder) . " push 2>&1", $result);
 	}
 
 
@@ -190,11 +185,17 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 				$result = [];
 				exec("git -C " . escapeshellarg($this->temp_folder) . " commit --amend -m " . escapeshellarg($plugin["name"] . " plugin submodule")
 					. " 2>&1", $result);
-
-				$result = [];
-				exec("git -C " . escapeshellarg($this->temp_folder) . " push 2>&1", $result);
 			}
 		}
+	}
+
+
+	/**
+	 *
+	 */
+	protected function push()/*: void*/ {
+		$result = [];
+		exec("git -C " . escapeshellarg($this->temp_folder) . " push 2>&1", $result);
 	}
 
 
