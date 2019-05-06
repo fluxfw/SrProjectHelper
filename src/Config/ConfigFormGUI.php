@@ -52,7 +52,11 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 				self::PROPERTY_CLASS => ilNumberInputGUI::class,
 				self::PROPERTY_REQUIRED => true
 			],
-			Config::KEY_GITLAB_ILIAS_REPO_ID => [
+			Config::KEY_GITLAB_DEPLOY_KEY_ID => [
+				self::PROPERTY_CLASS => ilNumberInputGUI::class,
+				self::PROPERTY_REQUIRED => true
+			],
+			Config::KEY_GITLAB_ILIAS_PROJECT_ID => [
 				self::PROPERTY_CLASS => ilNumberInputGUI::class,
 				self::PROPERTY_REQUIRED => true
 			],

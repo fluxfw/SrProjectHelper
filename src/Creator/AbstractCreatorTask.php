@@ -22,6 +22,10 @@ abstract class AbstractCreatorTask extends AbstractJob {
 	use DICTrait;
 	use SrGitlabHelperTrait;
 	const PLUGIN_CLASS_NAME = ilSrGitlabHelperPlugin::class;
+	/**
+	 * @var array
+	 */
+	protected $data = [];
 
 
 	/**
@@ -55,5 +59,13 @@ abstract class AbstractCreatorTask extends AbstractJob {
 	 */
 	public function getOutputType(): Type {
 		return new SingleType(StringValue::class);
+	}
+
+
+	/**
+	 * @param array $input
+	 */
+	protected function setData(array $input)/*: void*/ {
+		$this->data = json_decode($input[0]->getValue(), true);
 	}
 }

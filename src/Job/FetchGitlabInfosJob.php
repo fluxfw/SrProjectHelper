@@ -113,7 +113,7 @@ class FetchGitlabInfosJob extends ilCronJob {
 		$result = new ilCronJobResult();
 
 		$ilias_versions = array_reduce(array_filter($this->pageHelper(function (array $options): array {
-			return self::gitlab()->repositories()->branches(Config::getField(Config::KEY_GITLAB_ILIAS_REPO_ID), $options
+			return self::gitlab()->repositories()->branches(Config::getField(Config::KEY_GITLAB_ILIAS_PROJECT_ID), $options
 				+ [//"search" => "release_" // TODO: Bug, works (https://docs.gitlab.com/ee/api/branches.html), but denied by the library
 				]);
 		}), function (array $ilias_version): bool {

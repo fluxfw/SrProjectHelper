@@ -23,7 +23,7 @@ class CreatorTask extends AbstractCreatorTask {
 	 * @inheritdoc
 	 */
 	public function run(array $input, Observer $observer): Value {
-		$data = json_decode($input[0]->getValue(), true);
+		$this->setData($input);
 
 		$output = new StringValue();
 		$output->setValue("");

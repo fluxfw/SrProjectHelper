@@ -6,7 +6,8 @@ use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvi
 use ilSrGitlabHelperPlugin;
 use ilUIPluginRouterGUI;
 use srag\DIC\SrGitlabHelper\DICTrait;
-use srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject\CreatorGUI;
+use srag\Plugins\SrGitlabHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
+use srag\Plugins\SrGitlabHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
 /**
@@ -50,11 +51,18 @@ class Menu extends AbstractStaticPluginMainMenuProvider {
 		return [
 			self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
 				->getPluginObject(), $this)->identifier(ilSrGitlabHelperPlugin::PLUGIN_ID . "_create_gitlab_client_project"))
-				->withParent($parent->getProviderIdentification())->withTitle(self::plugin()->translate("title", CreatorGUI::LANG_MODULE))
-				->withAction(self::dic()->ctrl()->getLinkTargetByClass([
+				->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
+					->translate("title", GitlabClientProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
 					ilUIPluginRouterGUI::class,
-					CreatorGUI::class
-				], CreatorGUI::CMD_FORM))
+					GitlabClientProjectCreatorGUI::class
+				], GitlabClientProjectCreatorGUI::CMD_FORM)),
+			self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
+				->getPluginObject(), $this)->identifier(ilSrGitlabHelperPlugin::PLUGIN_ID . "_create_gitlab_plugin_project"))
+				->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
+					->translate("title", GitlabPluginProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
+					ilUIPluginRouterGUI::class,
+					GitlabPluginProjectCreatorGUI::class
+				], GitlabPluginProjectCreatorGUI::CMD_FORM))
 		];
 	}
 }

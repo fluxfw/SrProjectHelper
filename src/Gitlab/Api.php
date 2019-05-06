@@ -2,20 +2,19 @@
 
 namespace srag\Plugins\SrGitlabHelper\Gitlab;
 
-use Gitlab\Client;
 use ilSrGitlabHelperPlugin;
 use srag\DIC\SrGitlabHelper\DICTrait;
 use srag\Plugins\SrGitlabHelper\Config\Config;
 use srag\Plugins\SrGitlabHelper\Utils\SrGitlabHelperTrait;
 
 /**
- * Class GitlabApi
+ * Class Api
  *
  * @package srag\Plugins\SrGitlabHelper\Gitlab
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-final class GitlabApi {
+final class Api {
 
 	use DICTrait;
 	use SrGitlabHelperTrait;
@@ -40,7 +39,7 @@ final class GitlabApi {
 
 
 	/**
-	 * GitlabApi constructor
+	 * Api constructor
 	 */
 	private function __construct() {
 
