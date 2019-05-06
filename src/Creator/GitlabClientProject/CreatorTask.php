@@ -26,6 +26,7 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 		"createCustomBranch",
 		"setDefaultCustomBranch",
 		"removeMasterBranch",
+		"protectCustomBranch",
 		"setMaintainer",
 		"useDeployKey",
 		"cleanTempFolder",
@@ -89,6 +90,8 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 	 *
 	 */
 	protected function removeMasterBranch()/*: void*/ {
+		$this->project->branch("master")->unprotect();
+
 		$this->project->branch("master")->delete();
 	}
 
