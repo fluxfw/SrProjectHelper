@@ -1,11 +1,11 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
 
 /**
  * Trait CustomInputGUIsTrait
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

@@ -1,11 +1,11 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin;
+namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin;
 
 /**
  * Interface Pluginable
  *
- * @package srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin
+ * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

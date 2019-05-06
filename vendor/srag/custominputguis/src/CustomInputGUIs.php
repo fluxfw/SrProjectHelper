@@ -1,17 +1,17 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
 
 use ILIAS\UI\Implementation\Component\Chart\ProgressMeter\Factory as ProgressMeterFactoryCore;
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI\LearningProgressPieUI;
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation\Factory as ProgressMeterFactory;
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ViewControlModeUI\ViewControlModeUI;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI\LearningProgressPieUI;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation\Factory as ProgressMeterFactory;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ViewControlModeUI\ViewControlModeUI;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class CustomInputGUIs
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

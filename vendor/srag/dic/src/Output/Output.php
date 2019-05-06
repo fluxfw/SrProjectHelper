@@ -1,19 +1,19 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\SrProjectHelper\Output;
+namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Output;
 
 use ILIAS\UI\Component\Component;
 use ilTable2GUI;
 use ilTemplate;
 use JsonSerializable;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Exception\DICException;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\DICException;
 use stdClass;
 
 /**
  * Class Output
  *
- * @package srag\DIC\SrGitlabHelper\SrProjectHelper\Output
+ * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Output
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

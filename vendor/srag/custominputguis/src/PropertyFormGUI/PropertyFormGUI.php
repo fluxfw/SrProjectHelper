@@ -1,21 +1,21 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI;
 
 use ilFormPropertyGUI;
 use ilFormSectionHeaderGUI;
 use ilPropertyFormGUI;
 use ilRadioGroupInputGUI;
 use ilRadioOption;
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\MultiLineInputGUI\MultiLineInputGUI;
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Exception\PropertyFormGUIException;
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Items\Items;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\MultiLineInputGUI\MultiLineInputGUI;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Exception\PropertyFormGUIException;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\Items\Items;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class PropertyFormGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

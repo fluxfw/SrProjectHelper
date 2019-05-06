@@ -1,17 +1,17 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\SrProjectHelper;
+namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
 
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DIC\DICInterface;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Exception\DICException;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Output\OutputInterface;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin\PluginInterface;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Version\VersionInterface;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC\DICInterface;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\DICException;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Output\OutputInterface;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin\PluginInterface;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Version\VersionInterface;
 
 /**
  * Interface DICStaticInterface
  *
- * @package srag\DIC\SrGitlabHelper\SrProjectHelper
+ * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

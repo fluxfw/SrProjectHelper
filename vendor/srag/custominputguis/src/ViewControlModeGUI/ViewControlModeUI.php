@@ -1,14 +1,14 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ViewControlModeUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ViewControlModeUI;
 
 use ilSession;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class ViewControlModeUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ViewControlModeUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ViewControlModeUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

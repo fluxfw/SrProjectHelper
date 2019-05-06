@@ -1,14 +1,14 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\GlyphGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\GlyphGUI;
 
 use ilGlyphGUI;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class GlyphGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\GlyphGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\GlyphGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  * @author  Fabian Schmid <fs@studer-raimann.ch>

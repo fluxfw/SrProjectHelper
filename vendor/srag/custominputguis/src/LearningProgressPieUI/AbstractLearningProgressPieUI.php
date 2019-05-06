@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI;
 
 use ilLearningProgressBaseGUI;
 use ilLPStatus;
 use ilTemplate;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class AbstractLearningProgressPieUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\LearningProgressPieUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

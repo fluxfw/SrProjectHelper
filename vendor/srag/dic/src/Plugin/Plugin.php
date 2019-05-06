@@ -1,18 +1,18 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin;
+namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin;
 
 use Exception;
 use ilLanguage;
 use ilPlugin;
 use ilTemplate;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Exception\DICException;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\DICException;
 
 /**
  * Class Plugin
  *
- * @package srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin
+ * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

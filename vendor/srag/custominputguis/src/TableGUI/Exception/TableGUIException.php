@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\TableGUI\Exception;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\TableGUI\Exception;
 
 use ilException;
 
 /**
  * Class TableGUIException
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\TableGUI\Exception
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\TableGUI\Exception
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

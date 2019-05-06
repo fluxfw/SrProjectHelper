@@ -1,11 +1,11 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\SrProjectHelper\Version;
+namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Version;
 
 /**
  * Interface VersionInterface
  *
- * @package srag\DIC\SrGitlabHelper\SrProjectHelper\Version
+ * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Version
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

@@ -2,16 +2,16 @@
 
 /* Copyright (c) 2017 Ralph Dittrich <dittrich@qualitus.de> Extended GPL, see docs/LICENSE */
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation;
 
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ProgressMeter\Component\FixedSize as FixedSizeComponent;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Component\FixedSize as FixedSizeComponent;
 
 /**
  * Class FixedSize
  *
  * https://github.com/ILIAS-eLearning/ILIAS/tree/trunk/src/UI/Implementation/Component/Chart/ProgressMeter/FixedSize.php
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ProgressMeter\Implementation
  *
  * @author  Ralph Dittrich <dittrich@qualitus.de>
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>

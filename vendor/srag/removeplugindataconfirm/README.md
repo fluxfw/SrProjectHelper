@@ -22,7 +22,7 @@ So I recommand to use [srag/librariesnamespacechanger](https://packagist.org/pac
 First declare your plugin class like follow:
 ```php
 //...
-use srag\RemovePluginDataConfirm\SrGitlabHelper\PluginUninstallTrait;
+use srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\PluginUninstallTrait;
 //...
 use PluginUninstallTrait;
 //...
@@ -43,7 +43,7 @@ You don't need to use `DICTrait`, it is already in use!
 If your plugin is a RepositoryObject use `RepositoryObjectPluginUninstallTrait` instead:
 ```php
 //...
-use srag\RemovePluginDataConfirm\SrGitlabHelper\RepositoryObjectPluginUninstallTrait;
+use srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\RepositoryObjectPluginUninstallTrait;
 //...
 use RepositoryObjectPluginUninstallTrait;
 //...
@@ -57,7 +57,7 @@ Then create a class called `XRemoveDataConfirm` in `classes/uninstall/class.XRem
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use srag\RemovePluginDataConfirm\SrGitlabHelper\AbstractRemovePluginDataConfirm;
+use srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\AbstractRemovePluginDataConfirm;
 
 /**
  * Class XRemoveDataConfirm

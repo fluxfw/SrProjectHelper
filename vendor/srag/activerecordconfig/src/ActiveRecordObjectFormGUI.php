@@ -1,15 +1,15 @@
 <?php
 
-namespace srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper;
+namespace srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
 
 use ActiveRecord;
 use ilObject;
-use srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\ObjectPropertyFormGUI;
+use srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\PropertyFormGUI\ObjectPropertyFormGUI;
 
 /**
  * Class ActiveRecordObjectFormGUI
  *
- * @package srag\ActiveRecordConfig\SrGitlabHelper\SrProjectHelper
+ * @package srag\ActiveRecordConfig\SrProjectHelper\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

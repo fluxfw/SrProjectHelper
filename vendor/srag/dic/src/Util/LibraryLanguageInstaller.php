@@ -1,17 +1,17 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\SrProjectHelper\Util;
+namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Util;
 
 use ilGlobalCache;
 use ilObjLanguage;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin\Pluginable;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin\PluginInterface;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin\Pluginable;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin\PluginInterface;
 
 /**
  * Class LibraryLanguageInstaller
  *
- * @package srag\DIC\SrGitlabHelper\SrProjectHelper\Util
+ * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Util
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

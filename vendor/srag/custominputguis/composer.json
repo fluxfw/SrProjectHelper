@@ -28,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "srag\\CustomInputGUIs\\SrGitlabHelper\\": "src/"
+      "srag\\CustomInputGUIs\\SrProjectHelper\\SrGitlabHelper\\": "src/"
     }
   },
   "config": {

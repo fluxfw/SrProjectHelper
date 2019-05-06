@@ -1,11 +1,11 @@
 <?php
 
-namespace srag\DIC\SrGitlabHelper\SrProjectHelper\DIC;
+namespace srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC;
 
 /**
  * Class AbstractDIC
  *
- * @package srag\DIC\SrGitlabHelper\SrProjectHelper\DIC
+ * @package srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DIC
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ScreenshotsInputGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ScreenshotsInputGUI;
 
 use GuzzleHttp\Psr7\UploadedFile;
 use ilFormException;
@@ -8,14 +8,14 @@ use ilFormPropertyGUI;
 use ILIAS\FileUpload\DTO\ProcessingStatus;
 use ILIAS\FileUpload\DTO\UploadResult;
 use ilTemplate;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin\Pluginable;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\Plugin\PluginInterface;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin\Pluginable;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Plugin\PluginInterface;
 
 /**
  * Class ScreenshotsInputGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\ScreenshotsInputGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\ScreenshotsInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *

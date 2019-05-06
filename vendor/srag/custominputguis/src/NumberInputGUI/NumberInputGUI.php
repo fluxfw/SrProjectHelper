@@ -1,15 +1,15 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\NumberInputGUI;
+namespace srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\NumberInputGUI;
 
 use ilNumberInputGUI;
 use ilTableFilterItem;
-use srag\DIC\SrGitlabHelper\SrProjectHelper\DICTrait;
+use srag\DIC\SrProjectHelper\SrGitlabHelper\SrProjectHelper\DICTrait;
 
 /**
  * Class NumberInputGUI
  *
- * @package srag\CustomInputGUIs\SrGitlabHelper\SrProjectHelper\NumberInputGUI
+ * @package srag\CustomInputGUIs\SrProjectHelper\SrGitlabHelper\SrProjectHelper\NumberInputGUI
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

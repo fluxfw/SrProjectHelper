@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "srag\\ActiveRecordConfig\\SrGitlabHelper\\": "src/"
+      "srag\\ActiveRecordConfig\\SrProjectHelper\\SrGitlabHelper\\": "src/"
     }
   },
   "config": {

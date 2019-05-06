@@ -917,7 +917,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "srag\\ActiveRecordConfig\\SrGitlabHelper\\": "src/"
+                "srag\\ActiveRecordConfig\\SrProjectHelper\\SrGitlabHelper\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -964,7 +964,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "srag\\CustomInputGUIs\\SrGitlabHelper\\": "src/"
+                "srag\\CustomInputGUIs\\SrProjectHelper\\SrGitlabHelper\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -1012,7 +1012,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "srag\\DIC\\SrGitlabHelper\\": "src/"
+                "srag\\DIC\\SrProjectHelper\\SrGitlabHelper\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -1105,7 +1105,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "srag\\RemovePluginDataConfirm\\SrGitlabHelper\\": "src/"
+                "srag\\RemovePluginDataConfirm\\SrProjectHelper\\SrGitlabHelper\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",

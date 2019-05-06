@@ -1,13 +1,13 @@
 <?php
 
-namespace srag\RemovePluginDataConfirm\SrGitlabHelper\SrProjectHelper;
+namespace srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\SrProjectHelper;
 
-use srag\RemovePluginDataConfirm\SrGitlabHelper\SrProjectHelper\Exception\RemovePluginDataConfirmException;
+use srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\SrProjectHelper\Exception\RemovePluginDataConfirmException;
 
 /**
  * Trait PluginUninstallTrait
  *
- * @package srag\RemovePluginDataConfirm\SrGitlabHelper\SrProjectHelper
+ * @package srag\RemovePluginDataConfirm\SrProjectHelper\SrGitlabHelper\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

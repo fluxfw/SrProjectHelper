@@ -28,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "srag\\RemovePluginDataConfirm\\SrGitlabHelper\\": "src/"
+      "srag\\RemovePluginDataConfirm\\SrProjectHelper\\SrGitlabHelper\\": "src/"
     }
   },
   "config": {
