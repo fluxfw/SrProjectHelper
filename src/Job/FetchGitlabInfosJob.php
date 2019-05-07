@@ -89,7 +89,7 @@ class FetchGitlabInfosJob extends ilCronJob {
 	 * @return int
 	 */
 	public function getDefaultScheduleType(): int {
-		return self::SCHEDULE_TYPE_IN_HOURS;
+		return self::SCHEDULE_TYPE_DAILY;
 	}
 
 
@@ -99,7 +99,7 @@ class FetchGitlabInfosJob extends ilCronJob {
 	 * @return int|array
 	 */
 	public function getDefaultScheduleValue() {
-		return 1;
+		return null;
 	}
 
 
