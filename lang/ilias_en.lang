@@ -27,3 +27,4 @@ gitlab_plugin_project_maintainer_user_id#:#Maintainer user id
 gitlab_plugin_project_name#:#Name
 gitlab_plugin_project_task_title#:#Create gitlab plugin project "%s"
 gitlab_plugin_project_title#:#Create gitlab plugin project
+menu_title#:#srag projects

@@ -27,3 +27,4 @@ gitlab_plugin_project_maintainer_user_id#:#Maintainer-Benutzer-ID
 gitlab_plugin_project_name#:#Name
 gitlab_plugin_project_task_title#:#Gitlab-Plugin-Projekt "%s" erstellen
 gitlab_plugin_project_title#:#Gitlab-Plugin-Projekt erstellen
+menu_title#:#srag-Projekte

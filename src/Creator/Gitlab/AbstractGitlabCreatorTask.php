@@ -22,8 +22,9 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 	 * @param string $url
 	 * @param string $path
 	 * @param string $name
+	 * @param string $relative_path
 	 */
-	protected function addSubmodule(string $temp_folder, string $url, string $path, string $name)/*: void*/ {
+	protected function addSubmodule(string $temp_folder, string $url, string $path, string $name, string $relative_path)/*: void*/ {
 		$result = [];
 		exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b master " . escapeshellarg(Api::tokenRepoUrl($url)) . " "
 			. escapeshellarg($path) . " 2>&1", $result);
@@ -34,7 +35,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 		$result = [];
 		exec("git -C " . escapeshellarg($temp_folder) . " commit -m " . escapeshellarg($name . " plugin submodule") . " 2>&1", $result);
 
-		file_put_contents($temp_folder . "/.gitmodules", str_replace(Api::tokenRepoUrl($url), "../../../Plugins/" . $name
+		file_put_contents($temp_folder . "/.gitmodules", str_replace(Api::tokenRepoUrl($url), $relative_path . "/" . $name
 			. ".git", file_get_contents($temp_folder . "/.gitmodules")));
 
 		$result = [];

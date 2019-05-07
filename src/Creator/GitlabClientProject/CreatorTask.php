@@ -95,20 +95,20 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 				$plugin = Config::getField(Config::KEY_GITLAB_PLUGINS)[$plugin_name];
 
 				if ($plugin) {
-					$this->addSubmodule($temp_folder, $plugin["repo_http"], $plugin["install_path"], $plugin["name"]);
+					$this->addSubmodule($temp_folder, $plugin["repo_http"], $plugin["install_path"], $plugin["name"], "../../../Plugins");
 				}
 			};
 		}, $data["plugins"]), [], $data["skin"] ? array_merge($this->getStepsForNewPlugin("skin", function () use (&$group): int {
 			return $group->id;
 		}, $data["maintainer_user_id"], $skin_project), [
 			function ()/*: void*/ use (&$temp_folder, &$skin_project) {
-				$this->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin");
+				$this->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin", "..");
 			}
 		]) : [], $data["origins"] ? array_merge($this->getStepsForNewPlugin("origins", function () use (&$group): int {
 			return $group->id;
 		}, $data["maintainer_user_id"], $origins_project), [
 			function ()/*: void*/ use (&$temp_folder, &$origins_project) {
-				$this->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins");
+				$this->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins", "..");
 			}
 		]) : [], [
 			function () use (&$temp_folder)/*: void*/ {
