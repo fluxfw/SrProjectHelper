@@ -7,6 +7,7 @@ use ILIAS\BackgroundTasks\Implementation\Values\ScalarValues\StringValue;
 use ILIAS\BackgroundTasks\Observer;
 use ILIAS\BackgroundTasks\Types\SingleType;
 use ILIAS\BackgroundTasks\Types\Type;
+use ILIAS\BackgroundTasks\Value;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
@@ -23,14 +24,6 @@ abstract class AbstractCreatorTask extends AbstractJob {
 	use DICTrait;
 	use SrProjectHelperTrait;
 	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
-	/**
-	 * @var array
-	 */
-	protected $data = [];
-	/**
-	 * @var Observer|null
-	 */
-	protected $observer = null;
 
 
 	/**
@@ -68,12 +61,30 @@ abstract class AbstractCreatorTask extends AbstractJob {
 
 
 	/**
-	 * @param array    $input
-	 * @param Observer $observer
+	 * @inheritdoc
 	 */
-	protected function setData(array $input, Observer $observer)/*: void*/ {
-		$this->data = json_decode($input[0]->getValue(), true);
+	public function run(array $input, Observer $observer): Value {
+		$data = json_decode($input[0]->getValue(), true);
 
-		$this->observer = $observer;
+		$steps = $this->getSteps($data);
+
+		foreach ($steps as $i => $step) {
+			$step();
+
+			$observer->notifyPercentage($this, intval(($i + 1) / count($steps) * 100));
+		}
+
+		$output = new StringValue();
+		$output->setValue("");
+
+		return $output;
 	}
+
+
+	/**
+	 * @param array $data
+	 *
+	 * @return callable[]
+	 */
+	protected abstract function getSteps(array $data): array;
 }

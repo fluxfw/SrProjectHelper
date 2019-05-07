@@ -5,7 +5,7 @@ namespace srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject;
 // BackgroundTasks Bug
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
-use Gitlab\Model\Project;
+use srag\Plugins\HelpMe\Project\Project;
 use srag\Plugins\SrProjectHelper\Config\Config;
 use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorTask;
 
@@ -18,57 +18,34 @@ use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorTask;
  */
 class CreatorTask extends AbstractGitlabCreatorTask {
 
-	const STEPS = [ "createProject", "createDevelopBranch", "protectMasterBranch", "setDefaultMasterBranch", "setMaintainer", "useDeployKey" ];
-
-
 	/**
-	 *
+	 * @inheritdoc
 	 */
-	protected function createProject()/*: void*/ {
-		$this->project = Project::create(self::gitlab(), $this->data["name"], [
-			"default_branch" => "master",
-			"namespace_id" => Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID),
-			"path" => $this->data["name"],
-			"visibility" => "internal"
-		]);
-	}
+	protected function getSteps(array $data): array {
+		/**
+		 * @var Project|null
+		 */
+		$project = null;
 
-
-	/**
-	 *
-	 */
-	protected function createDevelopBranch()/*: void*/ {
-		$this->project->createBranch("develop", "master");
-	}
-
-
-	/**
-	 *
-	 */
-	protected function protectMasterBranch()/*: void*/ {
-		self::gitlab()->repositories()->protectBranch2($this->project->id, "master", [
-			"allowed_to_merge" => true,
-			"allowed_to_push" => false,
-			"merge_access_level" => 40,
-			"push_access_level" => 0
-		]);
-	}
-
-
-	/**
-	 *
-	 */
-	protected function setDefaultMasterBranch()/*: void*/ {
-		$this->project = $this->project->update([
-			"default_branch" => "master"
-		]);
-	}
-
-
-	/**
-	 *
-	 */
-	protected function setMaintainer()/*: void*/ {
-		$this->project->addMember($this->data["maintainer_user_id"], 40);
+		return [
+			function () use (&$data, &$project)/*: void*/ {
+				$project = $this->createProject($data["name"], Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID), "master");
+			},
+			function () use (&$project)/*: void*/ {
+				$this->createBranch($project, "develop", "master");
+			},
+			function () use (&$project)/*: void*/ {
+				$this->protectBranch($project, "master");
+			},
+			function () use (&$project)/*: void*/ {
+				$project = $this->setDefaultBranch($project, "master");
+			},
+			function () use (&$data, &$project)/*: void*/ {
+				$this->setMaintainer($project, $data["maintainer_user_id"]);
+			},
+			function () use (&$project)/*: void*/ {
+				$this->useDeployKey($project, Config::getField(Config::KEY_GITLAB_DEPLOY_KEY_ID));
+			}
+		];
 	}
 }
