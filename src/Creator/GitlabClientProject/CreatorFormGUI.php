@@ -2,6 +2,7 @@
 
 namespace srag\Plugins\SrProjectHelper\Creator\GitlabClientProject;
 
+use ilCheckboxInputGUI;
 use ilSelectInputGUI;
 use srag\CustomInputGUIs\SrProjectHelper\MultiSelectSearchInputGUI\MultiSelectSearchInputGUI;
 use srag\Plugins\SrProjectHelper\Config\Config;
@@ -38,6 +39,12 @@ class CreatorFormGUI extends AbstractGitlabCreatorFormGUI {
 				self::PROPERTY_OPTIONS => array_map(function (array $plugin): string {
 					return $plugin["name"];
 				}, Config::getField(Config::KEY_GITLAB_PLUGINS))
+			],
+			"skin" => [
+				self::PROPERTY_CLASS => ilCheckboxInputGUI::class
+			],
+			"origins" => [
+				self::PROPERTY_CLASS => ilCheckboxInputGUI::class
 			]
 		];
 	}

@@ -5,7 +5,7 @@ namespace srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject;
 // BackgroundTasks Bug
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
-use srag\Plugins\HelpMe\Project\Project;
+use Gitlab\Model\Project;
 use srag\Plugins\SrProjectHelper\Config\Config;
 use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorTask;
 
@@ -27,25 +27,8 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 		 */
 		$project = null;
 
-		return [
-			function () use (&$data, &$project)/*: void*/ {
-				$project = $this->createProject($data["name"], Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID), "master");
-			},
-			function () use (&$project)/*: void*/ {
-				$this->createBranch($project, "develop", "master");
-			},
-			function () use (&$project)/*: void*/ {
-				$this->protectBranch($project, "master");
-			},
-			function () use (&$project)/*: void*/ {
-				$project = $this->setDefaultBranch($project, "master");
-			},
-			function () use (&$data, &$project)/*: void*/ {
-				$this->setMaintainer($project, $data["maintainer_user_id"]);
-			},
-			function () use (&$project)/*: void*/ {
-				$this->useDeployKey($project, Config::getField(Config::KEY_GITLAB_DEPLOY_KEY_ID));
-			}
-		];
+		return $this->getStepsForNewPlugin($data["name"], function (): int {
+			return Config::getField(Config::KEY_GITLAB_PLUGINS_GROUP_ID);
+		}, $data["maintainer_user_id"], $project);
 	}
 }

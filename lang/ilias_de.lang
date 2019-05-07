@@ -12,15 +12,17 @@ config_save#:#Speichern
 cron_srprojecthelper_fetch_gitlab_infos#:#Gitlab-Infos holen
 cron_srprojecthelper_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste)
 gitlab_client_project_create#:#Erstellen
-gitlab_client_project_created#:#"%s" erstellt
+gitlab_client_project_created#:#Hintergrund-Task für "%s" erstellt
 gitlab_client_project_ilias_version#:#ILIAS-Version
 gitlab_client_project_maintainer_user_id#:#Maintainer-Benutzer-ID
 gitlab_client_project_name#:#Name
+gitlab_client_project_origins#:#Origins (Hub2)
 gitlab_client_project_plugins#:#Plugins
+gitlab_client_project_skin#:#Skin
 gitlab_client_project_task_title#:#Gitlab-Kunden-Projekt "%s" erstellen
 gitlab_client_project_title#:#Gitlab-Kunden-Projekt erstellen
 gitlab_plugin_project_create#:#Erstellen
-gitlab_plugin_project_created#:#"%s" erstellt
+gitlab_plugin_project_created#:#Hintergrund-Task für "%s" erstellt
 gitlab_plugin_project_maintainer_user_id#:#Maintainer-Benutzer-ID
 gitlab_plugin_project_name#:#Name
 gitlab_plugin_project_task_title#:#Gitlab-Plugin-Projekt "%s" erstellen

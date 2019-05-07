@@ -64,6 +64,8 @@ abstract class AbstractCreatorTask extends AbstractJob {
 	 * @inheritdoc
 	 */
 	public function run(array $input, Observer $observer): Value {
+		$output = new StringValue();
+
 		$data = json_decode($input[0]->getValue(), true);
 
 		$steps = $this->getSteps($data);
@@ -74,7 +76,6 @@ abstract class AbstractCreatorTask extends AbstractJob {
 			$observer->notifyPercentage($this, intval(($i + 1) / count($steps) * 100));
 		}
 
-		$output = new StringValue();
 		$output->setValue("");
 
 		return $output;

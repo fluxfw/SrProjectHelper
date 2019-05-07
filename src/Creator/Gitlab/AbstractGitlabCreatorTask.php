@@ -19,33 +19,29 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 
 	/**
 	 * @param string $temp_folder
-	 * @param string $plugin
+	 * @param string $url
+	 * @param string $path
+	 * @param string $name
 	 */
-	protected function addPluginsAsSubmodules(string $temp_folder, string $plugin)/*: void*/ {
-		$plugin = Config::getField(Config::KEY_GITLAB_PLUGINS)[$plugin];
+	protected function addSubmodule(string $temp_folder, string $url, string $path, string $name)/*: void*/ {
+		$result = [];
+		exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b master " . escapeshellarg(Api::tokenRepoUrl($url)) . " "
+			. escapeshellarg($path) . " 2>&1", $result);
 
-		if ($plugin) {
+		$result = [];
+		exec("git -C " . escapeshellarg($temp_folder) . " add . 2>&1", $result);
 
-			$result = [];
-			exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b master " . escapeshellarg(Api::tokenRepoUrl($plugin["repo_http"]))
-				. " " . escapeshellarg($plugin["install_path"]) . " 2>&1", $result);
+		$result = [];
+		exec("git -C " . escapeshellarg($temp_folder) . " commit -m " . escapeshellarg($name . " plugin submodule") . " 2>&1", $result);
 
-			$result = [];
-			exec("git -C " . escapeshellarg($temp_folder) . " add . 2>&1", $result);
+		file_put_contents($temp_folder . "/.gitmodules", str_replace(Api::tokenRepoUrl($url), "../../../Plugins/" . $name
+			. ".git", file_get_contents($temp_folder . "/.gitmodules")));
 
-			$result = [];
-			exec("git -C " . escapeshellarg($temp_folder) . " commit -m " . escapeshellarg($plugin["name"] . " plugin submodule") . " 2>&1", $result);
+		$result = [];
+		exec("git -C " . escapeshellarg($temp_folder) . " add . 2>&1", $result);
 
-			file_put_contents($temp_folder . "/.gitmodules", str_replace(Api::tokenRepoUrl($plugin["repo_http"]), "../../../Plugins/"
-				. $plugin["name"] . ".git", file_get_contents($temp_folder . "/.gitmodules")));
-
-			$result = [];
-			exec("git -C " . escapeshellarg($temp_folder) . " add . 2>&1", $result);
-
-			$result = [];
-			exec("git -C " . escapeshellarg($temp_folder) . " commit --amend -m " . escapeshellarg($plugin["name"] . " plugin submodule")
-				. " 2>&1", $result);
-		}
+		$result = [];
+		exec("git -C " . escapeshellarg($temp_folder) . " commit --amend -m " . escapeshellarg($name . " plugin submodule") . " 2>&1", $result);
 	}
 
 
@@ -61,11 +57,11 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 	/**
 	 * @param string  $temp_folder
 	 * @param Project $project
-	 * @param string  $branch
+	 * @param string  $ilias_version
 	 */
-	protected function cloneILIAS(string $temp_folder, Project $project, string $branch)/*: void*/ {
+	protected function cloneILIAS(string $temp_folder, Project $project, string $ilias_version)/*: void*/ {
 		$result = [];
-		exec("git clone -b " . escapeshellarg(Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$branch]["custom_name"]) . " "
+		exec("git clone -b " . escapeshellarg(Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
 			. escapeshellarg(Api::tokenRepoUrl($project->http_url_to_repo)) . " " . escapeshellarg($temp_folder) . " 2>&1", $result);
 
 		$result = [];
@@ -77,7 +73,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 		exec("git -C " . escapeshellarg($temp_folder) . " fetch temp 2>&1", $result);
 
 		$result = [];
-		exec("git -C " . escapeshellarg($temp_folder) . " merge " . escapeshellarg("temp/" . $branch) . " 2>&1", $result);
+		exec("git -C " . escapeshellarg($temp_folder) . " merge " . escapeshellarg("temp/" . $ilias_version) . " 2>&1", $result);
 
 		$result = [];
 		exec("git -C " . escapeshellarg($temp_folder) . " remote remove temp 2>&1", $result);
@@ -119,6 +115,39 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 			"path" => $name,
 			"visibility" => "internal"
 		]);
+	}
+
+
+	/**
+	 * @param string       $name
+	 * @param callable     $get_namespace_id
+	 * @param int          $maintainer_user_id
+	 * @param Project|null $project
+	 *
+	 * @return callable[]
+	 */
+	protected function getStepsForNewPlugin(string $name, callable $get_namespace_id, int $maintainer_user_id,/*?*/
+		&$project = null): array {
+		return [
+			function () use (&$name, &$get_namespace_id, &$project)/*: void*/ {
+				$project = $this->createProject($name, $get_namespace_id(), "master");
+			},
+			function () use (&$project)/*: void*/ {
+				$this->createBranch($project, "develop", "master");
+			},
+			function () use (&$project)/*: void*/ {
+				$this->protectBranch($project, "master");
+			},
+			function () use (&$project)/*: void*/ {
+				$project = $this->setDefaultBranch($project, "master");
+			},
+			function () use (&$maintainer_user_id, &$project)/*: void*/ {
+				$this->setMaintainer($project, $maintainer_user_id);
+			},
+			function () use (&$project)/*: void*/ {
+				$this->useDeployKey($project, Config::getField(Config::KEY_GITLAB_DEPLOY_KEY_ID));
+			}
+		];
 	}
 
 

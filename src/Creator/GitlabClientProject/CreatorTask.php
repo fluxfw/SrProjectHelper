@@ -35,6 +35,14 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 		 * @var string
 		 */
 		$temp_folder = null;
+		/**
+		 * @var Project|null
+		 */
+		$skin_project = null;
+		/**
+		 * @var Project|null
+		 */
+		$origins_project = null;
 
 		return array_merge([
 			function () use (&$data, &$group)/*: void*/ {
@@ -53,7 +61,16 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 				$this->removeBranch($project, "master");
 			},
 			function () use (&$data, &$project)/*: void*/ {
+				$this->createBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"], Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
+			},
+			function () use (&$data, &$project)/*: void*/ {
+				$this->createBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"], Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
+			},
+			function () use (&$data, &$project)/*: void*/ {
 				$this->protectBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
+			},
+			function () use (&$data, &$project)/*: void*/ {
+				$this->protectBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
 			},
 			function () use (&$data, &$project)/*: void*/ {
 				$this->setMaintainer($project, $data["maintainer_user_id"]);
@@ -73,25 +90,32 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 			function () use (&$temp_folder)/*: void*/ {
 				$this->notIgnoreCustomizingFolder($temp_folder);
 			}
-		], array_map(function (string $plugin): callable {
-			return function ()/*: void*/ use (&$temp_folder, &$plugin) {
-				$this->addPluginsAsSubmodules($temp_folder, $plugin);
+		], array_map(function (string $plugin_name) use (&$temp_folder): callable {
+			return function ()/*: void*/ use (&$temp_folder, &$plugin_name) {
+				$plugin = Config::getField(Config::KEY_GITLAB_PLUGINS)[$plugin_name];
+
+				if ($plugin) {
+					$this->addSubmodule($temp_folder, $plugin["repo_http"], $plugin["install_path"], $plugin["name"]);
+				}
 			};
-		}, $data["plugins"]), [
+		}, $data["plugins"]), [], $data["skin"] ? array_merge($this->getStepsForNewPlugin("skin", function () use (&$group): int {
+			return $group->id;
+		}, $data["maintainer_user_id"], $skin_project), [
+			function ()/*: void*/ use (&$temp_folder, &$skin_project) {
+				$this->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin");
+			}
+		]) : [], $data["origins"] ? array_merge($this->getStepsForNewPlugin("origins", function () use (&$group): int {
+			return $group->id;
+		}, $data["maintainer_user_id"], $origins_project), [
+			function ()/*: void*/ use (&$temp_folder, &$origins_project) {
+				$this->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins");
+			}
+		]) : [], [
 			function () use (&$temp_folder)/*: void*/ {
 				$this->push($temp_folder);
 			},
 			function () use (&$temp_folder)/*: void*/ {
 				$this->cleanTempFolder($temp_folder);
-			},
-			function () use (&$data, &$project)/*: void*/ {
-				$this->createBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"], Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
-			},
-			function () use (&$data, &$project)/*: void*/ {
-				$this->protectBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
-			},
-			function () use (&$data, &$project)/*: void*/ {
-				$this->createBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"], Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
 			}
 		]);
 	}
