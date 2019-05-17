@@ -16,8 +16,7 @@ class Client extends GitlabClient {
 	/**
 	 * @inheritdoc
 	 */
-	public static function create(/*string*/
-		$url): self {
+	public static function create(/*string*/ $url): self {
 		$client = new self();
 
 		$client->setUrl($url);

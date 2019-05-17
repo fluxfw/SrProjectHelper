@@ -71,8 +71,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin {
 	 *
 	 * @return ilCronJob|null
 	 */
-	public function getCronJobInstance(/*string*/
-		$a_job_id)/*: ?ilCronJob*/ {
+	public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/ {
 		switch ($a_job_id) {
 			case FetchGitlabInfosJob::CRON_JOB_ID:
 				return new FetchGitlabInfosJob();

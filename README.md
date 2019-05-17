@@ -12,18 +12,9 @@ Update and activate the plugin in the ILIAS Plugin Administration
 ### Some screenshots
 TODO
 
-### Dependencies
+### Requirements
 * ILIAS 5.4
 * PHP >=7.0
-* [composer](https://getcomposer.org)
-* [m4tthumphrey/php-gitlab-api](https://packagist.org/packages/m4tthumphrey/php-gitlab-api)
-* [srag/activerecordconfig](https://packagist.org/packages/srag/activerecordconfig)
-* [srag/custominputguis](https://packagist.org/packages/srag/custominputguis)
-* [srag/dic](https://packagist.org/packages/srag/dic)
-* [srag/librariesnamespacechanger](https://packagist.org/packages/srag/librariesnamespacechanger)
-* [srag/removeplugindataconfirm](https://packagist.org/packages/srag/removeplugindataconfirm)
-
-Please use it for further development!
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests
