@@ -67,10 +67,13 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 				$this->createBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"], Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
 			},
 			function () use (&$data, &$project)/*: void*/ {
-				$this->protectBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
+				$this->protectMasterBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
 			},
 			function () use (&$data, &$project)/*: void*/ {
-				$this->protectBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
+				$this->protectMasterBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
+			},
+			function () use (&$data, &$project)/*: void*/ {
+				$this->protectDevelopBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"]);
 			},
 			function () use (&$data, &$project)/*: void*/ {
 				$this->setMaintainer($project, $data["maintainer_user_id"]);
@@ -98,15 +101,15 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 					$this->addSubmodule($temp_folder, $plugin["repo_http"], $plugin["install_path"], $plugin["name"], "../../../Plugins");
 				}
 			};
-		}, $data["plugins"]), [], $data["skin"] ? array_merge($this->getStepsForNewPlugin("skin", function () use (&$group): int {
+		}, $data["plugins"]), $data["skin"] ? array_merge($this->getStepsForNewPlugin("skin", function () use (&$group): int {
 			return $group->id;
-		}, $data["maintainer_user_id"], $skin_project), [
+		}, $data["maintainer_user_id"], $skin_project, true), [
 			function ()/*: void*/ use (&$temp_folder, &$skin_project) {
 				$this->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin", "..");
 			}
 		]) : [], $data["origins"] ? array_merge($this->getStepsForNewPlugin("origins", function () use (&$group): int {
 			return $group->id;
-		}, $data["maintainer_user_id"], $origins_project), [
+		}, $data["maintainer_user_id"], $origins_project, true), [
 			function ()/*: void*/ use (&$temp_folder, &$origins_project) {
 				$this->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins", "..");
 			}

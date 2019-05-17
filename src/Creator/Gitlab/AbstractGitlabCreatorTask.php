@@ -124,12 +124,12 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 	 * @param callable     $get_namespace_id
 	 * @param int          $maintainer_user_id
 	 * @param Project|null $project
+	 * @param bool         $protect_develop_branch
 	 *
 	 * @return callable[]
 	 */
-	protected function getStepsForNewPlugin(string $name, callable $get_namespace_id, int $maintainer_user_id,/*?*/
-		&$project = null): array {
-		return [
+	protected function getStepsForNewPlugin(string $name, callable $get_namespace_id, int $maintainer_user_id,/*?*/ &$project = null, bool $protect_develop_branch = false): array {
+		return array_merge([
 			function () use (&$name, &$get_namespace_id, &$project)/*: void*/ {
 				$project = $this->createProject($name, $get_namespace_id(), "master");
 			},
@@ -137,8 +137,13 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 				$this->createBranch($project, "develop", "master");
 			},
 			function () use (&$project)/*: void*/ {
-				$this->protectBranch($project, "master");
-			},
+				$this->protectMasterBranch($project, "master");
+			}
+		], $protect_develop_branch ? [
+			function () use (&$project)/*: void*/ {
+				$this->protectDevelopBranch($project, "develop");
+			}
+		] : [], [
 			function () use (&$project)/*: void*/ {
 				$project = $this->setDefaultBranch($project, "master");
 			},
@@ -148,7 +153,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 			function () use (&$project)/*: void*/ {
 				$this->useDeployKey($project, Config::getField(Config::KEY_GITLAB_DEPLOY_KEY_ID));
 			}
-		];
+		]);
 	}
 
 
@@ -171,12 +176,26 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 	 * @param Project $project
 	 * @param string  $branch
 	 */
-	protected function protectBranch(Project $project, string $branch)/*: void*/ {
+	protected function protectMasterBranch(Project $project, string $branch)/*: void*/ {
 		self::gitlab()->repositories()->protectBranch2($project->id, $branch, [
 			"allowed_to_merge" => true,
 			"allowed_to_push" => false,
 			"merge_access_level" => 40,
 			"push_access_level" => 0
+		]);
+	}
+
+
+	/**
+	 * @param Project $project
+	 * @param string  $branch
+	 */
+	protected function protectDevelopBranch(Project $project, string $branch)/*: void*/ {
+		self::gitlab()->repositories()->protectBranch2($project->id, $branch, [
+			"allowed_to_merge" => true,
+			"allowed_to_push" => true,
+			"merge_access_level" => 40,
+			"push_access_level" => 40
 		]);
 	}
 

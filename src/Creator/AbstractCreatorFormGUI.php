@@ -27,8 +27,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI {
 	/**
 	 * @inheritdoc
 	 */
-	protected function getValue(/*string*/
-		$key) {
+	protected function getValue(/*string*/ $key) {
 		switch ($key) {
 			default:
 				if (isset($this->data[$key])) {
@@ -81,8 +80,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI {
 	/**
 	 * @inheritdoc
 	 */
-	protected function storeValue(/*string*/
-		$key, $value)/*: void*/ {
+	protected function storeValue(/*string*/ $key, $value)/*: void*/ {
 		switch ($key) {
 			default:
 				$this->data[$key] = $value;

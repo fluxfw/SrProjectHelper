@@ -26,8 +26,7 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 	/**
 	 * @inheritdoc
 	 */
-	protected function getValue(/*string*/
-		$key) {
+	protected function getValue(/*string*/ $key) {
 		switch ($key) {
 			default:
 				return parent::getValue($key);
@@ -77,8 +76,7 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 	/**
 	 * @inheritdoc
 	 */
-	protected function storeValue(/*string*/
-		$key, $value)/*: void*/ {
+	protected function storeValue(/*string*/ $key, $value)/*: void*/ {
 		switch ($key) {
 			case Config::KEY_ROLES:
 				if ($value[0] === "") {
