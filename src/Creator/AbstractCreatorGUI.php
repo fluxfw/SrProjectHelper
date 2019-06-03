@@ -104,7 +104,7 @@ abstract class AbstractCreatorGUI {
 	protected function buildAndRunTask(array $data)/*: void*/ {
 		$bucket = new BasicBucket();
 
-		$bucket->setUserId(self::dic()->user()->getId());
+		$bucket->setUserId(self::ilias()->users()->getUserId());
 
 		$task = self::dic()->backgroundTasks()->taskFactory()->createTask($this->getTaskClass(), [ json_encode($data) ]);
 

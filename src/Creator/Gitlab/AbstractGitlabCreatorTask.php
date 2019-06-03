@@ -122,13 +122,13 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 	/**
 	 * @param string       $name
 	 * @param callable     $get_namespace_id
-	 * @param int          $maintainer_user_id
+	 * @param int          $maintainer_user
 	 * @param Project|null $project
 	 * @param bool         $protect_develop_branch
 	 *
 	 * @return callable[]
 	 */
-	protected function getStepsForNewPlugin(string $name, callable $get_namespace_id, int $maintainer_user_id,/*?*/ &$project = null, bool $protect_develop_branch = false): array {
+	protected function getStepsForNewPlugin(string $name, callable $get_namespace_id, int $maintainer_user,/*?*/ &$project = null, bool $protect_develop_branch = false): array {
 		return array_merge([
 			function () use (&$name, &$get_namespace_id, &$project)/*: void*/ {
 				$project = $this->createProject($name, $get_namespace_id(), "master");
@@ -147,8 +147,8 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 			function () use (&$project)/*: void*/ {
 				$project = $this->setDefaultBranch($project, "master");
 			},
-			function () use (&$maintainer_user_id, &$project)/*: void*/ {
-				$this->setMaintainer($project, $maintainer_user_id);
+			function () use (&$maintainer_user, &$project)/*: void*/ {
+				$this->setMaintainer($project, $maintainer_user);
 			},
 			function () use (&$project)/*: void*/ {
 				$this->useDeployKey($project, Config::getField(Config::KEY_GITLAB_DEPLOY_KEY_ID));
@@ -235,10 +235,10 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask {
 
 	/**
 	 * @param Project $project
-	 * @param int     $maintainer_user_id
+	 * @param int     $maintainer_user
 	 */
-	protected function setMaintainer(Project $project, int $maintainer_user_id)/*: void*/ {
-		$project->addMember($maintainer_user_id, 40);
+	protected function setMaintainer(Project $project, int $maintainer_user)/*: void*/ {
+		$project->addMember($maintainer_user, 40);
 	}
 
 

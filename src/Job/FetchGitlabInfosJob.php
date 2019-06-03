@@ -129,7 +129,7 @@ class FetchGitlabInfosJob extends ilCronJob {
 
 			return $ilias_versions;
 		}, []);
-		krsort($ilias_versions);
+		uasort($ilias_versions, [ $this, "sortHelper" ]);
 		Config::setField(Config::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
 
 		$plugins = array_reduce(Api::pageHelper(function (array $options): array {
@@ -166,11 +166,50 @@ class FetchGitlabInfosJob extends ilCronJob {
 
 			return $plugins;
 		}, []);
-		ksort($plugins);
+		uasort($plugins, [ $this, "sortHelper" ]);
 		Config::setField(Config::KEY_GITLAB_PLUGINS, $plugins);
+
+		$groups = array_reduce(Api::pageHelper(function (array $options): array {
+			return self::gitlab()->groups()->all($options);
+		}), function (array $groups, array $group): array {
+			$groups[$group["id"]] = [
+				"name" => $group["full_path"]
+			];
+
+			return $groups;
+		}, []);
+		uasort($groups, [ $this, "sortHelper" ]);
+		Config::setField(Config::KEY_GITLAB_GROUPS, $groups);
+
+		$users = array_reduce(Api::pageHelper(function (array $options): array {
+			return self::gitlab()->users()->all($options);
+		}), function (array $users, array $user): array {
+			$users[$user["id"]] = [
+				"email" => $user["email"],
+				"name" => $user["name"]
+			];
+
+			return $users;
+		}, []);
+		uasort($users, [ $this, "sortHelper" ]);
+		Config::setField(Config::KEY_GITLAB_USERS, $users);
 
 		$result->setStatus(ilCronJobResult::STATUS_OK);
 
 		return $result;
+	}
+
+
+	/**
+	 * @param array $a1
+	 * @param array $a2
+	 *
+	 * @return int
+	 */
+	protected function sortHelper(array $a1, array $a2): int {
+		$n1 = $a1["name"];
+		$n2 = $a2["name"];
+
+		return strnatcasecmp($n1, $n2);
 	}
 }

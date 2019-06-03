@@ -29,9 +29,9 @@ class CreatorFormGUI extends AbstractGitlabCreatorFormGUI {
 		$this->fields += [
 			"ilias_version" => [
 				self::PROPERTY_CLASS => ilSelectInputGUI::class,
-				self::PROPERTY_OPTIONS => array_map(function (array $ilias_version): string {
-					return $ilias_version["name"];
-				}, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)),
+				self::PROPERTY_OPTIONS => [ "" => "" ] + array_map(function (array $ilias_version): string {
+						return $ilias_version["name"];
+					}, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)),
 				self::PROPERTY_REQUIRED => true
 			],
 			"plugins" => [

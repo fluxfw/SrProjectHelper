@@ -4,6 +4,7 @@ namespace srag\Plugins\SrProjectHelper\Config;
 
 use ilMultiSelectInputGUI;
 use ilNumberInputGUI;
+use ilPasswordInputGUI;
 use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
 use srag\ActiveRecordConfig\SrProjectHelper\ActiveRecordConfigFormGUI;
@@ -44,8 +45,9 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI {
 				self::PROPERTY_REQUIRED => true
 			],
 			Config::KEY_GITLAB_ACCESS_TOKEN => [
-				self::PROPERTY_CLASS => ilTextInputGUI::class,
-				self::PROPERTY_REQUIRED => true
+				self::PROPERTY_CLASS => ilPasswordInputGUI::class,
+				self::PROPERTY_REQUIRED => true,
+				"setRetype" => false
 			],
 			Config::KEY_GITLAB_CLIENTS_GROUP_ID => [
 				self::PROPERTY_CLASS => ilNumberInputGUI::class,

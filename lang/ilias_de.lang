@@ -10,11 +10,11 @@ config_roles#:#Rollen
 config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
 config_save#:#Speichern
 cron_srprojecthelper_fetch_gitlab_infos#:#Gitlab-Infos holen
-cron_srprojecthelper_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste)
+cron_srprojecthelper_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste, Gruppen, Benutzer)
 gitlab_client_project_create#:#Erstellen
 gitlab_client_project_created#:#Hintergrund-Task für "%s" erstellt
 gitlab_client_project_ilias_version#:#ILIAS-Version
-gitlab_client_project_maintainer_user_id#:#Maintainer-Benutzer-ID
+gitlab_client_project_maintainer_user#:#Maintainer-Benutzer
 gitlab_client_project_name#:#Name
 gitlab_client_project_origins#:#Origins (Hub2)
 gitlab_client_project_plugins#:#Plugins
@@ -23,8 +23,10 @@ gitlab_client_project_task_title#:#Gitlab-Kunden-Projekt "%s" erstellen
 gitlab_client_project_title#:#Gitlab-Kunden-Projekt erstellen
 gitlab_plugin_project_create#:#Erstellen
 gitlab_plugin_project_created#:#Hintergrund-Task für "%s" erstellt
-gitlab_plugin_project_maintainer_user_id#:#Maintainer-Benutzer-ID
+gitlab_plugin_project_group#:#Gruppe
+gitlab_plugin_project_maintainer_user#:#Maintainer-Benutzer
+gitlab_plugin_project_mantainer_user_not_found#:#Für den aktuellen ILIAS-Benutzer wurde kein gitlab-Benutzer gefunden\nBitte erstelle dir einen eigenen ILIAS-Benutzer mit der selben E-Mail, die du auf gitlab verwendest und weise ihn der Mitarbeiter-Rolle zu
 gitlab_plugin_project_name#:#Name
-gitlab_plugin_project_task_title#:#Gitlab-Plugin-Projekt "%s" erstellen
-gitlab_plugin_project_title#:#Gitlab-Plugin-Projekt erstellen
+gitlab_plugin_project_task_title#:#Gitlab-Plugin/Library-Projekt "%s" erstellen
+gitlab_plugin_project_title#:#Gitlab-Plugin/Library-Projekt erstellen
 menu_title#:#srag-Projekte
