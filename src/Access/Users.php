@@ -2,8 +2,10 @@
 
 namespace srag\Plugins\SrProjectHelper\Access;
 
+use ilObjUser;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Config\Config;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -41,6 +43,36 @@ final class Users {
 	 */
 	private function __construct() {
 
+	}
+
+
+	/**
+	 * @param string $email
+	 *
+	 * @return bool
+	 */
+	public function existsUserByEmail(string $email): bool {
+		return (count(ilObjUser::getUserLoginsByEmail($email)) > 0);
+	}
+
+
+	/**
+	 * @return int|null
+	 */
+	public function getGitlabUserId()/*: ?int*/ {
+		return key(array_filter($this->getGitlabUsers(), function (array $user): bool {
+			return ($user["email"] === self::dic()->user()->getEmail());
+		}));
+	}
+
+
+	/**
+	 * @return array
+	 */
+	public function getGitlabUsers(): array {
+		return array_filter(Config::getField(Config::KEY_GITLAB_USERS), function (array $user): bool {
+			return $this->existsUserByEmail($user["email"]);
+		});
 	}
 
 

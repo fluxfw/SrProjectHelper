@@ -76,7 +76,7 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 				$this->protectDevelopBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"]);
 			},
 			function () use (&$data, &$project)/*: void*/ {
-				$this->setMaintainer($project, $data["maintainer_user_id"]);
+				$this->setMaintainer($project, $data["maintainer_user"]);
 			},
 			function () use (&$project)/*: void*/ {
 				$this->useDeployKey($project, Config::getField(Config::KEY_GITLAB_DEPLOY_KEY_ID));
@@ -103,13 +103,13 @@ class CreatorTask extends AbstractGitlabCreatorTask {
 			};
 		}, $data["plugins"]), $data["skin"] ? array_merge($this->getStepsForNewPlugin("skin", function () use (&$group): int {
 			return $group->id;
-		}, $data["maintainer_user_id"], $skin_project, true), [
+		}, $data["maintainer_user"], $skin_project, true), [
 			function ()/*: void*/ use (&$temp_folder, &$skin_project) {
 				$this->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin", "..");
 			}
 		]) : [], $data["origins"] ? array_merge($this->getStepsForNewPlugin("origins", function () use (&$group): int {
 			return $group->id;
-		}, $data["maintainer_user_id"], $origins_project, true), [
+		}, $data["maintainer_user"], $origins_project, true), [
 			function ()/*: void*/ use (&$temp_folder, &$origins_project) {
 				$this->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins", "..");
 			}
