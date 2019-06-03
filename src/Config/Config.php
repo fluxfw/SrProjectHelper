@@ -24,6 +24,7 @@ class Config extends ActiveRecordConfig {
 	const KEY_GITLAB_GROUPS = "gitlab_groups";
 	const KEY_GITLAB_ILIAS_PROJECT_ID = "gitlab_ilias_project_id";
 	const KEY_GITLAB_ILIAS_VERSIONS = "gitlab_ilias_versions";
+	const KEY_GITLAB_MEMBERS_GROUP_ID = "gitlab_members_group_id";
 	const KEY_GITLAB_PLUGINS = "gitlab_plugins";
 	const KEY_GITLAB_PLUGINS_GROUP_ID = "gitlab_plugins_group_id";
 	const KEY_GITLAB_URL = "gitlab_url";
@@ -39,6 +40,7 @@ class Config extends ActiveRecordConfig {
 		self::KEY_GITLAB_GROUPS => [ self::TYPE_JSON, [], true ],
 		self::KEY_GITLAB_ILIAS_PROJECT_ID => self::TYPE_INTEGER,
 		self::KEY_GITLAB_ILIAS_VERSIONS => [ self::TYPE_JSON, [], true ],
+		self::KEY_GITLAB_MEMBERS_GROUP_ID => self::TYPE_INTEGER,
 		self::KEY_GITLAB_PLUGINS => [ self::TYPE_JSON, [], true ],
 		self::KEY_GITLAB_PLUGINS_GROUP_ID => self::TYPE_INTEGER,
 		self::KEY_GITLAB_URL => self::TYPE_STRING,

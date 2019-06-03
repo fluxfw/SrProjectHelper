@@ -182,8 +182,10 @@ class FetchGitlabInfosJob extends ilCronJob {
 		Config::setField(Config::KEY_GITLAB_GROUPS, $groups);
 
 		$users = array_reduce(Api::pageHelper(function (array $options): array {
-			return self::gitlab()->users()->all($options);
-		}), function (array $users, array $user): array {
+			return self::gitlab()->groups()->members(Config::getField(Config::KEY_GITLAB_MEMBERS_GROUP_ID), $options);
+		}), function (array $users, array $member): array {
+			$user = self::gitlab()->users()->show($member["id"]);
+
 			$users[$user["id"]] = [
 				"email" => $user["email"],
 				"name" => $user["name"]
