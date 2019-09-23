@@ -72,7 +72,7 @@ class DownloadOutputTask extends AbstractUserInteraction
     {
         switch ($user_selected_option->getValue()) {
             case self::CMD_DOWNLOAD:
-                $filename = "get_members_of_project_" . time() . ".csv";
+                $filename = "members_of_project_" . time() . ".csv";
 
                 $stream = new Stream(fopen("php://memory", "rw"));
                 $stream->write($input[0]->getValue());
