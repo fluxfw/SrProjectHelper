@@ -11,15 +11,17 @@ use ilException;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class SrProjectHelperException extends ilException {
+class SrProjectHelperException extends ilException
+{
 
-	/**
-	 * SrProjectHelperException constructor
-	 *
-	 * @param string $message
-	 * @param int    $code
-	 */
-	public function __construct(string $message, int $code = 0) {
-		parent::__construct($message, $code);
-	}
+    /**
+     * SrProjectHelperException constructor
+     *
+     * @param string $message
+     * @param int    $code
+     */
+    public function __construct(string $message, int $code = 0)
+    {
+        parent::__construct($message, $code);
+    }
 }

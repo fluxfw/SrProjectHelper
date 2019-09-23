@@ -11,24 +11,27 @@ use Gitlab\Client as GitlabClient;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class Client extends GitlabClient {
+class Client extends GitlabClient
+{
 
-	/**
-	 * @inheritdoc
-	 */
-	public static function create(/*string*/ $url): self {
-		$client = new self();
+    /**
+     * @inheritdoc
+     */
+    public static function create(/*string*/ $url) : self
+    {
+        $client = new self();
 
-		$client->setUrl($url);
+        $client->setUrl($url);
 
-		return $client;
-	}
+        return $client;
+    }
 
 
-	/**
-	 * @inheritdoc
-	 */
-	public function repositories(): Repositories {
-		return new Repositories($this);
-	}
+    /**
+     * @inheritdoc
+     */
+    public function repositories() : Repositories
+    {
+        return new Repositories($this);
+    }
 }

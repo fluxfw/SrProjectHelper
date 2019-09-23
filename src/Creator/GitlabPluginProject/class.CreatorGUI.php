@@ -17,25 +17,28 @@ use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorGUI;
  *
  * @ilCtrl_isCalledBy srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI: ilUIPluginRouterGUI
  */
-class CreatorGUI extends AbstractCreatorGUI {
+class CreatorGUI extends AbstractCreatorGUI
+{
 
-	const LANG_MODULE = "gitlab_plugin_project";
-
-
-	/**
-	 * @inheritdoc
-	 */
-	protected function getCreatorForm(): AbstractCreatorFormGUI {
-		$form = new CreatorFormGUI($this);
-
-		return $form;
-	}
+    const LANG_MODULE = "gitlab_plugin_project";
 
 
-	/**
-	 * @inheritdoc
-	 */
-	protected function getTaskClass(): string {
-		return CreatorTask::class;
-	}
+    /**
+     * @inheritdoc
+     */
+    protected function getCreatorForm() : AbstractCreatorFormGUI
+    {
+        $form = new CreatorFormGUI($this);
+
+        return $form;
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    protected function getTaskClass() : string
+    {
+        return CreatorTask::class;
+    }
 }
