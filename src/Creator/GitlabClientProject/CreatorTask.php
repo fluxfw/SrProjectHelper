@@ -126,4 +126,13 @@ class CreatorTask extends AbstractGitlabCreatorTask
             }
         ]);
     }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getOutput2() : string
+    {
+        return "";
+    }
 }

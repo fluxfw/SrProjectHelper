@@ -8,6 +8,7 @@ use ilUIPluginRouterGUI;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
+use srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview\CreatorGUI as GitlabProjectMembersOverviewGUI;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -65,7 +66,14 @@ class Menu extends AbstractStaticPluginMainMenuProvider
                     ->translate("title", GitlabPluginProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
                     ilUIPluginRouterGUI::class,
                     GitlabPluginProjectCreatorGUI::class
-                ], GitlabPluginProjectCreatorGUI::CMD_FORM))
+                ], GitlabPluginProjectCreatorGUI::CMD_FORM)),
+            self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
+                ->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_project_members_overview"))
+                ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
+                    ->translate("title", GitlabProjectMembersOverviewGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
+                    ilUIPluginRouterGUI::class,
+                    GitlabProjectMembersOverviewGUI::class
+                ], GitlabProjectMembersOverviewGUI::CMD_CREATE))
         ];
     }
 }

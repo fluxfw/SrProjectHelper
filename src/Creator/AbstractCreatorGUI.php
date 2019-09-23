@@ -114,6 +114,10 @@ abstract class AbstractCreatorGUI
 
         $task = self::dic()->backgroundTasks()->taskFactory()->createTask($this->getTaskClass(), [json_encode($data)]);
 
+        if ($this->shouldDownloadOutput()) {
+            $task = self::dic()->backgroundTasks()->taskFactory()->createTask(DownloadOutputTask::class, [$task]);
+        }
+
         $bucket->setTask($task);
         $bucket->setTitle(self::plugin()->translate("task_title", static::LANG_MODULE, [$data["name"]]));
 
@@ -131,4 +135,10 @@ abstract class AbstractCreatorGUI
      * @return string
      */
     protected abstract function getTaskClass() : string;
+
+
+    /**
+     * @return bool
+     */
+    protected abstract function shouldDownloadOutput() : bool;
 }

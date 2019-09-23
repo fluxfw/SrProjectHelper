@@ -28,6 +28,7 @@ class Config extends ActiveRecordConfig
     const KEY_GITLAB_MEMBERS_GROUP_ID = "gitlab_members_group_id";
     const KEY_GITLAB_PLUGINS = "gitlab_plugins";
     const KEY_GITLAB_PLUGINS_GROUP_ID = "gitlab_plugins_group_id";
+    const KEY_GITLAB_PROJECTS = "gitlab_projects";
     const KEY_GITLAB_URL = "gitlab_url";
     const KEY_GITLAB_USERS = "gitlab_users";
     const KEY_ROLES = "roles";
@@ -45,6 +46,7 @@ class Config extends ActiveRecordConfig
             self::KEY_GITLAB_MEMBERS_GROUP_ID => self::TYPE_INTEGER,
             self::KEY_GITLAB_PLUGINS          => [self::TYPE_JSON, [], true],
             self::KEY_GITLAB_PLUGINS_GROUP_ID => self::TYPE_INTEGER,
+            self::KEY_GITLAB_PROJECTS         => [self::TYPE_JSON, [], true],
             self::KEY_GITLAB_URL              => self::TYPE_STRING,
             self::KEY_GITLAB_USERS            => [self::TYPE_JSON, [], true],
             self::KEY_ROLES                   => [self::TYPE_JSON, []]

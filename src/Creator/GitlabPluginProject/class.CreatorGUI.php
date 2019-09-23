@@ -41,4 +41,13 @@ class CreatorGUI extends AbstractCreatorGUI
     {
         return CreatorTask::class;
     }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function shouldDownloadOutput() : bool
+    {
+        return false;
+    }
 }

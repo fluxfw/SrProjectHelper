@@ -30,4 +30,7 @@ gitlab_plugin_project_mantainer_user_not_found#:#No gitlab user was found for th
 gitlab_plugin_project_name#:#Name
 gitlab_plugin_project_task_title#:#Create gitlab plugin/library project "%s"
 gitlab_plugin_project_title#:#Create gitlab plugin/library project
+gitlab_project_members_overview_created#:#Background task created for "%s"
+gitlab_project_members_overview_task_title#:#Create list of all gitlab projects and its members
+gitlab_project_members_overview_title#:#Create list of all gitlab projects and its members
 menu_title#:#srag projects

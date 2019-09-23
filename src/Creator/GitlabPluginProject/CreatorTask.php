@@ -32,4 +32,13 @@ class CreatorTask extends AbstractGitlabCreatorTask
             return intval($data["group"]);
         }, $data["maintainer_user"], $project);
     }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getOutput2() : string
+    {
+        return "";
+    }
 }

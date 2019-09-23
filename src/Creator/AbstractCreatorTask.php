@@ -82,9 +82,33 @@ abstract class AbstractCreatorTask extends AbstractJob
             $observer->notifyPercentage($this, intval(($i + 1) / count($steps) * 100));
         }
 
-        $output->setValue("");
+        $output->setValue($this->getOutput2());
 
         return $output;
+    }
+
+
+    /**
+     * @param array $header
+     * @param array $rows
+     *
+     * @return string
+     */
+    protected function csv(array $header, array $rows) : string
+    {
+        return implode("\n", array_map(function ($columns) : string {
+            if (is_array($columns)) {
+                return implode(";", array_map(function ($column) : string {
+                    if (is_array($column)) {
+                        return '"' . implode("\n", $column) . '"';
+                    } else {
+                        return '"' . strval($column) . '"';
+                    }
+                }, $columns));
+            } else {
+                return '"' . strval($columns) . '"';
+            }
+        }, array_merge([$header], $rows)));
     }
 
 
@@ -94,4 +118,10 @@ abstract class AbstractCreatorTask extends AbstractJob
      * @return callable[]
      */
     protected abstract function getSteps(array $data) : array;
+
+
+    /**
+     * @return string
+     */
+    protected abstract function getOutput2() : string;
 }

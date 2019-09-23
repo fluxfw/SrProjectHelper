@@ -22,6 +22,11 @@ final class Api
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const GITLAB_MAX_PER_PAGE = 100;
     const GITLAB_PAGES = 10;
+    const GITLAB_OWNER_ACCESS_LEVEL = 50;
+    const GITLAB_MAINTAINER_ACCESS_LEVEL = 40;
+    const GITLAB_DEVELOPER_ACCESS_LEVEL = 30;
+    const GITLAB_REPORTER_ACCESS_LEVEL = 20;
+    const GITLAB_GUEST_ACCESS_LEVEL = 10;
     /**
      * @var Client
      */
@@ -73,6 +78,27 @@ final class Api
     {
         // https://stackoverflow.com/questions/25409700/using-gitlab-token-to-clone-without-authentication
         return str_replace("https://", "https://gitlab-ci-token:" . Config::getField(Config::KEY_GITLAB_ACCESS_TOKEN) . "@", $url);
+    }
+
+
+    /**
+     * @param array $members
+     */
+    public static function translateMembers(array $members)/*: void*/
+    {
+        return array_reduce($members, function (array $members, array $member) : array {
+            if (isset($members[$member["access_level"]])) {
+                $members[$member["access_level"]][] = $member["username"];
+            }
+
+            return $members;
+        }, [
+            self::GITLAB_OWNER_ACCESS_LEVEL      => [],
+            self::GITLAB_MAINTAINER_ACCESS_LEVEL => [],
+            self::GITLAB_DEVELOPER_ACCESS_LEVEL  => [],
+            self::GITLAB_REPORTER_ACCESS_LEVEL   => [],
+            self::GITLAB_GUEST_ACCESS_LEVEL      => []
+        ]);
     }
 
 

@@ -139,7 +139,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
             return $ilias_versions;
         }, []);
-        uasort($ilias_versions, [$this, "sortHelper"]);
+        uasort($ilias_versions, [self::class, "sortHelper"]);
         Config::setField(Config::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
 
         $plugins = array_reduce(Api::pageHelper(function (array $options) : array {
@@ -176,7 +176,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
             return $plugins;
         }, []);
-        uasort($plugins, [$this, "sortHelper"]);
+        uasort($plugins, [self::class, "sortHelper"]);
         Config::setField(Config::KEY_GITLAB_PLUGINS, $plugins);
 
         $groups = array_reduce(Api::pageHelper(function (array $options) : array {
@@ -188,7 +188,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
             return $groups;
         }, []);
-        uasort($groups, [$this, "sortHelper"]);
+        uasort($groups, [self::class, "sortHelper"]);
         Config::setField(Config::KEY_GITLAB_GROUPS, $groups);
 
         $users = array_reduce(Api::pageHelper(function (array $options) : array {
@@ -203,8 +203,22 @@ class FetchGitlabInfosJob extends ilCronJob
 
             return $users;
         }, []);
-        uasort($users, [$this, "sortHelper"]);
+        uasort($users, [self::class, "sortHelper"]);
         Config::setField(Config::KEY_GITLAB_USERS, $users);
+
+        $projects = array_reduce(Api::pageHelper(function (array $options) : array {
+            return self::gitlab()->projects()->all($options + [
+                    "simple" => true
+                ]);
+        }), function (array $projects, array $project) : array {
+            $projects[$project["id"]] = [
+                "name" => $project["path_with_namespace"]
+            ];
+
+            return $projects;
+        }, []);
+        uasort($projects, [self::class, "sortHelper"]);
+        Config::setField(Config::KEY_GITLAB_PROJECTS, $projects);
 
         $result->setStatus(ilCronJobResult::STATUS_OK);
 
@@ -218,7 +232,7 @@ class FetchGitlabInfosJob extends ilCronJob
      *
      * @return int
      */
-    protected function sortHelper(array $a1, array $a2) : int
+    public static function sortHelper(array $a1, array $a2) : int
     {
         $n1 = $a1["name"];
         $n2 = $a2["name"];
