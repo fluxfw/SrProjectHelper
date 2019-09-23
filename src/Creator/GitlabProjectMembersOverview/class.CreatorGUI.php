@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrProjectHelper\Creator\GitlabClientProject;
+namespace srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview;
 
 // ilCtrlMainMenu Bug
 require_once __DIR__ . "/../../../vendor/autoload.php";
@@ -11,20 +11,20 @@ use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorGUI;
 /**
  * Class CreatorGUI
  *
- * @package           srag\Plugins\SrProjectHelper\Creator\GitlabClientProject
+ * @package           srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview
  *
  * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
- * @ilCtrl_isCalledBy srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI: ilUIPluginRouterGUI
+ * @ilCtrl_isCalledBy srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview\CreatorGUI: ilUIPluginRouterGUI
  */
 class CreatorGUI extends AbstractCreatorGUI
 {
 
-    const LANG_MODULE = "gitlab_client_project";
+    const LANG_MODULE = "gitlab_project_members_overview";
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getCreatorForm() : AbstractCreatorFormGUI
     {
@@ -35,7 +35,7 @@ class CreatorGUI extends AbstractCreatorGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getTaskClass() : string
     {
@@ -48,6 +48,6 @@ class CreatorGUI extends AbstractCreatorGUI
      */
     protected function shouldDownloadOutput() : bool
     {
-        return false;
+        return true;
     }
 }

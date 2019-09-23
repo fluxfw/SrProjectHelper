@@ -11,12 +11,13 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  *
  * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ilSrProjectHelperConfigGUI extends ActiveRecordConfigGUI {
+class ilSrProjectHelperConfigGUI extends ActiveRecordConfigGUI
+{
 
-	use SrProjectHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
-	/**
-	 * @var array
-	 */
-	protected static $tabs = [ self::TAB_CONFIGURATION => ConfigFormGUI::class ];
+    use SrProjectHelperTrait;
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
+    /**
+     * @var array
+     */
+    protected static $tabs = [self::TAB_CONFIGURATION => ConfigFormGUI::class];
 }

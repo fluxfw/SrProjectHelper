@@ -21,9 +21,9 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
             'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\DIC\\SrProjectHelper\\' => 25,
+            'srag\\CustomInputGUIs\\SrProjectHelper\\' => 37,
+            'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 40,
         ),
         'S' => 
         array (
@@ -69,15 +69,15 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -520,12 +520,16 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorTask' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorTask.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\DownloadOutputTask' => __DIR__ . '/../..' . '/src/Creator/DownloadOutputTask.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabClientProject\\CreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabClientProject/CreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabClientProject\\CreatorGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabClientProject/class.CreatorGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabClientProject\\CreatorTask' => __DIR__ . '/../..' . '/src/Creator/GitlabClientProject/CreatorTask.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabPluginProject\\CreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabPluginProject/CreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabPluginProject\\CreatorGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabPluginProject/class.CreatorGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabPluginProject\\CreatorTask' => __DIR__ . '/../..' . '/src/Creator/GitlabPluginProject/CreatorTask.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabProjectMembersOverview\\CreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabProjectMembersOverview/CreatorFormGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabProjectMembersOverview\\CreatorGUI' => __DIR__ . '/../..' . '/src/Creator/GitlabProjectMembersOverview/class.CreatorGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabProjectMembersOverview\\CreatorTask' => __DIR__ . '/../..' . '/src/Creator/GitlabProjectMembersOverview/CreatorTask.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorTask' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorTask.php',
         'srag\\Plugins\\SrProjectHelper\\Exception\\SrProjectHelperException' => __DIR__ . '/../..' . '/src/Exception/SrProjectHelperException.php',

@@ -12,8 +12,9 @@ use srag\RemovePluginDataConfirm\SrProjectHelper\AbstractRemovePluginDataConfirm
  *
  * @ilCtrl_isCalledBy SrProjectHelperRemoveDataConfirm: ilUIPluginRouterGUI
  */
-class SrProjectHelperRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
+class SrProjectHelperRemoveDataConfirm extends AbstractRemovePluginDataConfirm
+{
 
-	use SrProjectHelperTrait;
-	const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
+    use SrProjectHelperTrait;
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 }

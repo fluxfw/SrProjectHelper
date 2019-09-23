@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.0]
+- Create list of all gitlab projects and its members
+
 ## [1.1.1]
 - Only display internal users
 
