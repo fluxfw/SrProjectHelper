@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.1]
+- Plugin generator menu entry link
+
 ## [1.2.0]
 - Create list of all gitlab projects and its members
 

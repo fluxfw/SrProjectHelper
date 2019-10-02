@@ -397,6 +397,7 @@ return array(
     'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabProjectMembersOverview\\CreatorTask' => $baseDir . '/src/Creator/GitlabProjectMembersOverview/CreatorTask.php',
     'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorFormGUI' => $baseDir . '/src/Creator/Gitlab/AbstractGitlabCreatorFormGUI.php',
     'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorTask' => $baseDir . '/src/Creator/Gitlab/AbstractGitlabCreatorTask.php',
+    'srag\\Plugins\\SrProjectHelper\\Creator\\PluginGenerator\\PluginGeneratorGUI' => $baseDir . '/src/Creator/PluginGenerator/PluginGeneratorGUI.php',
     'srag\\Plugins\\SrProjectHelper\\Exception\\SrProjectHelperException' => $baseDir . '/src/Exception/SrProjectHelperException.php',
     'srag\\Plugins\\SrProjectHelper\\Gitlab\\Api' => $baseDir . '/src/Gitlab/Api.php',
     'srag\\Plugins\\SrProjectHelper\\Gitlab\\Client' => $baseDir . '/src/Gitlab/Client.php',

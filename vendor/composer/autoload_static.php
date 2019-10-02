@@ -532,6 +532,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\Plugins\\SrProjectHelper\\Creator\\GitlabProjectMembersOverview\\CreatorTask' => __DIR__ . '/../..' . '/src/Creator/GitlabProjectMembersOverview/CreatorTask.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorTask' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorTask.php',
+        'srag\\Plugins\\SrProjectHelper\\Creator\\PluginGenerator\\PluginGeneratorGUI' => __DIR__ . '/../..' . '/src/Creator/PluginGenerator/PluginGeneratorGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Exception\\SrProjectHelperException' => __DIR__ . '/../..' . '/src/Exception/SrProjectHelperException.php',
         'srag\\Plugins\\SrProjectHelper\\Gitlab\\Api' => __DIR__ . '/../..' . '/src/Gitlab/Api.php',
         'srag\\Plugins\\SrProjectHelper\\Gitlab\\Client' => __DIR__ . '/../..' . '/src/Gitlab/Client.php',
