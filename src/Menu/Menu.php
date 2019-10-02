@@ -9,6 +9,7 @@ use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview\CreatorGUI as GitlabProjectMembersOverviewGUI;
+use srag\Plugins\SrProjectHelper\Creator\PluginGenerator\PluginGeneratorGUI;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -34,8 +35,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider
     public function getStaticTopItems() : array
     {
         return [
-            self::dic()->globalScreen()->mainmenu()->topParentItem(self::dic()->globalScreen()->identification()->plugin(self::plugin()
-                ->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID))->withTitle(self::plugin()->translate("menu_title"))
+            $this->mainmenu->topParentItem($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID))->withTitle(self::plugin()->translate("menu_title"))
                 ->withAvailableCallable(function () : bool {
                     return self::plugin()->getPluginObject()->isActive();
                 })->withVisibilityCallable(function () : bool {
@@ -53,27 +53,27 @@ class Menu extends AbstractStaticPluginMainMenuProvider
         $parent = $this->getStaticTopItems()[0];
 
         return [
-            self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
-                ->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_client_project"))
+            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_client_project"))
                 ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
                     ->translate("title", GitlabClientProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
                     ilUIPluginRouterGUI::class,
                     GitlabClientProjectCreatorGUI::class
                 ], GitlabClientProjectCreatorGUI::CMD_FORM)),
-            self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
-                ->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_plugin_project"))
+            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_plugin_project"))
                 ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
                     ->translate("title", GitlabPluginProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
                     ilUIPluginRouterGUI::class,
                     GitlabPluginProjectCreatorGUI::class
                 ], GitlabPluginProjectCreatorGUI::CMD_FORM)),
-            self::dic()->globalScreen()->mainmenu()->link(self::dic()->globalScreen()->identification()->plugin(self::plugin()
-                ->getPluginObject(), $this)->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_project_members_overview"))
+            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_project_members_overview"))
                 ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
                     ->translate("title", GitlabProjectMembersOverviewGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
                     ilUIPluginRouterGUI::class,
                     GitlabProjectMembersOverviewGUI::class
-                ], GitlabProjectMembersOverviewGUI::CMD_CREATE))
+                ], GitlabProjectMembersOverviewGUI::CMD_CREATE)),
+            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_plugin_generator"))
+                ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
+                    ->translate("title", PluginGeneratorGUI::LANG_MODULE))->withAction(PluginGeneratorGUI::LINK)->withIsLinkToExternalAction(true)
         ];
     }
 }
