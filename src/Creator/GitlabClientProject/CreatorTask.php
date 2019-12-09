@@ -71,10 +71,10 @@ class CreatorTask extends AbstractGitlabCreatorTask
                     Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
             },
             function () use (&$data, &$project)/*: void*/ {
-                $this->protectMasterBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
+                $this->protectDevelopBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
             },
             function () use (&$data, &$project)/*: void*/ {
-                $this->protectMasterBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
+                $this->protectDevelopBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
             },
             function () use (&$data, &$project)/*: void*/ {
                 $this->protectDevelopBranch($project, Config::getField(Config::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"]);
