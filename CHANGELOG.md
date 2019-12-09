@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.2]
+- Adjust permissions for client branchs
+
 ## [1.2.1]
 - Plugin generator menu entry link
 
