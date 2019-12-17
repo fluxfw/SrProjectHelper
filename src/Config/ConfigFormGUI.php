@@ -5,9 +5,10 @@ namespace srag\Plugins\SrProjectHelper\Config;
 use ilMultiSelectInputGUI;
 use ilNumberInputGUI;
 use ilPasswordInputGUI;
+use ilSrProjectHelperConfigGUI;
 use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
-use srag\ActiveRecordConfig\SrProjectHelper\ActiveRecordConfigFormGUI;
+use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\ConfigPropertyFormGUI;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -17,12 +18,24 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ConfigFormGUI extends ActiveRecordConfigFormGUI
+class ConfigFormGUI extends ConfigPropertyFormGUI
 {
 
     use SrProjectHelperTrait;
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CONFIG_CLASS_NAME = Config::class;
+    const LANG_MODULE = ilSrProjectHelperConfigGUI::LANG_MODULE;
+
+
+    /**
+     * ConfigFormGUI constructor
+     *
+     * @param ilSrProjectHelperConfigGUI $parent
+     */
+    public function __construct(ilSrProjectHelperConfigGUI $parent)
+    {
+        parent::__construct($parent);
+    }
 
 
     /**
@@ -34,6 +47,15 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI
             default:
                 return parent::getValue($key);
         }
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    protected function initCommands()/*: void*/
+    {
+        $this->addCommandButton(ilSrProjectHelperConfigGUI::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }
 
 
@@ -75,10 +97,28 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI
             Config::KEY_ROLES                   => [
                 self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
-                self::PROPERTY_OPTIONS  => self::ilias()->roles()->getAllRoles(),
+                self::PROPERTY_OPTIONS  => self::srProjectHelper()->ilias()->roles()->getAllRoles(),
                 "enableSelectAll"       => true
             ]
         ];
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function initId()/*: void*/
+    {
+
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    protected function initTitle()/*: void*/
+    {
+        $this->setTitle($this->txt("configuration"));
     }
 
 

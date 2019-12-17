@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.3]
+- Improvments
+
 ## [1.2.2]
 - Adjust permissions for client branchs
 

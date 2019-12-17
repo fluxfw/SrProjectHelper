@@ -37,12 +37,12 @@ class CreatorTask extends AbstractGitlabCreatorTask
 
                 foreach (Config::getField(Config::KEY_GITLAB_PROJECTS) as $id => $project) {
 
-                    $project += Api::translateMembers(self::gitlab()->projects()->members($id));
+                    $project += Api::translateMembers(self::srProjectHelper()->gitlab()->projects()->members($id));
                     $data[] = $project;
                 }
 
                 foreach (Config::getField(Config::KEY_GITLAB_GROUPS) as $id => $group) {
-                    $group += Api::translateMembers(self::gitlab()->groups()->members($id));
+                    $group += Api::translateMembers(self::srProjectHelper()->gitlab()->groups()->members($id));
                     $data[] = $group;
                 }
 

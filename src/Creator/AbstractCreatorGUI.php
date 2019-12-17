@@ -45,9 +45,11 @@ abstract class AbstractCreatorGUI
      */
     public function executeCommand()/*: void*/
     {
-        if (!self::access()->currentUserHasRole()) {
+        if (!self::srProjectHelper()->currentUserHasRole()) {
             die();
         }
+
+        $this->setTabs();
 
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
@@ -66,6 +68,15 @@ abstract class AbstractCreatorGUI
                 }
                 break;
         }
+    }
+
+
+    /**
+     *
+     */
+    protected function setTabs()/*: void*/
+    {
+
     }
 
 
@@ -110,7 +121,7 @@ abstract class AbstractCreatorGUI
     {
         $bucket = new BasicBucket();
 
-        $bucket->setUserId(self::ilias()->users()->getUserId());
+        $bucket->setUserId(self::srProjectHelper()->ilias()->users()->getUserId());
 
         $task = self::dic()->backgroundTasks()->taskFactory()->createTask($this->getTaskClass(), [json_encode($data)]);
 
