@@ -9,7 +9,6 @@ use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview\CreatorGUI as GitlabProjectMembersOverviewGUI;
-use srag\Plugins\SrProjectHelper\Creator\PluginGenerator\PluginGeneratorGUI;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -39,7 +38,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider
                 ->withAvailableCallable(function () : bool {
                     return self::plugin()->getPluginObject()->isActive();
                 })->withVisibilityCallable(function () : bool {
-                    return self::access()->currentUserHasRole();
+                    return self::srProjectHelper()->currentUserHasRole();
                 })
         ];
     }
@@ -70,10 +69,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider
                     ->translate("title", GitlabProjectMembersOverviewGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
                     ilUIPluginRouterGUI::class,
                     GitlabProjectMembersOverviewGUI::class
-                ], GitlabProjectMembersOverviewGUI::CMD_CREATE)),
-            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_plugin_generator"))
-                ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
-                    ->translate("title", PluginGeneratorGUI::LANG_MODULE))->withAction(PluginGeneratorGUI::LINK)->withIsLinkToExternalAction(true)
+                ], GitlabProjectMembersOverviewGUI::CMD_CREATE))
         ];
     }
 }

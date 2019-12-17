@@ -1,20 +1,23 @@
 <?php
 
-namespace srag\Plugins\SrProjectHelper\Access;
+namespace srag\Plugins\SrProjectHelper;
 
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Access\Ilias;
 use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Gitlab\Api;
+use srag\Plugins\SrProjectHelper\Gitlab\Client;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
- * Class Access
+ * Class Repository
  *
- * @package srag\Plugins\SrProjectHelper\Access
+ * @package srag\Plugins\SrProjectHelper
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-final class Access
+final class Repository
 {
 
     use DICTrait;
@@ -40,7 +43,7 @@ final class Access
 
 
     /**
-     * Access constructor
+     * Repository constructor
      */
     private function __construct()
     {
@@ -53,7 +56,7 @@ final class Access
      */
     public function currentUserHasRole() : bool
     {
-        $user_id = self::ilias()->users()->getUserId();
+        $user_id = $this->ilias()->users()->getUserId();
 
         $user_roles = self::dic()->rbacreview()->assignedGlobalRoles($user_id);
         $config_roles = Config::getField(Config::KEY_ROLES);
@@ -65,5 +68,41 @@ final class Access
         }
 
         return false;
+    }
+
+
+    /**
+     *
+     */
+    public function dropTables()/*:void*/
+    {
+        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
+    }
+
+
+    /**
+     * @return Client
+     */
+    public function gitlab() : Client
+    {
+        return Api::getClient();
+    }
+
+
+    /**
+     * @return Ilias
+     */
+    public function ilias() : Ilias
+    {
+        return Ilias::getInstance();
+    }
+
+
+    /**
+     *
+     */
+    public function installTables()/*:void*/
+    {
+        Config::updateDB();
     }
 }

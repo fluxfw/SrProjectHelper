@@ -34,4 +34,3 @@ gitlab_project_members_overview_created#:#Background task created for "%s"
 gitlab_project_members_overview_task_title#:#Create list of all gitlab projects and its members
 gitlab_project_members_overview_title#:#Create list of all gitlab projects and its members
 menu_title#:#srag projects
-plugin_generator_title#:#Plugin generator
