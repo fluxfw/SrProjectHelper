@@ -2,10 +2,7 @@
 
 namespace srag\Plugins\SrProjectHelper\Utils;
 
-use srag\Plugins\SrProjectHelper\Access\Access;
-use srag\Plugins\SrProjectHelper\Access\Ilias;
-use srag\Plugins\SrProjectHelper\Gitlab\Api;
-use srag\Plugins\SrProjectHelper\Gitlab\Client;
+use srag\Plugins\SrProjectHelper\Repository;
 
 /**
  * Trait SrProjectHelperTrait
@@ -18,28 +15,10 @@ trait SrProjectHelperTrait
 {
 
     /**
-     * @return Access
+     * @return Repository
      */
-    protected static function access() : Access
+    protected static function srProjectHelper() : Repository
     {
-        return Access::getInstance();
-    }
-
-
-    /**
-     * @return Client
-     */
-    protected static function gitlab() : Client
-    {
-        return Api::getClient();
-    }
-
-
-    /**
-     * @return Ilias
-     */
-    protected static function ilias() : Ilias
-    {
-        return Ilias::getInstance();
+        return Repository::getInstance();
     }
 }

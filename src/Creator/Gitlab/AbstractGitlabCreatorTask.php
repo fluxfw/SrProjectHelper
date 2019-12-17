@@ -71,7 +71,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
 
         $result = [];
         exec("git -C " . escapeshellarg($temp_folder) . " remote add temp "
-            . escapeshellarg(Api::tokenRepoUrl((new Project(Config::getField(Config::KEY_GITLAB_ILIAS_PROJECT_ID), self::gitlab()))->show()->http_url_to_repo))
+            . escapeshellarg(Api::tokenRepoUrl((new Project(Config::getField(Config::KEY_GITLAB_ILIAS_PROJECT_ID), self::srProjectHelper()->gitlab()))->show()->http_url_to_repo))
             . " 2>&1", $result);
 
         $result = [];
@@ -104,7 +104,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
      */
     protected function createGroup(string $name, int $namespace_id) : Group
     {
-        return Group::fromArray(self::gitlab(), self::gitlab()->groups()->create($name, $name, "", "internal", null, null, $namespace_id));
+        return Group::fromArray(self::srProjectHelper()->gitlab(), self::srProjectHelper()->gitlab()->groups()->create($name, $name, "", "internal", null, null, $namespace_id));
     }
 
 
@@ -117,7 +117,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
      */
     protected function createProject(string $name, int $namespace_id, string $default_branch) : Project
     {
-        return Project::create(self::gitlab(), $name, [
+        return Project::create(self::srProjectHelper()->gitlab(), $name, [
             "default_branch" => $default_branch,
             "namespace_id"   => $namespace_id,
             "path"           => $name,
@@ -187,7 +187,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
      */
     protected function protectMasterBranch(Project $project, string $branch)/*: void*/
     {
-        self::gitlab()->repositories()->protectBranch2($project->id, $branch, [
+        self::srProjectHelper()->gitlab()->repositories()->protectBranch2($project->id, $branch, [
             "allowed_to_merge"   => true,
             "allowed_to_push"    => false,
             "merge_access_level" => 40,
@@ -202,7 +202,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
      */
     protected function protectDevelopBranch(Project $project, string $branch)/*: void*/
     {
-        self::gitlab()->repositories()->protectBranch2($project->id, $branch, [
+        self::srProjectHelper()->gitlab()->repositories()->protectBranch2($project->id, $branch, [
             "allowed_to_merge"   => true,
             "allowed_to_push"    => true,
             "merge_access_level" => 40,

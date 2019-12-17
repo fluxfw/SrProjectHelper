@@ -23,7 +23,7 @@ abstract class AbstractGitlabCreatorFormGUI extends AbstractCreatorFormGUI
     {
         switch ($key) {
             case "maintainer_user":
-                return self::ilias()->users()->getGitlabUserId();
+                return self::srProjectHelper()->ilias()->users()->getGitlabUserId();
 
             default:
                 return parent::getValue($key);
@@ -38,7 +38,7 @@ abstract class AbstractGitlabCreatorFormGUI extends AbstractCreatorFormGUI
     {
         parent::initFields();
 
-        if (self::ilias()->users()->getUserId() === intval(SYSTEM_USER_ID) || empty(self::ilias()->users()->getGitlabUserId())) {
+        if (self::srProjectHelper()->ilias()->users()->getUserId() === intval(SYSTEM_USER_ID) || empty(self::srProjectHelper()->ilias()->users()->getGitlabUserId())) {
             ilUtil::sendInfo(nl2br(str_replace("\\n", "\n", $this->txt("mantainer_user_not_found")), false));
         }
 
@@ -47,7 +47,7 @@ abstract class AbstractGitlabCreatorFormGUI extends AbstractCreatorFormGUI
                 self::PROPERTY_CLASS    => ilSelectInputGUI::class,
                 self::PROPERTY_OPTIONS  => ["" => ""] + array_map(function (array $user) : string {
                         return $user["name"];
-                    }, self::ilias()->users()->getGitlabUsers()),
+                    }, self::srProjectHelper()->ilias()->users()->getGitlabUsers()),
                 self::PROPERTY_REQUIRED => true
             ]
         ];

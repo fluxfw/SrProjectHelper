@@ -4,7 +4,6 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
 use srag\DIC\SrProjectHelper\Util\LibraryLanguageInstaller;
-use srag\Plugins\SrProjectHelper\Config\Config;
 use srag\Plugins\SrProjectHelper\Job\FetchGitlabInfosJob;
 use srag\Plugins\SrProjectHelper\Menu\Menu;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
@@ -114,6 +113,6 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
      */
     protected function deleteData()/*: void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
+        self::srProjectHelper()->dropTables();
     }
 }

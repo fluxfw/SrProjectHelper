@@ -1,4 +1,4 @@
 <#1>
 <?php
-\srag\Plugins\SrProjectHelper\Config\Config::updateDB();
+\srag\Plugins\SrProjectHelper\Repository::getInstance()->installTables();
 ?>
