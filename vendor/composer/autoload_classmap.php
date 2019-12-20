@@ -295,7 +295,6 @@ return array(
     'Psr\\Http\\Message\\StreamInterface' => $vendorDir . '/psr/http-message/src/StreamInterface.php',
     'Psr\\Http\\Message\\UploadedFileInterface' => $vendorDir . '/psr/http-message/src/UploadedFileInterface.php',
     'Psr\\Http\\Message\\UriInterface' => $vendorDir . '/psr/http-message/src/UriInterface.php',
-    'SrProjectHelperRemoveDataConfirm' => $baseDir . '/classes/uninstall/class.SrProjectHelperRemoveDataConfirm.php',
     'Symfony\\Component\\OptionsResolver\\Debug\\OptionsResolverIntrospector' => $vendorDir . '/symfony/options-resolver/Debug/OptionsResolverIntrospector.php',
     'Symfony\\Component\\OptionsResolver\\Exception\\AccessException' => $vendorDir . '/symfony/options-resolver/Exception/AccessException.php',
     'Symfony\\Component\\OptionsResolver\\Exception\\ExceptionInterface' => $vendorDir . '/symfony/options-resolver/Exception/ExceptionInterface.php',
