@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.4]
+- Update srag libraries
+
 ## [1.2.3]
 - Improvments
 
