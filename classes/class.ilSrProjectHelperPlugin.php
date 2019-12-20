@@ -22,8 +22,6 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     const PLUGIN_ID = "srprojecthelper";
     const PLUGIN_NAME = "SrProjectHelper";
     const PLUGIN_CLASS_NAME = self::class;
-    const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrProjectHelperRemoveDataConfirm::class;
-    const ADMIN_ROLE_ID = 2;
     /**
      * @var self|null
      */
