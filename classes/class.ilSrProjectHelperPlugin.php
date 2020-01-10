@@ -84,7 +84,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
     {
@@ -105,7 +105,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {

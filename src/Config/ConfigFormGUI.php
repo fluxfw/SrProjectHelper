@@ -39,7 +39,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getValue(/*string*/ $key)
     {
@@ -51,7 +51,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initCommands()/*: void*/
     {
@@ -60,7 +60,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initFields()/*: void*/
     {
@@ -114,7 +114,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initTitle()/*: void*/
     {
@@ -123,7 +123,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function storeValue(/*string*/ $key, $value)/*: void*/
     {

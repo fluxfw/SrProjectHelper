@@ -24,7 +24,7 @@ class CreatorGUI extends AbstractCreatorGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getCreatorForm() : AbstractCreatorFormGUI
     {
@@ -35,7 +35,7 @@ class CreatorGUI extends AbstractCreatorGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getTaskClass() : string
     {
