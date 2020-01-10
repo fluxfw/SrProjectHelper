@@ -6,7 +6,6 @@ use ilCachedComponentData;
 use ilCronJob;
 use ilCronJobResult;
 use ilSrProjectHelperPlugin;
-use srag\ActiveRecordConfig\SrProjectHelper\Exception\ActiveRecordConfigException;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Config\Config;
 use srag\Plugins\SrProjectHelper\Gitlab\Api;
@@ -40,9 +39,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
 
     /**
-     * Get id
-     *
-     * @return string
+     * @inheritDoc
      */
     public function getId() : string
     {
@@ -51,7 +48,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getTitle() : string
     {
@@ -60,7 +57,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getDescription() : string
     {
@@ -69,9 +66,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
 
     /**
-     * Is to be activated on "installation"
-     *
-     * @return boolean
+     * @inheritDoc
      */
     public function hasAutoActivation() : bool
     {
@@ -80,9 +75,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
 
     /**
-     * Can the schedule be configured?
-     *
-     * @return boolean
+     * @inheritDoc
      */
     public function hasFlexibleSchedule() : bool
     {
@@ -91,9 +84,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
 
     /**
-     * Get schedule type
-     *
-     * @return int
+     * @inheritDoc
      */
     public function getDefaultScheduleType() : int
     {
@@ -102,22 +93,16 @@ class FetchGitlabInfosJob extends ilCronJob
 
 
     /**
-     * Get schedule value
-     *
-     * @return int|array
+     * @inheritDoc
      */
-    public function getDefaultScheduleValue()
+    public function getDefaultScheduleValue()/*:?int*/
     {
         return null;
     }
 
 
     /**
-     * Run job
-     *
-     * @return ilCronJobResult
-     *
-     * @throws ActiveRecordConfigException
+     * @inheritDoc
      */
     public function run() : ilCronJobResult
     {
