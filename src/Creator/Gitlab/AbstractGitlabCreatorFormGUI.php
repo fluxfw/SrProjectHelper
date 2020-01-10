@@ -17,7 +17,7 @@ abstract class AbstractGitlabCreatorFormGUI extends AbstractCreatorFormGUI
 {
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getValue(/*string*/ $key)
     {
@@ -32,7 +32,7 @@ abstract class AbstractGitlabCreatorFormGUI extends AbstractCreatorFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initFields()/*: void*/
     {

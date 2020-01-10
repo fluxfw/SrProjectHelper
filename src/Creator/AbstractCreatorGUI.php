@@ -115,7 +115,7 @@ abstract class AbstractCreatorGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function buildAndRunTask(array $data)/*: void*/
     {

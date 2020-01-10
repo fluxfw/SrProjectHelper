@@ -26,7 +26,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getValue(/*string*/ $key)
     {
@@ -43,7 +43,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initCommands()/*: void*/
     {
@@ -52,7 +52,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initFields()/*: void*/
     {
@@ -66,7 +66,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initId()/*: void*/
     {
@@ -75,7 +75,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initTitle()/*: void*/
     {
@@ -84,7 +84,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function storeValue(/*string*/ $key, $value)/*: void*/
     {

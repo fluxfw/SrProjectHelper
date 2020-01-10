@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.5]
+- Adjust gitlab project task label
+
 ## [1.2.4]
 - Update srag libraries
 

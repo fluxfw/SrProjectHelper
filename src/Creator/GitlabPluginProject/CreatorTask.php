@@ -19,7 +19,7 @@ class CreatorTask extends AbstractGitlabCreatorTask
 {
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function getSteps(array $data) : array
     {

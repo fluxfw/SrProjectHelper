@@ -28,7 +28,7 @@ abstract class AbstractCreatorTask extends AbstractJob
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function isStateless() : bool
     {
@@ -37,7 +37,7 @@ abstract class AbstractCreatorTask extends AbstractJob
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function getExpectedTimeOfTaskInSeconds() : int
     {
@@ -46,7 +46,7 @@ abstract class AbstractCreatorTask extends AbstractJob
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function getInputTypes() : array
     {
@@ -57,7 +57,7 @@ abstract class AbstractCreatorTask extends AbstractJob
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function getOutputType() : Type
     {
@@ -66,7 +66,7 @@ abstract class AbstractCreatorTask extends AbstractJob
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function run(array $input, Observer $observer) : Value
     {

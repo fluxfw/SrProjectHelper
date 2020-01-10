@@ -22,7 +22,7 @@ class CreatorFormGUI extends AbstractGitlabCreatorFormGUI
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function initFields()/*: void*/
     {

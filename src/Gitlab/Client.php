@@ -15,7 +15,7 @@ class Client extends GitlabClient
 {
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public static function create(/*string*/ $url) : self
     {
@@ -28,7 +28,7 @@ class Client extends GitlabClient
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function repositories() : Repositories
     {
