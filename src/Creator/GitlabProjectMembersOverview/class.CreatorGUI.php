@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview;
 
-// ilCtrlMainMenu Bug
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
 use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorFormGUI;
