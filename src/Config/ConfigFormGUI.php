@@ -8,7 +8,7 @@ use ilPasswordInputGUI;
 use ilSrProjectHelperConfigGUI;
 use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
-use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\ConfigPropertyFormGUI;
+use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -18,12 +18,11 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ConfigFormGUI extends ConfigPropertyFormGUI
+class ConfigFormGUI extends PropertyFormGUI
 {
 
     use SrProjectHelperTrait;
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
-    const CONFIG_CLASS_NAME = Config::class;
     const LANG_MODULE = ilSrProjectHelperConfigGUI::LANG_MODULE;
 
 
@@ -45,7 +44,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     {
         switch ($key) {
             default:
-                return parent::getValue($key);
+                return Config::getField($key);
         }
     }
 
@@ -136,12 +135,13 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
                 $value = array_map(function (string $role_id) : int {
                     return intval($role_id);
                 }, $value);
+
+                Config::setField($key, $value);
                 break;
 
             default:
+                Config::setField($key, $value);
                 break;
         }
-
-        parent::storeValue($key, $value);
     }
 }
