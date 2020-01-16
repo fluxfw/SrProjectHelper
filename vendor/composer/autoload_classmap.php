@@ -411,7 +411,6 @@ return array(
     'srag\\Plugins\\SrProjectHelper\\Access\\Ilias' => $baseDir . '/src/Access/Ilias.php',
     'srag\\Plugins\\SrProjectHelper\\Access\\Roles' => $baseDir . '/src/Access/Roles.php',
     'srag\\Plugins\\SrProjectHelper\\Access\\Users' => $baseDir . '/src/Access/Users.php',
-    'srag\\Plugins\\SrProjectHelper\\Config\\Config' => $baseDir . '/src/Config/Config.php',
     'srag\\Plugins\\SrProjectHelper\\Config\\ConfigFormGUI' => $baseDir . '/src/Config/ConfigFormGUI.php',
     'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorFormGUI' => $baseDir . '/src/Creator/AbstractCreatorFormGUI.php',
     'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorGUI' => $baseDir . '/src/Creator/AbstractCreatorGUI.php',

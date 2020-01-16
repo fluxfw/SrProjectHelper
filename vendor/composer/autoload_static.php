@@ -546,7 +546,6 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\Plugins\\SrProjectHelper\\Access\\Ilias' => __DIR__ . '/../..' . '/src/Access/Ilias.php',
         'srag\\Plugins\\SrProjectHelper\\Access\\Roles' => __DIR__ . '/../..' . '/src/Access/Roles.php',
         'srag\\Plugins\\SrProjectHelper\\Access\\Users' => __DIR__ . '/../..' . '/src/Access/Users.php',
-        'srag\\Plugins\\SrProjectHelper\\Config\\Config' => __DIR__ . '/../..' . '/src/Config/Config.php',
         'srag\\Plugins\\SrProjectHelper\\Config\\ConfigFormGUI' => __DIR__ . '/../..' . '/src/Config/ConfigFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorGUI.php',

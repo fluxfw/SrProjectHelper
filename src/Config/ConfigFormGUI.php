@@ -23,6 +23,19 @@ class ConfigFormGUI extends PropertyFormGUI
 
     use SrProjectHelperTrait;
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
+    const KEY_GITLAB_ACCESS_TOKEN = "gitlab_access_token";
+    const KEY_GITLAB_CLIENTS_GROUP_ID = "gitlab_clients_group_id";
+    const KEY_GITLAB_DEPLOY_KEY_ID = "gitlab_deploy_key_id";
+    const KEY_GITLAB_GROUPS = "gitlab_groups";
+    const KEY_GITLAB_ILIAS_PROJECT_ID = "gitlab_ilias_project_id";
+    const KEY_GITLAB_ILIAS_VERSIONS = "gitlab_ilias_versions";
+    const KEY_GITLAB_MEMBERS_GROUP_ID = "gitlab_members_group_id";
+    const KEY_GITLAB_PLUGINS = "gitlab_plugins";
+    const KEY_GITLAB_PLUGINS_GROUP_ID = "gitlab_plugins_group_id";
+    const KEY_GITLAB_PROJECTS = "gitlab_projects";
+    const KEY_GITLAB_URL = "gitlab_url";
+    const KEY_GITLAB_USERS = "gitlab_users";
+    const KEY_ROLES = "roles";
     const LANG_MODULE = ilSrProjectHelperConfigGUI::LANG_MODULE;
 
 
@@ -44,7 +57,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                return Config::getField($key);
+                return self::srProjectHelper()->config()->getField($key);
         }
     }
 
@@ -64,36 +77,36 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function initFields()/*: void*/
     {
         $this->fields = [
-            Config::KEY_GITLAB_URL              => [
+            self::KEY_GITLAB_URL              => [
                 self::PROPERTY_CLASS    => ilTextInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_ACCESS_TOKEN     => [
+            self::KEY_GITLAB_ACCESS_TOKEN     => [
                 self::PROPERTY_CLASS    => ilPasswordInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
                 "setRetype"             => false
             ],
-            Config::KEY_GITLAB_CLIENTS_GROUP_ID => [
+            self::KEY_GITLAB_CLIENTS_GROUP_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_DEPLOY_KEY_ID    => [
+            self::KEY_GITLAB_DEPLOY_KEY_ID    => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_ILIAS_PROJECT_ID => [
+            self::KEY_GITLAB_ILIAS_PROJECT_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_MEMBERS_GROUP_ID => [
+            self::KEY_GITLAB_MEMBERS_GROUP_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_PLUGINS_GROUP_ID => [
+            self::KEY_GITLAB_PLUGINS_GROUP_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_ROLES                   => [
+            self::KEY_ROLES                   => [
                 self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
                 self::PROPERTY_OPTIONS  => self::srProjectHelper()->ilias()->roles()->getAllRoles(),
@@ -127,7 +140,7 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function storeValue(/*string*/ $key, $value)/*: void*/
     {
         switch ($key) {
-            case Config::KEY_ROLES:
+            case self::KEY_ROLES:
                 if ($value[0] === "") {
                     array_shift($value);
                 }
@@ -136,11 +149,11 @@ class ConfigFormGUI extends PropertyFormGUI
                     return intval($role_id);
                 }, $value);
 
-                Config::setField($key, $value);
+                self::srProjectHelper()->config()->setField($key, $value);
                 break;
 
             default:
-                Config::setField($key, $value);
+                self::srProjectHelper()->config()->setField($key, $value);
                 break;
         }
     }
