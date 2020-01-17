@@ -76,7 +76,7 @@ final class Users
      */
     public function getGitlabUsers() : array
     {
-        return array_filter(self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_USERS), function (array $user) : bool {
+        return array_filter(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_USERS), function (array $user) : bool {
             return $this->existsUserByEmail($user["email"]);
         });
     }

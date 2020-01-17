@@ -34,13 +34,13 @@ class CreatorTask extends AbstractGitlabCreatorTask
             function ()/*: void*/ {
                 $data = [];
 
-                foreach (self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_PROJECTS) as $id => $project) {
+                foreach (self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_PROJECTS) as $id => $project) {
 
                     $project += Api::translateMembers(self::srProjectHelper()->gitlab()->projects()->members($id));
                     $data[] = $project;
                 }
 
-                foreach (self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_GROUPS) as $id => $group) {
+                foreach (self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_GROUPS) as $id => $group) {
                     $group += Api::translateMembers(self::srProjectHelper()->gitlab()->groups()->members($id));
                     $data[] = $group;
                 }

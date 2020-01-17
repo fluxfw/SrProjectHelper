@@ -57,7 +57,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                return self::srProjectHelper()->config()->getField($key);
+                return self::srProjectHelper()->config()->getValue($key);
         }
     }
 
@@ -149,11 +149,11 @@ class ConfigFormGUI extends PropertyFormGUI
                     return intval($role_id);
                 }, $value);
 
-                self::srProjectHelper()->config()->setField($key, $value);
+                self::srProjectHelper()->config()->setValue($key, $value);
                 break;
 
             default:
-                self::srProjectHelper()->config()->setField($key, $value);
+                self::srProjectHelper()->config()->setValue($key, $value);
                 break;
         }
     }

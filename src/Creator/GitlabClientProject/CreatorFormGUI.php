@@ -33,14 +33,14 @@ class CreatorFormGUI extends AbstractGitlabCreatorFormGUI
                 self::PROPERTY_CLASS    => ilSelectInputGUI::class,
                 self::PROPERTY_OPTIONS  => ["" => ""] + array_map(function (array $ilias_version) : string {
                         return $ilias_version["name"];
-                    }, self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_ILIAS_VERSIONS)),
+                    }, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ILIAS_VERSIONS)),
                 self::PROPERTY_REQUIRED => true
             ],
             "plugins"       => [
                 self::PROPERTY_CLASS   => MultiSelectSearchInputGUI::class,
                 self::PROPERTY_OPTIONS => array_map(function (array $plugin) : string {
                     return $plugin["name"];
-                }, self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_PLUGINS))
+                }, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_PLUGINS))
             ],
             "skin"          => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class

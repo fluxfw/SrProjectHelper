@@ -66,12 +66,12 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
     protected function cloneILIAS(string $temp_folder, Project $project, string $ilias_version)/*: void*/
     {
         $result = [];
-        exec("git clone -b " . escapeshellarg(self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
+        exec("git clone -b " . escapeshellarg(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
             . escapeshellarg(Api::tokenRepoUrl($project->http_url_to_repo)) . " " . escapeshellarg($temp_folder) . " 2>&1", $result);
 
         $result = [];
         exec("git -C " . escapeshellarg($temp_folder) . " remote add temp "
-            . escapeshellarg(Api::tokenRepoUrl((new Project(self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_ILIAS_PROJECT_ID),
+            . escapeshellarg(Api::tokenRepoUrl((new Project(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ILIAS_PROJECT_ID),
                 self::srProjectHelper()->gitlab()))->show()->http_url_to_repo))
             . " 2>&1", $result);
 
@@ -160,7 +160,7 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
                 $this->setMaintainer($project, $maintainer_user);
             },
             function () use (&$project)/*: void*/ {
-                $this->useDeployKey($project, self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_DEPLOY_KEY_ID));
+                $this->useDeployKey($project, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_DEPLOY_KEY_ID));
             }
         ]);
     }

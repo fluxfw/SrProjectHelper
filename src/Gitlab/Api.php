@@ -39,8 +39,8 @@ final class Api
     public static function getClient() : Client
     {
         if (self::$client === null) {
-            self::$client = Client::create(self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_URL))
-                ->authenticate(self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN), Client::AUTH_URL_TOKEN);
+            self::$client = Client::create(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_URL))
+                ->authenticate(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN), Client::AUTH_URL_TOKEN);
         }
 
         return self::$client;
@@ -77,7 +77,7 @@ final class Api
     public static function tokenRepoUrl(string $url) : string
     {
         // https://stackoverflow.com/questions/25409700/using-gitlab-token-to-clone-without-authentication
-        return str_replace("https://", "https://gitlab-ci-token:" . self::srProjectHelper()->config()->getField(ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN) . "@", $url);
+        return str_replace("https://", "https://gitlab-ci-token:" . self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN) . "@", $url);
     }
 
 
