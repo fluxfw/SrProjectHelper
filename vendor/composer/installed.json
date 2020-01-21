@@ -55,47 +55,49 @@
     },
     {
         "name": "guzzlehttp/guzzle",
-        "version": "6.3.3",
-        "version_normalized": "6.3.3.0",
+        "version": "6.5.2",
+        "version_normalized": "6.5.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+            "reference": "43ece0e75098b7ecd8d13918293029e555a50f82"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
-            "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/43ece0e75098b7ecd8d13918293029e555a50f82",
+            "reference": "43ece0e75098b7ecd8d13918293029e555a50f82",
             "shasum": ""
         },
         "require": {
+            "ext-json": "*",
             "guzzlehttp/promises": "^1.0",
-            "guzzlehttp/psr7": "^1.4",
+            "guzzlehttp/psr7": "^1.6.1",
             "php": ">=5.5"
         },
         "require-dev": {
             "ext-curl": "*",
             "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
-            "psr/log": "^1.0"
+            "psr/log": "^1.1"
         },
         "suggest": {
+            "ext-intl": "Required for Internationalized Domain Name (IDN) support",
             "psr/log": "Required for using the Log middleware"
         },
-        "time": "2018-04-22T15:46:56+00:00",
+        "time": "2019-12-23T11:57:10+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "6.3-dev"
+                "dev-master": "6.5-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
-            "files": [
-                "src/functions_include.php"
-            ],
             "psr-4": {
                 "GuzzleHttp\\": "src/"
-            }
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -175,35 +177,39 @@
     },
     {
         "name": "guzzlehttp/psr7",
-        "version": "1.5.2",
-        "version_normalized": "1.5.2.0",
+        "version": "1.6.1",
+        "version_normalized": "1.6.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/psr7.git",
-            "reference": "9f83dded91781a01c63574e387eaa769be769115"
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
-            "reference": "9f83dded91781a01c63574e387eaa769be769115",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4.0",
             "psr/http-message": "~1.0",
-            "ralouphie/getallheaders": "^2.0.5"
+            "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
         },
         "provide": {
             "psr/http-message-implementation": "1.0"
         },
         "require-dev": {
+            "ext-zlib": "*",
             "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
         },
-        "time": "2018-12-04T20:46:45+00:00",
+        "suggest": {
+            "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+        },
+        "time": "2019-07-01T23:21:34+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.5-dev"
+                "dev-master": "1.6-dev"
             }
         },
         "installation-source": "dist",
@@ -244,40 +250,40 @@
     },
     {
         "name": "m4tthumphrey/php-gitlab-api",
-        "version": "9.13.0",
-        "version_normalized": "9.13.0.0",
+        "version": "9.16.0",
+        "version_normalized": "9.16.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/m4tthumphrey/php-gitlab-api.git",
-            "reference": "35c1719c9b0a87a14c76ebe7c540d7d07cdfff9e"
+            "reference": "b6684dcc85e465f2e39be2ccea2e708994a32a95"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/m4tthumphrey/php-gitlab-api/zipball/35c1719c9b0a87a14c76ebe7c540d7d07cdfff9e",
-            "reference": "35c1719c9b0a87a14c76ebe7c540d7d07cdfff9e",
+            "url": "https://api.github.com/repos/m4tthumphrey/php-gitlab-api/zipball/b6684dcc85e465f2e39be2ccea2e708994a32a95",
+            "reference": "b6684dcc85e465f2e39be2ccea2e708994a32a95",
             "shasum": ""
         },
         "require": {
             "ext-xml": "*",
             "php": "^5.6 || ^7.0",
-            "php-http/client-common": "^1.6",
+            "php-http/client-common": "^1.6 || ^2.0",
             "php-http/client-implementation": "^1.0",
             "php-http/discovery": "^1.2",
-            "php-http/httplug": "^1.1",
+            "php-http/httplug": "^1.1 || ^2.0",
             "php-http/multipart-stream-builder": "^1.0",
-            "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0"
+            "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0 || ^5.0"
         },
         "require-dev": {
             "guzzlehttp/psr7": "^1.2",
-            "php-http/guzzle6-adapter": "^1.0",
-            "php-http/mock-client": "^1.0",
-            "phpunit/phpunit": "^5.7.27 || ^6.5"
+            "php-http/guzzle6-adapter": "^1.0 || ^2.0",
+            "php-http/mock-client": "^1.2",
+            "phpunit/phpunit": "^5.7.27 || ^7.5.15"
         },
-        "time": "2019-04-15T07:38:13+00:00",
+        "time": "2020-01-02T13:40:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "9.12.x-dev"
+                "dev-master": "9.15-dev"
             }
         },
         "installation-source": "dist",
@@ -292,17 +298,17 @@
         ],
         "authors": [
             {
-                "name": "Thibault Duplessis",
-                "email": "thibault.duplessis@gmail.com",
-                "homepage": "http://ornicar.github.com"
+                "name": "Matt Humphrey",
+                "homepage": "http://m4tt.io"
             },
             {
                 "name": "KnpLabs Team",
                 "homepage": "http://knplabs.com"
             },
             {
-                "name": "Matt Humphrey",
-                "homepage": "http://m4tt.io"
+                "name": "Thibault Duplessis",
+                "email": "thibault.duplessis@gmail.com",
+                "homepage": "http://ornicar.github.com"
             }
         ],
         "description": "GitLab API client",
@@ -314,17 +320,17 @@
     },
     {
         "name": "php-http/client-common",
-        "version": "1.9.1",
-        "version_normalized": "1.9.1.0",
+        "version": "1.10.0",
+        "version_normalized": "1.10.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-http/client-common.git",
-            "reference": "0e156a12cc3e46f590c73bf57592a2252fc3dc48"
+            "reference": "c0390ae3c8f2ae9d50901feef0127fb9e396f6b4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-http/client-common/zipball/0e156a12cc3e46f590c73bf57592a2252fc3dc48",
-            "reference": "0e156a12cc3e46f590c73bf57592a2252fc3dc48",
+            "url": "https://api.github.com/repos/php-http/client-common/zipball/c0390ae3c8f2ae9d50901feef0127fb9e396f6b4",
+            "reference": "c0390ae3c8f2ae9d50901feef0127fb9e396f6b4",
             "shasum": ""
         },
         "require": {
@@ -332,7 +338,7 @@
             "php-http/httplug": "^1.1",
             "php-http/message": "^1.6",
             "php-http/message-factory": "^1.0",
-            "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0"
+            "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0 || ^5.0"
         },
         "require-dev": {
             "guzzlehttp/psr7": "^1.4",
@@ -343,11 +349,11 @@
             "php-http/logger-plugin": "PSR-3 Logger plugin",
             "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
         },
-        "time": "2019-02-02T07:03:15+00:00",
+        "time": "2019-11-18T08:54:36+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.9.x-dev"
+                "dev-master": "1.10.x-dev"
             }
         },
         "installation-source": "dist",
@@ -377,40 +383,41 @@
     },
     {
         "name": "php-http/discovery",
-        "version": "1.6.1",
-        "version_normalized": "1.6.1.0",
+        "version": "1.7.4",
+        "version_normalized": "1.7.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-http/discovery.git",
-            "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651"
+            "reference": "82dbef649ccffd8e4f22e1953c3a5265992b83c0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-http/discovery/zipball/684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
-            "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
+            "url": "https://api.github.com/repos/php-http/discovery/zipball/82dbef649ccffd8e4f22e1953c3a5265992b83c0",
+            "reference": "82dbef649ccffd8e4f22e1953c3a5265992b83c0",
             "shasum": ""
         },
         "require": {
-            "php": "^5.5 || ^7.0"
+            "php": "^7.1"
         },
         "conflict": {
             "nyholm/psr7": "<1.0"
         },
         "require-dev": {
+            "akeneo/phpspec-skip-example-extension": "^4.0",
             "php-http/httplug": "^1.0 || ^2.0",
             "php-http/message-factory": "^1.0",
-            "phpspec/phpspec": "^2.4",
+            "phpspec/phpspec": "^5.1",
             "puli/composer-plugin": "1.0.0-beta10"
         },
         "suggest": {
             "php-http/message": "Allow to use Guzzle, Diactoros or Slim Framework factories",
             "puli/composer-plugin": "Sets up Puli which is recommended for Discovery to work. Check http://docs.php-http.org/en/latest/discovery.html for more details."
         },
-        "time": "2019-02-23T07:42:53+00:00",
+        "time": "2020-01-03T11:25:47+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.5-dev"
+                "dev-master": "1.7-dev"
             }
         },
         "installation-source": "dist",
@@ -563,22 +570,22 @@
     },
     {
         "name": "php-http/message",
-        "version": "1.7.2",
-        "version_normalized": "1.7.2.0",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-http/message.git",
-            "reference": "b159ffe570dffd335e22ef0b91a946eacb182fa1"
+            "reference": "ce8f43ac1e294b54aabf5808515c3554a19c1e1c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-http/message/zipball/b159ffe570dffd335e22ef0b91a946eacb182fa1",
-            "reference": "b159ffe570dffd335e22ef0b91a946eacb182fa1",
+            "url": "https://api.github.com/repos/php-http/message/zipball/ce8f43ac1e294b54aabf5808515c3554a19c1e1c",
+            "reference": "ce8f43ac1e294b54aabf5808515c3554a19c1e1c",
             "shasum": ""
         },
         "require": {
             "clue/stream-filter": "^1.4",
-            "php": "^5.4 || ^7.0",
+            "php": "^7.1",
             "php-http/message-factory": "^1.0.2",
             "psr/http-message": "^1.0"
         },
@@ -601,11 +608,11 @@
             "slim/slim": "Used with Slim Framework PSR-7 implementation",
             "zendframework/zend-diactoros": "Used with Diactoros Factories"
         },
-        "time": "2018-11-01T09:32:41+00:00",
+        "time": "2019-08-05T06:55:08+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.6-dev"
+                "dev-master": "1.8-dev"
             }
         },
         "installation-source": "dist",
@@ -689,35 +696,36 @@
     },
     {
         "name": "php-http/multipart-stream-builder",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-http/multipart-stream-builder.git",
-            "reference": "1fa3c623fc813a43b39494b2a1612174e36e0fb0"
+            "reference": "5d73adad53cf1d674dcc6c5b288a3ff3f76c4849"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-http/multipart-stream-builder/zipball/1fa3c623fc813a43b39494b2a1612174e36e0fb0",
-            "reference": "1fa3c623fc813a43b39494b2a1612174e36e0fb0",
+            "url": "https://api.github.com/repos/php-http/multipart-stream-builder/zipball/5d73adad53cf1d674dcc6c5b288a3ff3f76c4849",
+            "reference": "5d73adad53cf1d674dcc6c5b288a3ff3f76c4849",
             "shasum": ""
         },
         "require": {
-            "php": "^5.5 || ^7.0",
-            "php-http/discovery": "^1.0",
+            "php": "^7.1",
+            "php-http/discovery": "^1.7",
             "php-http/message-factory": "^1.0.2",
+            "psr/http-factory": "^1.0",
             "psr/http-message": "^1.0"
         },
         "require-dev": {
+            "nyholm/psr7": "^1.0",
             "php-http/message": "^1.5",
-            "phpunit/phpunit": "^4.8 || ^5.4",
-            "zendframework/zend-diactoros": "^1.3.5"
+            "phpunit/phpunit": "^7.5 || ^8.3"
         },
-        "time": "2017-05-21T17:45:25+00:00",
+        "time": "2019-08-22T14:13:19+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "0.3-dev"
+                "dev-master": "1.1-dev"
             }
         },
         "installation-source": "dist",
@@ -799,6 +807,60 @@
         ]
     },
     {
+        "name": "psr/http-factory",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-factory.git",
+            "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+            "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0.0",
+            "psr/http-message": "^1.0"
+        },
+        "time": "2019-04-30T12:38:16+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interfaces for PSR-7 HTTP message factories",
+        "keywords": [
+            "factory",
+            "http",
+            "message",
+            "psr",
+            "psr-17",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -852,27 +914,27 @@
     },
     {
         "name": "ralouphie/getallheaders",
-        "version": "2.0.5",
-        "version_normalized": "2.0.5.0",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/ralouphie/getallheaders.git",
-            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            "reference": "120b605dfeb996808c31b6477290a714d356e822"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
-            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+            "reference": "120b605dfeb996808c31b6477290a714d356e822",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3"
+            "php": ">=5.6"
         },
         "require-dev": {
-            "phpunit/phpunit": "~3.7.0",
-            "satooshi/php-coveralls": ">=1.0"
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^5 || ^6.5"
         },
-        "time": "2016-02-11T07:05:27+00:00",
+        "time": "2019-03-08T08:55:37+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -894,17 +956,17 @@
     },
     {
         "name": "srag/activerecordconfig",
-        "version": "v0.19.0",
-        "version_normalized": "0.19.0.0",
+        "version": "v0.19.2",
+        "version_normalized": "0.19.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/ActiveRecordConfig.git",
-            "reference": "c63344d4ba5414617266773793eb57d7a7ffd61c"
+            "reference": "e5dc0ca901979bff0107b147ee15e4b70d602d0f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/ActiveRecordConfig/zipball/c63344d4ba5414617266773793eb57d7a7ffd61c",
-            "reference": "c63344d4ba5414617266773793eb57d7a7ffd61c",
+            "url": "https://api.github.com/repos/studer-raimann/ActiveRecordConfig/zipball/e5dc0ca901979bff0107b147ee15e4b70d602d0f",
+            "reference": "e5dc0ca901979bff0107b147ee15e4b70d602d0f",
             "shasum": ""
         },
         "require": {
@@ -912,7 +974,7 @@
             "srag/custominputguis": ">=0.1.0",
             "srag/dic": ">=0.1.0"
         },
-        "time": "2020-01-17T09:04:56+00:00",
+        "time": "2020-01-21T07:05:13+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1083,24 +1145,24 @@
     },
     {
         "name": "srag/removeplugindataconfirm",
-        "version": "v0.6.2",
-        "version_normalized": "0.6.2.0",
+        "version": "v0.6.3",
+        "version_normalized": "0.6.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/RemovePluginDataConfirm.git",
-            "reference": "d85688714df5f1b90b8f0301849e4fc96cdaa162"
+            "reference": "d3faed97ec4e5d9a20bf2c8a80cc395997caf591"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/d85688714df5f1b90b8f0301849e4fc96cdaa162",
-            "reference": "d85688714df5f1b90b8f0301849e4fc96cdaa162",
+            "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/d3faed97ec4e5d9a20bf2c8a80cc395997caf591",
+            "reference": "d3faed97ec4e5d9a20bf2c8a80cc395997caf591",
             "shasum": ""
         },
         "require": {
             "php": ">=7.0",
             "srag/dic": ">=0.1.0"
         },
-        "time": "2020-01-16T08:09:56+00:00",
+        "time": "2020-01-21T08:23:18+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1132,27 +1194,27 @@
     },
     {
         "name": "symfony/options-resolver",
-        "version": "v4.2.8",
-        "version_normalized": "4.2.8.0",
+        "version": "v5.0.2",
+        "version_normalized": "5.0.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/options-resolver.git",
-            "reference": "fd4a5f27b7cd085b489247b9890ebca9f3e10044"
+            "reference": "1ad3d0ffc00cc1990e5c9c7bb6b81578ec3f5f68"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/fd4a5f27b7cd085b489247b9890ebca9f3e10044",
-            "reference": "fd4a5f27b7cd085b489247b9890ebca9f3e10044",
+            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/1ad3d0ffc00cc1990e5c9c7bb6b81578ec3f5f68",
+            "reference": "1ad3d0ffc00cc1990e5c9c7bb6b81578ec3f5f68",
             "shasum": ""
         },
         "require": {
-            "php": "^7.1.3"
+            "php": "^7.2.5"
         },
-        "time": "2019-04-10T16:20:36+00:00",
+        "time": "2019-11-18T17:27:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.2-dev"
+                "dev-master": "5.0-dev"
             }
         },
         "installation-source": "dist",

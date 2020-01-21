@@ -3,8 +3,6 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
-use srag\DIC\SrProjectHelper\Util\LibraryLanguageInstaller;
-use srag\Plugins\SrProjectHelper\Job\FetchGitlabInfosJob;
 use srag\Plugins\SrProjectHelper\Menu\Menu;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 use srag\RemovePluginDataConfirm\SrProjectHelper\PluginUninstallTrait;
@@ -64,7 +62,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
      */
     public function getCronJobInstances() : array
     {
-        return [new FetchGitlabInfosJob()];
+        return self::srProjectHelper()->jobs()->factory()->newInstances();
     }
 
 
@@ -73,13 +71,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
      */
     public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
     {
-        switch ($a_job_id) {
-            case FetchGitlabInfosJob::CRON_JOB_ID:
-                return new FetchGitlabInfosJob();
-
-            default:
-                return null;
-        }
+        return self::srProjectHelper()->jobs()->factory()->newInstanceById($a_job_id);
     }
 
 
@@ -99,8 +91,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     {
         parent::updateLanguages($a_lang_keys);
 
-        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
-            . "/../vendor/srag/removeplugindataconfirm/lang")->updateLanguages();
+        $this->installRemovePluginDataConfirmLanguages();
     }
 
 

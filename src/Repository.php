@@ -9,6 +9,7 @@ use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
 use srag\Plugins\SrProjectHelper\Config\Repository as ConfigRepository;
 use srag\Plugins\SrProjectHelper\Gitlab\Api;
 use srag\Plugins\SrProjectHelper\Gitlab\Client;
+use srag\Plugins\SrProjectHelper\Job\Repository as JobsRepository;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -87,6 +88,7 @@ final class Repository
     public function dropTables()/*:void*/
     {
         $this->config()->dropTables();
+        $this->jobs()->dropTables();
     }
 
 
@@ -114,5 +116,15 @@ final class Repository
     public function installTables()/*:void*/
     {
         $this->config()->installTables();
+        $this->jobs()->installTables();
+    }
+
+
+    /**
+     * @return JobsRepository
+     */
+    public function jobs() : JobsRepository
+    {
+        return JobsRepository::getInstance();
     }
 }

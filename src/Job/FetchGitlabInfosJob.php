@@ -26,7 +26,7 @@ class FetchGitlabInfosJob extends ilCronJob
     use SrProjectHelperTrait;
     const CRON_JOB_ID = ilSrProjectHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
-    const LANG_MODULE_CRON = "cron";
+    const LANG_MODULE = "cron";
 
 
     /**
@@ -52,7 +52,7 @@ class FetchGitlabInfosJob extends ilCronJob
      */
     public function getTitle() : string
     {
-        return ilSrProjectHelperPlugin::PLUGIN_NAME . ": " . self::plugin()->translate(self::CRON_JOB_ID, self::LANG_MODULE_CRON);
+        return ilSrProjectHelperPlugin::PLUGIN_NAME . ": " . self::plugin()->translate("fetch_gitlab_infos", self::LANG_MODULE);
     }
 
 
@@ -61,7 +61,7 @@ class FetchGitlabInfosJob extends ilCronJob
      */
     public function getDescription() : string
     {
-        return self::plugin()->translate(self::CRON_JOB_ID . "_description", self::LANG_MODULE_CRON);
+        return self::plugin()->translate("fetch_gitlab_infos_description", self::LANG_MODULE);
     }
 
 

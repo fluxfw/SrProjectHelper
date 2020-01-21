@@ -10,8 +10,8 @@ config_gitlab_url#:#Gitlab url
 config_roles#:#Roles
 config_roles_info#:#Show for selected roles only
 config_save#:#Save
-cron_srprojecthelper_fetch_gitlab_infos#:#Fetch gitlab infos
-cron_srprojecthelper_fetch_gitlab_infos_description#:#Keep gitlab infos up to date (ILIAS versions, plugins list, groups, users)
+cron_fetch_gitlab_infos#:#Fetch gitlab infos
+cron_fetch_gitlab_infos_description#:#Keep gitlab infos up to date (ILIAS versions, plugins list, groups, users)
 gitlab_client_project_create#:#Create
 gitlab_client_project_created#:#Background task created for "%s"
 gitlab_client_project_ilias_version#:#ILIAS version
