@@ -18,12 +18,12 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
+            'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrProjectHelper\\' => 25,
-            'srag\\CustomInputGUIs\\SrProjectHelper\\' => 37,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 40,
         ),
         'S' => 
         array (
@@ -57,7 +57,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -73,11 +73,11 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\SrProjectHelper\\' => 
+        'srag\\CustomInputGUIs\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -486,6 +486,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\CustomInputGUIs\\SrProjectHelper\\MultiLineNewInputGUI\\MultiLineNewInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiLineNewInputGUI/MultiLineNewInputGUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\MultiSelectSearchInputGUI\\MultiSelectSearchInput2GUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchInputGUI/MultiSelectSearchInput2GUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\MultiSelectSearchInputGUI\\MultiSelectSearchInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchInputGUI/MultiSelectSearchInputGUI.php',
+        'srag\\CustomInputGUIs\\SrProjectHelper\\MultiSelectSearchNewInputGUI\\MultiSelectSearchNewInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchNewInputGUI/MultiSelectSearchNewInputGUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\NumberInputGUI\\NumberInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/NumberInputGUI/NumberInputGUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\PieChart\\Component\\LegendEntry' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/LegendEntry.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\PieChart\\Component\\PieChart' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/PieChart.php',
