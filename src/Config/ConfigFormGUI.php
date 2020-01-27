@@ -2,12 +2,12 @@
 
 namespace srag\Plugins\SrProjectHelper\Config;
 
-use ilMultiSelectInputGUI;
 use ilNumberInputGUI;
 use ilPasswordInputGUI;
 use ilSrProjectHelperConfigGUI;
 use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
+use srag\CustomInputGUIs\SrProjectHelper\MultiSelectSearchNewInputGUI\MultiSelectSearchNewInputGUI;
 use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
@@ -107,10 +107,9 @@ class ConfigFormGUI extends PropertyFormGUI
                 self::PROPERTY_REQUIRED => true
             ],
             self::KEY_ROLES                   => [
-                self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
+                self::PROPERTY_CLASS    => MultiSelectSearchNewInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
-                self::PROPERTY_OPTIONS  => self::srProjectHelper()->ilias()->roles()->getAllRoles(),
-                "enableSelectAll"       => true
+                self::PROPERTY_OPTIONS  => self::srProjectHelper()->ilias()->roles()->getAllRoles()
             ]
         ];
     }
@@ -140,18 +139,6 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function storeValue(/*string*/ $key, $value)/*: void*/
     {
         switch ($key) {
-            case self::KEY_ROLES:
-                if ($value[0] === "") {
-                    array_shift($value);
-                }
-
-                $value = array_map(function (string $role_id) : int {
-                    return intval($role_id);
-                }, $value);
-
-                self::srProjectHelper()->config()->setValue($key, $value);
-                break;
-
             default:
                 self::srProjectHelper()->config()->setValue($key, $value);
                 break;
