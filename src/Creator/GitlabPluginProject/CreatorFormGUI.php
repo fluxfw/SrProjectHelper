@@ -33,7 +33,7 @@ class CreatorFormGUI extends AbstractGitlabCreatorFormGUI
                         return $group["name"];
                     }, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_GROUPS)),
                 self::PROPERTY_REQUIRED => true
-            ],
+            ]
         ];
     }
 }
