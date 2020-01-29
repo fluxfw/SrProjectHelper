@@ -26,11 +26,11 @@ gitlab_plugin_project_create#:#Erstellen
 gitlab_plugin_project_created#:#Hintergrund-Task für "%s" erstellt
 gitlab_plugin_project_group#:#Gruppe
 gitlab_plugin_project_maintainer_user#:#Maintainer-Benutzer
-gitlab_plugin_project_mantainer_user_not_found#:#Für den aktuellen ILIAS-Benutzer wurde kein gitlab-Benutzer gefunden\nBitte erstelle dir einen eigenen ILIAS-Benutzer mit der selben E-Mail, die du auf gitlab verwendest und weise ihn der Mitarbeiter-Rolle zu
 gitlab_plugin_project_name#:#Name
 gitlab_plugin_project_task_title#:#Gitlab-Plugin/Library/Skin/Origin/Hook/...-Projekt "%s" erstellen
 gitlab_plugin_project_title#:#Gitlab-Plugin/Library/Skin/Origin/Hook/...-Projekt erstellen
 gitlab_project_members_overview_created#:#Hintergrund-Task für "%s" erstellt
 gitlab_project_members_overview_task_title#:#Liste aller Gitlab-Projekte und deren Mitglieder erstellen
 gitlab_project_members_overview_title#:#Liste aller Gitlab-Projekte und deren Mitglieder erstellen
+mantainer_user_not_found#:#Für den aktuellen ILIAS-Benutzer wurde kein gitlab-Benutzer gefunden\nBitte erstelle dir einen eigenen ILIAS-Benutzer mit der selben E-Mail, die du auf gitlab verwendest und weise ihn der Mitarbeiter-Rolle zu oder melde dich über dein Google-Account an um es automatisch zu machen
 menu_title#:#srag-Projekte
