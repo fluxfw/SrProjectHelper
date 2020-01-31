@@ -21,9 +21,9 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
             'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
+            'srag\\DIC\\SrProjectHelper\\' => 25,
             'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 40,
+            'srag\\ActiveRecordConfig\\' => 24,
         ),
         'S' => 
         array (
@@ -69,7 +69,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
@@ -77,7 +77,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 
+        'srag\\ActiveRecordConfig\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
