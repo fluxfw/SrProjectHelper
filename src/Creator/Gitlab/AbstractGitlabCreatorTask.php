@@ -161,6 +161,9 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
             },
             function () use (&$project)/*: void*/ {
                 $this->useDeployKey($project, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_DEPLOY_KEY_ID));
+            },
+            function () use (&$project)/*: void*/ {
+                $this->setDisableEnableDeleteSourceBranchOptionByDefault($project);
             }
         ]);
     }
@@ -244,6 +247,19 @@ abstract class AbstractGitlabCreatorTask extends AbstractCreatorTask
     {
         return $project->update([
             "default_branch" => $branch
+        ]);
+    }
+
+
+    /**
+     * @param Project $project
+     *
+     * @return Project
+     */
+    protected function setDisableEnableDeleteSourceBranchOptionByDefault(Project $project) : Project
+    {
+        return $project->update([
+            "remove_source_branch_after_merge" => false
         ]);
     }
 

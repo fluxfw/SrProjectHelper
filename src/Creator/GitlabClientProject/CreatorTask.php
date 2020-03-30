@@ -84,6 +84,9 @@ class CreatorTask extends AbstractGitlabCreatorTask
             function () use (&$project)/*: void*/ {
                 $this->useDeployKey($project, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_DEPLOY_KEY_ID));
             },
+            function () use (&$project)/*: void*/ {
+                $this->setDisableEnableDeleteSourceBranchOptionByDefault($project);
+            },
             function () use (&$data, &$temp_folder)/*: void*/ {
                 $temp_folder = CLIENT_DATA_DIR . "/temp/" . uniqid($data["name"]);
             },

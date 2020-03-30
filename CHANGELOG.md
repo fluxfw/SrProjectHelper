@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.6]
+- Disable "Enable 'Delete source branch' option by default"
+
 ## [1.2.5]
 - Adjust gitlab project task label
 
