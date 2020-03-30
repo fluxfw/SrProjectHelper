@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject;
 
-// BackgroundTasks Bug
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
 use Gitlab\Model\Project;

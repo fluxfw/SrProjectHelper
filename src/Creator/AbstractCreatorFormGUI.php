@@ -70,7 +70,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
      */
     protected function initId()/*: void*/
     {
-        $this->setId("srprojecthelper_form");
+        $this->setId(ilSrProjectHelperPlugin::PLUGIN_ID . "_form");
     }
 
 

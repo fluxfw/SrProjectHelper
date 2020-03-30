@@ -10,8 +10,8 @@ config_gitlab_url#:#Gitlab url
 config_roles#:#Roles
 config_roles_info#:#Show for selected roles only
 config_save#:#Save
-cron_srprojecthelper_fetch_gitlab_infos#:#Fetch gitlab infos
-cron_srprojecthelper_fetch_gitlab_infos_description#:#Keep gitlab infos up to date (ILIAS versions, plugins list, groups, users)
+cron_fetch_gitlab_infos#:#Fetch gitlab infos
+cron_fetch_gitlab_infos_description#:#Keep gitlab infos up to date (ILIAS versions, plugins list, groups, users)
 gitlab_client_project_create#:#Create
 gitlab_client_project_created#:#Background task created for "%s"
 gitlab_client_project_ilias_version#:#ILIAS version
@@ -26,11 +26,11 @@ gitlab_plugin_project_create#:#Create
 gitlab_plugin_project_created#:#Background task created for "%s"
 gitlab_plugin_project_group#:#Group
 gitlab_plugin_project_maintainer_user#:#Maintainer user
-gitlab_plugin_project_mantainer_user_not_found#:#No gitlab user was found for the current ILIAS user\nPlease create your own ILIAS user with the same email you used in gitlab and assign it to the employee role
 gitlab_plugin_project_name#:#Name
 gitlab_plugin_project_task_title#:#Create gitlab plugin/library/skin/origin/hook/... project "%s"
 gitlab_plugin_project_title#:#Create gitlab plugin/library/skin/origin/hook/... project
 gitlab_project_members_overview_created#:#Background task created for "%s"
 gitlab_project_members_overview_task_title#:#Create list of all gitlab projects and its members
 gitlab_project_members_overview_title#:#Create list of all gitlab projects and its members
+mantainer_user_not_found#:#No gitlab user was found for the current ILIAS user\nPlease create your own ILIAS user with the same email you used in gitlab and assign it to the employee role or login with your Google account for do it automatic
 menu_title#:#srag projects

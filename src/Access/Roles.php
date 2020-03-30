@@ -20,7 +20,7 @@ final class Roles
     use SrProjectHelperTrait;
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
-     * @var self
+     * @var self|null
      */
     protected static $instance = null;
 

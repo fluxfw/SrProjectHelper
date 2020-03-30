@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrProjectHelper\Creator;
 
-// BackgroundTasks Bug
 require_once __DIR__ . "/../../vendor/autoload.php";
 
 use GuzzleHttp\Psr7\Stream;

@@ -5,9 +5,11 @@ namespace srag\Plugins\SrProjectHelper;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Access\Ilias;
-use srag\Plugins\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Config\Repository as ConfigRepository;
 use srag\Plugins\SrProjectHelper\Gitlab\Api;
 use srag\Plugins\SrProjectHelper\Gitlab\Client;
+use srag\Plugins\SrProjectHelper\Job\Repository as JobsRepository;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -24,7 +26,7 @@ final class Repository
     use SrProjectHelperTrait;
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
-     * @var self
+     * @var self|null
      */
     protected static $instance = null;
 
@@ -52,6 +54,15 @@ final class Repository
 
 
     /**
+     * @return ConfigRepository
+     */
+    public function config() : ConfigRepository
+    {
+        return ConfigRepository::getInstance();
+    }
+
+
+    /**
      * @return bool
      */
     public function currentUserHasRole() : bool
@@ -59,7 +70,7 @@ final class Repository
         $user_id = $this->ilias()->users()->getUserId();
 
         $user_roles = self::dic()->rbacreview()->assignedGlobalRoles($user_id);
-        $config_roles = Config::getField(Config::KEY_ROLES);
+        $config_roles = $this->config()->getValue(ConfigFormGUI::KEY_ROLES);
 
         foreach ($user_roles as $user_role) {
             if (in_array($user_role, $config_roles)) {
@@ -76,7 +87,8 @@ final class Repository
      */
     public function dropTables()/*:void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
+        $this->config()->dropTables();
+        $this->jobs()->dropTables();
     }
 
 
@@ -103,6 +115,16 @@ final class Repository
      */
     public function installTables()/*:void*/
     {
-        Config::updateDB();
+        $this->config()->installTables();
+        $this->jobs()->installTables();
+    }
+
+
+    /**
+     * @return JobsRepository
+     */
+    public function jobs() : JobsRepository
+    {
+        return JobsRepository::getInstance();
     }
 }

@@ -18,7 +18,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
+            'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\' => 9,
@@ -57,7 +57,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -87,7 +87,8 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Http\\Promise\\' => 
         array (
@@ -153,6 +154,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'Gitlab\\Api\\IssueBoards' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Api/IssueBoards.php',
         'Gitlab\\Api\\IssueLinks' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Api/IssueLinks.php',
         'Gitlab\\Api\\Issues' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Api/Issues.php',
+        'Gitlab\\Api\\IssuesStatistics' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Api/IssuesStatistics.php',
         'Gitlab\\Api\\Jobs' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Api/Jobs.php',
         'Gitlab\\Api\\Keys' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Api/Keys.php',
         'Gitlab\\Api\\MergeRequests' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Api/MergeRequests.php',
@@ -181,6 +183,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'Gitlab\\HttpClient\\Plugin\\Authentication' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/HttpClient/Plugin/Authentication.php',
         'Gitlab\\HttpClient\\Plugin\\GitlabExceptionThrower' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/HttpClient/Plugin/GitlabExceptionThrower.php',
         'Gitlab\\HttpClient\\Plugin\\History' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/HttpClient/Plugin/History.php',
+        'Gitlab\\HttpClient\\Plugin\\HistoryTrait' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/HttpClient/Plugin/HistoryTrait.php',
         'Gitlab\\Model\\AbstractModel' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/AbstractModel.php',
         'Gitlab\\Model\\Badge' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/Badge.php',
         'Gitlab\\Model\\Branch' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/Branch.php',
@@ -192,6 +195,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'Gitlab\\Model\\Event' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/Event.php',
         'Gitlab\\Model\\File' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/File.php',
         'Gitlab\\Model\\Group' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/Group.php',
+        'Gitlab\\Model\\GroupMilestone' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/GroupMilestone.php',
         'Gitlab\\Model\\Hook' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/Hook.php',
         'Gitlab\\Model\\Issue' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/Issue.php',
         'Gitlab\\Model\\IssueLink' => __DIR__ . '/..' . '/m4tthumphrey/php-gitlab-api/lib/Gitlab/Model/IssueLink.php',
@@ -226,6 +230,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'GuzzleHttp\\Exception\\ClientException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ClientException.php',
         'GuzzleHttp\\Exception\\ConnectException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ConnectException.php',
         'GuzzleHttp\\Exception\\GuzzleException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/GuzzleException.php',
+        'GuzzleHttp\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/InvalidArgumentException.php',
         'GuzzleHttp\\Exception\\RequestException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/RequestException.php',
         'GuzzleHttp\\Exception\\SeekException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/SeekException.php',
         'GuzzleHttp\\Exception\\ServerException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ServerException.php',
@@ -424,11 +429,17 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'Http\\Promise\\Promise' => __DIR__ . '/..' . '/php-http/promise/src/Promise.php',
         'Http\\Promise\\RejectedPromise' => __DIR__ . '/..' . '/php-http/promise/src/RejectedPromise.php',
         'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
+        'Psr\\Http\\Message\\RequestFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/RequestFactoryInterface.php',
         'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
+        'Psr\\Http\\Message\\ResponseFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/ResponseFactoryInterface.php',
         'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
+        'Psr\\Http\\Message\\ServerRequestFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/ServerRequestFactoryInterface.php',
         'Psr\\Http\\Message\\ServerRequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/ServerRequestInterface.php',
+        'Psr\\Http\\Message\\StreamFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/StreamFactoryInterface.php',
         'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
+        'Psr\\Http\\Message\\UploadedFileFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/UploadedFileFactoryInterface.php',
         'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
+        'Psr\\Http\\Message\\UriFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/UriFactoryInterface.php',
         'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
         'Symfony\\Component\\OptionsResolver\\Debug\\OptionsResolverIntrospector' => __DIR__ . '/..' . '/symfony/options-resolver/Debug/OptionsResolverIntrospector.php',
         'Symfony\\Component\\OptionsResolver\\Exception\\AccessException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/AccessException.php',
@@ -445,10 +456,15 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'ilSrProjectHelperConfigGUI' => __DIR__ . '/../..' . '/classes/class.ilSrProjectHelperConfigGUI.php',
         'ilSrProjectHelperPlugin' => __DIR__ . '/../..' . '/classes/class.ilSrProjectHelperPlugin.php',
         'srag\\ActiveRecordConfig\\SrProjectHelper\\ActiveRecordConfig' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfig.php',
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\ActiveRecordConfigFactory' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfig.php',
         'srag\\ActiveRecordConfig\\SrProjectHelper\\ActiveRecordConfigFormGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfigFormGUI.php',
         'srag\\ActiveRecordConfig\\SrProjectHelper\\ActiveRecordConfigGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfigGUI.php',
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\ActiveRecordConfigRepository' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfig.php',
         'srag\\ActiveRecordConfig\\SrProjectHelper\\ActiveRecordConfigTableGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfigTableGUI.php',
         'srag\\ActiveRecordConfig\\SrProjectHelper\\ActiveRecordObjectFormGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordObjectFormGUI.php',
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\Config\\AbstractFactory' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/AbstractFactory.php',
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\Config\\AbstractRepository' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/AbstractRepository.php',
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\Config\\Config' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/Config.php',
         'srag\\ActiveRecordConfig\\SrProjectHelper\\Exception\\ActiveRecordConfigException' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Exception/ActiveRecordConfigException.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\CheckboxInputGUI\\CheckboxInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/CheckboxInputGUI/CheckboxInputGUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\CustomInputGUIs' => __DIR__ . '/..' . '/srag/custominputguis/src/CustomInputGUIs.php',
@@ -470,6 +486,7 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\CustomInputGUIs\\SrProjectHelper\\MultiLineNewInputGUI\\MultiLineNewInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiLineNewInputGUI/MultiLineNewInputGUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\MultiSelectSearchInputGUI\\MultiSelectSearchInput2GUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchInputGUI/MultiSelectSearchInput2GUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\MultiSelectSearchInputGUI\\MultiSelectSearchInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchInputGUI/MultiSelectSearchInputGUI.php',
+        'srag\\CustomInputGUIs\\SrProjectHelper\\MultiSelectSearchNewInputGUI\\MultiSelectSearchNewInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchNewInputGUI/MultiSelectSearchNewInputGUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\NumberInputGUI\\NumberInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/NumberInputGUI/NumberInputGUI.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\PieChart\\Component\\LegendEntry' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/LegendEntry.php',
         'srag\\CustomInputGUIs\\SrProjectHelper\\PieChart\\Component\\PieChart' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/PieChart.php',
@@ -542,8 +559,9 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\Plugins\\SrProjectHelper\\Access\\Ilias' => __DIR__ . '/../..' . '/src/Access/Ilias.php',
         'srag\\Plugins\\SrProjectHelper\\Access\\Roles' => __DIR__ . '/../..' . '/src/Access/Roles.php',
         'srag\\Plugins\\SrProjectHelper\\Access\\Users' => __DIR__ . '/../..' . '/src/Access/Users.php',
-        'srag\\Plugins\\SrProjectHelper\\Config\\Config' => __DIR__ . '/../..' . '/src/Config/Config.php',
         'srag\\Plugins\\SrProjectHelper\\Config\\ConfigFormGUI' => __DIR__ . '/../..' . '/src/Config/ConfigFormGUI.php',
+        'srag\\Plugins\\SrProjectHelper\\Config\\Factory' => __DIR__ . '/../..' . '/src/Config/Factory.php',
+        'srag\\Plugins\\SrProjectHelper\\Config\\Repository' => __DIR__ . '/../..' . '/src/Config/Repository.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorGUI' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\AbstractCreatorTask' => __DIR__ . '/../..' . '/src/Creator/AbstractCreatorTask.php',
@@ -563,7 +581,9 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\Plugins\\SrProjectHelper\\Gitlab\\Api' => __DIR__ . '/../..' . '/src/Gitlab/Api.php',
         'srag\\Plugins\\SrProjectHelper\\Gitlab\\Client' => __DIR__ . '/../..' . '/src/Gitlab/Client.php',
         'srag\\Plugins\\SrProjectHelper\\Gitlab\\Repositories' => __DIR__ . '/../..' . '/src/Gitlab/Repositories.php',
+        'srag\\Plugins\\SrProjectHelper\\Job\\Factory' => __DIR__ . '/../..' . '/src/Job/Factory.php',
         'srag\\Plugins\\SrProjectHelper\\Job\\FetchGitlabInfosJob' => __DIR__ . '/../..' . '/src/Job/FetchGitlabInfosJob.php',
+        'srag\\Plugins\\SrProjectHelper\\Job\\Repository' => __DIR__ . '/../..' . '/src/Job/Repository.php',
         'srag\\Plugins\\SrProjectHelper\\Menu\\Menu' => __DIR__ . '/../..' . '/src/Menu/Menu.php',
         'srag\\Plugins\\SrProjectHelper\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
         'srag\\Plugins\\SrProjectHelper\\Utils\\SrProjectHelperTrait' => __DIR__ . '/../..' . '/src/Utils/SrProjectHelperTrait.php',

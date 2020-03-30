@@ -39,7 +39,7 @@ abstract class AbstractGitlabCreatorFormGUI extends AbstractCreatorFormGUI
         parent::initFields();
 
         if (self::srProjectHelper()->ilias()->users()->getUserId() === intval(SYSTEM_USER_ID) || empty(self::srProjectHelper()->ilias()->users()->getGitlabUserId())) {
-            ilUtil::sendInfo(nl2br(str_replace("\\n", "\n", $this->txt("mantainer_user_not_found")), false));
+            ilUtil::sendInfo(nl2br(self::plugin()->translate("mantainer_user_not_found"), false));
         }
 
         $this->fields += [

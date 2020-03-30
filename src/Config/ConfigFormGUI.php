@@ -2,13 +2,13 @@
 
 namespace srag\Plugins\SrProjectHelper\Config;
 
-use ilMultiSelectInputGUI;
 use ilNumberInputGUI;
 use ilPasswordInputGUI;
 use ilSrProjectHelperConfigGUI;
 use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
-use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\ConfigPropertyFormGUI;
+use srag\CustomInputGUIs\SrProjectHelper\MultiSelectSearchNewInputGUI\MultiSelectSearchNewInputGUI;
+use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -18,12 +18,24 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ConfigFormGUI extends ConfigPropertyFormGUI
+class ConfigFormGUI extends PropertyFormGUI
 {
 
     use SrProjectHelperTrait;
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
-    const CONFIG_CLASS_NAME = Config::class;
+    const KEY_GITLAB_ACCESS_TOKEN = "gitlab_access_token";
+    const KEY_GITLAB_CLIENTS_GROUP_ID = "gitlab_clients_group_id";
+    const KEY_GITLAB_DEPLOY_KEY_ID = "gitlab_deploy_key_id";
+    const KEY_GITLAB_GROUPS = "gitlab_groups";
+    const KEY_GITLAB_ILIAS_PROJECT_ID = "gitlab_ilias_project_id";
+    const KEY_GITLAB_ILIAS_VERSIONS = "gitlab_ilias_versions";
+    const KEY_GITLAB_MEMBERS_GROUP_ID = "gitlab_members_group_id";
+    const KEY_GITLAB_PLUGINS = "gitlab_plugins";
+    const KEY_GITLAB_PLUGINS_GROUP_ID = "gitlab_plugins_group_id";
+    const KEY_GITLAB_PROJECTS = "gitlab_projects";
+    const KEY_GITLAB_URL = "gitlab_url";
+    const KEY_GITLAB_USERS = "gitlab_users";
+    const KEY_ROLES = "roles";
     const LANG_MODULE = ilSrProjectHelperConfigGUI::LANG_MODULE;
 
 
@@ -45,7 +57,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     {
         switch ($key) {
             default:
-                return parent::getValue($key);
+                return self::srProjectHelper()->config()->getValue($key);
         }
     }
 
@@ -65,40 +77,39 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     protected function initFields()/*: void*/
     {
         $this->fields = [
-            Config::KEY_GITLAB_URL              => [
+            self::KEY_GITLAB_URL              => [
                 self::PROPERTY_CLASS    => ilTextInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_ACCESS_TOKEN     => [
+            self::KEY_GITLAB_ACCESS_TOKEN     => [
                 self::PROPERTY_CLASS    => ilPasswordInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
                 "setRetype"             => false
             ],
-            Config::KEY_GITLAB_CLIENTS_GROUP_ID => [
+            self::KEY_GITLAB_CLIENTS_GROUP_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_DEPLOY_KEY_ID    => [
+            self::KEY_GITLAB_DEPLOY_KEY_ID    => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_ILIAS_PROJECT_ID => [
+            self::KEY_GITLAB_ILIAS_PROJECT_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_MEMBERS_GROUP_ID => [
+            self::KEY_GITLAB_MEMBERS_GROUP_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_GITLAB_PLUGINS_GROUP_ID => [
+            self::KEY_GITLAB_PLUGINS_GROUP_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            Config::KEY_ROLES                   => [
-                self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
+            self::KEY_ROLES                   => [
+                self::PROPERTY_CLASS    => MultiSelectSearchNewInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
-                self::PROPERTY_OPTIONS  => self::srProjectHelper()->ilias()->roles()->getAllRoles(),
-                "enableSelectAll"       => true
+                self::PROPERTY_OPTIONS  => self::srProjectHelper()->ilias()->roles()->getAllRoles()
             ]
         ];
     }
@@ -128,20 +139,9 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     protected function storeValue(/*string*/ $key, $value)/*: void*/
     {
         switch ($key) {
-            case Config::KEY_ROLES:
-                if ($value[0] === "") {
-                    array_shift($value);
-                }
-
-                $value = array_map(function (string $role_id) : int {
-                    return intval($role_id);
-                }, $value);
-                break;
-
             default:
+                self::srProjectHelper()->config()->setValue($key, $value);
                 break;
         }
-
-        parent::storeValue($key, $value);
     }
 }
