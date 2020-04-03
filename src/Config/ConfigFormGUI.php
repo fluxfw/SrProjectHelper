@@ -2,6 +2,7 @@
 
 namespace srag\Plugins\SrProjectHelper\Config;
 
+use ilFormSectionHeaderGUI;
 use ilNumberInputGUI;
 use ilPasswordInputGUI;
 use ilSrProjectHelperConfigGUI;
@@ -77,6 +78,9 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function initFields()/*: void*/
     {
         $this->fields = [
+            "gitlab"                          => [
+                self::PROPERTY_CLASS => ilFormSectionHeaderGUI::class
+            ],
             self::KEY_GITLAB_URL              => [
                 self::PROPERTY_CLASS    => ilTextInputGUI::class,
                 self::PROPERTY_REQUIRED => true
@@ -106,7 +110,11 @@ class ConfigFormGUI extends PropertyFormGUI
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
-            self::KEY_ROLES                   => [
+
+            "others"        => [
+                self::PROPERTY_CLASS => ilFormSectionHeaderGUI::class
+            ],
+            self::KEY_ROLES => [
                 self::PROPERTY_CLASS    => MultiSelectSearchNewInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
                 self::PROPERTY_OPTIONS  => self::srProjectHelper()->ilias()->roles()->getAllRoles()
