@@ -27,7 +27,7 @@ class CreatorTask extends AbstractGitlabCreatorTask
          */
         $project = null;
 
-        return $this->getStepsForNewPlugin($data["name"], function () use (&$data): int {
+        return self::srProjectHelper()->gitlab()->getStepsForNewPlugin($data["name"], function () use (&$data): int {
             return intval($data["group"]);
         }, $data["maintainer_user"], $project);
     }

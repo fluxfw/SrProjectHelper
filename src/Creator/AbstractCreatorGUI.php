@@ -3,7 +3,11 @@
 namespace srag\Plugins\SrProjectHelper\Creator;
 
 use ILIAS\BackgroundTasks\Implementation\Bucket\BasicBucket;
+use ILIAS\GlobalScreen\Identification\IdentificationProviderInterface;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\isItem;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\TopItem\TopParentItem;
 use ilSrProjectHelperPlugin;
+use ilUIPluginRouterGUI;
 use ilUtil;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
@@ -23,12 +27,30 @@ abstract class AbstractCreatorGUI
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_CREATE = "create";
     const CMD_FORM = "form";
+    const START_CMD = self::CMD_FORM;
     /**
      * @var string
      *
      * @abstract
      */
     const LANG_MODULE = "";
+
+
+    /**
+     * @param IdentificationProviderInterface $if
+     * @param TopParentItem                   $parent
+     *
+     * @return isItem
+     */
+    public static function getMenuItem(IdentificationProviderInterface $if, TopParentItem $parent) : isItem
+    {
+        return self::dic()->globalScreen()->mainmenu()->link($if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_" . static::LANG_MODULE))
+            ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
+                ->translate("title", static::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
+                ilUIPluginRouterGUI::class,
+                static::class
+            ], static::START_CMD));
+    }
 
 
     /**

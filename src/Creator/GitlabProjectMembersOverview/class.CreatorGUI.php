@@ -20,6 +20,7 @@ class CreatorGUI extends AbstractCreatorGUI
 {
 
     const LANG_MODULE = "gitlab_project_members_overview";
+    const START_CMD = self::CMD_CREATE;
 
 
     /**

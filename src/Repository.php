@@ -7,9 +7,9 @@ use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Access\Ilias;
 use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
 use srag\Plugins\SrProjectHelper\Config\Repository as ConfigRepository;
-use srag\Plugins\SrProjectHelper\Gitlab\Api;
-use srag\Plugins\SrProjectHelper\Gitlab\Client;
+use srag\Plugins\SrProjectHelper\Gitlab\Repository as GitlabRepository;
 use srag\Plugins\SrProjectHelper\Job\Repository as JobsRepository;
+use srag\Plugins\SrProjectHelper\Menu\Menu;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -93,11 +93,11 @@ final class Repository
 
 
     /**
-     * @return Client
+     * @return GitlabRepository
      */
-    public function gitlab() : Client
+    public function gitlab() : GitlabRepository
     {
-        return Api::getClient();
+        return GitlabRepository::getInstance();
     }
 
 
@@ -126,5 +126,14 @@ final class Repository
     public function jobs() : JobsRepository
     {
         return JobsRepository::getInstance();
+    }
+
+
+    /**
+     * @return Menu
+     */
+    public function menu() : Menu
+    {
+        return new Menu(self::dic()->dic(), self::plugin()->getPluginObject());
     }
 }

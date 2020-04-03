@@ -3,9 +3,9 @@
 namespace srag\Plugins\SrProjectHelper\Config;
 
 use ilSrProjectHelperPlugin;
-use srag\ActiveRecordConfig\SrProjectHelper\Config\Config;
 use srag\ActiveRecordConfig\SrProjectHelper\Config\AbstractFactory;
 use srag\ActiveRecordConfig\SrProjectHelper\Config\AbstractRepository;
+use srag\ActiveRecordConfig\SrProjectHelper\Config\Config;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**

@@ -21,9 +21,9 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
             'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\DIC\\SrProjectHelper\\' => 25,
+            'srag\\CustomInputGUIs\\SrProjectHelper\\' => 37,
+            'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 40,
         ),
         'S' => 
         array (
@@ -69,15 +69,15 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -578,9 +578,9 @@ class ComposerStaticInite3e8e72fcb2bdd21969de27b33c0b0d6
         'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorFormGUI' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorFormGUI.php',
         'srag\\Plugins\\SrProjectHelper\\Creator\\Gitlab\\AbstractGitlabCreatorTask' => __DIR__ . '/../..' . '/src/Creator/Gitlab/AbstractGitlabCreatorTask.php',
         'srag\\Plugins\\SrProjectHelper\\Exception\\SrProjectHelperException' => __DIR__ . '/../..' . '/src/Exception/SrProjectHelperException.php',
-        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Api' => __DIR__ . '/../..' . '/src/Gitlab/Api.php',
-        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Client' => __DIR__ . '/../..' . '/src/Gitlab/Client.php',
-        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Repositories' => __DIR__ . '/../..' . '/src/Gitlab/Repositories.php',
+        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Client\\Client' => __DIR__ . '/../..' . '/src/Gitlab/Client/Client.php',
+        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Client\\Repositories' => __DIR__ . '/../..' . '/src/Gitlab/Client/Repositories.php',
+        'srag\\Plugins\\SrProjectHelper\\Gitlab\\Repository' => __DIR__ . '/../..' . '/src/Gitlab/Repository.php',
         'srag\\Plugins\\SrProjectHelper\\Job\\Factory' => __DIR__ . '/../..' . '/src/Job/Factory.php',
         'srag\\Plugins\\SrProjectHelper\\Job\\FetchGitlabInfosJob' => __DIR__ . '/../..' . '/src/Job/FetchGitlabInfosJob.php',
         'srag\\Plugins\\SrProjectHelper\\Job\\Repository' => __DIR__ . '/../..' . '/src/Job/Repository.php',

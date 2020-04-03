@@ -4,7 +4,6 @@ namespace srag\Plugins\SrProjectHelper\Menu;
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
 use ilSrProjectHelperPlugin;
-use ilUIPluginRouterGUI;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
@@ -52,24 +51,9 @@ class Menu extends AbstractStaticPluginMainMenuProvider
         $parent = $this->getStaticTopItems()[0];
 
         return [
-            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_client_project"))
-                ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
-                    ->translate("title", GitlabClientProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
-                    ilUIPluginRouterGUI::class,
-                    GitlabClientProjectCreatorGUI::class
-                ], GitlabClientProjectCreatorGUI::CMD_FORM)),
-            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_create_gitlab_plugin_project"))
-                ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
-                    ->translate("title", GitlabPluginProjectCreatorGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
-                    ilUIPluginRouterGUI::class,
-                    GitlabPluginProjectCreatorGUI::class
-                ], GitlabPluginProjectCreatorGUI::CMD_FORM)),
-            $this->mainmenu->link($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_project_members_overview"))
-                ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
-                    ->translate("title", GitlabProjectMembersOverviewGUI::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
-                    ilUIPluginRouterGUI::class,
-                    GitlabProjectMembersOverviewGUI::class
-                ], GitlabProjectMembersOverviewGUI::CMD_CREATE))
+            GitlabClientProjectCreatorGUI::getMenuItem($this->if, $parent),
+            GitlabPluginProjectCreatorGUI::getMenuItem($this->if, $parent),
+            GitlabProjectMembersOverviewGUI::getMenuItem($this->if, $parent)
         ];
     }
 }

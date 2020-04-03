@@ -3,7 +3,6 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
-use srag\Plugins\SrProjectHelper\Menu\Menu;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 use srag\RemovePluginDataConfirm\SrProjectHelper\PluginUninstallTrait;
 
@@ -80,7 +79,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
      */
     public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
     {
-        return new Menu(self::dic()->dic(), $this);
+        return self::srProjectHelper()->menu();
     }
 
 
