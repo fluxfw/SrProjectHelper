@@ -13,7 +13,7 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 /**
  * Class Repository
  *
- * @package srag\Plugins\SrProjectHelper\Gitlab\Client
+ * @package srag\Plugins\SrProjectHelper\Gitlab
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
