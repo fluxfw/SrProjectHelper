@@ -5,7 +5,6 @@ namespace srag\Plugins\SrProjectHelper\Config;
 use ilFormSectionHeaderGUI;
 use ilNumberInputGUI;
 use ilPasswordInputGUI;
-use ilSrProjectHelperConfigGUI;
 use ilSrProjectHelperPlugin;
 use ilTextInputGUI;
 use srag\CustomInputGUIs\SrProjectHelper\MultiSelectSearchNewInputGUI\MultiSelectSearchNewInputGUI;
@@ -37,15 +36,15 @@ class ConfigFormGUI extends PropertyFormGUI
     const KEY_GITLAB_URL = "gitlab_url";
     const KEY_GITLAB_USERS = "gitlab_users";
     const KEY_ROLES = "roles";
-    const LANG_MODULE = ilSrProjectHelperConfigGUI::LANG_MODULE;
+    const LANG_MODULE = ConfigCtrl::LANG_MODULE;
 
 
     /**
      * ConfigFormGUI constructor
      *
-     * @param ilSrProjectHelperConfigGUI $parent
+     * @param ConfigCtrl $parent
      */
-    public function __construct(ilSrProjectHelperConfigGUI $parent)
+    public function __construct(ConfigCtrl $parent)
     {
         parent::__construct($parent);
     }
@@ -68,7 +67,7 @@ class ConfigFormGUI extends PropertyFormGUI
      */
     protected function initCommands()/*: void*/
     {
-        $this->addCommandButton(ilSrProjectHelperConfigGUI::CMD_UPDATE_CONFIGURE, $this->txt("save"));
+        $this->addCommandButton(ConfigCtrl::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }
 
 
