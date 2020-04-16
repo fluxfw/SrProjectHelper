@@ -347,6 +347,25 @@ final class Repository
 
 
     /**
+     * @param int    $project_id
+     * @param string $github_name
+     */
+    public function setGitlabGithubSync(int $project_id, string $github_name)/*:void*/
+    {
+        $this->client()->projects()->mirror($project_id, [
+            "url"                     => "https://" . self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITHUB_USER) . ":" . self::srProjectHelper()
+                    ->config()
+                    ->getValue(ConfigFormGUI::KEY_GITHUB_ACCESS_TOKEN) . "@github.com/" . self::srProjectHelper()
+                    ->config()
+                    ->getValue(ConfigFormGUI::KEY_GITHUB_ORGANISATION) . "/" . $github_name
+                . ".git",
+            "enabled"                 => true,
+            "only_protected_branches" => true
+        ]);
+    }
+
+
+    /**
      * @param Project $project
      * @param int     $maintainer_user
      */

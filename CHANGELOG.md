@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.0]
+- Github
+
 ## [1.2.6]
 - Disable "Enable 'Delete source branch' option by default"
 

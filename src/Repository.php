@@ -7,6 +7,7 @@ use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Access\Ilias;
 use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
 use srag\Plugins\SrProjectHelper\Config\Repository as ConfigRepository;
+use srag\Plugins\SrProjectHelper\Github\Repository as GithubRepository;
 use srag\Plugins\SrProjectHelper\Gitlab\Repository as GitlabRepository;
 use srag\Plugins\SrProjectHelper\Job\Repository as JobsRepository;
 use srag\Plugins\SrProjectHelper\Menu\Menu;
@@ -89,6 +90,15 @@ final class Repository
     {
         $this->config()->dropTables();
         $this->jobs()->dropTables();
+    }
+
+
+    /**
+     * @return GithubRepository
+     */
+    public function github() : GithubRepository
+    {
+        return GithubRepository::getInstance();
     }
 
 
