@@ -1,5 +1,9 @@
 config_configuration#:#Konfiguration
 config_configuration_saved#:#Konfiguration gespeichert
+config_github#:#Github
+config_github_access_token#:#Access-Token
+config_github_organisation#:#Organisation
+config_github_user#:#Benutzer
 config_gitlab#:#Gitlab
 config_gitlab_access_token#:#Access-Token
 config_gitlab_clients_group_id#:#Kunden-Gruppen-ID
@@ -14,6 +18,12 @@ config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
 config_save#:#Speichern
 cron_fetch_gitlab_infos#:#Gitlab-Infos holen
 cron_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste, Gruppen, Benutzer)
+github_repository_create#:#Erstellen
+github_repository_created#:#Hintergrund-Task für "%s" erstellt
+github_repository_name#:#Name
+github_repository_project#:#Gitlab-Projekt
+github_repository_task_title#:#Github-Repository "%s" erstellen
+github_repository_title#:#Github-Repository erstellen
 gitlab_client_project_create#:#Erstellen
 gitlab_client_project_created#:#Hintergrund-Task für "%s" erstellt
 gitlab_client_project_ilias_version#:#ILIAS-Version

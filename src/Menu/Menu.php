@@ -5,6 +5,7 @@ namespace srag\Plugins\SrProjectHelper\Menu;
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Creator\GithubRepository\CreatorGUI as GithubRepositoryCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI as GitlabClientProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI as GitlabPluginProjectCreatorGUI;
 use srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview\CreatorGUI as GitlabProjectMembersOverviewGUI;
@@ -53,6 +54,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider
         return [
             GitlabClientProjectCreatorGUI::getMenuItem($this->if, $parent),
             GitlabPluginProjectCreatorGUI::getMenuItem($this->if, $parent),
+            GithubRepositoryCreatorGUI::getMenuItem($this->if, $parent),
             GitlabProjectMembersOverviewGUI::getMenuItem($this->if, $parent)
         ];
     }

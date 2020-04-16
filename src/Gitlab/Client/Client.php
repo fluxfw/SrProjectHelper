@@ -34,4 +34,13 @@ class Client extends GitlabClient
     {
         return new Repositories($this);
     }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function projects() : Projects
+    {
+        return new Projects($this);
+    }
 }

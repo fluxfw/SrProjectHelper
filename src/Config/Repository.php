@@ -74,6 +74,9 @@ final class Repository extends AbstractRepository
     protected function getFields() : array
     {
         return [
+            ConfigFormGUI::KEY_GITHUB_ACCESS_TOKEN     => Config::TYPE_STRING,
+            ConfigFormGUI::KEY_GITHUB_ORGANISATION     => Config::TYPE_STRING,
+            ConfigFormGUI::KEY_GITHUB_USER             => Config::TYPE_STRING,
             ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN     => Config::TYPE_STRING,
             ConfigFormGUI::KEY_GITLAB_CLIENTS_GROUP_ID => Config::TYPE_INTEGER,
             ConfigFormGUI::KEY_GITLAB_DEPLOY_KEY_ID    => Config::TYPE_INTEGER,

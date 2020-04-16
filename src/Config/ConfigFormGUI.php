@@ -23,6 +23,9 @@ class ConfigFormGUI extends PropertyFormGUI
 
     use SrProjectHelperTrait;
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
+    const KEY_GITHUB_ACCESS_TOKEN = "github_access_token";
+    const KEY_GITHUB_ORGANISATION = "github_organisation";
+    const KEY_GITHUB_USER = "github_user";
     const KEY_GITLAB_ACCESS_TOKEN = "gitlab_access_token";
     const KEY_GITLAB_CLIENTS_GROUP_ID = "gitlab_clients_group_id";
     const KEY_GITLAB_DEPLOY_KEY_ID = "gitlab_deploy_key_id";
@@ -107,6 +110,23 @@ class ConfigFormGUI extends PropertyFormGUI
             ],
             self::KEY_GITLAB_PLUGINS_GROUP_ID => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
+                self::PROPERTY_REQUIRED => true
+            ],
+
+            "github"                      => [
+                self::PROPERTY_CLASS => ilFormSectionHeaderGUI::class
+            ],
+            self::KEY_GITHUB_ORGANISATION => [
+                self::PROPERTY_CLASS    => ilTextInputGUI::class,
+                self::PROPERTY_REQUIRED => true
+            ],
+            self::KEY_GITHUB_ACCESS_TOKEN => [
+                self::PROPERTY_CLASS    => ilPasswordInputGUI::class,
+                self::PROPERTY_REQUIRED => true,
+                "setRetype"             => false
+            ],
+            self::KEY_GITHUB_USER         => [
+                self::PROPERTY_CLASS    => ilTextInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ],
 
