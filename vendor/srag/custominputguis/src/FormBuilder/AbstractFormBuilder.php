@@ -46,7 +46,7 @@ abstract class AbstractFormBuilder implements FormBuilder
      *
      * @param object $parent
      */
-    public function __construct(object $parent)
+    public function __construct(/*object*/ $parent)
     {
         $this->parent = $parent;
     }
@@ -70,7 +70,7 @@ abstract class AbstractFormBuilder implements FormBuilder
     /**
      *
      */
-    public function executeCommand() : void
+    public function executeCommand()/* : void*/
     {
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
@@ -188,7 +188,7 @@ abstract class AbstractFormBuilder implements FormBuilder
     /**
      * @param Form $form
      */
-    protected function setDataToForm(Form $form) : void
+    protected function setDataToForm(Form $form)/* : void*/
     {
         $data = $this->getData();
 
@@ -309,5 +309,5 @@ abstract class AbstractFormBuilder implements FormBuilder
     /**
      * @param array $data
      */
-    protected abstract function storeData(array $data) : void;
+    protected abstract function storeData(array $data)/* : void*/;
 }
