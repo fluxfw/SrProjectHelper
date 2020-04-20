@@ -18,6 +18,7 @@ final class Roles
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var self|null

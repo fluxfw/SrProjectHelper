@@ -6,6 +6,7 @@ use ilSrProjectHelperPlugin;
 use srag\ActiveRecordConfig\SrProjectHelper\Config\AbstractFactory;
 use srag\ActiveRecordConfig\SrProjectHelper\Config\AbstractRepository;
 use srag\ActiveRecordConfig\SrProjectHelper\Config\Config;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -19,6 +20,7 @@ final class Repository extends AbstractRepository
 {
 
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var self|null
@@ -74,22 +76,22 @@ final class Repository extends AbstractRepository
     protected function getFields() : array
     {
         return [
-            ConfigFormGUI::KEY_GITHUB_ACCESS_TOKEN     => Config::TYPE_STRING,
-            ConfigFormGUI::KEY_GITHUB_ORGANISATION     => Config::TYPE_STRING,
-            ConfigFormGUI::KEY_GITHUB_USER             => Config::TYPE_STRING,
-            ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN     => Config::TYPE_STRING,
-            ConfigFormGUI::KEY_GITLAB_CLIENTS_GROUP_ID => Config::TYPE_INTEGER,
-            ConfigFormGUI::KEY_GITLAB_DEPLOY_KEY_ID    => Config::TYPE_INTEGER,
-            ConfigFormGUI::KEY_GITLAB_GROUPS           => [Config::TYPE_JSON, [], true],
-            ConfigFormGUI::KEY_GITLAB_ILIAS_PROJECT_ID => Config::TYPE_INTEGER,
-            ConfigFormGUI::KEY_GITLAB_ILIAS_VERSIONS   => [Config::TYPE_JSON, [], true],
-            ConfigFormGUI::KEY_GITLAB_MEMBERS_GROUP_ID => Config::TYPE_INTEGER,
-            ConfigFormGUI::KEY_GITLAB_PLUGINS          => [Config::TYPE_JSON, [], true],
-            ConfigFormGUI::KEY_GITLAB_PLUGINS_GROUP_ID => Config::TYPE_INTEGER,
-            ConfigFormGUI::KEY_GITLAB_PROJECTS         => [Config::TYPE_JSON, [], true],
-            ConfigFormGUI::KEY_GITLAB_URL              => Config::TYPE_STRING,
-            ConfigFormGUI::KEY_GITLAB_USERS            => [Config::TYPE_JSON, [], true],
-            ConfigFormGUI::KEY_ROLES                   => [Config::TYPE_JSON, []]
+            FormBuilder::KEY_GITHUB_ACCESS_TOKEN     => Config::TYPE_STRING,
+            FormBuilder::KEY_GITHUB_ORGANISATION     => Config::TYPE_STRING,
+            FormBuilder::KEY_GITHUB_USER             => Config::TYPE_STRING,
+            FormBuilder::KEY_GITLAB_ACCESS_TOKEN     => Config::TYPE_STRING,
+            FormBuilder::KEY_GITLAB_CLIENTS_GROUP_ID => Config::TYPE_INTEGER,
+            FormBuilder::KEY_GITLAB_DEPLOY_KEY_ID    => Config::TYPE_INTEGER,
+            FormBuilder::KEY_GITLAB_GROUPS           => [Config::TYPE_JSON, [], true],
+            FormBuilder::KEY_GITLAB_ILIAS_PROJECT_ID => Config::TYPE_INTEGER,
+            FormBuilder::KEY_GITLAB_ILIAS_VERSIONS   => [Config::TYPE_JSON, [], true],
+            FormBuilder::KEY_GITLAB_MEMBERS_GROUP_ID => Config::TYPE_INTEGER,
+            FormBuilder::KEY_GITLAB_PLUGINS          => [Config::TYPE_JSON, [], true],
+            FormBuilder::KEY_GITLAB_PLUGINS_GROUP_ID => Config::TYPE_INTEGER,
+            FormBuilder::KEY_GITLAB_PROJECTS         => [Config::TYPE_JSON, [], true],
+            FormBuilder::KEY_GITLAB_URL              => Config::TYPE_STRING,
+            FormBuilder::KEY_GITLAB_USERS            => [Config::TYPE_JSON, [], true],
+            FormBuilder::KEY_ROLES                   => [Config::TYPE_JSON, []]
         ];
     }
 }

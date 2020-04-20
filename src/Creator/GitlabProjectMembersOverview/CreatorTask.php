@@ -4,7 +4,7 @@ namespace srag\Plugins\SrProjectHelper\Creator\GitlabProjectMembersOverview;
 
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
-use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorTask;
 use srag\Plugins\SrProjectHelper\Job\FetchGitlabInfosJob;
 
@@ -33,13 +33,13 @@ class CreatorTask extends AbstractGitlabCreatorTask
             function ()/*: void*/ {
                 $data = [];
 
-                foreach (self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_PROJECTS) as $id => $project) {
+                foreach (self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PROJECTS) as $id => $project) {
 
                     $project += self::srProjectHelper()->gitlab()->translateMembers(self::srProjectHelper()->gitlab()->client()->projects()->members($id));
                     $data[] = $project;
                 }
 
-                foreach (self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_GROUPS) as $id => $group) {
+                foreach (self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_GROUPS) as $id => $group) {
                     $group += self::srProjectHelper()->gitlab()->translateMembers(self::srProjectHelper()->gitlab()->client()->groups()->members($id));
                     $data[] = $group;
                 }

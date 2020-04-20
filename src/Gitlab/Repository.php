@@ -6,7 +6,7 @@ use Gitlab\Model\Group;
 use Gitlab\Model\Project;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
-use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Gitlab\Client\Client;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
@@ -22,6 +22,7 @@ final class Repository
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const GITLAB_MAX_PER_PAGE = 100;
     const GITLAB_PAGES = 10;
@@ -110,8 +111,8 @@ final class Repository
     public function client() : Client
     {
         if ($this->client === null) {
-            $this->client = Client::create(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_URL))
-                ->authenticate(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN), Client::AUTH_URL_TOKEN);
+            $this->client = Client::create(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_URL))
+                ->authenticate(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ACCESS_TOKEN), Client::AUTH_URL_TOKEN);
         }
 
         return $this->client;
@@ -126,12 +127,12 @@ final class Repository
     public function cloneILIAS(string $temp_folder, Project $project, string $ilias_version)/*: void*/
     {
         $result = [];
-        exec("git clone -b " . escapeshellarg(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
+        exec("git clone -b " . escapeshellarg(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
             . escapeshellarg($this->tokenRepoUrl($project->http_url_to_repo)) . " " . escapeshellarg($temp_folder) . " 2>&1", $result);
 
         $result = [];
         exec("git -C " . escapeshellarg($temp_folder) . " remote add temp "
-            . escapeshellarg($this->tokenRepoUrl((new Project(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ILIAS_PROJECT_ID),
+            . escapeshellarg($this->tokenRepoUrl((new Project(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_PROJECT_ID),
                 $this->client()))->show()->http_url_to_repo))
             . " 2>&1", $result);
 
@@ -220,7 +221,7 @@ final class Repository
                 $this->setMaintainer($project, $maintainer_user);
             },
             function () use (&$project)/*: void*/ {
-                $this->useDeployKey($project, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_DEPLOY_KEY_ID));
+                $this->useDeployKey($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_DEPLOY_KEY_ID));
             },
             function () use (&$project)/*: void*/ {
                 $this->setDisableEnableDeleteSourceBranchOptionByDefault($project);
@@ -353,11 +354,11 @@ final class Repository
     public function setGitlabGithubSync(int $project_id, string $github_name)/*:void*/
     {
         $this->client()->projects()->mirror($project_id, [
-            "url"                     => "https://" . self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITHUB_USER) . ":" . self::srProjectHelper()
+            "url"                     => "https://" . self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITHUB_USER) . ":" . self::srProjectHelper()
                     ->config()
-                    ->getValue(ConfigFormGUI::KEY_GITHUB_ACCESS_TOKEN) . "@github.com/" . self::srProjectHelper()
+                    ->getValue(FormBuilder::KEY_GITHUB_ACCESS_TOKEN) . "@github.com/" . self::srProjectHelper()
                     ->config()
-                    ->getValue(ConfigFormGUI::KEY_GITHUB_ORGANISATION) . "/" . $github_name
+                    ->getValue(FormBuilder::KEY_GITHUB_ORGANISATION) . "/" . $github_name
                 . ".git",
             "enabled"                 => true,
             "only_protected_branches" => true
@@ -383,7 +384,7 @@ final class Repository
     protected function tokenRepoUrl(string $url) : string
     {
         // https://stackoverflow.com/questions/25409700/using-gitlab-token-to-clone-without-authentication
-        return str_replace("https://", "https://gitlab-ci-token:" . self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ACCESS_TOKEN) . "@", $url);
+        return str_replace("https://", "https://gitlab-ci-token:" . self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ACCESS_TOKEN) . "@", $url);
     }
 
 

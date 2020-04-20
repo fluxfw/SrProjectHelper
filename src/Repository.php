@@ -5,7 +5,7 @@ namespace srag\Plugins\SrProjectHelper;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Access\Ilias;
-use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Config\Repository as ConfigRepository;
 use srag\Plugins\SrProjectHelper\Github\Repository as GithubRepository;
 use srag\Plugins\SrProjectHelper\Gitlab\Repository as GitlabRepository;
@@ -25,6 +25,7 @@ final class Repository
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var self|null
@@ -71,7 +72,7 @@ final class Repository
         $user_id = $this->ilias()->users()->getUserId();
 
         $user_roles = self::dic()->rbac()->review()->assignedGlobalRoles($user_id);
-        $config_roles = $this->config()->getValue(ConfigFormGUI::KEY_ROLES);
+        $config_roles = $this->config()->getValue(FormBuilder::KEY_ROLES);
 
         foreach ($user_roles as $user_role) {
             if (in_array($user_role, $config_roles)) {

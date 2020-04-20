@@ -24,6 +24,7 @@ abstract class AbstractCreatorGUI
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_CREATE = "create";
     const CMD_FORM = "form";

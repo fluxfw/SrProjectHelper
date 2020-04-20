@@ -18,6 +18,7 @@ abstract class AbstractCreatorFormGUI extends PropertyFormGUI
 {
 
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var array

@@ -21,6 +21,7 @@ class ConfigCtrl
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_CONFIGURE = "configure";
     const CMD_UPDATE_CONFIGURE = "updateConfigure";
@@ -90,7 +91,7 @@ class ConfigCtrl
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
-        $form = self::srProjectHelper()->config()->factory()->newFormInstance($this);
+        $form = self::srProjectHelper()->config()->factory()->newFormBuilderInstance($this);
 
         self::output()->output($form);
     }
@@ -103,7 +104,7 @@ class ConfigCtrl
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
-        $form = self::srProjectHelper()->config()->factory()->newFormInstance($this);
+        $form = self::srProjectHelper()->config()->factory()->newFormBuilderInstance($this);
 
         if (!$form->storeForm()) {
             self::output()->output($form);

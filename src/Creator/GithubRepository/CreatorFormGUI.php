@@ -3,7 +3,7 @@
 namespace srag\Plugins\SrProjectHelper\Creator\GithubRepository;
 
 use ilSelectInputGUI;
-use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Creator\Github\AbstractGithubCreatorFormGUI;
 
 /**
@@ -31,7 +31,7 @@ class CreatorFormGUI extends AbstractGithubCreatorFormGUI
                 self::PROPERTY_CLASS   => ilSelectInputGUI::class,
                 self::PROPERTY_OPTIONS => ["" => ""] + array_map(function (array $project) : string {
                         return $project["name"];
-                    }, self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_PROJECTS))
+                    }, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PROJECTS))
             ]
         ];
     }

@@ -16,6 +16,7 @@ class ilSrProjectHelperConfigGUI extends ilPluginConfigGUI
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_CONFIGURE = "configure";
 

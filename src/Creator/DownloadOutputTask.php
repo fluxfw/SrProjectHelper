@@ -29,6 +29,7 @@ class DownloadOutputTask extends AbstractUserInteraction
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_DOWNLOAD = "download";
 

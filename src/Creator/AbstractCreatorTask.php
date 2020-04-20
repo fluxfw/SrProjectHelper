@@ -24,6 +24,7 @@ abstract class AbstractCreatorTask extends AbstractJob
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 
 

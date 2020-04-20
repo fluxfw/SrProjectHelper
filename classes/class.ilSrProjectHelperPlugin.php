@@ -16,6 +16,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
 
     use PluginUninstallTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_ID = "srprojecthelper";
     const PLUGIN_NAME = "SrProjectHelper";
     const PLUGIN_CLASS_NAME = self::class;
