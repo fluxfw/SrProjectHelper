@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrProjectHelper\Creator;
+namespace srag\Plugins\SrProjectHelper\Creator\Task;
 
 use ILIAS\BackgroundTasks\Implementation\Tasks\AbstractJob;
 use ILIAS\BackgroundTasks\Implementation\Values\ScalarValues\StringValue;
@@ -15,7 +15,7 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 /**
  * Class AbstractCreatorTask
  *
- * @package srag\Plugins\SrProjectHelper\Creator
+ * @package srag\Plugins\SrProjectHelper\Creator\Task
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

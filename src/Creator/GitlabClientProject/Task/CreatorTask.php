@@ -1,18 +1,18 @@
 <?php
 
-namespace srag\Plugins\SrProjectHelper\Creator\GitlabClientProject;
+namespace srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\Task;
 
-require_once __DIR__ . "/../../../vendor/autoload.php";
+require_once __DIR__ . "/../../../../vendor/autoload.php";
 
 use Gitlab\Model\Group;
 use Gitlab\Model\Project;
 use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
-use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorTask;
+use srag\Plugins\SrProjectHelper\Creator\Gitlab\Task\AbstractGitlabCreatorTask;
 
 /**
  * Class CreatorTask
  *
- * @package srag\Plugins\SrProjectHelper\Creator\GitlabClientProject
+ * @package srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\Task
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

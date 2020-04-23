@@ -10,6 +10,8 @@ use ilSrProjectHelperPlugin;
 use ilUIPluginRouterGUI;
 use ilUtil;
 use srag\DIC\SrProjectHelper\DICTrait;
+use srag\Plugins\SrProjectHelper\Creator\Form\AbstractCreatorFormBuilder;
+use srag\Plugins\SrProjectHelper\Creator\Task\DownloadOutputTask;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -108,7 +110,7 @@ abstract class AbstractCreatorGUI
      */
     protected function form()/*: void*/
     {
-        $form = $this->getCreatorForm();
+        $form = $this->getCreatorFormBuilder();
 
         self::output()->output($form, true);
     }
@@ -119,7 +121,7 @@ abstract class AbstractCreatorGUI
      */
     protected function create()/*: void*/
     {
-        $form = $this->getCreatorForm();
+        $form = $this->getCreatorFormBuilder();
 
         if (!$form->storeForm()) {
             self::output()->output($form, true);
@@ -127,7 +129,7 @@ abstract class AbstractCreatorGUI
             return;
         }
 
-        $data = $form->getData();
+        $data = $form->getData2();
 
         $this->buildAndRunTask($data);
 
@@ -160,9 +162,9 @@ abstract class AbstractCreatorGUI
 
 
     /**
-     * @return AbstractCreatorFormGUI
+     * @return AbstractCreatorFormBuilder
      */
-    protected abstract function getCreatorForm() : AbstractCreatorFormGUI;
+    protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;
 
 
     /**

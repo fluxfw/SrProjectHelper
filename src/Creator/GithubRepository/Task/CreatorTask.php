@@ -1,15 +1,15 @@
 <?php
 
-namespace srag\Plugins\SrProjectHelper\Creator\GithubRepository;
+namespace srag\Plugins\SrProjectHelper\Creator\GithubRepository\Task;
 
-require_once __DIR__ . "/../../../vendor/autoload.php";
+require_once __DIR__ . "/../../../../vendor/autoload.php";
 
-use srag\Plugins\SrProjectHelper\Creator\Github\AbstractGithubCreatorTask;
+use srag\Plugins\SrProjectHelper\Creator\Github\Task\AbstractGithubCreatorTask;
 
 /**
  * Class CreatorTask
  *
- * @package srag\Plugins\SrProjectHelper\Creator\GithubRepository
+ * @package srag\Plugins\SrProjectHelper\Creator\GithubRepository\Task
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
