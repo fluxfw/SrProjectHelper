@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrProjectHelper\Creator\Gitlab\Form;
 
-use ilUtil;
 use srag\Plugins\SrProjectHelper\Creator\Form\AbstractCreatorFormBuilder;
 use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorGUI;
 
@@ -64,7 +63,7 @@ abstract class AbstractGitlabCreatorFormBuilder extends AbstractCreatorFormBuild
     public function render() : string
     {
         if (self::srProjectHelper()->ilias()->users()->getUserId() === intval(SYSTEM_USER_ID) || empty(self::srProjectHelper()->ilias()->users()->getGitlabUserId())) {
-            ilUtil::sendInfo(nl2br(self::plugin()->translate("mantainer_user_not_found"), false));
+            $this->messages[] = self::dic()->ui()->factory()->messageBox()->info(nl2br(self::plugin()->translate("mantainer_user_not_found"), false));
         }
 
         return parent::render();
