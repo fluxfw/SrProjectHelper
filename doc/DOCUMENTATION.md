@@ -1,1 +1,1 @@
-## SrProjectHelper Documentation
+# SrProjectHelper ILIAS Plugin Documentation
