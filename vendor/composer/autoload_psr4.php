@@ -9,7 +9,7 @@ return array(
     'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => array($vendorDir . '/srag/removeplugindataconfirm/src'),
     'srag\\Plugins\\SrProjectHelper\\' => array($baseDir . '/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
-    'srag\\DIC\\' => array($vendorDir . '/srag/dic/src'),
+    'srag\\DIC\\SrProjectHelper\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\' => array($vendorDir . '/srag/custominputguis/src'),
     'srag\\ActiveRecordConfig\\SrProjectHelper\\' => array($vendorDir . '/srag/activerecordconfig/src'),
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
