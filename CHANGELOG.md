@@ -1,10 +1,8 @@
 # Changelog
 
 ## [x]
-- ILIAS 6 support
-
-## [2.0.0]
 - Github
+- ILIAS 6 support
 
 ## [1.2.6]
 - Disable "Enable 'Delete source branch' option by default"
