@@ -98,11 +98,6 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function getFields() : array
     {
-        $roles = (new InputGUIWrapperUIInputComponent(new MultiSelectSearchNewInputGUI(self::plugin()
-            ->translate(self::KEY_ROLES, ConfigCtrl::LANG_MODULE))))->withByline(self::plugin()
-            ->translate(self::KEY_ROLES . "_info", ConfigCtrl::LANG_MODULE))->withRequired(true);
-        $roles->getInput()->setOptions(self::srProjectHelper()->ilias()->roles()->getAllRoles());
-
         $fields = [
             "gitlab" => self::dic()->ui()->factory()->input()->field()->section([
                 self::KEY_GITLAB_URL              => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate(self::KEY_GITLAB_URL, ConfigCtrl::LANG_MODULE))->withRequired(true),
@@ -167,9 +162,12 @@ class FormBuilder extends AbstractFormBuilder
                 self::KEY_GITHUB_USER         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate(self::KEY_GITHUB_USER, ConfigCtrl::LANG_MODULE))->withRequired(true)
             ], self::plugin()->translate("github", ConfigCtrl::LANG_MODULE)),
             "others" => self::dic()->ui()->factory()->input()->field()->section([
-                self::KEY_ROLES => $roles
+                self::KEY_ROLES => ($roles = (new InputGUIWrapperUIInputComponent(new MultiSelectSearchNewInputGUI(self::plugin()
+                    ->translate(self::KEY_ROLES, ConfigCtrl::LANG_MODULE))))->withByline(self::plugin()
+                    ->translate(self::KEY_ROLES . "_info", ConfigCtrl::LANG_MODULE))->withRequired(true))
             ], self::plugin()->translate("others", ConfigCtrl::LANG_MODULE))
         ];
+        $roles->getInput()->setOptions(self::srProjectHelper()->ilias()->roles()->getAllRoles());
 
         return $fields;
     }
