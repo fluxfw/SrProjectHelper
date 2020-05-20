@@ -49,10 +49,10 @@ abstract class AbstractCreatorGUI
     {
         return self::dic()->globalScreen()->mainmenu()->link($if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_" . static::LANG_MODULE))
             ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
-                ->translate("title", static::LANG_MODULE))->withAction(self::dic()->ctrl()->getLinkTargetByClass([
+                ->translate("title", static::LANG_MODULE))->withAction(str_replace("\\", "%5C", self::dic()->ctrl()->getLinkTargetByClass([
                 ilUIPluginRouterGUI::class,
                 static::class
-            ], static::START_CMD));
+            ], static::START_CMD)));
     }
 
 
