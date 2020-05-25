@@ -47,7 +47,8 @@ abstract class AbstractCreatorGUI
      */
     public static function getMenuItem(IdentificationProviderInterface $if, TopParentItem $parent) : isItem
     {
-        return self::dic()->globalScreen()->mainmenu()->link($if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_" . static::LANG_MODULE))
+        return (self::version()->is6() ? self::dic()->globalScreen()->mainBar() : self::dic()->globalScreen()->mainmenu())->link($if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID . "_"
+            . static::LANG_MODULE))
             ->withParent($parent->getProviderIdentification())->withTitle(self::plugin()
                 ->translate("title", static::LANG_MODULE))->withAction(str_replace("\\", "%5C", self::dic()->ctrl()->getLinkTargetByClass([
                 ilUIPluginRouterGUI::class,
