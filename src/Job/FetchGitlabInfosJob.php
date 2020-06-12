@@ -7,8 +7,7 @@ use ilCronJob;
 use ilCronJobResult;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
-use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
-use srag\Plugins\SrProjectHelper\Gitlab\Api;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 use Throwable;
 
@@ -24,6 +23,7 @@ class FetchGitlabInfosJob extends ilCronJob
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const CRON_JOB_ID = ilSrProjectHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const LANG_MODULE = "cron";
@@ -108,8 +108,8 @@ class FetchGitlabInfosJob extends ilCronJob
     {
         $result = new ilCronJobResult();
 
-        $ilias_versions = array_reduce(array_filter(Api::pageHelper(function (array $options) : array {
-            return self::srProjectHelper()->gitlab()->repositories()->branches(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_ILIAS_PROJECT_ID), $options
+        $ilias_versions = array_reduce(array_filter(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
+            return self::srProjectHelper()->gitlab()->client()->repositories()->branches(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_PROJECT_ID), $options
                 + [//"search" => "release_" // TODO: Bug, works (https://docs.gitlab.com/ee/api/branches.html), but denied by the library
                 ]);
         }), function (array $ilias_version) : bool {
@@ -125,19 +125,19 @@ class FetchGitlabInfosJob extends ilCronJob
             return $ilias_versions;
         }, []);
         uasort($ilias_versions, [self::class, "sortHelper"]);
-        self::srProjectHelper()->config()->setValue(ConfigFormGUI::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
+        self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
 
-        $plugins = array_reduce(Api::pageHelper(function (array $options) : array {
-            return self::srProjectHelper()->gitlab()->groups()->projects(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_PLUGINS_GROUP_ID), $options + [
+        $plugins = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
+            return self::srProjectHelper()->gitlab()->client()->groups()->projects(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PLUGINS_GROUP_ID), $options + [
                     "simple" => true
                 ]);
         }), function (array $plugins, array $plugin) : array {
             try {
                 try {
-                    $plugin_class = self::srProjectHelper()->gitlab()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
+                    $plugin_class = self::srProjectHelper()->gitlab()->client()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
                         . "Plugin.php", "master");
                 } catch (Throwable $ex) {
-                    $plugin_class = self::srProjectHelper()->gitlab()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
+                    $plugin_class = self::srProjectHelper()->gitlab()->client()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
                         . "Plugin.php", "develop");
                 }
 
@@ -162,10 +162,10 @@ class FetchGitlabInfosJob extends ilCronJob
             return $plugins;
         }, []);
         uasort($plugins, [self::class, "sortHelper"]);
-        self::srProjectHelper()->config()->setValue(ConfigFormGUI::KEY_GITLAB_PLUGINS, $plugins);
+        self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_PLUGINS, $plugins);
 
-        $groups = array_reduce(Api::pageHelper(function (array $options) : array {
-            return self::srProjectHelper()->gitlab()->groups()->all($options);
+        $groups = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
+            return self::srProjectHelper()->gitlab()->client()->groups()->all($options);
         }), function (array $groups, array $group) : array {
             $groups[$group["id"]] = [
                 "name" => $group["full_path"]
@@ -174,12 +174,12 @@ class FetchGitlabInfosJob extends ilCronJob
             return $groups;
         }, []);
         uasort($groups, [self::class, "sortHelper"]);
-        self::srProjectHelper()->config()->setValue(ConfigFormGUI::KEY_GITLAB_GROUPS, $groups);
+        self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_GROUPS, $groups);
 
-        $users = array_reduce(Api::pageHelper(function (array $options) : array {
-            return self::srProjectHelper()->gitlab()->groups()->members(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_MEMBERS_GROUP_ID), $options);
+        $users = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
+            return self::srProjectHelper()->gitlab()->client()->groups()->members(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_MEMBERS_GROUP_ID), $options);
         }), function (array $users, array $member) : array {
-            $user = self::srProjectHelper()->gitlab()->users()->show($member["id"]);
+            $user = self::srProjectHelper()->gitlab()->client()->users()->show($member["id"]);
 
             $users[$user["id"]] = [
                 "email" => $user["email"],
@@ -189,10 +189,10 @@ class FetchGitlabInfosJob extends ilCronJob
             return $users;
         }, []);
         uasort($users, [self::class, "sortHelper"]);
-        self::srProjectHelper()->config()->setValue(ConfigFormGUI::KEY_GITLAB_USERS, $users);
+        self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_USERS, $users);
 
-        $projects = array_reduce(Api::pageHelper(function (array $options) : array {
-            return self::srProjectHelper()->gitlab()->projects()->all($options + [
+        $projects = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
+            return self::srProjectHelper()->gitlab()->client()->projects()->all($options + [
                     "simple" => true
                 ]);
         }), function (array $projects, array $project) : array {
@@ -203,7 +203,7 @@ class FetchGitlabInfosJob extends ilCronJob
             return $projects;
         }, []);
         uasort($projects, [self::class, "sortHelper"]);
-        self::srProjectHelper()->config()->setValue(ConfigFormGUI::KEY_GITLAB_PROJECTS, $projects);
+        self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_PROJECTS, $projects);
 
         $result->setStatus(ilCronJobResult::STATUS_OK);
 

@@ -1,17 +1,29 @@
 config_configuration#:#Konfiguration
 config_configuration_saved#:#Konfiguration gespeichert
-config_gitlab_access_token#:#Gitlab-Access-Token
-config_gitlab_clients_group_id#:#Gitlab-Kunden-Gruppen-ID
-config_gitlab_deploy_key_id#:#Gitlab-Deploy-Key-ID
-config_gitlab_ilias_project_id#:#Gitlab-ILIAS-Projekt-ID
-config_gitlab_members_group_id#:#Gitlab-Members-Gruppen-ID
-config_gitlab_plugins_group_id#:#Gitlab-Plugins-Gruppen-ID
-config_gitlab_url#:#Gitlab-URL
+config_github#:#Github
+config_github_access_token#:#Access-Token
+config_github_organisation#:#Organisation
+config_github_user#:#Benutzer
+config_gitlab#:#Gitlab
+config_gitlab_access_token#:#Access-Token
+config_gitlab_clients_group_id#:#Kunden-Gruppen-ID
+config_gitlab_deploy_key_id#:#Deploy-Key-ID
+config_gitlab_ilias_project_id#:#ILIAS-Projekt-ID
+config_gitlab_members_group_id#:#Members-Gruppen-ID
+config_gitlab_plugins_group_id#:#Plugins-Gruppen-ID
+config_gitlab_url#:#URL
+config_others#:#Anderes
 config_roles#:#Rollen
 config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
 config_save#:#Speichern
 cron_fetch_gitlab_infos#:#Gitlab-Infos holen
 cron_fetch_gitlab_infos_description#:#Gitlab-Infos aktuell halten (ILIAS-Versionen, Plugins-Liste, Gruppen, Benutzer)
+github_repository_create#:#Erstellen
+github_repository_created#:#Hintergrund-Task für "%s" erstellt
+github_repository_name#:#Name
+github_repository_project#:#Gitlab-Projekt
+github_repository_task_title#:#Github-Repository "%s" erstellen
+github_repository_title#:#Github-Repository erstellen
 gitlab_client_project_create#:#Erstellen
 gitlab_client_project_created#:#Hintergrund-Task für "%s" erstellt
 gitlab_client_project_ilias_version#:#ILIAS-Version

@@ -2,9 +2,9 @@
 
 namespace srag\Plugins\SrProjectHelper\Config;
 
-use ilSrProjectHelperConfigGUI;
 use ilSrProjectHelperPlugin;
 use srag\ActiveRecordConfig\SrProjectHelper\Config\AbstractFactory;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -18,6 +18,7 @@ final class Factory extends AbstractFactory
 {
 
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var self|null
@@ -48,13 +49,13 @@ final class Factory extends AbstractFactory
 
 
     /**
-     * @param ilSrProjectHelperConfigGUI $parent
+     * @param ConfigCtrl $parent
      *
-     * @return ConfigFormGUI
+     * @return FormBuilder
      */
-    public function newFormInstance(ilSrProjectHelperConfigGUI $parent) : ConfigFormGUI
+    public function newFormBuilderInstance(ConfigCtrl $parent) : FormBuilder
     {
-        $form = new ConfigFormGUI($parent);
+        $form = new FormBuilder($parent);
 
         return $form;
     }

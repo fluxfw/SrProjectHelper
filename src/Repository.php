@@ -5,11 +5,12 @@ namespace srag\Plugins\SrProjectHelper;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Access\Ilias;
-use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Config\Repository as ConfigRepository;
-use srag\Plugins\SrProjectHelper\Gitlab\Api;
-use srag\Plugins\SrProjectHelper\Gitlab\Client;
+use srag\Plugins\SrProjectHelper\Github\Repository as GithubRepository;
+use srag\Plugins\SrProjectHelper\Gitlab\Repository as GitlabRepository;
 use srag\Plugins\SrProjectHelper\Job\Repository as JobsRepository;
+use srag\Plugins\SrProjectHelper\Menu\Menu;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -24,6 +25,7 @@ final class Repository
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var self|null
@@ -69,8 +71,8 @@ final class Repository
     {
         $user_id = $this->ilias()->users()->getUserId();
 
-        $user_roles = self::dic()->rbacreview()->assignedGlobalRoles($user_id);
-        $config_roles = $this->config()->getValue(ConfigFormGUI::KEY_ROLES);
+        $user_roles = self::dic()->rbac()->review()->assignedGlobalRoles($user_id);
+        $config_roles = $this->config()->getValue(FormBuilder::KEY_ROLES);
 
         foreach ($user_roles as $user_role) {
             if (in_array($user_role, $config_roles)) {
@@ -93,11 +95,20 @@ final class Repository
 
 
     /**
-     * @return Client
+     * @return GithubRepository
      */
-    public function gitlab() : Client
+    public function github() : GithubRepository
     {
-        return Api::getClient();
+        return GithubRepository::getInstance();
+    }
+
+
+    /**
+     * @return GitlabRepository
+     */
+    public function gitlab() : GitlabRepository
+    {
+        return GitlabRepository::getInstance();
     }
 
 
@@ -126,5 +137,14 @@ final class Repository
     public function jobs() : JobsRepository
     {
         return JobsRepository::getInstance();
+    }
+
+
+    /**
+     * @return Menu
+     */
+    public function menu() : Menu
+    {
+        return new Menu(self::dic()->dic(), self::plugin()->getPluginObject());
     }
 }

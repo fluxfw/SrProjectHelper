@@ -21,6 +21,7 @@ class TabsInputGUI extends ilFormPropertyGUI implements ilTableFilterItem, ilToo
 {
 
     use DICTrait;
+
     const SHOW_INPUT_LABEL_NONE = 1;
     const SHOW_INPUT_LABEL_AUTO = 2;
     const SHOW_INPUT_LABEL_ALWAYS = 3;
@@ -166,7 +167,7 @@ class TabsInputGUI extends ilFormPropertyGUI implements ilTableFilterItem, ilToo
     /**
      * @param ilTemplate $tpl
      */
-    public function insert(ilTemplate $tpl) /*: void*/
+    public function insert(ilTemplate $tpl)/*: void*/
     {
         $html = $this->render();
 
@@ -247,7 +248,7 @@ class TabsInputGUI extends ilFormPropertyGUI implements ilTableFilterItem, ilToo
     /**
      * @param TabsInputGUITab[] $tabs
      */
-    public function setTabs(array $tabs) /*: void*/
+    public function setTabs(array $tabs)/*: void*/
     {
         $this->tabs = $tabs;
     }
@@ -267,11 +268,11 @@ class TabsInputGUI extends ilFormPropertyGUI implements ilTableFilterItem, ilToo
 
 
     /**
-     * @param array $value
+     * @param array $values
      */
-    public function setValueByArray(/*array*/ $value)/*: void*/
+    public function setValueByArray(/*array*/ $values)/*: void*/
     {
-        $this->setValue($value[$this->getPostVar()]);
+        $this->setValue($values[$this->getPostVar()]);
     }
 
 

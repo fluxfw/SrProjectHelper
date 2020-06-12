@@ -5,7 +5,7 @@ namespace srag\Plugins\SrProjectHelper\Access;
 use ilObjUser;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
-use srag\Plugins\SrProjectHelper\Config\ConfigFormGUI;
+use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 
 /**
@@ -20,6 +20,7 @@ final class Users
 
     use DICTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var self|null
@@ -76,7 +77,7 @@ final class Users
      */
     public function getGitlabUsers() : array
     {
-        return array_filter(self::srProjectHelper()->config()->getValue(ConfigFormGUI::KEY_GITLAB_USERS), function (array $user) : bool {
+        return array_filter(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_USERS), function (array $user) : bool {
             return $this->existsUserByEmail($user["email"]);
         });
     }

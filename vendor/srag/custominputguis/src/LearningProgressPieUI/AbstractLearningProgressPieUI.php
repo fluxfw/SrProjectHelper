@@ -20,6 +20,7 @@ abstract class AbstractLearningProgressPieUI
 
     use DICTrait;
     use CustomInputGUIsTrait;
+
     const LP_STATUS
         = [
             ilLPStatus::LP_STATUS_NOT_ATTEMPTED_NUM,
@@ -107,7 +108,7 @@ abstract class AbstractLearningProgressPieUI
 
             $data = $this->parseData();
 
-            $data = array_map(function (int $status) use ($data): array {
+            $data = array_map(function (int $status) use ($data) : array {
                 return [
                     "color" => self::LP_STATUS_COLOR[$status],
                     "title" => $this->getText($status),

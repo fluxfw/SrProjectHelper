@@ -24,6 +24,7 @@ class UIInputComponentWrapperInputGUI extends ilFormPropertyGUI implements ilTab
 {
 
     use DICTrait;
+
     /**
      * @var bool
      */
@@ -101,8 +102,8 @@ class UIInputComponentWrapperInputGUI extends ilFormPropertyGUI implements ilTab
      */
     public function getDisabled()/*:bool*/
     {
-        if (self::version()->is60()) {
-            return $this->input->getDisabled();
+        if (self::version()->is6()) {
+            return $this->input->isDisabled();
         } else {
             throw new ilFormException("disabled not exists in ILIAS 5.4 or below!");
         }
@@ -184,7 +185,7 @@ class UIInputComponentWrapperInputGUI extends ilFormPropertyGUI implements ilTab
     /**
      * @param ilTemplate $tpl
      */
-    public function insert(ilTemplate $tpl) /*: void*/
+    public function insert(ilTemplate $tpl)/*: void*/
     {
         $html = $this->render();
 
@@ -223,7 +224,7 @@ class UIInputComponentWrapperInputGUI extends ilFormPropertyGUI implements ilTab
      */
     public function setDisabled(/*bool*/ $disabled)/*: void*/
     {
-        if (self::version()->is60()) {
+        if (self::version()->is6()) {
             $this->input = $this->input->withDisabled($disabled);
         } else {
             throw new ilFormException("disabled not exists in ILIAS 5.4 or below!");
@@ -281,7 +282,11 @@ class UIInputComponentWrapperInputGUI extends ilFormPropertyGUI implements ilTab
      */
     public function setValue($value)/*: void*/
     {
-        $this->input = $this->input->withValue($value);
+        try {
+            $this->input = $this->input->withValue($value);
+        } catch (Throwable $ex) {
+
+        }
     }
 
 

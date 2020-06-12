@@ -2,8 +2,9 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use ILIAS\DI\Container;
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
-use srag\Plugins\SrProjectHelper\Menu\Menu;
+use srag\CustomInputGUIs\SrProjectHelper\Loader\CustomInputGUIsLoaderDetector;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
 use srag\RemovePluginDataConfirm\SrProjectHelper\PluginUninstallTrait;
 
@@ -17,6 +18,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
 
     use PluginUninstallTrait;
     use SrProjectHelperTrait;
+
     const PLUGIN_ID = "srprojecthelper";
     const PLUGIN_NAME = "SrProjectHelper";
     const PLUGIN_CLASS_NAME = self::class;
@@ -80,7 +82,16 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
      */
     public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
     {
-        return new Menu(self::dic()->dic(), $this);
+        return self::srProjectHelper()->menu();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function shouldUseOneUpdateStepOnly() : bool
+    {
+        return true;
     }
 
 
@@ -101,5 +112,14 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     protected function deleteData()/*: void*/
     {
         self::srProjectHelper()->dropTables();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    {
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 }

@@ -4,8 +4,10 @@ namespace srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject;
 
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
-use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorFormGUI;
-use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorGUI;
+use srag\Plugins\SrProjectHelper\Creator\Form\AbstractCreatorFormBuilder;
+use srag\Plugins\SrProjectHelper\Creator\Gitlab\AbstractGitlabCreatorGUI;
+use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\Form\CreatorFormBuilder;
+use srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\Task\CreatorTask;
 
 /**
  * Class CreatorGUI
@@ -16,7 +18,7 @@ use srag\Plugins\SrProjectHelper\Creator\AbstractCreatorGUI;
  *
  * @ilCtrl_isCalledBy srag\Plugins\SrProjectHelper\Creator\GitlabPluginProject\CreatorGUI: ilUIPluginRouterGUI
  */
-class CreatorGUI extends AbstractCreatorGUI
+class CreatorGUI extends AbstractGitlabCreatorGUI
 {
 
     const LANG_MODULE = "gitlab_plugin_project";
@@ -25,9 +27,9 @@ class CreatorGUI extends AbstractCreatorGUI
     /**
      * @inheritDoc
      */
-    protected function getCreatorForm() : AbstractCreatorFormGUI
+    protected function getCreatorFormBuilder() : AbstractCreatorFormBuilder
     {
-        $form = new CreatorFormGUI($this);
+        $form = new CreatorFormBuilder($this);
 
         return $form;
     }

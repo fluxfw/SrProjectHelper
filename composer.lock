@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87d4ca66f9203c9c31e5c298a27a1e17",
+    "content-hash": "3459225d056a9ce544d4fb53229c6e4e",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -248,17 +248,84 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
-            "name": "m4tthumphrey/php-gitlab-api",
-            "version": "9.16.0",
+            "name": "knplabs/github-api",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/m4tthumphrey/php-gitlab-api.git",
-                "reference": "b6684dcc85e465f2e39be2ccea2e708994a32a95"
+                "url": "https://github.com/KnpLabs/php-github-api.git",
+                "reference": "d493c8f4aa84e04629b38d1487407e1c6c9d90d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/m4tthumphrey/php-gitlab-api/zipball/b6684dcc85e465f2e39be2ccea2e708994a32a95",
-                "reference": "b6684dcc85e465f2e39be2ccea2e708994a32a95",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/d493c8f4aa84e04629b38d1487407e1c6c9d90d1",
+                "reference": "d493c8f4aa84e04629b38d1487407e1c6c9d90d1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "php-http/cache-plugin": "^1.4",
+                "php-http/client-common": "^1.6 || ^2.0",
+                "php-http/client-implementation": "^1.0",
+                "php-http/discovery": "^1.0",
+                "php-http/httplug": "^1.1 || ^2.0",
+                "psr/cache": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "cache/array-adapter": "^0.4",
+                "guzzlehttp/psr7": "^1.2",
+                "php-http/guzzle6-adapter": "^1.0 || ^2.0",
+                "php-http/mock-client": "^1.2",
+                "phpunit/phpunit": "^7.0 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.13.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Github\\": "lib/Github/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
+                }
+            ],
+            "description": "GitHub API v3 client",
+            "homepage": "https://github.com/KnpLabs/php-github-api",
+            "keywords": [
+                "api",
+                "gh",
+                "gist",
+                "github"
+            ],
+            "time": "2020-03-16T19:57:05+00:00"
+        },
+        {
+            "name": "m4tthumphrey/php-gitlab-api",
+            "version": "9.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/m4tthumphrey/php-gitlab-api.git",
+                "reference": "a4c3d1638fc35a76cc276f53773d6c74820c0f29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/m4tthumphrey/php-gitlab-api/zipball/a4c3d1638fc35a76cc276f53773d6c74820c0f29",
+                "reference": "a4c3d1638fc35a76cc276f53773d6c74820c0f29",
                 "shasum": ""
             },
             "require": {
@@ -280,7 +347,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "9.15-dev"
+                    "dev-master": "9.16-dev"
                 }
             },
             "autoload": {
@@ -313,7 +380,63 @@
                 "api",
                 "gitlab"
             ],
-            "time": "2020-01-02T13:40:11+00:00"
+            "time": "2020-02-17T09:36:49+00:00"
+        },
+        {
+            "name": "php-http/cache-plugin",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/cache-plugin.git",
+                "reference": "d137d46523343297e340cef697747381b6caeb66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/cache-plugin/zipball/d137d46523343297e340cef697747381b6caeb66",
+                "reference": "d137d46523343297e340cef697747381b6caeb66",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "php-http/client-common": "^1.9 || ^2.0",
+                "php-http/message-factory": "^1.0",
+                "psr/cache": "^1.0",
+                "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0 || ^5.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\Common\\Plugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "PSR-6 Cache plugin for HTTPlug",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "cache",
+                "http",
+                "httplug",
+                "plugin"
+            ],
+            "time": "2019-12-26T16:14:58+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -788,6 +911,52 @@
             "time": "2016-01-26T13:27:02+00:00"
         },
         {
+            "name": "psr/cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2016-08-06T20:24:11+00:00"
+        },
+        {
             "name": "psr/http-factory",
             "version": "1.0.1",
             "source": {
@@ -931,16 +1100,16 @@
         },
         {
             "name": "srag/activerecordconfig",
-            "version": "v0.19.5",
+            "version": "v0.19.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/ActiveRecordConfig.git",
-                "reference": "cf747e69c22f1549d3c5d9be440ae92c7b3aed34"
+                "reference": "adfbb83ee91d292d87713068d0614f7d2a45399d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/ActiveRecordConfig/zipball/cf747e69c22f1549d3c5d9be440ae92c7b3aed34",
-                "reference": "cf747e69c22f1549d3c5d9be440ae92c7b3aed34",
+                "url": "https://api.github.com/repos/studer-raimann/ActiveRecordConfig/zipball/adfbb83ee91d292d87713068d0614f7d2a45399d",
+                "reference": "adfbb83ee91d292d87713068d0614f7d2a45399d",
                 "shasum": ""
             },
             "require": {
@@ -973,30 +1142,30 @@
                 "activerecord",
                 "config"
             ],
-            "time": "2020-02-05T06:16:30+00:00"
+            "time": "2020-06-08T06:45:37+00:00"
         },
         {
             "name": "srag/custominputguis",
-            "version": "v0.31.8",
+            "version": "v0.36.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-                "reference": "71fa066e505c4cce9492ca2242f3d3c87a9477d3"
+                "reference": "779754774ca0c7569806a0983b0b37895f98bc85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/71fa066e505c4cce9492ca2242f3d3c87a9477d3",
-                "reference": "71fa066e505c4cce9492ca2242f3d3c87a9477d3",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/779754774ca0c7569806a0983b0b37895f98bc85",
+                "reference": "779754774ca0c7569806a0983b0b37895f98bc85",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6",
+                "php": ">=7.0",
                 "srag/dic": ">=0.1.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\SrProjectHelper\\": "src/"
+                    "srag\\CustomInputGUIs\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1020,20 +1189,20 @@
                 "input",
                 "table"
             ],
-            "time": "2020-02-10T11:31:05+00:00"
+            "time": "2020-06-10T05:21:29+00:00"
         },
         {
             "name": "srag/dic",
-            "version": "v0.20.2",
+            "version": "v0.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/DIC.git",
-                "reference": "e5d3265eb83b722f95579c36ce1b59dca0f1316f"
+                "reference": "022cb0b92b003096380055a450597a5dbdbbe831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/e5d3265eb83b722f95579c36ce1b59dca0f1316f",
-                "reference": "e5d3265eb83b722f95579c36ce1b59dca0f1316f",
+                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/022cb0b92b003096380055a450597a5dbdbbe831",
+                "reference": "022cb0b92b003096380055a450597a5dbdbbe831",
                 "shasum": ""
             },
             "require": {
@@ -1065,24 +1234,24 @@
                 "globals",
                 "trait"
             ],
-            "time": "2020-02-13T07:39:21+00:00"
+            "time": "2020-06-09T05:30:37+00:00"
         },
         {
             "name": "srag/librariesnamespacechanger",
-            "version": "v0.7.0",
+            "version": "v0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/LibrariesNamespaceChanger.git",
-                "reference": "80afdd6f1d0690004e87edadcf120fb6d0740ebb"
+                "reference": "d8383a6a2f621d8f5ff67f2ddd365cfea7c07f70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/LibrariesNamespaceChanger/zipball/80afdd6f1d0690004e87edadcf120fb6d0740ebb",
-                "reference": "80afdd6f1d0690004e87edadcf120fb6d0740ebb",
+                "url": "https://api.github.com/repos/studer-raimann/LibrariesNamespaceChanger/zipball/d8383a6a2f621d8f5ff67f2ddd365cfea7c07f70",
+                "reference": "d8383a6a2f621d8f5ff67f2ddd365cfea7c07f70",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6"
+                "php": ">=7.0"
             },
             "type": "library",
             "autoload": {
@@ -1108,20 +1277,20 @@
                 "ILIAS",
                 "libraries"
             ],
-            "time": "2019-12-11T08:38:08+00:00"
+            "time": "2020-06-09T12:15:23+00:00"
         },
         {
             "name": "srag/removeplugindataconfirm",
-            "version": "v0.6.3",
+            "version": "v0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/RemovePluginDataConfirm.git",
-                "reference": "d3faed97ec4e5d9a20bf2c8a80cc395997caf591"
+                "reference": "fa45bd96920e5a28577810c3d28900dc8083fc6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/d3faed97ec4e5d9a20bf2c8a80cc395997caf591",
-                "reference": "d3faed97ec4e5d9a20bf2c8a80cc395997caf591",
+                "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/fa45bd96920e5a28577810c3d28900dc8083fc6f",
+                "reference": "fa45bd96920e5a28577810c3d28900dc8083fc6f",
                 "shasum": ""
             },
             "require": {
@@ -1155,29 +1324,91 @@
                 "plugin",
                 "uninstall"
             ],
-            "time": "2020-01-21T08:23:18+00:00"
+            "time": "2020-06-02T12:52:50+00:00"
         },
         {
-            "name": "symfony/options-resolver",
-            "version": "v5.0.4",
+            "name": "symfony/deprecation-contracts",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "b1ab86ce52b0c0abe031367a173005a025e30e04"
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/b1ab86ce52b0c0abe031367a173005a025e30e04",
-                "reference": "b1ab86ce52b0c0abe031367a173005a025e30e04",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337",
+                "reference": "dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2.5"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "function.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A generic function and convention to trigger deprecation notices",
+            "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-27T08:34:37+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/options-resolver.git",
+                "reference": "663f5dd5e14057d1954fe721f9709d35837f2447"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/663f5dd5e14057d1954fe721f9709d35837f2447",
+                "reference": "663f5dd5e14057d1954fe721f9709d35837f2447",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/deprecation-contracts": "^2.1",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -1209,7 +1440,21 @@
                 "configuration",
                 "options"
             ],
-            "time": "2020-01-04T14:08:26+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-23T13:08:13+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -1271,20 +1516,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-05-12T16:47:27+00:00"
         },
         {
@@ -1344,20 +1575,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-05-12T16:47:27+00:00"
         },
         {
@@ -1406,6 +1623,68 @@
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2020-05-12T16:47:27+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php80",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php80.git",
+                "reference": "5e30b2799bc1ad68f7feb62b60a73743589438dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/5e30b2799bc1ad68f7feb62b60a73743589438dd",
+                "reference": "5e30b2799bc1ad68f7feb62b60a73743589438dd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.17-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ion Bazan",
+                    "email": "ion.bazan@gmail.com"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
             "homepage": "https://symfony.com",
             "keywords": [
                 "compatibility",
