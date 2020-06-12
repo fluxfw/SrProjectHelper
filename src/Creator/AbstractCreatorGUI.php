@@ -164,9 +164,8 @@ abstract class AbstractCreatorGUI
 
     /**
      * @return AbstractCreatorFormBuilder
-     */
-    protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;
-
+     * /
+     * protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;*/
 
     /**
      * @return string
