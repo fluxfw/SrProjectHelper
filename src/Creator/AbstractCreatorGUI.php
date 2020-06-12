@@ -165,13 +165,13 @@ abstract class AbstractCreatorGUI
     /**
      * @return AbstractCreatorFormBuilder
      * /
-     * protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;*/
-
-    /**
+     * protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;
+     *
+     *
+     * /**
      * @return string
-     */
-    protected abstract function getTaskClass() : string;
-
+     * /
+     * protected abstract function getTaskClass() : string;*/
 
     /**
      * @return bool
