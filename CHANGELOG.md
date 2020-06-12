@@ -1,6 +1,6 @@
 # Changelog
 
-## [x]
+## [1.3.0]
 - Github
 - ILIAS 6 support
 
