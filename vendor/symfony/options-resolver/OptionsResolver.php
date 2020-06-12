@@ -1281,7 +1281,7 @@ class OptionsResolver implements Options
         return implode('", "', $options);
     }
 
-    private function getParameterClassName(\ReflectionParameter $parameter): ?string
+    private function getParameterClassName(\ReflectionParameter $parameter)/*: ?string*/
     {
         if (!($type = $parameter->getType()) || $type->isBuiltin()) {
             return null;
