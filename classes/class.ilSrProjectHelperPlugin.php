@@ -19,13 +19,22 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     use PluginUninstallTrait;
     use SrProjectHelperTrait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "srprojecthelper";
     const PLUGIN_NAME = "SrProjectHelper";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * ilSrProjectHelperPlugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -42,29 +51,11 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
 
 
     /**
-     * ilSrProjectHelperPlugin constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-
-    /**
      * @inheritDoc
      */
-    public function getPluginName() : string
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        return self::PLUGIN_NAME;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getCronJobInstances() : array
-    {
-        return self::srProjectHelper()->jobs()->factory()->newInstances();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
@@ -80,18 +71,27 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
+    public function getCronJobInstances() : array
     {
-        return self::srProjectHelper()->menu();
+        return self::srProjectHelper()->jobs()->factory()->newInstances();
     }
 
 
     /**
      * @inheritDoc
      */
-    protected function shouldUseOneUpdateStepOnly() : bool
+    public function getPluginName() : string
     {
-        return true;
+        return self::PLUGIN_NAME;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
+    {
+        return self::srProjectHelper()->menu();
     }
 
 
@@ -118,8 +118,8 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return true;
     }
 }

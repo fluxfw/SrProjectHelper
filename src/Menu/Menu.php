@@ -32,22 +32,6 @@ class Menu extends AbstractStaticPluginMainMenuProvider
     /**
      * @inheritDoc
      */
-    public function getStaticTopItems() : array
-    {
-        return [
-            $this->mainmenu->topParentItem($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID))->withTitle(self::plugin()->translate("menu_title"))
-                ->withAvailableCallable(function () : bool {
-                    return self::plugin()->getPluginObject()->isActive();
-                })->withVisibilityCallable(function () : bool {
-                    return self::srProjectHelper()->currentUserHasRole();
-                })
-        ];
-    }
-
-
-    /**
-     * @inheritDoc
-     */
     public function getStaticSubItems() : array
     {
         $parent = $this->getStaticTopItems()[0];
@@ -57,6 +41,22 @@ class Menu extends AbstractStaticPluginMainMenuProvider
             GitlabPluginProjectCreatorGUI::getMenuItem($this->if, $parent),
             GithubRepositoryCreatorGUI::getMenuItem($this->if, $parent),
             GitlabProjectMembersOverviewGUI::getMenuItem($this->if, $parent)
+        ];
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getStaticTopItems() : array
+    {
+        return [
+            $this->mainmenu->topParentItem($this->if->identifier(ilSrProjectHelperPlugin::PLUGIN_ID))->withTitle(self::plugin()->translate("menu_title"))
+                ->withAvailableCallable(function () : bool {
+                    return self::plugin()->getPluginObject()->isActive();
+                })->withVisibilityCallable(function () : bool {
+                    return self::srProjectHelper()->currentUserHasRole();
+                })
         ];
     }
 }

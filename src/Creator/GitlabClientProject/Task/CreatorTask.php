@@ -22,6 +22,15 @@ class CreatorTask extends AbstractGitlabCreatorTask
     /**
      * @inheritDoc
      */
+    protected function getOutput2() : string
+    {
+        return "";
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function getSteps(array $data) : array
     {
         /**
@@ -139,14 +148,5 @@ class CreatorTask extends AbstractGitlabCreatorTask
                 self::srProjectHelper()->gitlab()->cleanTempFolder($temp_folder);
             }
         ]);
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getOutput2() : string
-    {
-        return "";
     }
 }

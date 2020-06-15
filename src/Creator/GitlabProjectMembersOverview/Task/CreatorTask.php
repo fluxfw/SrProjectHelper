@@ -27,6 +27,15 @@ class CreatorTask extends AbstractGitlabCreatorTask
     /**
      * @inheritDoc
      */
+    protected function getOutput2() : string
+    {
+        return $this->csv;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function getSteps(array $data) : array
     {
         return [
@@ -49,14 +58,5 @@ class CreatorTask extends AbstractGitlabCreatorTask
                 $this->csv = $this->csv(["path", "owners", "maintainers", "developers", "reporters", "guests"], $data);
             }
         ];
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getOutput2() : string
-    {
-        return $this->csv;
     }
 }

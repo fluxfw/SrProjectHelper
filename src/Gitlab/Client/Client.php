@@ -30,17 +30,17 @@ class Client extends GitlabClient
     /**
      * @inheritDoc
      */
-    public function repositories() : Repositories
+    public function projects() : Projects
     {
-        return new Repositories($this);
+        return new Projects($this);
     }
 
 
     /**
      * @inheritDoc
      */
-    public function projects() : Projects
+    public function repositories() : Repositories
     {
-        return new Projects($this);
+        return new Repositories($this);
     }
 }

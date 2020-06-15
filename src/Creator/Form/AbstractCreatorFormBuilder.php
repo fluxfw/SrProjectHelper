@@ -38,6 +38,15 @@ abstract class AbstractCreatorFormBuilder extends AbstractFormBuilder
 
 
     /**
+     * @return array
+     */
+    public function getData2() : array
+    {
+        return $this->data;
+    }
+
+
+    /**
      * @inheritDoc
      */
     protected function getButtons() : array
@@ -89,14 +98,5 @@ abstract class AbstractCreatorFormBuilder extends AbstractFormBuilder
     protected function storeData(array $data)/*:void*/
     {
         $this->data = $data;
-    }
-
-
-    /**
-     * @return array
-     */
-    public function getData2() : array
-    {
-        return $this->data;
     }
 }

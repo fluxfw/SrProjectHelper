@@ -19,6 +19,15 @@ class CreatorTask extends AbstractGithubCreatorTask
     /**
      * @inheritDoc
      */
+    protected function getOutput2() : string
+    {
+        return "";
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function getSteps(array $data) : array
     {
         return array_merge([
@@ -30,14 +39,5 @@ class CreatorTask extends AbstractGithubCreatorTask
                 self::srProjectHelper()->gitlab()->setGitlabGithubSync($data["project"], $data["name"]);
             }
         ] : []));
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getOutput2() : string
-    {
-        return "";
     }
 }

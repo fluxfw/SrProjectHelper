@@ -26,21 +26,6 @@ final class Repository
      * @var self|null
      */
     protected static $instance = null;
-
-
-    /**
-     * @return self
-     */
-    public static function getInstance() : self
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
-
-
     /**
      * @var Client
      */
@@ -53,6 +38,19 @@ final class Repository
     private function __construct()
     {
 
+    }
+
+
+    /**
+     * @return self
+     */
+    public static function getInstance() : self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
 

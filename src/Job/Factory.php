@@ -28,6 +28,15 @@ final class Factory
 
 
     /**
+     * Factory constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -41,22 +50,13 @@ final class Factory
 
 
     /**
-     * Factory constructor
+     * @return FetchGitlabInfosJob
      */
-    private function __construct()
+    public function newFetchGitlabInfosJobInstance() : FetchGitlabInfosJob
     {
+        $job = new FetchGitlabInfosJob();
 
-    }
-
-
-    /**
-     * @return ilCronJob[]
-     */
-    public function newInstances() : array
-    {
-        return [
-            $this->newFetchGitlabInfosJobInstance()
-        ];
+        return $job;
     }
 
 
@@ -78,12 +78,12 @@ final class Factory
 
 
     /**
-     * @return FetchGitlabInfosJob
+     * @return ilCronJob[]
      */
-    public function newFetchGitlabInfosJobInstance() : FetchGitlabInfosJob
+    public function newInstances() : array
     {
-        $job = new FetchGitlabInfosJob();
-
-        return $job;
+        return [
+            $this->newFetchGitlabInfosJobInstance()
+        ];
     }
 }

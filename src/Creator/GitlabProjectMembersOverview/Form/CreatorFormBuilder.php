@@ -29,6 +29,19 @@ class CreatorFormBuilder extends AbstractGitlabCreatorFormBuilder
     /**
      * @inheritDoc
      */
+    public function getData2() : array
+    {
+        $data = [
+            "name" => self::plugin()->translate("task_title", $this->parent::LANG_MODULE)
+        ];
+
+        return $data;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function getButtons() : array
     {
         $buttons = [];
@@ -56,18 +69,5 @@ class CreatorFormBuilder extends AbstractGitlabCreatorFormBuilder
         $fields = [];
 
         return $fields;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getData2() : array
-    {
-        $data = [
-            "name" => self::plugin()->translate("task_title", $this->parent::LANG_MODULE)
-        ];
-
-        return $data;
     }
 }

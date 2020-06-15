@@ -25,8 +25,8 @@ class FetchGitlabInfosJob extends ilCronJob
     use SrProjectHelperTrait;
 
     const CRON_JOB_ID = ilSrProjectHelperPlugin::PLUGIN_ID . "_fetch_gitlab_infos";
-    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const LANG_MODULE = "cron";
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 
 
     /**
@@ -35,6 +35,48 @@ class FetchGitlabInfosJob extends ilCronJob
     public function __construct()
     {
 
+    }
+
+
+    /**
+     * @param array $a1
+     * @param array $a2
+     *
+     * @return int
+     */
+    public static function sortHelper(array $a1, array $a2) : int
+    {
+        $n1 = $a1["name"];
+        $n2 = $a2["name"];
+
+        return strnatcasecmp($n1, $n2);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getDefaultScheduleType() : int
+    {
+        return self::SCHEDULE_TYPE_DAILY;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getDefaultScheduleValue()/*:?int*/
+    {
+        return null;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getDescription() : string
+    {
+        return self::plugin()->translate("fetch_gitlab_infos_description", self::LANG_MODULE);
     }
 
 
@@ -59,15 +101,6 @@ class FetchGitlabInfosJob extends ilCronJob
     /**
      * @inheritDoc
      */
-    public function getDescription() : string
-    {
-        return self::plugin()->translate("fetch_gitlab_infos_description", self::LANG_MODULE);
-    }
-
-
-    /**
-     * @inheritDoc
-     */
     public function hasAutoActivation() : bool
     {
         return true;
@@ -80,24 +113,6 @@ class FetchGitlabInfosJob extends ilCronJob
     public function hasFlexibleSchedule() : bool
     {
         return true;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getDefaultScheduleType() : int
-    {
-        return self::SCHEDULE_TYPE_DAILY;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getDefaultScheduleValue()/*:?int*/
-    {
-        return null;
     }
 
 
@@ -208,20 +223,5 @@ class FetchGitlabInfosJob extends ilCronJob
         $result->setStatus(ilCronJobResult::STATUS_OK);
 
         return $result;
-    }
-
-
-    /**
-     * @param array $a1
-     * @param array $a2
-     *
-     * @return int
-     */
-    public static function sortHelper(array $a1, array $a2) : int
-    {
-        $n1 = $a1["name"];
-        $n2 = $a2["name"];
-
-        return strnatcasecmp($n1, $n2);
     }
 }

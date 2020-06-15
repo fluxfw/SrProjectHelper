@@ -23,33 +23,18 @@ final class Repository
     use DICTrait;
     use SrProjectHelperTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
-    const GITLAB_MAX_PER_PAGE = 100;
-    const GITLAB_PAGES = 10;
-    const GITLAB_OWNER_ACCESS_LEVEL = 50;
-    const GITLAB_MAINTAINER_ACCESS_LEVEL = 40;
     const GITLAB_DEVELOPER_ACCESS_LEVEL = 30;
-    const GITLAB_REPORTER_ACCESS_LEVEL = 20;
     const GITLAB_GUEST_ACCESS_LEVEL = 10;
+    const GITLAB_MAINTAINER_ACCESS_LEVEL = 40;
+    const GITLAB_MAX_PER_PAGE = 100;
+    const GITLAB_OWNER_ACCESS_LEVEL = 50;
+    const GITLAB_PAGES = 10;
+    const GITLAB_REPORTER_ACCESS_LEVEL = 20;
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
-
-
-    /**
-     * @return self
-     */
-    public static function getInstance() : self
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
-
-
     /**
      * @var Client
      */
@@ -62,6 +47,19 @@ final class Repository
     private function __construct()
     {
 
+    }
+
+
+    /**
+     * @return self
+     */
+    public static function getInstance() : self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
 
@@ -272,13 +270,13 @@ final class Repository
      * @param Project $project
      * @param string  $branch
      */
-    public function protectMasterBranch(Project $project, string $branch)/*: void*/
+    public function protectDevelopBranch(Project $project, string $branch)/*: void*/
     {
         $this->client()->repositories()->protectBranch2($project->id, $branch, [
             "allowed_to_merge"   => true,
-            "allowed_to_push"    => false,
+            "allowed_to_push"    => true,
             "merge_access_level" => self::GITLAB_MAINTAINER_ACCESS_LEVEL,
-            "push_access_level"  => 0
+            "push_access_level"  => self::GITLAB_MAINTAINER_ACCESS_LEVEL
         ]);
     }
 
@@ -287,13 +285,13 @@ final class Repository
      * @param Project $project
      * @param string  $branch
      */
-    public function protectDevelopBranch(Project $project, string $branch)/*: void*/
+    public function protectMasterBranch(Project $project, string $branch)/*: void*/
     {
         $this->client()->repositories()->protectBranch2($project->id, $branch, [
             "allowed_to_merge"   => true,
-            "allowed_to_push"    => true,
+            "allowed_to_push"    => false,
             "merge_access_level" => self::GITLAB_MAINTAINER_ACCESS_LEVEL,
-            "push_access_level"  => self::GITLAB_MAINTAINER_ACCESS_LEVEL
+            "push_access_level"  => 0
         ]);
     }
 
@@ -377,18 +375,6 @@ final class Repository
 
 
     /**
-     * @param string $url
-     *
-     * @return string
-     */
-    protected function tokenRepoUrl(string $url) : string
-    {
-        // https://stackoverflow.com/questions/25409700/using-gitlab-token-to-clone-without-authentication
-        return str_replace("https://", "https://gitlab-ci-token:" . self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ACCESS_TOKEN) . "@", $url);
-    }
-
-
-    /**
      * @param array $members
      */
     public function translateMembers(array $members)/*: void*/
@@ -416,5 +402,17 @@ final class Repository
     public function useDeployKey(Project $project, int $deploy_key_id)/*: void*/
     {
         $project->enableDeployKey($deploy_key_id);
+    }
+
+
+    /**
+     * @param string $url
+     *
+     * @return string
+     */
+    protected function tokenRepoUrl(string $url) : string
+    {
+        // https://stackoverflow.com/questions/25409700/using-gitlab-token-to-clone-without-authentication
+        return str_replace("https://", "https://gitlab-ci-token:" . self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ACCESS_TOKEN) . "@", $url);
     }
 }
