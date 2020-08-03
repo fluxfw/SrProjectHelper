@@ -121,7 +121,7 @@ class CreatorTask extends AbstractGitlabCreatorTask
                 self::srProjectHelper()->gitlab()->notIgnoreCustomizingFolder($temp_folder);
             }
         ], array_map(function (string $plugin_name) use (&$temp_folder): callable {
-            return function () : void use (&$temp_folder, &$plugin_name) {
+            return function () use (&$temp_folder, &$plugin_name) : void {
                 $plugin = self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PLUGINS)[$plugin_name];
 
                 if ($plugin) {
@@ -132,23 +132,23 @@ class CreatorTask extends AbstractGitlabCreatorTask
             ? array_merge(self::srProjectHelper()->gitlab()->getStepsForNewPlugin("skin", function () use (&$group): int {
                 return $group->id;
             }, $data["maintainer_user"], $skin_project, true), [
-                function () : void use (&$temp_folder, &$skin_project) {
-        self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin", "..");
-    }
-        ]) : [], $data["origins"]
-        ? array_merge(self::srProjectHelper()->gitlab()->getStepsForNewPlugin("origins", function () use (&$group): int {
-            return $group->id;
-        }, $data["maintainer_user"], $origins_project, true), [
-            function () : void use (&$temp_folder, &$origins_project) {
-        self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins", "..");
-    }
-        ]) : [], [
-        function () use (&$temp_folder) : void {
-            self::srProjectHelper()->gitlab()->push($temp_folder);
-        },
-        function () use (&$temp_folder) : void {
-            self::srProjectHelper()->gitlab()->cleanTempFolder($temp_folder);
-        }
-    ]);
+                function () use (&$temp_folder, &$skin_project) : void {
+                    self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin", "..");
+                }
+            ]) : [], $data["origins"]
+            ? array_merge(self::srProjectHelper()->gitlab()->getStepsForNewPlugin("origins", function () use (&$group): int {
+                return $group->id;
+            }, $data["maintainer_user"], $origins_project, true), [
+                function () use (&$temp_folder, &$origins_project): void {
+                    self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins", "..");
+                }
+            ]) : [], [
+            function () use (&$temp_folder) : void {
+                self::srProjectHelper()->gitlab()->push($temp_folder);
+            },
+            function () use (&$temp_folder) : void {
+                self::srProjectHelper()->gitlab()->cleanTempFolder($temp_folder);
+            }
+        ]);
     }
 }
