@@ -185,7 +185,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/* : void*/
+    protected function storeData(array $data) : void
     {
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_URL, strval($data["gitlab"][self::KEY_GITLAB_URL]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_ACCESS_TOKEN, $data["gitlab"][self::KEY_GITLAB_ACCESS_TOKEN]->toString());

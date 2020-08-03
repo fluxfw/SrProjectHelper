@@ -39,7 +39,7 @@ class CreatorTask extends AbstractGitlabCreatorTask
     protected function getSteps(array $data) : array
     {
         return [
-            function ()/*: void*/ {
+            function () : void {
                 $data = [];
 
                 foreach (self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PROJECTS) as $id => $project) {

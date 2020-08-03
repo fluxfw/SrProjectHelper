@@ -69,7 +69,7 @@ abstract class AbstractCreatorGUI
     /**
      *
      */
-    public function executeCommand()/*: void*/
+    public function executeCommand() : void
     {
         if (!self::srProjectHelper()->currentUserHasRole()) {
             die();
@@ -100,7 +100,7 @@ abstract class AbstractCreatorGUI
     /**
      * @inheritDoc
      */
-    protected function buildAndRunTask(array $data)/*: void*/
+    protected function buildAndRunTask(array $data) : void
     {
         $bucket = new BasicBucket();
 
@@ -122,7 +122,7 @@ abstract class AbstractCreatorGUI
     /**
      *
      */
-    protected function create()/*: void*/
+    protected function create() : void
     {
         $form = $this->getCreatorFormBuilder();
 
@@ -145,7 +145,7 @@ abstract class AbstractCreatorGUI
     /**
      *
      */
-    protected function form()/*: void*/
+    protected function form() : void
     {
         $form = $this->getCreatorFormBuilder();
 
@@ -154,24 +154,24 @@ abstract class AbstractCreatorGUI
 
 
     /**
-     *
+     * @return AbstractCreatorFormBuilder
      */
-    protected function setTabs()/*: void*/
-    {
-
-    }
+    protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;
 
 
     /**
-     * @return AbstractCreatorFormBuilder
-     * /
-     * protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;
-     *
-     *
-     * /**
      * @return string
-     * /
-     * protected abstract function getTaskClass() : string;*/
+     */
+    protected abstract function getTaskClass() : string;
+
+
+    /**
+     *
+     */
+    protected function setTabs() : void
+    {
+
+    }
 
 
     /**

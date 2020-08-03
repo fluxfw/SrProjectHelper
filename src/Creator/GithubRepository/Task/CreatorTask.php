@@ -31,11 +31,11 @@ class CreatorTask extends AbstractGithubCreatorTask
     protected function getSteps(array $data) : array
     {
         return array_merge([
-            function () use (&$data)/*: void*/ {
+            function () use (&$data) : void {
                 self::srProjectHelper()->github()->createRepository($data["name"]);
             }
         ], (!empty($data["project"]) ? [
-            function () use (&$data)/*: void*/ {
+            function () use (&$data) : void {
                 self::srProjectHelper()->gitlab()->setGitlabGithubSync($data["project"], $data["name"]);
             }
         ] : []));

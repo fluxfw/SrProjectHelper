@@ -72,7 +72,7 @@ final class Repository
     /**
      * @param string $name
      */
-    public function createRepository(string $name)/*:void*/
+    public function createRepository(string $name) : void
     {
         $this->client()->repositories()->create($name, "", "", true, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITHUB_ORGANISATION), false, false, true, null, false, false);
     }

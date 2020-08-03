@@ -95,7 +95,7 @@ abstract class AbstractCreatorFormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/*:void*/
+    protected function storeData(array $data) : void
     {
         $this->data = $data;
     }

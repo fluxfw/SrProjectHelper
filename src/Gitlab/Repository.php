@@ -70,7 +70,7 @@ final class Repository
      * @param string $name
      * @param string $relative_path
      */
-    public function addSubmodule(string $temp_folder, string $url, string $path, string $name, string $relative_path)/*: void*/
+    public function addSubmodule(string $temp_folder, string $url, string $path, string $name, string $relative_path) : void
     {
         $result = [];
         exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b master " . escapeshellarg($this->tokenRepoUrl($url)) . " "
@@ -96,7 +96,7 @@ final class Repository
     /**
      * @param string $temp_folder
      */
-    public function cleanTempFolder(string $temp_folder)/*: void*/
+    public function cleanTempFolder(string $temp_folder) : void
     {
         $result = [];
         exec("rm -rfd " . escapeshellarg($temp_folder), $result);
@@ -122,7 +122,7 @@ final class Repository
      * @param Project $project
      * @param string  $ilias_version
      */
-    public function cloneILIAS(string $temp_folder, Project $project, string $ilias_version)/*: void*/
+    public function cloneILIAS(string $temp_folder, Project $project, string $ilias_version) : void
     {
         $result = [];
         exec("git clone -b " . escapeshellarg(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
@@ -150,7 +150,7 @@ final class Repository
      * @param string  $name
      * @param string  $ref
      */
-    public function createBranch(Project $project, string $name, string $ref)/*: void*/
+    public function createBranch(Project $project, string $name, string $ref) : void
     {
         $project->createBranch($name, $ref);
     }
@@ -195,33 +195,33 @@ final class Repository
      *
      * @return callable[]
      */
-    public function getStepsForNewPlugin(string $name, callable $get_namespace_id, int $maintainer_user,/*?*/ &$project = null, bool $protect_develop_branch = false) : array
+    public function getStepsForNewPlugin(string $name, callable $get_namespace_id, int $maintainer_user, ?Project &$project = null, bool $protect_develop_branch = false) : array
     {
         return array_merge([
-            function () use (&$name, &$get_namespace_id, &$project)/*: void*/ {
+            function () use (&$name, &$get_namespace_id, &$project) : void {
                 $project = $this->createProject($name, $get_namespace_id(), "master");
             },
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 $this->createBranch($project, "develop", "master");
             },
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 $this->protectMasterBranch($project, "master");
             }
         ], $protect_develop_branch ? [
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 $this->protectDevelopBranch($project, "develop");
             }
         ] : [], [
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 $project = $this->setDefaultBranch($project, "master");
             },
-            function () use (&$maintainer_user, &$project)/*: void*/ {
+            function () use (&$maintainer_user, &$project) : void {
                 $this->setMaintainer($project, $maintainer_user);
             },
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 $this->useDeployKey($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_DEPLOY_KEY_ID));
             },
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 $this->setDisableEnableDeleteSourceBranchOptionByDefault($project);
             }
         ]);
@@ -231,7 +231,7 @@ final class Repository
     /**
      * @param string $temp_folder
      */
-    public function notIgnoreCustomizingFolder(string $temp_folder)/*: void*/
+    public function notIgnoreCustomizingFolder(string $temp_folder) : void
     {
         file_put_contents($temp_folder . "/.gitignore", str_replace("\n/Customizing/global", "\n#/Customizing/global", file_get_contents($temp_folder
             . "/.gitignore")));
@@ -270,7 +270,7 @@ final class Repository
      * @param Project $project
      * @param string  $branch
      */
-    public function protectDevelopBranch(Project $project, string $branch)/*: void*/
+    public function protectDevelopBranch(Project $project, string $branch) : void
     {
         $this->client()->repositories()->protectBranch2($project->id, $branch, [
             "allowed_to_merge"   => true,
@@ -285,7 +285,7 @@ final class Repository
      * @param Project $project
      * @param string  $branch
      */
-    public function protectMasterBranch(Project $project, string $branch)/*: void*/
+    public function protectMasterBranch(Project $project, string $branch) : void
     {
         $this->client()->repositories()->protectBranch2($project->id, $branch, [
             "allowed_to_merge"   => true,
@@ -299,7 +299,7 @@ final class Repository
     /**
      * @param string $temp_folder
      */
-    public function push(string $temp_folder)/*: void*/
+    public function push(string $temp_folder) : void
     {
         $result = [];
         exec("git -C " . escapeshellarg($temp_folder) . " push 2>&1", $result);
@@ -310,7 +310,7 @@ final class Repository
      * @param Project $project
      * @param string  $branch
      */
-    public function removeBranch(Project $project, string $branch)/*: void*/
+    public function removeBranch(Project $project, string $branch) : void
     {
         $project->branch($branch)->unprotect();
 
@@ -349,7 +349,7 @@ final class Repository
      * @param int    $project_id
      * @param string $github_name
      */
-    public function setGitlabGithubSync(int $project_id, string $github_name)/*:void*/
+    public function setGitlabGithubSync(int $project_id, string $github_name) : void
     {
         $this->client()->projects()->mirror($project_id, [
             "url"                     => "https://" . self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITHUB_USER) . ":" . self::srProjectHelper()
@@ -368,7 +368,7 @@ final class Repository
      * @param Project $project
      * @param int     $maintainer_user
      */
-    public function setMaintainer(Project $project, int $maintainer_user)/*: void*/
+    public function setMaintainer(Project $project, int $maintainer_user) : void
     {
         $project->addMember($maintainer_user, self::GITLAB_MAINTAINER_ACCESS_LEVEL);
     }
@@ -376,8 +376,10 @@ final class Repository
 
     /**
      * @param array $members
+     *
+     * @return array
      */
-    public function translateMembers(array $members)/*: void*/
+    public function translateMembers(array $members) : array
     {
         return array_reduce($members, function (array $members, array $member) : array {
             if (isset($members[$member["access_level"]])) {
@@ -399,7 +401,7 @@ final class Repository
      * @param Project $project
      * @param int     $deploy_key_id
      */
-    public function useDeployKey(Project $project, int $deploy_key_id)/*: void*/
+    public function useDeployKey(Project $project, int $deploy_key_id) : void
     {
         $project->enableDeployKey($deploy_key_id);
     }

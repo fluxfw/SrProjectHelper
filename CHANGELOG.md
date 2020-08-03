@@ -1,5 +1,8 @@
 # Changelog
 
+## [x]
+- Min. PHP 7.2
+
 ## [1.3.0]
 - Github
 - ILIAS 6 support

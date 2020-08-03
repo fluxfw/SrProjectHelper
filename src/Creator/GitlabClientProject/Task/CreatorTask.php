@@ -55,98 +55,100 @@ class CreatorTask extends AbstractGitlabCreatorTask
         $origins_project = null;
 
         return array_merge([
-            function () use (&$data, &$group)/*: void*/ {
+            function () use (&$data, &$group) : void {
                 $group = self::srProjectHelper()->gitlab()->createGroup($data["name"], self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_CLIENTS_GROUP_ID));
             },
-            function () use (&$data, &$group, &$project)/*: void*/ {
+            function () use (&$data, &$group, &$project) : void {
                 $project = self::srProjectHelper()
                     ->gitlab()
                     ->createProject("ILIAS", $group->id, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()
                     ->gitlab()
                     ->createBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"], "master");
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()
                     ->gitlab()
                     ->setDefaultBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
             },
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 self::srProjectHelper()->gitlab()->removeBranch($project, "master");
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()->gitlab()->createBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"],
                     self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()->gitlab()->createBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"],
                     self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()
                     ->gitlab()
                     ->protectDevelopBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()
                     ->gitlab()
                     ->protectDevelopBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"]);
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()
                     ->gitlab()
                     ->protectDevelopBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["develop_name"]);
             },
-            function () use (&$data, &$project)/*: void*/ {
+            function () use (&$data, &$project) : void {
                 self::srProjectHelper()->gitlab()->setMaintainer($project, $data["maintainer_user"]);
             },
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 self::srProjectHelper()->gitlab()->useDeployKey($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_DEPLOY_KEY_ID));
             },
-            function () use (&$project)/*: void*/ {
+            function () use (&$project) : void {
                 self::srProjectHelper()->gitlab()->setDisableEnableDeleteSourceBranchOptionByDefault($project);
             },
-            function () use (&$data, &$temp_folder)/*: void*/ {
+            function () use (&$data, &$temp_folder) : void {
                 $temp_folder = CLIENT_DATA_DIR . "/temp/" . uniqid($data["name"]);
             },
-            function () use (&$temp_folder)/*: void*/ {
+            function () use (&$temp_folder) : void {
                 self::srProjectHelper()->gitlab()->cleanTempFolder($temp_folder);
             },
-            function () use (&$data, &$project, &$temp_folder)/*: void*/ {
+            function () use (&$data, &$project, &$temp_folder) : void {
                 self::srProjectHelper()->gitlab()->cloneILIAS($temp_folder, $project, $data["ilias_version"]);
             },
-            function () use (&$temp_folder)/*: void*/ {
+            function () use (&$temp_folder) : void {
                 self::srProjectHelper()->gitlab()->notIgnoreCustomizingFolder($temp_folder);
             }
         ], array_map(function (string $plugin_name) use (&$temp_folder): callable {
-            return function ()/*: void*/ use (&$temp_folder, &$plugin_name) {
+            return function () : void use (&$temp_folder, &$plugin_name) {
                 $plugin = self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PLUGINS)[$plugin_name];
 
                 if ($plugin) {
                     self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $plugin["repo_http"], $plugin["install_path"], $plugin["name"], "../../../Plugins");
                 }
             };
-        }, $data["plugins"]), $data["skin"] ? array_merge(self::srProjectHelper()->gitlab()->getStepsForNewPlugin("skin", function () use (&$group): int {
-            return $group->id;
-        }, $data["maintainer_user"], $skin_project, true), [
-            function ()/*: void*/ use (&$temp_folder, &$skin_project) {
-                self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin", "..");
-            }
-        ]) : [], $data["origins"] ? array_merge(self::srProjectHelper()->gitlab()->getStepsForNewPlugin("origins", function () use (&$group): int {
+        }, $data["plugins"]), $data["skin"]
+            ? array_merge(self::srProjectHelper()->gitlab()->getStepsForNewPlugin("skin", function () use (&$group): int {
+                return $group->id;
+            }, $data["maintainer_user"], $skin_project, true), [
+                function () : void use (&$temp_folder, &$skin_project) {
+        self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $skin_project->http_url_to_repo, "Customizing/global/skin", "skin", "..");
+    }
+        ]) : [], $data["origins"]
+        ? array_merge(self::srProjectHelper()->gitlab()->getStepsForNewPlugin("origins", function () use (&$group): int {
             return $group->id;
         }, $data["maintainer_user"], $origins_project, true), [
-            function ()/*: void*/ use (&$temp_folder, &$origins_project) {
-                self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins", "..");
-            }
+            function () : void use (&$temp_folder, &$origins_project) {
+        self::srProjectHelper()->gitlab()->addSubmodule($temp_folder, $origins_project->http_url_to_repo, "Customizing/global/origins", "origins", "..");
+    }
         ]) : [], [
-            function () use (&$temp_folder)/*: void*/ {
-                self::srProjectHelper()->gitlab()->push($temp_folder);
-            },
-            function () use (&$temp_folder)/*: void*/ {
-                self::srProjectHelper()->gitlab()->cleanTempFolder($temp_folder);
-            }
-        ]);
+        function () use (&$temp_folder) : void {
+            self::srProjectHelper()->gitlab()->push($temp_folder);
+        },
+        function () use (&$temp_folder) : void {
+            self::srProjectHelper()->gitlab()->cleanTempFolder($temp_folder);
+        }
+    ]);
     }
 }

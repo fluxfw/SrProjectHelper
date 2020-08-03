@@ -64,7 +64,7 @@ final class Users
     /**
      * @return int|null
      */
-    public function getGitlabUserId()/*: ?int*/
+    public function getGitlabUserId() : ?int
     {
         return key(array_filter($this->getGitlabUsers(), function (array $user) : bool {
             return ($user["email"] === self::dic()->user()->getEmail());

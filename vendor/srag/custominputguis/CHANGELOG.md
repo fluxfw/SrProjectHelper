@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.37.0]
+- Move `PieChart` and `LearningProgressPieUI` to seperate libraries
+
+## [0.36.4]
+- Fix
+
+## [0.36.3]
+- `AbstractFormBuilder`: Fix radios in section
+
 ## [0.36.2]
 - Fix language select meta bar which current ctrl gui has namespaces (public page)
 
