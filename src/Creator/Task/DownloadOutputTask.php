@@ -50,7 +50,7 @@ class DownloadOutputTask extends AbstractUserInteraction
     public function getOptions(array $input)
     {
         return [
-            new UserInteractionOption("download", self::CMD_DOWNLOAD),
+            new UserInteractionOption("download", self::CMD_DOWNLOAD)
         ];
     }
 
