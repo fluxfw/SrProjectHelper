@@ -19,25 +19,25 @@ class CreatorTask extends AbstractGithubCreatorTask
     /**
      * @inheritDoc
      */
-    protected function getSteps(array $data) : array
+    protected function getOutput2() : string
     {
-        return array_merge([
-            function () use (&$data)/*: void*/ {
-                self::srProjectHelper()->github()->createRepository($data["name"]);
-            }
-        ], (!empty($data["project"]) ? [
-            function () use (&$data)/*: void*/ {
-                self::srProjectHelper()->gitlab()->setGitlabGithubSync($data["project"], $data["name"]);
-            }
-        ] : []));
+        return "";
     }
 
 
     /**
      * @inheritDoc
      */
-    protected function getOutput2() : string
+    protected function getSteps(array $data) : array
     {
-        return "";
+        return array_merge([
+            function () use (&$data) : void {
+                self::srProjectHelper()->github()->createRepository($data["name"]);
+            }
+        ], (!empty($data["project"]) ? [
+            function () use (&$data) : void {
+                self::srProjectHelper()->gitlab()->setGitlabGithubSync($data["project"], $data["name"]);
+            }
+        ] : []));
     }
 }

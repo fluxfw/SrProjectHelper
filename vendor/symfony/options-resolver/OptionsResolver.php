@@ -206,7 +206,7 @@ class OptionsResolver implements Options
                 return $this;
             }
 
-            if (isset($params[0]) && null !== ($type = $params[0]->getType()) && self::class === $type->getName() && (!isset($params[1]) || (null !== ($type = $params[1]->getType()) && Options::class === $type->getName()))) {
+            if (isset($params[0]) && null !== ($type = $params[0]->getType()) && self::class === $type->getName() && (!isset($params[1]) || (($type = $params[1]->getType()) instanceof \ReflectionNamedType && Options::class === $type->getName()))) {
                 // Store closure for later evaluation
                 $this->nested[$option][] = $value;
                 $this->defaults[$option] = [];
@@ -556,6 +556,7 @@ class OptionsResolver implements Options
         }
 
         if ($forcePrepend) {
+            $this->normalizers[$option] = $this->normalizers[$option] ?? [];
             array_unshift($this->normalizers[$option], $normalizer);
         } else {
             $this->normalizers[$option][] = $normalizer;
@@ -765,7 +766,7 @@ class OptionsResolver implements Options
     /**
      * Gets the info message for an option.
      */
-    public function getInfo(string $option)/*: ?string*/
+    public function getInfo(string $option): ?string
     {
         if (!isset($this->defined[$option])) {
             throw new UndefinedOptionsException(sprintf('The option "%s" does not exist. Defined options are: "%s".', $this->formatOptions([$option]), implode('", "', array_keys($this->defined))));
@@ -1281,9 +1282,9 @@ class OptionsResolver implements Options
         return implode('", "', $options);
     }
 
-    private function getParameterClassName(\ReflectionParameter $parameter)/*: ?string*/
+    private function getParameterClassName(\ReflectionParameter $parameter): ?string
     {
-        if (!($type = $parameter->getType()) || $type->isBuiltin()) {
+        if (!($type = $parameter->getType()) instanceof \ReflectionNamedType || $type->isBuiltin()) {
             return null;
         }
 

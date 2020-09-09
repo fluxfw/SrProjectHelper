@@ -27,10 +27,19 @@ class CreatorTask extends AbstractGitlabCreatorTask
     /**
      * @inheritDoc
      */
+    protected function getOutput2() : string
+    {
+        return $this->csv;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function getSteps(array $data) : array
     {
         return [
-            function ()/*: void*/ {
+            function () : void {
                 $data = [];
 
                 foreach (self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PROJECTS) as $id => $project) {
@@ -49,14 +58,5 @@ class CreatorTask extends AbstractGitlabCreatorTask
                 $this->csv = $this->csv(["path", "owners", "maintainers", "developers", "reporters", "guests"], $data);
             }
         ];
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getOutput2() : string
-    {
-        return $this->csv;
     }
 }

@@ -27,16 +27,25 @@ abstract class AbstractCreatorGUI
     use DICTrait;
     use SrProjectHelperTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_CREATE = "create";
     const CMD_FORM = "form";
-    const START_CMD = self::CMD_FORM;
     /**
      * @var string
      *
      * @abstract
      */
     const LANG_MODULE = "";
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
+    const START_CMD = self::CMD_FORM;
+
+
+    /**
+     * AbstractCreatorGUI constructor
+     */
+    public function __construct()
+    {
+
+    }
 
 
     /**
@@ -58,18 +67,9 @@ abstract class AbstractCreatorGUI
 
 
     /**
-     * AbstractCreatorGUI constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-
-    /**
      *
      */
-    public function executeCommand()/*: void*/
+    public function executeCommand() : void
     {
         if (!self::srProjectHelper()->currentUserHasRole()) {
             die();
@@ -98,29 +98,31 @@ abstract class AbstractCreatorGUI
 
 
     /**
-     *
+     * @inheritDoc
      */
-    protected function setTabs()/*: void*/
+    protected function buildAndRunTask(array $data) : void
     {
+        $bucket = new BasicBucket();
 
+        $bucket->setUserId(self::srProjectHelper()->ilias()->users()->getUserId());
+
+        $task = self::dic()->backgroundTasks()->taskFactory()->createTask($this->getTaskClass(), [json_encode($data)]);
+
+        if ($this->shouldDownloadOutput()) {
+            $task = self::dic()->backgroundTasks()->taskFactory()->createTask(DownloadOutputTask::class, [$task]);
+        }
+
+        $bucket->setTask($task);
+        $bucket->setTitle(self::plugin()->translate("task_title", static::LANG_MODULE, [$data["name"]]));
+
+        self::dic()->backgroundTasks()->taskManager()->run($bucket);
     }
 
 
     /**
      *
      */
-    protected function form()/*: void*/
-    {
-        $form = $this->getCreatorFormBuilder();
-
-        self::output()->output($form, true);
-    }
-
-
-    /**
-     *
-     */
-    protected function create()/*: void*/
+    protected function create() : void
     {
         $form = $this->getCreatorFormBuilder();
 
@@ -141,37 +143,36 @@ abstract class AbstractCreatorGUI
 
 
     /**
-     * @inheritDoc
+     *
      */
-    protected function buildAndRunTask(array $data)/*: void*/
+    protected function form() : void
     {
-        $bucket = new BasicBucket();
+        $form = $this->getCreatorFormBuilder();
 
-        $bucket->setUserId(self::srProjectHelper()->ilias()->users()->getUserId());
-
-        $task = self::dic()->backgroundTasks()->taskFactory()->createTask($this->getTaskClass(), [json_encode($data)]);
-
-        if ($this->shouldDownloadOutput()) {
-            $task = self::dic()->backgroundTasks()->taskFactory()->createTask(DownloadOutputTask::class, [$task]);
-        }
-
-        $bucket->setTask($task);
-        $bucket->setTitle(self::plugin()->translate("task_title", static::LANG_MODULE, [$data["name"]]));
-
-        self::dic()->backgroundTasks()->taskManager()->run($bucket);
+        self::output()->output($form, true);
     }
 
 
     /**
      * @return AbstractCreatorFormBuilder
-     * /
-     * protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;
-     *
-     *
-     * /**
+     */
+    protected abstract function getCreatorFormBuilder() : AbstractCreatorFormBuilder;
+
+
+    /**
      * @return string
-     * /
-     * protected abstract function getTaskClass() : string;*/
+     */
+    protected abstract function getTaskClass() : string;
+
+
+    /**
+     *
+     */
+    protected function setTabs() : void
+    {
+
+    }
+
 
     /**
      * @return bool

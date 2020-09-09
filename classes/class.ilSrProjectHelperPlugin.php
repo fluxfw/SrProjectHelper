@@ -19,13 +19,22 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     use PluginUninstallTrait;
     use SrProjectHelperTrait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "srprojecthelper";
     const PLUGIN_NAME = "SrProjectHelper";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * ilSrProjectHelperPlugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -42,20 +51,20 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
 
 
     /**
-     * ilSrProjectHelperPlugin constructor
+     * @inheritDoc
      */
-    public function __construct()
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        parent::__construct();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
     /**
      * @inheritDoc
      */
-    public function getPluginName() : string
+    public function getCronJobInstance(/*string*/ $a_job_id) : ?ilCronJob
     {
-        return self::PLUGIN_NAME;
+        return self::srProjectHelper()->jobs()->factory()->newInstanceById($a_job_id);
     }
 
 
@@ -71,9 +80,9 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
+    public function getPluginName() : string
     {
-        return self::srProjectHelper()->jobs()->factory()->newInstanceById($a_job_id);
+        return self::PLUGIN_NAME;
     }
 
 
@@ -89,16 +98,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    protected function shouldUseOneUpdateStepOnly() : bool
-    {
-        return true;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/
+    public function updateLanguages(/*?array*/ $a_lang_keys = null) : void
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -109,7 +109,7 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    protected function deleteData()/*: void*/
+    protected function deleteData() : void
     {
         self::srProjectHelper()->dropTables();
     }
@@ -118,8 +118,8 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return true;
     }
 }

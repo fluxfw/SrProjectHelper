@@ -31,15 +31,6 @@ abstract class AbstractCreatorTask extends AbstractJob
     /**
      * @inheritDoc
      */
-    public function isStateless() : bool
-    {
-        return false;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
     public function getExpectedTimeOfTaskInSeconds() : int
     {
         return 300;
@@ -63,6 +54,15 @@ abstract class AbstractCreatorTask extends AbstractJob
     public function getOutputType() : Type
     {
         return new SingleType(StringValue::class);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function isStateless() : bool
+    {
+        return false;
     }
 
 
@@ -114,15 +114,15 @@ abstract class AbstractCreatorTask extends AbstractJob
 
 
     /**
+     * @return string
+     */
+    protected abstract function getOutput2() : string;
+
+
+    /**
      * @param array $data
      *
      * @return callable[]
      */
     protected abstract function getSteps(array $data) : array;
-
-
-    /**
-     * @return string
-     */
-    protected abstract function getOutput2() : string;
 }

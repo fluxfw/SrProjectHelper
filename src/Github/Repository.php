@@ -26,21 +26,6 @@ final class Repository
      * @var self|null
      */
     protected static $instance = null;
-
-
-    /**
-     * @return self
-     */
-    public static function getInstance() : self
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
-
-
     /**
      * @var Client
      */
@@ -53,6 +38,19 @@ final class Repository
     private function __construct()
     {
 
+    }
+
+
+    /**
+     * @return self
+     */
+    public static function getInstance() : self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
 
@@ -74,7 +72,7 @@ final class Repository
     /**
      * @param string $name
      */
-    public function createRepository(string $name)/*:void*/
+    public function createRepository(string $name) : void
     {
         $this->client()->repositories()->create($name, "", "", true, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITHUB_ORGANISATION), false, false, true, null, false, false);
     }

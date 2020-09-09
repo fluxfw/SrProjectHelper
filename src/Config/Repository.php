@@ -29,6 +29,15 @@ final class Repository extends AbstractRepository
 
 
     /**
+     * Repository constructor
+     */
+    protected function __construct()
+    {
+        parent::__construct();
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -42,15 +51,6 @@ final class Repository extends AbstractRepository
 
 
     /**
-     * Repository constructor
-     */
-    protected function __construct()
-    {
-        parent::__construct();
-    }
-
-
-    /**
      * @inheritDoc
      *
      * @return Factory
@@ -58,15 +58,6 @@ final class Repository extends AbstractRepository
     public function factory() : AbstractFactory
     {
         return Factory::getInstance();
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getTableName() : string
-    {
-        return ilSrProjectHelperPlugin::PLUGIN_ID . "_config";
     }
 
 
@@ -93,5 +84,14 @@ final class Repository extends AbstractRepository
             FormBuilder::KEY_GITLAB_USERS            => [Config::TYPE_JSON, [], true],
             FormBuilder::KEY_ROLES                   => [Config::TYPE_JSON, []]
         ];
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getTableName() : string
+    {
+        return ilSrProjectHelperPlugin::PLUGIN_ID . "_config";
     }
 }

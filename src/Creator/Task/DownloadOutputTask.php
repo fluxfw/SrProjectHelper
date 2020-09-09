@@ -29,8 +29,8 @@ class DownloadOutputTask extends AbstractUserInteraction
     use DICTrait;
     use SrProjectHelperTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_DOWNLOAD = "download";
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 
 
     /**
@@ -47,20 +47,20 @@ class DownloadOutputTask extends AbstractUserInteraction
     /**
      * @inheritDoc
      */
-    public function getOutputType() : Type
+    public function getOptions(array $input)
     {
-        return new SingleType(StringValue::class);
+        return [
+            new UserInteractionOption("download", self::CMD_DOWNLOAD)
+        ];
     }
 
 
     /**
      * @inheritDoc
      */
-    public function getOptions(array $input)
+    public function getOutputType() : Type
     {
-        return [
-            new UserInteractionOption("download", self::CMD_DOWNLOAD),
-        ];
+        return new SingleType(StringValue::class);
     }
 
 

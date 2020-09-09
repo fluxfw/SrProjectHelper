@@ -29,6 +29,19 @@ abstract class AbstractGitlabCreatorFormBuilder extends AbstractCreatorFormBuild
     /**
      * @inheritDoc
      */
+    public function render() : string
+    {
+        if (self::srProjectHelper()->ilias()->users()->getUserId() === intval(SYSTEM_USER_ID) || empty(self::srProjectHelper()->ilias()->users()->getGitlabUserId())) {
+            $this->messages[] = self::dic()->ui()->factory()->messageBox()->info(nl2br(self::plugin()->translate("mantainer_user_not_found"), false));
+        }
+
+        return parent::render();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function getData() : array
     {
         $data = parent::getData();
@@ -54,18 +67,5 @@ abstract class AbstractGitlabCreatorFormBuilder extends AbstractCreatorFormBuild
         ];
 
         return $fields;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function render() : string
-    {
-        if (self::srProjectHelper()->ilias()->users()->getUserId() === intval(SYSTEM_USER_ID) || empty(self::srProjectHelper()->ilias()->users()->getGitlabUserId())) {
-            $this->messages[] = self::dic()->ui()->factory()->messageBox()->info(nl2br(self::plugin()->translate("mantainer_user_not_found"), false));
-        }
-
-        return parent::render();
     }
 }

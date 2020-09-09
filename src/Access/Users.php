@@ -29,6 +29,15 @@ final class Users
 
 
     /**
+     * Users constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -38,15 +47,6 @@ final class Users
         }
 
         return self::$instance;
-    }
-
-
-    /**
-     * Users constructor
-     */
-    private function __construct()
-    {
-
     }
 
 
@@ -64,7 +64,7 @@ final class Users
     /**
      * @return int|null
      */
-    public function getGitlabUserId()/*: ?int*/
+    public function getGitlabUserId() : ?int
     {
         return key(array_filter($this->getGitlabUsers(), function (array $user) : bool {
             return ($user["email"] === self::dic()->user()->getEmail());

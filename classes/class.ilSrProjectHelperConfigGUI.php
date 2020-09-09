@@ -17,8 +17,8 @@ class ilSrProjectHelperConfigGUI extends ilPluginConfigGUI
     use DICTrait;
     use SrProjectHelperTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const CMD_CONFIGURE = "configure";
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 
 
     /**
@@ -33,7 +33,7 @@ class ilSrProjectHelperConfigGUI extends ilPluginConfigGUI
     /**
      * @inheritDoc
      */
-    public function performCommand(/*string*/ $cmd)/*:void*/
+    public function performCommand(/*string*/ $cmd) : void
     {
         $this->setTabs();
 
@@ -63,19 +63,19 @@ class ilSrProjectHelperConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function setTabs()/*: void*/
+    protected function configure() : void
     {
-        ConfigCtrl::addTabs();
-
-        self::dic()->locator()->addItem(ilSrProjectHelperPlugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
+        self::dic()->ctrl()->redirectByClass(ConfigCtrl::class, ConfigCtrl::CMD_CONFIGURE);
     }
 
 
     /**
      *
      */
-    protected function configure()/*: void*/
+    protected function setTabs() : void
     {
-        self::dic()->ctrl()->redirectByClass(ConfigCtrl::class, ConfigCtrl::CMD_CONFIGURE);
+        ConfigCtrl::addTabs();
+
+        self::dic()->locator()->addItem(ilSrProjectHelperPlugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
     }
 }

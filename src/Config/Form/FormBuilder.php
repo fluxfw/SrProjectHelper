@@ -21,7 +21,6 @@ class FormBuilder extends AbstractFormBuilder
 
     use SrProjectHelperTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
     const KEY_GITHUB_ACCESS_TOKEN = "github_access_token";
     const KEY_GITHUB_ORGANISATION = "github_organisation";
     const KEY_GITHUB_USER = "github_user";
@@ -38,6 +37,7 @@ class FormBuilder extends AbstractFormBuilder
     const KEY_GITLAB_URL = "gitlab_url";
     const KEY_GITLAB_USERS = "gitlab_users";
     const KEY_ROLES = "roles";
+    const PLUGIN_CLASS_NAME = ilSrProjectHelperPlugin::class;
 
 
     /**
@@ -185,7 +185,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/* : void*/
+    protected function storeData(array $data) : void
     {
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_URL, strval($data["gitlab"][self::KEY_GITLAB_URL]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_ACCESS_TOKEN, $data["gitlab"][self::KEY_GITLAB_ACCESS_TOKEN]->toString());

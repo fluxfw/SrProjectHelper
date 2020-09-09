@@ -20,7 +20,7 @@ class Projects extends GitlabProjects
      *
      * @return mixed
      */
-    public function mirror(string $project_id, array $params)/*:void*/
+    public function mirror(string $project_id, array $params)
     {
         return $this->post('projects/' . $this->encodePath($project_id) . '/remote_mirrors', $params);
     }
