@@ -72,24 +72,19 @@ final class Repository
      */
     public function addSubmodule(string $temp_folder, string $url, string $path, string $name, string $relative_path) : void
     {
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b master " . escapeshellarg($this->tokenRepoUrl($url)) . " "
-            . escapeshellarg($path) . " 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b master " . escapeshellarg($this->tokenRepoUrl($url)) . " "
+            . escapeshellarg($path));
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " add . 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " add .");
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " commit -m " . escapeshellarg($name . " plugin submodule") . " 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " commit -m " . escapeshellarg($name . " plugin submodule"));
 
         file_put_contents($temp_folder . "/.gitmodules", str_replace($this->tokenRepoUrl($url), $relative_path . "/" . $name
             . ".git", file_get_contents($temp_folder . "/.gitmodules")));
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " add . 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " add .");
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " commit --amend -m " . escapeshellarg($name . " plugin submodule") . " 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " commit --amend -m " . escapeshellarg($name . " plugin submodule"));
     }
 
 
@@ -98,8 +93,7 @@ final class Repository
      */
     public function cleanTempFolder(string $temp_folder) : void
     {
-        $result = [];
-        exec("rm -rfd " . escapeshellarg($temp_folder), $result);
+        $this->exec("rm -rfd " . escapeshellarg($temp_folder));
     }
 
 
@@ -124,24 +118,22 @@ final class Repository
      */
     public function cloneILIAS(string $temp_folder, Project $project, string $ilias_version) : void
     {
-        $result = [];
-        exec("git clone -b " . escapeshellarg(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
-            . escapeshellarg($this->tokenRepoUrl($project->http_url_to_repo)) . " " . escapeshellarg($temp_folder) . " 2>&1", $result);
+        $this->exec("git clone -b " . escapeshellarg(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$ilias_version]["develop_name"]) . " "
+            . escapeshellarg($this->tokenRepoUrl($project->http_url_to_repo)) . " " . escapeshellarg($temp_folder));
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " remote add temp "
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " config user.name " . escapeshellarg(self::dic()->user()->getFullname()));
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " config user.email " . escapeshellarg(self::dic()->user()->getEmail()));
+
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " remote add temp "
             . escapeshellarg($this->tokenRepoUrl((new Project(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_PROJECT_ID),
                 $this->client()))->show()->http_url_to_repo))
-            . " 2>&1", $result);
+        );
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " fetch temp 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " fetch temp");
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " merge " . escapeshellarg("temp/" . $ilias_version) . " 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " merge " . escapeshellarg("temp/" . $ilias_version) . " --allow-unrelated-histories");
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " remote remove temp 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " remote remove temp");
     }
 
 
@@ -236,11 +228,9 @@ final class Repository
         file_put_contents($temp_folder . "/.gitignore", str_replace("\n/Customizing/global", "\n#/Customizing/global", file_get_contents($temp_folder
             . "/.gitignore")));
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " add . 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " add .");
 
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " commit -m " . escapeshellarg("Not ignore Customizing/global") . " 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " commit -m " . escapeshellarg("Not ignore Customizing/global"));
     }
 
 
@@ -301,8 +291,7 @@ final class Repository
      */
     public function push(string $temp_folder) : void
     {
-        $result = [];
-        exec("git -C " . escapeshellarg($temp_folder) . " push 2>&1", $result);
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " push");
     }
 
 
@@ -404,6 +393,31 @@ final class Repository
     public function useDeployKey(Project $project, int $deploy_key_id) : void
     {
         $project->enableDeployKey($deploy_key_id);
+    }
+
+
+    /**
+     * @param string $command
+     */
+    protected function exec(string $command) : void
+    {
+        if (intval(DEVMODE) === 1) {
+            self::dic()->log()->log($command);
+
+            $result = [];
+
+            exec($command . " 2>&1", $result);
+
+            if (!empty($result)) {
+                self::dic()->log()->log(implode("\n", array_map(function (string $row) : string {
+                        return "  > " . $row;
+                    }, $result)) . "\n");
+            }
+        } else {
+            $result = [];
+
+            exec($command, $result);
+        }
     }
 
 

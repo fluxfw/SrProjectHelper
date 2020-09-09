@@ -1,6 +1,8 @@
 # Changelog
 
-## [x]
+## [1.4.0]
+- Fix merge ILIAS
+- Add git commit user
 - Min. PHP 7.2
 
 ## [1.3.0]
