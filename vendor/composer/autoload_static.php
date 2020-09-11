@@ -25,11 +25,11 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
+            'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\DIC\\SrProjectHelper\\' => 25,
+            'srag\\CustomInputGUIs\\SrProjectHelper\\' => 37,
             'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 40,
         ),
         'S' => 
@@ -72,7 +72,7 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -84,11 +84,11 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
