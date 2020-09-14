@@ -1,7 +1,7 @@
 {
   "name": "srag/plugins/srprojecthelper",
   "description": "",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "ilias_plugin": {
     "id": "srprojecthelper",
     "name": "SrProjectHelper",
@@ -46,7 +46,8 @@
       "classes/"
     ],
     "files": [
-      "vendor/srag/dic/src/PHPVersionChecker.php"
+      "vendor/srag/dic/src/PHPVersionChecker.php",
+      "vendor/srag/dic/src/Ilias7PreWarn.php"
     ]
   },
   "config": {
