@@ -51,4 +51,15 @@ class CreatorFormBuilder extends AbstractGitlabCreatorFormBuilder
 
         return $fields;
     }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function storeData(array $data) : void
+    {
+        $data["plugins"] = MultiSelectSearchNewInputGUI::cleanValues((array) $data["plugins"]);
+
+        parent::storeData($data);
+    }
 }

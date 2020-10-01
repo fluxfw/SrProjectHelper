@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9646811557e6c297c84f3f52bd538c9a",
+    "content-hash": "61dd69de965c8406b4d544613061e421",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1209,16 +1209,16 @@
         },
         {
             "name": "srag/custominputguis",
-            "version": "v0.39.0",
+            "version": "v0.39.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-                "reference": "ed5104c739424334a27d14d0fa8ffb765051444b"
+                "reference": "be9e4867480a3879c6fe4154248aad50ea76995b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/ed5104c739424334a27d14d0fa8ffb765051444b",
-                "reference": "ed5104c739424334a27d14d0fa8ffb765051444b",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/be9e4867480a3879c6fe4154248aad50ea76995b",
+                "reference": "be9e4867480a3879c6fe4154248aad50ea76995b",
                 "shasum": ""
             },
             "require": {
@@ -1228,7 +1228,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\SrProjectHelper\\": "src/"
+                    "srag\\CustomInputGUIs\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1252,7 +1252,7 @@
                 "input",
                 "table"
             ],
-            "time": "2020-09-02T06:57:44+00:00"
+            "time": "2020-10-01T05:37:14+00:00"
         },
         {
             "name": "srag/dic",
