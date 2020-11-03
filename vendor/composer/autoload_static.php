@@ -29,8 +29,9 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
             'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => 45,
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\DevTools\\' => 14,
+            'srag\\DIC\\SrProjectHelper\\' => 25,
+            'srag\\CustomInputGUIs\\SrProjectHelper\\' => 37,
             'srag\\ActiveRecordConfig\\SrProjectHelper\\' => 40,
         ),
         'S' => 
@@ -85,11 +86,15 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DevTools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/devtools/src',
+        ),
+        'srag\\DIC\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrProjectHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
@@ -719,6 +724,7 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
         'srag\\DIC\\SrProjectHelper\\Util\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/dic/src/Util/LibraryLanguageInstaller.php',
         'srag\\DIC\\SrProjectHelper\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrProjectHelper\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
+        'srag\\DevTools\\SrProjectHelper\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
         'srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhpAndXml.php',
         'srag\\LibrariesNamespaceChanger\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginReadme.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',

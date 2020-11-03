@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use srag\DIC\SrProjectHelper\DevTools\DevToolsCtrl;
+use srag\DevTools\SrProjectHelper\DevToolsCtrl;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Config\ConfigCtrl;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
@@ -12,7 +12,7 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  *
  * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
- * @ilCtrl_isCalledBy srag\DIC\SrProjectHelper\DevTools\DevToolsCtrl: ilSrProjectHelperConfigGUI
+ * @ilCtrl_isCalledBy srag\DevTools\SrProjectHelper\DevToolsCtrl: ilSrProjectHelperConfigGUI
  */
 class ilSrProjectHelperConfigGUI extends ilPluginConfigGUI
 {
