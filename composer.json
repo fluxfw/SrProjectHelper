@@ -1,5 +1,5 @@
 {
-  "name": "srag/plugins/srprojecthelper",
+  "name": "srag/srprojecthelper",
   "description": "",
   "version": "1.4.3",
   "extra": {
@@ -48,7 +48,12 @@
       "srag\\Plugins\\SrProjectHelper\\": "src/"
     },
     "classmap": [
-      "classes/"
+      "classes/",
+      "src/Config/class.ConfigCtrl.php",
+      "src/Creator/GithubRepository/class.CreatorGUI.php",
+      "src/Creator/GitlabClientProject/class.CreatorGUI.php",
+      "src/Creator/GitlabPluginProject/class.CreatorGUI.php",
+      "src/Creator/GitlabProjectMembersOverview/class.CreatorGUI.php"
     ],
     "files": [
       "vendor/srag/dic/src/PHPVersionChecker.php",
