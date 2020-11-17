@@ -197,6 +197,6 @@ class FormBuilder extends AbstractFormBuilder
         self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_ORGANISATION, strval($data["github"][self::KEY_GITHUB_ORGANISATION]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_ACCESS_TOKEN, $data["github"][self::KEY_GITHUB_ACCESS_TOKEN]->toString());
         self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_USER, strval($data["github"][self::KEY_GITHUB_USER]));
-        self::srProjectHelper()->config()->setValue(self::KEY_ROLES, (array) $data["others"][self::KEY_ROLES]);
+        self::srProjectHelper()->config()->setValue(self::KEY_ROLES, MultiSelectSearchNewInputGUI::cleanValues((array) $data["others"][self::KEY_ROLES]));
     }
 }

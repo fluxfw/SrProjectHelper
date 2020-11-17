@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.5.0]
+- Plugins for client project are now optimal
+
 ## [1.4.3]
 - Main menu icon
 

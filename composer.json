@@ -1,13 +1,16 @@
 {
-  "name": "srag/plugins/srprojecthelper",
-  "description": "",
-  "version": "1.4.3",
-  "ilias_plugin": {
-    "id": "srprojecthelper",
-    "name": "SrProjectHelper",
-    "ilias_min_version": "5.4.0",
-    "ilias_max_version": "6.999",
-    "slot": "Services/Cron/CronHook"
+  "name": "srag/srprojecthelper",
+  "description": "srag project helper",
+  "version": "1.5.0",
+  "extra": {
+    "ilias_plugin": {
+      "id": "srprojecthelper",
+      "name": "SrProjectHelper",
+      "ilias_min_version": "5.4.0",
+      "ilias_max_version": "6.999",
+      "slot": "Services/Cron/CronHook"
+    },
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
   },
   "type": "project",
   "keywords": [
@@ -34,7 +37,9 @@
     "php-http/guzzle6-adapter": "1.1.1",
     "srag/activerecordconfig": ">=0.1.0",
     "srag/custominputguis": ">=0.1.0",
+    "srag/devtools": ">=0.1.0",
     "srag/dic": ">=0.1.0",
+    "srag/generateplugininfoshelper": ">=0.1.0",
     "srag/librariesnamespacechanger": ">=0.1.0",
     "srag/removeplugindataconfirm": ">=0.1.0"
   },
@@ -43,7 +48,12 @@
       "srag\\Plugins\\SrProjectHelper\\": "src/"
     },
     "classmap": [
-      "classes/"
+      "classes/",
+      "src/Config/class.ConfigCtrl.php",
+      "src/Creator/GithubRepository/class.CreatorGUI.php",
+      "src/Creator/GitlabClientProject/class.CreatorGUI.php",
+      "src/Creator/GitlabPluginProject/class.CreatorGUI.php",
+      "src/Creator/GitlabProjectMembersOverview/class.CreatorGUI.php"
     ],
     "files": [
       "vendor/srag/dic/src/PHPVersionChecker.php",
@@ -58,8 +68,8 @@
   "scripts": {
     "pre-autoload-dump": [
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
-      "srag\\LibrariesNamespaceChanger\\UpdatePluginReadme::updatePluginReadme"
+      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
+      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginReadme::generatePluginReadme"
     ]
   }
 }

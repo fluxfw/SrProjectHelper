@@ -8,7 +8,10 @@ $baseDir = dirname($vendorDir);
 return array(
     'srag\\RemovePluginDataConfirm\\SrProjectHelper\\' => array($vendorDir . '/srag/removeplugindataconfirm/src'),
     'srag\\Plugins\\SrProjectHelper\\' => array($baseDir . '/src'),
+    'srag\\LibraryLanguageInstaller\\SrProjectHelper\\' => array($vendorDir . '/srag/librarylanguageinstaller/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
+    'srag\\GeneratePluginInfosHelper\\SrProjectHelper\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
+    'srag\\DevTools\\SrProjectHelper\\' => array($vendorDir . '/srag/devtools/src'),
     'srag\\DIC\\SrProjectHelper\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\SrProjectHelper\\' => array($vendorDir . '/srag/custominputguis/src'),
     'srag\\ActiveRecordConfig\\SrProjectHelper\\' => array($vendorDir . '/srag/activerecordconfig/src'),
