@@ -41,7 +41,7 @@ class CreatorFormBuilder extends AbstractGitlabCreatorFormBuilder
                 ["" => ""] + array_map(function (array $ilias_version) : string {
                     return $ilias_version["name"];
                 }, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)))->withRequired(true),
-            "plugins"       => (new InputGUIWrapperUIInputComponent(new MultiSelectSearchNewInputGUI(self::plugin()->translate("plugins", $this->parent::LANG_MODULE))))->withRequired(true),
+            "plugins"       => (new InputGUIWrapperUIInputComponent(new MultiSelectSearchNewInputGUI(self::plugin()->translate("plugins", $this->parent::LANG_MODULE)))),
             "skin"          => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("skin", $this->parent::LANG_MODULE)),
             "origins"       => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("origins", $this->parent::LANG_MODULE))
         ];
