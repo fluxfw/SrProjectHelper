@@ -5,6 +5,7 @@ namespace srag\Plugins\SrProjectHelper\Job;
 use ilCachedComponentData;
 use ilCronJob;
 use ilCronJobResult;
+use ilCronManager;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
 use srag\Plugins\SrProjectHelper\Config\Form\FormBuilder;
@@ -142,6 +143,8 @@ class FetchGitlabInfosJob extends ilCronJob
         uasort($ilias_versions, [self::class, "sortHelper"]);
         self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS, $ilias_versions);
 
+        ilCronManager::ping($this->getId());
+
         $plugins = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
             return self::srProjectHelper()->gitlab()->client()->groups()->projects(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_PLUGINS_GROUP_ID), $options + [
                     "simple" => true
@@ -179,6 +182,8 @@ class FetchGitlabInfosJob extends ilCronJob
         uasort($plugins, [self::class, "sortHelper"]);
         self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_PLUGINS, $plugins);
 
+        ilCronManager::ping($this->getId());
+
         $groups = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
             return self::srProjectHelper()->gitlab()->client()->groups()->all($options);
         }), function (array $groups, array $group) : array {
@@ -190,6 +195,8 @@ class FetchGitlabInfosJob extends ilCronJob
         }, []);
         uasort($groups, [self::class, "sortHelper"]);
         self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_GROUPS, $groups);
+
+        ilCronManager::ping($this->getId());
 
         $users = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
             return self::srProjectHelper()->gitlab()->client()->groups()->members(self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_MEMBERS_GROUP_ID), $options);
@@ -205,6 +212,8 @@ class FetchGitlabInfosJob extends ilCronJob
         }, []);
         uasort($users, [self::class, "sortHelper"]);
         self::srProjectHelper()->config()->setValue(FormBuilder::KEY_GITLAB_USERS, $users);
+
+        ilCronManager::ping($this->getId());
 
         $projects = array_reduce(self::srProjectHelper()->gitlab()->pageHelper(function (array $options) : array {
             return self::srProjectHelper()->gitlab()->client()->projects()->all($options + [
