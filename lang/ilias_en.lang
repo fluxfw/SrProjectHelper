@@ -20,6 +20,7 @@ cron_fetch_gitlab_infos#:#Fetch gitlab infos
 cron_fetch_gitlab_infos_description#:#Keep gitlab infos up to date (ILIAS versions, plugins list, groups, users)
 github_repository_create#:#Create
 github_repository_created#:#Background task created for "%s"
+github_repository_manual_trigger_remote_mirror_needed#:#The automatic trigger of the remote mirror after creation is not possible via API in gitlab free version\nA manual trigger is needed
 github_repository_name#:#Name
 github_repository_project#:#Gitlab project
 github_repository_task_title#:#Create github repository "%s"
