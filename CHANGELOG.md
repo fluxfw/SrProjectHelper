@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.5.1]
+- Manual trigger gitlab remote mirror info
+- Ping after each object for not ILIAS auto set inactive cron job if during longer
+
 ## [1.5.0]
 - Plugins for client project are now optimal
 

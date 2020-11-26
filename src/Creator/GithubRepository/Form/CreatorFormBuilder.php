@@ -32,6 +32,8 @@ class CreatorFormBuilder extends AbstractGithubCreatorFormBuilder
      */
     protected function getFields() : array
     {
+        $this->messages[] = self::dic()->ui()->factory()->messageBox()->info(nl2br(self::plugin()->translate("manual_trigger_remote_mirror_needed", $this->parent::LANG_MODULE), false));
+
         $fields = parent::getFields();
 
         $fields += [
