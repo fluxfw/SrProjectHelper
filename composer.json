@@ -1,12 +1,12 @@
 {
   "name": "srag/srprojecthelper",
   "description": "srag project helper",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "extra": {
     "ilias_plugin": {
       "id": "srprojecthelper",
       "name": "SrProjectHelper",
-      "ilias_min_version": "5.4.0",
+      "ilias_min_version": "6.0",
       "ilias_max_version": "6.999",
       "slot": "Services/Cron/CronHook"
     },

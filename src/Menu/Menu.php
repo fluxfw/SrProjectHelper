@@ -70,10 +70,6 @@ class Menu extends AbstractStaticPluginMainMenuProvider
      */
     protected function symbol(AbstractBaseItem $entry) : AbstractBaseItem
     {
-        if (self::version()->is6()) {
-            $entry = $entry->withSymbol(self::dic()->ui()->factory()->symbol()->icon()->standard(Standard::CMPS, ilSrProjectHelperPlugin::PLUGIN_NAME)->withIsOutlined(true));
-        }
-
-        return $entry;
+        return $entry->withSymbol(self::dic()->ui()->factory()->symbol()->icon()->standard(Standard::CMPS, ilSrProjectHelperPlugin::PLUGIN_NAME)->withIsOutlined(true));
     }
 }
