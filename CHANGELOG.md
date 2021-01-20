@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.6.0]
+- Remove ILIAS 5.4 support
+
 ## [1.5.2]
 - Fix storage password fields
 
