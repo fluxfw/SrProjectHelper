@@ -1,7 +1,7 @@
 {
   "name": "srag/srprojecthelper",
   "description": "srag project helper",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "extra": {
     "ilias_plugin": {
       "id": "srprojecthelper",
@@ -10,12 +10,15 @@
       "ilias_max_version": "6.999",
       "slot": "Services/Cron/CronHook"
     },
-    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN",
+    "long_description_template": "src/LONG_DESCRIPTION.md"
   },
   "type": "project",
   "keywords": [
-    "ILIAS",
-    "Plugin"
+    "cron",
+    "ilias",
+    "job",
+    "plugin"
   ],
   "homepage": "https://github.com/studer-raimann/SrProjectHelper",
   "license": "GPL-3.0-only",

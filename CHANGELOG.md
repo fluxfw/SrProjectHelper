@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.5.2]
+- Fix storage password fields
+
 ## [1.5.1]
 - Manual trigger gitlab remote mirror info
 - Ping after each object for not ILIAS auto set inactive cron job if during longer
