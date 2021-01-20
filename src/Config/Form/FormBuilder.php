@@ -2,6 +2,7 @@
 
 namespace srag\Plugins\SrProjectHelper\Config\Form;
 
+use ILIAS\Data\Password;
 use ilSrProjectHelperPlugin;
 use srag\CustomInputGUIs\SrProjectHelper\FormBuilder\AbstractFormBuilder;
 use srag\CustomInputGUIs\SrProjectHelper\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
@@ -188,15 +189,30 @@ class FormBuilder extends AbstractFormBuilder
     protected function storeData(array $data) : void
     {
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_URL, strval($data["gitlab"][self::KEY_GITLAB_URL]));
-        self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_ACCESS_TOKEN, $data["gitlab"][self::KEY_GITLAB_ACCESS_TOKEN]->toString());
+        self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_ACCESS_TOKEN, $this->fixPassword($data["gitlab"][self::KEY_GITLAB_ACCESS_TOKEN]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_CLIENTS_GROUP_ID, intval($data["gitlab"][self::KEY_GITLAB_CLIENTS_GROUP_ID]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_DEPLOY_KEY_ID, intval($data["gitlab"][self::KEY_GITLAB_DEPLOY_KEY_ID]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_ILIAS_PROJECT_ID, intval($data["gitlab"][self::KEY_GITLAB_ILIAS_PROJECT_ID]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_MEMBERS_GROUP_ID, intval($data["gitlab"][self::KEY_GITLAB_MEMBERS_GROUP_ID]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITLAB_PLUGINS_GROUP_ID, intval($data["gitlab"][self::KEY_GITLAB_PLUGINS_GROUP_ID]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_ORGANISATION, strval($data["github"][self::KEY_GITHUB_ORGANISATION]));
-        self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_ACCESS_TOKEN, $data["github"][self::KEY_GITHUB_ACCESS_TOKEN]->toString());
+        self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_ACCESS_TOKEN, $this->fixPassword($data["github"][self::KEY_GITHUB_ACCESS_TOKEN]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_USER, strval($data["github"][self::KEY_GITHUB_USER]));
         self::srProjectHelper()->config()->setValue(self::KEY_ROLES, MultiSelectSearchNewInputGUI::cleanValues((array) $data["others"][self::KEY_ROLES]));
+    }
+
+
+    /**
+     * @param string|Password $password
+     *
+     * @return string
+     */
+    protected function fixPassword($password) : string
+    {
+        if ($password instanceof Password) {
+            $password = $password->toString();
+        }
+
+        return strval($password);
     }
 }
