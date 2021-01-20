@@ -53,6 +53,21 @@ class FormBuilder extends AbstractFormBuilder
 
 
     /**
+     * @param string|Password $password
+     *
+     * @return string
+     */
+    protected function fixPassword($password) : string
+    {
+        if ($password instanceof Password) {
+            $password = $password->toString();
+        }
+
+        return strval($password);
+    }
+
+
+    /**
      * @inheritDoc
      */
     protected function getButtons() : array
@@ -199,20 +214,5 @@ class FormBuilder extends AbstractFormBuilder
         self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_ACCESS_TOKEN, $this->fixPassword($data["github"][self::KEY_GITHUB_ACCESS_TOKEN]));
         self::srProjectHelper()->config()->setValue(self::KEY_GITHUB_USER, strval($data["github"][self::KEY_GITHUB_USER]));
         self::srProjectHelper()->config()->setValue(self::KEY_ROLES, MultiSelectSearchNewInputGUI::cleanValues((array) $data["others"][self::KEY_ROLES]));
-    }
-
-
-    /**
-     * @param string|Password $password
-     *
-     * @return string
-     */
-    protected function fixPassword($password) : string
-    {
-        if ($password instanceof Password) {
-            $password = $password->toString();
-        }
-
-        return strval($password);
     }
 }
