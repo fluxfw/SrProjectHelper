@@ -2,6 +2,8 @@
 
 namespace srag\Plugins\SrProjectHelper\Config;
 
+require_once __DIR__ . "/../../vendor/autoload.php";
+
 use ilSrProjectHelperPlugin;
 use ilUtil;
 use srag\DIC\SrProjectHelper\DICTrait;
