@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.6.1]
+- Fixes
+
 ## [1.6.0]
 - Remove ILIAS 5.4 support
 
