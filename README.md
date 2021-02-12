@@ -27,7 +27,7 @@ Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ## Description
 
-TODO
+
 
 ## Adjustment suggestions
 
