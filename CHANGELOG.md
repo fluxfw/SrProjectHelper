@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.6.2]
+- Update project url
+
 ## [1.6.1]
 - Fixes
 

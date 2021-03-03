@@ -1,7 +1,7 @@
 {
   "name": "srag/srprojecthelper",
   "description": "srag project helper",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "extra": {
     "ilias_plugin": {
       "id": "srprojecthelper",
@@ -21,7 +21,7 @@
     "job",
     "plugin"
   ],
-  "homepage": "https://github.com/studer-raimann/SrProjectHelper",
+  "homepage": "https://github.com/fluxfw/SrProjectHelper",
   "license": "GPL-3.0-only",
   "authors": [
     {
