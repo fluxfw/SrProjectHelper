@@ -73,6 +73,9 @@
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
       "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
       "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginReadme::generatePluginReadme"
+    ],
+    "update-version": [
+      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\UpdateVersion::updateVersion"
     ]
   }
 }
