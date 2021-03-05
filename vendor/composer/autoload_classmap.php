@@ -531,6 +531,7 @@ return array(
     'srag\\DIC\\SrProjectHelper\\Plugin\\Plugin' => $vendorDir . '/srag/dic/src/Plugin/Plugin.php',
     'srag\\DIC\\SrProjectHelper\\Plugin\\PluginInterface' => $vendorDir . '/srag/dic/src/Plugin/PluginInterface.php',
     'srag\\DIC\\SrProjectHelper\\Plugin\\Pluginable' => $vendorDir . '/srag/dic/src/Plugin/Pluginable.php',
+    'srag\\DIC\\SrProjectHelper\\Version\\PluginVersionParameter' => $vendorDir . '/srag/dic/src/Version/PluginVersionParameter.php',
     'srag\\DIC\\SrProjectHelper\\Version\\Version' => $vendorDir . '/srag/dic/src/Version/Version.php',
     'srag\\DIC\\SrProjectHelper\\Version\\VersionInterface' => $vendorDir . '/srag/dic/src/Version/VersionInterface.php',
     'srag\\DevTools\\SrProjectHelper\\DevToolsCtrl' => $vendorDir . '/srag/devtools/src/class.DevToolsCtrl.php',
