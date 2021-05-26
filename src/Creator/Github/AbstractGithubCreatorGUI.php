@@ -10,8 +10,6 @@ use srag\Plugins\SrProjectHelper\Creator\Github\Form\AbstractGithubCreatorFormBu
  * Class AbstractGithubCreatorGUI
  *
  * @package srag\Plugins\SrProjectHelper\Creator\Github
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractGithubCreatorGUI extends AbstractCreatorGUI
 {

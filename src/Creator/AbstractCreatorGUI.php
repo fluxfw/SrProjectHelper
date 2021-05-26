@@ -18,8 +18,6 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  * Class AbstractCreatorGUI
  *
  * @package srag\Plugins\SrProjectHelper\Creator
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractCreatorGUI
 {

@@ -16,8 +16,6 @@ use Throwable;
  * Class FetchGitlabInfosJob
  *
  * @package srag\Plugins\SrProjectHelper\Job
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class FetchGitlabInfosJob extends ilCronJob
 {

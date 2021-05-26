@@ -11,8 +11,6 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  * Class AbstractCreatorFormBuilder
  *
  * @package srag\Plugins\SrProjectHelper\Creator\Form
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractCreatorFormBuilder extends AbstractFormBuilder
 {

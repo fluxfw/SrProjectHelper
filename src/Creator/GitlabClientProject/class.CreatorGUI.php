@@ -14,8 +14,6 @@ use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\Task\CreatorTask;
  *
  * @package           srag\Plugins\SrProjectHelper\Creator\GitlabClientProject
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI: ilUIPluginRouterGUI
  */
 class CreatorGUI extends AbstractGitlabCreatorGUI

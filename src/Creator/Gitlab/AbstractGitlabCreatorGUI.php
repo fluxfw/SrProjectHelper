@@ -10,8 +10,6 @@ use srag\Plugins\SrProjectHelper\Creator\Gitlab\Form\AbstractGitlabCreatorFormBu
  * Class AbstractGitlabCreatorGUI
  *
  * @package srag\Plugins\SrProjectHelper\Creator\Gitlab
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractGitlabCreatorGUI extends AbstractCreatorGUI
 {

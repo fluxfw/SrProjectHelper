@@ -8,8 +8,6 @@ use Gitlab\Api\Projects as GitlabProjects;
  * Class Projects
  *
  * @package srag\Plugins\SrProjectHelper\Gitlab\Client
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class Projects extends GitlabProjects
 {

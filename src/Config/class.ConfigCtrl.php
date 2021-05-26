@@ -14,8 +14,6 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  *
  * @package           srag\Plugins\SrProjectHelper\Config
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\Plugins\SrProjectHelper\Config\ConfigCtrl: ilSrProjectHelperConfigGUI
  */
 class ConfigCtrl

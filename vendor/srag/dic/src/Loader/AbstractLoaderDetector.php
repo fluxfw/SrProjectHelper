@@ -12,8 +12,6 @@ use srag\DIC\SrProjectHelper\DICTrait;
  * Class AbstractLoaderDetector
  *
  * @package srag\DIC\SrProjectHelper\Loader
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractLoaderDetector implements Loader
 {

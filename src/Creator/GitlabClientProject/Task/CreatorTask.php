@@ -13,8 +13,6 @@ use srag\Plugins\SrProjectHelper\Creator\Gitlab\Task\AbstractGitlabCreatorTask;
  * Class CreatorTask
  *
  * @package srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\Task
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class CreatorTask extends AbstractGitlabCreatorTask
 {

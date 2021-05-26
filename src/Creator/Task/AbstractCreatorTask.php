@@ -16,8 +16,6 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  * Class AbstractCreatorTask
  *
  * @package srag\Plugins\SrProjectHelper\Creator\Task
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractCreatorTask extends AbstractJob
 {

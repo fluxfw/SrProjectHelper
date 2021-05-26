@@ -11,8 +11,6 @@ use srag\RemovePluginDataConfirm\SrProjectHelper\PluginUninstallTrait;
 
 /**
  * Class ilSrProjectHelperPlugin
- *
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class ilSrProjectHelperPlugin extends ilCronHookPlugin
 {
