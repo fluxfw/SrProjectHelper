@@ -8,8 +8,6 @@ use Gitlab\Api\Repositories as GitlabRepositories;
  * Class Repositories
  *
  * @package srag\Plugins\SrProjectHelper\Gitlab\Client
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class Repositories extends GitlabRepositories
 {

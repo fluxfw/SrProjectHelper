@@ -12,8 +12,6 @@ use srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\CreatorGUI;
  * Class CreatorFormBuilder
  *
  * @package srag\Plugins\SrProjectHelper\Creator\GitlabClientProject\Form
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class CreatorFormBuilder extends AbstractGitlabCreatorFormBuilder
 {

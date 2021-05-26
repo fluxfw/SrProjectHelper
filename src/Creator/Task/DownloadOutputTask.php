@@ -20,8 +20,6 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  * Class DownloadOutputTask
  *
  * @package srag\Plugins\SrProjectHelper\Creator\Task
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class DownloadOutputTask extends AbstractUserInteraction
 {
