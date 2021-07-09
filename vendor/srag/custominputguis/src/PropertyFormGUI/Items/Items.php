@@ -11,6 +11,7 @@ use ilPropertyFormGUI;
 use ilRadioOption;
 use ilRepositorySelector2InputGUI;
 use ilUtil;
+use srag\CustomInputGUIs\SrProjectHelper\HiddenInputGUI\HiddenInputGUI;
 use srag\CustomInputGUIs\SrProjectHelper\MultiLineInputGUI\MultiLineInputGUI;
 use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\Exception\PropertyFormGUIException;
 use srag\CustomInputGUIs\SrProjectHelper\PropertyFormGUI\PropertyFormGUI;
@@ -232,6 +233,10 @@ final class Items
         $input_tpl->setCurrentBlock("input");
 
         foreach ($inputs as $input) {
+            if ($input instanceof HiddenInputGUI) {
+                $input_tpl->setVariableEscaped("HIDDEN", " hidden");
+            }
+
             $input_tpl->setVariableEscaped("TITLE", $input->getTitle());
 
             if ($input->getRequired()) {

@@ -17,8 +17,6 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  * Class Menu
  *
  * @package srag\Plugins\SrProjectHelper\Menu
- *
- * @since   ILIAS 5.4
  */
 class Menu extends AbstractStaticPluginMainMenuProvider
 {

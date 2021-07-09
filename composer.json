@@ -1,7 +1,7 @@
 {
   "name": "srag/srprojecthelper",
   "description": "srag project helper",
-  "version": "1.6.6",
+  "version": "1.7.0",
   "extra": {
     "ilias_plugin": {
       "id": "srprojecthelper",
