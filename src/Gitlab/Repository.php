@@ -70,7 +70,7 @@ final class Repository
      */
     public function addSubmodule(string $temp_folder, string $url, string $path, string $name, string $relative_path) : void
     {
-        $this->exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b master " . escapeshellarg($this->tokenRepoUrl($url)) . " "
+        $this->exec("git -C " . escapeshellarg($temp_folder) . " submodule add -b main " . escapeshellarg($this->tokenRepoUrl($url)) . " "
             . escapeshellarg($path));
 
         $this->exec("git -C " . escapeshellarg($temp_folder) . " add .");
@@ -189,13 +189,13 @@ final class Repository
     {
         return array_merge([
             function () use (&$name, &$get_namespace_id, &$project) : void {
-                $project = $this->createProject($name, $get_namespace_id(), "master");
+                $project = $this->createProject($name, $get_namespace_id(), "main");
             },
             function () use (&$project) : void {
-                $this->createBranch($project, "develop", "master");
+                $this->createBranch($project, "develop", "main");
             },
             function () use (&$project) : void {
-                $this->protectMasterBranch($project, "master");
+                $this->protectMainBranch($project, "main");
             }
         ], $protect_develop_branch ? [
             function () use (&$project) : void {
@@ -203,7 +203,7 @@ final class Repository
             }
         ] : [], [
             function () use (&$project) : void {
-                $project = $this->setDefaultBranch($project, "master");
+                $project = $this->setDefaultBranch($project, "main");
             },
             function () use (&$maintainer_user, &$project) : void {
                 $this->setMaintainer($project, $maintainer_user);
@@ -273,7 +273,7 @@ final class Repository
      * @param Project $project
      * @param string  $branch
      */
-    public function protectMasterBranch(Project $project, string $branch) : void
+    public function protectMainBranch(Project $project, string $branch) : void
     {
         $this->client()->repositories()->protectBranch2($project->id, $branch, [
             "allowed_to_merge"   => true,

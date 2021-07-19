@@ -151,10 +151,15 @@ class FetchGitlabInfosJob extends ilCronJob
             try {
                 try {
                     $plugin_class = self::srProjectHelper()->gitlab()->client()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
-                        . "Plugin.php", "master");
+                        . "Plugin.php", "main");
                 } catch (Throwable $ex) {
-                    $plugin_class = self::srProjectHelper()->gitlab()->client()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
-                        . "Plugin.php", "develop");
+                    try {
+                        $plugin_class = self::srProjectHelper()->gitlab()->client()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
+                            . "Plugin.php", "master");
+                    } catch (Throwable $ex) {
+                        $plugin_class = self::srProjectHelper()->gitlab()->client()->repositoryFiles()->getRawFile($plugin["id"], "classes/class.il" . $plugin["name"]
+                            . "Plugin.php", "develop");
+                    }
                 }
 
                 $matches = [];

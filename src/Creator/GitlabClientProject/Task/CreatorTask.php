@@ -64,7 +64,7 @@ class CreatorTask extends AbstractGitlabCreatorTask
             function () use (&$data, &$project) : void {
                 self::srProjectHelper()
                     ->gitlab()
-                    ->createBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"], "master");
+                    ->createBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"], "main");
             },
             function () use (&$data, &$project) : void {
                 self::srProjectHelper()
@@ -72,7 +72,7 @@ class CreatorTask extends AbstractGitlabCreatorTask
                     ->setDefaultBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["custom_name"]);
             },
             function () use (&$project) : void {
-                self::srProjectHelper()->gitlab()->removeBranch($project, "master");
+                self::srProjectHelper()->gitlab()->removeBranch($project, "main");
             },
             function () use (&$data, &$project) : void {
                 self::srProjectHelper()->gitlab()->createBranch($project, self::srProjectHelper()->config()->getValue(FormBuilder::KEY_GITLAB_ILIAS_VERSIONS)[$data["ilias_version"]]["staging_name"],
