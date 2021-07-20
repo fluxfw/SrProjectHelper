@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.7.0]
+- Switched to main branch
+- ILIAS 7 support
+
 ## [1.6.6]
 - Change utils url
 

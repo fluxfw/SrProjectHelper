@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\DI\Container;
-use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
+use ILIAS\GlobalScreen\Provider\PluginProviderCollection;
 use srag\CustomInputGUIs\SrProjectHelper\Loader\CustomInputGUIsLoaderDetector;
 use srag\DevTools\SrProjectHelper\DevToolsCtrl;
 use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
@@ -25,6 +25,10 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
      * @var self|null
      */
     protected static $instance = null;
+    /**
+     * @var PluginProviderCollection|null
+     */
+    protected static $pluginProviderCollection = null;
 
 
     /**
@@ -33,6 +37,8 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     public function __construct()
     {
         parent::__construct();
+
+        $this->provider_collection = self::getPluginProviderCollection(); // Fix overflow
     }
 
 
@@ -46,6 +52,21 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
         }
 
         return self::$instance;
+    }
+
+
+    /**
+     * @return PluginProviderCollection
+     */
+    protected static function getPluginProviderCollection() : PluginProviderCollection
+    {
+        if (self::$pluginProviderCollection === null) {
+            self::$pluginProviderCollection = new PluginProviderCollection();
+
+            self::$pluginProviderCollection->setMainBarProvider(self::srProjectHelper()->menu());
+        }
+
+        return self::$pluginProviderCollection;
     }
 
 
@@ -82,15 +103,6 @@ class ilSrProjectHelperPlugin extends ilCronHookPlugin
     public function getPluginName() : string
     {
         return self::PLUGIN_NAME;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
-    {
-        return self::srProjectHelper()->menu();
     }
 
 

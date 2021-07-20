@@ -1,18 +1,15 @@
 {
   "name": "srag/srprojecthelper",
   "description": "srag project helper",
-  "version": "1.6.6",
+  "version": "1.7.0",
   "extra": {
     "ilias_plugin": {
       "id": "srprojecthelper",
       "name": "SrProjectHelper",
       "ilias_min_version": "6.0",
-      "ilias_max_version": "6.999",
-      "slot": "Services/Cron/CronHook",
-      "supports_cli_setup": true
-    },
-    "generate_plugin_readme_template": "ILIAS_PLUGIN",
-    "long_description_template": "src/LONG_DESCRIPTION.md"
+      "ilias_max_version": "7.999",
+      "slot": "Services/Cron/CronHook"
+    }
   },
   "type": "project",
   "keywords": [
@@ -68,8 +65,7 @@
   "scripts": {
     "pre-autoload-dump": [
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
-      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginReadme::generatePluginReadme"
+      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginPhpAndXml::generatePluginPhpAndXml"
     ],
     "update-version": [
       "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\UpdateVersion::updateVersion"

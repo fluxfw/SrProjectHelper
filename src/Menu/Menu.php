@@ -3,7 +3,7 @@
 namespace srag\Plugins\SrProjectHelper\Menu;
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Factory\AbstractBaseItem;
-use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
+use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticMainMenuPluginProvider;
 use ILIAS\UI\Component\Symbol\Icon\Standard;
 use ilSrProjectHelperPlugin;
 use srag\DIC\SrProjectHelper\DICTrait;
@@ -17,10 +17,8 @@ use srag\Plugins\SrProjectHelper\Utils\SrProjectHelperTrait;
  * Class Menu
  *
  * @package srag\Plugins\SrProjectHelper\Menu
- *
- * @since   ILIAS 5.4
  */
-class Menu extends AbstractStaticPluginMainMenuProvider
+class Menu extends AbstractStaticMainMenuPluginProvider
 {
 
     use DICTrait;
