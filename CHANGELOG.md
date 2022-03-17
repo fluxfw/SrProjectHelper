@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.7.1]
+- Move `ilias7_core_apply_ilctrl_patch.sh`
+
 ## [1.7.0]
 - Switched to main branch
 - ILIAS 7 support
