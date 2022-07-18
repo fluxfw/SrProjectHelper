@@ -1,16 +1,7 @@
 {
   "name": "srag/srprojecthelper",
   "description": "srag project helper",
-  "version": "1.7.1",
-  "extra": {
-    "ilias_plugin": {
-      "id": "srprojecthelper",
-      "name": "SrProjectHelper",
-      "ilias_min_version": "6.0",
-      "ilias_max_version": "7.999",
-      "slot": "Services/Cron/CronHook"
-    }
-  },
+  "version": "1.8.0",
   "type": "project",
   "keywords": [
     "cron",
@@ -18,16 +9,7 @@
     "job",
     "plugin"
   ],
-  "homepage": "https://github.com/fluxapps/SrProjectHelper",
   "license": "GPL-3.0-only",
-  "authors": [
-    {
-      "name": "fluxlabs",
-      "email": "support@fluxlabs.ch",
-      "homepage": "https://fluxlabs.ch",
-      "role": "Developer"
-    }
-  ],
   "require": {
     "php": ">=7.2",
     "knplabs/github-api": "2.13.0",
@@ -37,7 +19,6 @@
     "srag/custominputguis": ">=0.1.0",
     "srag/devtools": ">=0.1.0",
     "srag/dic": ">=0.1.0",
-    "srag/generateplugininfoshelper": ">=0.1.0",
     "srag/librariesnamespacechanger": ">=0.1.0",
     "srag/removeplugindataconfirm": ">=0.1.0"
   },
@@ -64,11 +45,7 @@
   },
   "scripts": {
     "pre-autoload-dump": [
-      "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginPhpAndXml::generatePluginPhpAndXml"
-    ],
-    "update-version": [
-      "srag\\GeneratePluginInfosHelper\\SrProjectHelper\\UpdateVersion::updateVersion"
+      "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces"
     ]
   }
 }
