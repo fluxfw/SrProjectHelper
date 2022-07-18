@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.8.0]
+- Clean up
+
 ## [1.7.1]
 - Move `ilias7_core_apply_ilctrl_patch.sh`
 

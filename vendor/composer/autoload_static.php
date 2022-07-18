@@ -29,7 +29,6 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
             'srag\\Plugins\\SrProjectHelper\\' => 29,
             'srag\\LibraryLanguageInstaller\\SrProjectHelper\\' => 46,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\GeneratePluginInfosHelper\\SrProjectHelper\\' => 47,
             'srag\\DevTools\\SrProjectHelper\\' => 30,
             'srag\\DIC\\SrProjectHelper\\' => 25,
             'srag\\CustomInputGUIs\\SrProjectHelper\\' => 37,
@@ -90,10 +89,6 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
         'srag\\LibrariesNamespaceChanger\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
-        ),
-        'srag\\GeneratePluginInfosHelper\\SrProjectHelper\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
         ),
         'srag\\DevTools\\SrProjectHelper\\' => 
         array (
@@ -718,9 +713,6 @@ class ComposerStaticInit94a34adaa579023a20f3d91bacb3499f
         'srag\\DIC\\SrProjectHelper\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrProjectHelper\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
         'srag\\DevTools\\SrProjectHelper\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
-        'srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
-        'srag\\GeneratePluginInfosHelper\\SrProjectHelper\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
-        'srag\\GeneratePluginInfosHelper\\SrProjectHelper\\UpdateVersion' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/UpdateVersion.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibraryLanguageInstaller\\SrProjectHelper\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src/LibraryLanguageInstaller.php',
         'srag\\Plugins\\SrProjectHelper\\Access\\Ilias' => __DIR__ . '/../..' . '/src/Access/Ilias.php',

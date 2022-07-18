@@ -10,7 +10,6 @@ return array(
     'srag\\Plugins\\SrProjectHelper\\' => array($baseDir . '/src'),
     'srag\\LibraryLanguageInstaller\\SrProjectHelper\\' => array($vendorDir . '/srag/librarylanguageinstaller/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
-    'srag\\GeneratePluginInfosHelper\\SrProjectHelper\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
     'srag\\DevTools\\SrProjectHelper\\' => array($vendorDir . '/srag/devtools/src'),
     'srag\\DIC\\SrProjectHelper\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\SrProjectHelper\\' => array($vendorDir . '/srag/custominputguis/src'),
